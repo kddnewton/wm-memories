@@ -26,8 +26,5 @@ module Stories
     # WM coordinates
     config.x.lat = 37.272385
     config.x.lng = -76.716916
-
-    # password for admin controllers
-    config.x.admin_pass = ENV['ADMIN_PASS']
   end
 end
