@@ -1,0 +1,18 @@
+<div class="page-header">
+	<h1>Subscribe</h1>
+</div>
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3 col-xs-12">
+		<%= form_for(@subscription) do |form| %>
+			<div class="row">
+				<div class="col-xs-9">
+					<%= form.text_field(:email, class: 'form-control', placeholder: 'Email') %>
+				</div>
+				<div class="col-xs-3">
+					<%= form.submit('Subscribe', class: 'btn btn-primary pull-right', data: { disable_with: 'Subscribing...' }) %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
