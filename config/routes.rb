@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   get 'about', to: 'home#about', as: :about
   resources :stories, only: %i[index create show] do
-    get :feed, on: :collection
-    post :search, on: :collection
+    collection do
+      get :feed
+      post :search
+    end
   end
+
+  resources :subscriptions, only: %i[new create]
 end

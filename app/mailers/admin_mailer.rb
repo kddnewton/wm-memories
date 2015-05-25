@@ -3,7 +3,11 @@ class AdminMailer < ApplicationMailer
   # notify of a new story
   def story_created(story)
     @story = story
-    mail(to: 'kevin.deisz@gmail.com', subject: "[WM-Memories] #{story.identifier} Created")
+    emails = Subscription.validated.pluck(:email)
+    
+    if emails.any?
+      mail(to: emails, subject: "[WM-Memories] #{story.identifier} Created")
+    end
   end
 
 end
