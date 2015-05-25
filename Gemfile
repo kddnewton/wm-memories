@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', github: 'rails/rails'
-gem 'arel', github: 'rails/arel'
+gem 'rails', '~> 4.2'
 gem 'sqlite3'
 
 gem 'sass-rails', '~> 5.0'
