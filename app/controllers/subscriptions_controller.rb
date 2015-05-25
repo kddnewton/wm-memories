@@ -13,6 +13,12 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  # GET /subscriptions/:id/verify
+  def verify
+    @subscription = Subscription.find(params[:id])
+    @subscription.verify!
+  end
+
   private
 
     # strong params for subscriptions

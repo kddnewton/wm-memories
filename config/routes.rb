@@ -4,13 +4,13 @@ Rails.application.routes.draw do
   get 'about', to: 'home#about', as: :about
 
   resources :stories, only: %i[index create show] do
-    collection do
-      get :feed
-      post :search
-    end
+    get :feed, on: :collection
+    post :search, on: :collection
   end
 
-  resources :subscriptions, only: %i[new create]
+  resources :subscriptions, only: %i[new create] do
+    get :verify, on: :member
+  end
 
   namespace :admin do
     resources :stories, only: :index
