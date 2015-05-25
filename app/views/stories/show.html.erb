@@ -1,0 +1,26 @@
+<div class="page-header">
+	<h1><%= @story.identifier %></h1>
+</div>
+
+<div class="row">
+	<div class="col-xs-12">
+		<div id="mini-map"></div>
+		<%= simple_format(@story.body) %>
+	</div>
+</div>
+
+<script>
+$(document).ready(function() {
+	var map = new google.maps.Map(document.getElementById("mini-map"), {
+		center: new google.maps.LatLng(<%= @story.lat %>, <%= @story.lng %>),
+		zoom: 18,
+		mapTypeId: google.maps.MapTypeId.HYBRID,
+		disableDefaultUI: true,
+		draggable: false,
+		disableDoubleClickZoom: true,
+		zoomControl: false,
+		scrollwheel: false
+	});
+	new google.maps.Marker({ map: map, position: new google.maps.LatLng(<%= @story.lat %>, <%= @story.lng %>) });
+});
+</script>

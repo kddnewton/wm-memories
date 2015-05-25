@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>One Tribe, Many Memories</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<script src="http://maps.googleapis.com/maps/api/js"></script>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div id="nav-container" class="clearfix">
+			<div class="container">
+				<%= link_to('Home', root_path, class: current_page?(root_path) ? 'active' : '') %>
+				<%= link_to('Feed', feed_stories_path, class: current_page?(feed_stories_path) ? 'active' : '') %>
+				<%= link_to('About', about_path, class: current_page?(about_path) ? 'active' : '') %>
+				
+				<div class="pull-right">
+					<%= form_tag(search_stories_path, class: 'form-inline', id: 'search-form') do %>
+						<div class="input-group">
+							<%= text_field_tag(:query, params[:query], class: 'form-control', placeholder: 'Search...') %>
+							<span class="input-group-btn">
+								<%= submit_tag('Search', class: 'btn btn-default') %>
+							</span>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<%= yield %>
+		</div>
+		<div style="margin: 80px 0 40px 0" class="text-center">
+			<%= image_tag('wm_cypher_gold.png', size: '100x100') %>
+		</div>
+	</body>
+</html>

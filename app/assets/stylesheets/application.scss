@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$wm-gold: #b9975b;
+$wm-gold-hover: #dfc28f;
+$wm-green: #115740;
+$wm-green-hover: #287259;
+$wm-silver: #d0d3d4;
+$wm-spirit-gold: #f0b323;
+
+$brand-primary: $wm-green;
+$font-family-base: 'Avenir Next Regular', Arial, 'PT Sans', sans-serif;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+a {
+	color: $wm-green;
+	
+	&:hover {
+		color: $wm-green-hover;
+	}
+}
+
+#nav-container {
+	@include box-shadow(0px 2px 5px 0px #cccccc);
+	background-color: $wm-green;
+	border-bottom: 3px solid $wm-spirit-gold;
+	
+	a {
+		border-right: 1px solid $wm-silver;
+		color: white;
+		float: left;
+		height: 45px;
+		line-height: 45px;
+		text-align: center;
+		text-decoration: none;
+		width: 100px;
+		
+		&:first-child {
+			border-left: 1px solid $wm-silver;
+		}
+		&:hover, &:active, &.active {
+			background-color: $wm-green-hover;
+			text-decoration: none;
+		}
+	}
+	#search-form {
+		margin-top: 5px;
+	}
+}
+
+#stories {
+	.story {
+		margin-bottom: 25px;
+	}
+	.header {
+		border-bottom: 1px solid $wm-silver;
+		margin-bottom: 5px;
+	}
+	mark {
+		background-color: $wm-gold-hover;
+		color: $wm-gold;
+	}
+}
+
+#mini-map {
+	float: right;
+	height: 300px;
+	margin: 0 0 20px 20px;
+	width: 300px;
+}
