@@ -4,11 +4,12 @@
 
 <div class="row">
 	<div class="col-xs-12">
-		<div id="mini-map"></div>
+		<div id="mini-map" class="col-md-4 col-sm-6 col-xs-12 right-image pull-right"></div>
 		<%= simple_format(@story.body) %>
 	</div>
 </div>
 
+<%= gmaps_assets %>
 <script>
 $(document).ready(function() {
 	var map = new google.maps.Map(document.getElementById("mini-map"), {

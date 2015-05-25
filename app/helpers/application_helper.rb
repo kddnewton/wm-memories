@@ -1,5 +1,19 @@
 module ApplicationHelper
 
+  # include tag for the google maps api
+  def gmaps_assets
+    javascript_include_tag('https://maps.googleapis.com/maps/api/js')
+  end
+
+  # build a nav link
+  def nav_link(label, path, glyph)
+    link_to(path, class: 'col-sm-2 col-xs-4 ' + (current_page?(path) ? 'active' : '')) do
+      concat content_tag(:span, nil, class: "glyphicon glyphicon-#{glyph}")
+      concat '&nbsp'.html_safe
+      concat content_tag(:span, label, class: 'hidden-xs')
+    end
+  end
+
   # render the body of the story
   def story_body(story, context)
     case context

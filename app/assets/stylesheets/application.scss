@@ -41,25 +41,20 @@ a {
 	border-bottom: 3px solid $wm-spirit-gold;
 	
 	a {
-		border-right: 1px solid $wm-silver;
 		color: white;
 		float: left;
 		height: 45px;
 		line-height: 45px;
 		text-align: center;
 		text-decoration: none;
-		width: 100px;
 		
-		&:first-child {
-			border-left: 1px solid $wm-silver;
-		}
 		&:hover, &:active, &.active {
 			background-color: $wm-green-hover;
 			text-decoration: none;
 		}
 	}
 	#search-form {
-		margin-top: 5px;
+		margin: 5px 0;
 	}
 }
 
@@ -77,9 +72,16 @@ a {
 	}
 }
 
+.right-image {
+	margin-bottom: 20px;
+}
+
+#map {
+	height: 700px;
+}
 #mini-map {
-	float: right;
 	height: 300px;
-	margin: 0 0 20px 20px;
-	width: 300px;
+}
+#footer {
+	margin: 80px 0 40px 0;
 }
