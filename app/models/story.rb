@@ -6,6 +6,8 @@ class Story < ActiveRecord::Base
   scope :feed_ordered, ->{ order('created_at DESC') }
   scope :search, ->(query){ where('body LIKE ?', "%#{query}%") }
 
+  after_create { AdminMailer.story_created(self).deliver_now }
+
   # long-form id
   def identifier
     "Story %03d" % self.id
