@@ -15,8 +15,8 @@ class StoriesController < ApplicationController
   # POST /stories
   def create
     @story = Story.new(story_params)
-    if @story.save
-      redirect_to stories_path
+    unless @story.save
+      render 'create_error'
     end
   end
 

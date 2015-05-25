@@ -6,7 +6,9 @@
 				<h4 class="modal-title">New Story</h4>
 			</div>
 			<div class="modal-body">
-				<%= form_for(@story, html: { class: 'form-horizontal' }) do |form| %>
+				<div id="errors"></div>
+				
+				<%= form_for(@story, remote: true, html: { class: 'form-horizontal' }) do |form| %>
 					<%= form.hidden_field(:lat) %>
 					<%= form.hidden_field(:lng) %>
 					

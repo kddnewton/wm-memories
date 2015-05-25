@@ -14,7 +14,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
 
   def test_create_invalid
     post :create, { subscription: { email: '' }}
-    pending
+    assert_template :new
   end
 
 end

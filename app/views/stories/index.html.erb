@@ -63,5 +63,10 @@ $(document).ready(function() {
 	$("#cancel-story").on("click", function(event) {
 		activeMarker.setMap(null);
 	});
+	
+	$("#new-story").on("hidden.bs.modal", function(event) {
+		$("#errors").html("");
+		document.getElementById("new_story").reset();
+	});
 });
 </script>

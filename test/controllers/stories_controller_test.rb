@@ -20,7 +20,10 @@ class StoriesControllerTest < ActionController::TestCase
   end
 
   def test_create_invalid
-    pending
+    assert_no_difference('Story.count') do
+      post :create, { story: { year: '', body: '' }}
+    end
+    assert_template :create
   end
 
   def test_feed

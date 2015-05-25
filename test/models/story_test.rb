@@ -21,7 +21,15 @@ class StoryTest < ActiveSupport::TestCase
   end
 
   def test_after_create
-    pending
+    story = Story.new(body: 'test body', year: 1900)
+
+    mailer_mock = Minitest::Mock.new
+    mailer_mock.expect :deliver_now, nil
+
+    AdminMailer.stub :story_created, mailer_mock do
+      assert story.save
+    end
+    mailer_mock.verify
   end
 
   def test_identifier

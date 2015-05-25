@@ -4,6 +4,8 @@
 
 <div class="row">
 	<div class="col-sm-6 col-sm-offset-3 col-xs-12">
+		<%= render('shared/form_errors', object: @subscription) %>
+		
 		<%= form_for(@subscription) do |form| %>
 			<div class="row">
 				<div class="col-xs-9">
