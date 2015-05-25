@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   # authenticate admin actions
   def self.authenticate_admin
-    http_basic_authenticate_with name: 'admin', password: 'hello'
+    http_basic_authenticate_with name: 'admin', password: Rails.configuration.x.admin_pass
   end
 
 end
