@@ -9,18 +9,4 @@
 	</div>
 </div>
 
-<script>
-$(document).ready(function() {
-	var map = new google.maps.Map(document.getElementById("mini-map"), {
-		center: new google.maps.LatLng(<%= @story.lat %>, <%= @story.lng %>),
-		zoom: 18,
-		mapTypeId: google.maps.MapTypeId.HYBRID,
-		disableDefaultUI: true,
-		draggable: false,
-		disableDoubleClickZoom: true,
-		zoomControl: false,
-		scrollwheel: false
-	});
-	new google.maps.Marker({ map: map, position: new google.maps.LatLng(<%= @story.lat %>, <%= @story.lng %>) });
-});
-</script>
+<%= javascript_tag("Memories.loadMinimap('mini-map', #{@story.lat}, #{@story.lng})") %>

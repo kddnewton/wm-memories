@@ -1,10 +1,5 @@
 module ApplicationHelper
 
-  # include tag for the google maps api
-  def gmaps_assets
-    javascript_include_tag('https://maps.googleapis.com/maps/api/js')
-  end
-
   # build a nav link
   def nav_link(label, path, glyph)
     link_to(path, class: 'col-sm-2 col-xs-4 ' + (current_page?(path) ? 'active' : '')) do
@@ -15,7 +10,7 @@ module ApplicationHelper
   end
 
   # render the body of the story
-  def story_body(story, context)
+  def story_body(story, context:)
     case context
     when :feed
       simple_format(truncate(story.body, length: 300))
