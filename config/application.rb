@@ -25,7 +25,7 @@ module Stories
 
     # WM coordinates
     config.x.lat = 37.272385
-    config.x.lng = -76.716916
+    config.x.lng = -76.716452
   end
 end
 
