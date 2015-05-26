@@ -1,13 +1,9 @@
 class TwitterFake
 
-  def update(tweet)
-    self.class.tweets << tweet
-  end
+  cattr_accessor :last_tweet
 
-  class << self
-    def tweets
-      @tweets ||= []
-    end
+  def update(tweet)
+    self.class.last_tweet = tweet
   end
 
 end

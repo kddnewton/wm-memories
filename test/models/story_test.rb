@@ -34,11 +34,8 @@ class StoryTest < ActiveSupport::TestCase
 
   def test_after_create_twitter
     story = Story.new(body: 'test body', year: 1900)
-
-    assert_difference('TwitterFake.tweets.length', 1) do
-      assert story.save
-    end
-    assert_equal TwitterFake.tweets.last, story.body + ' ' + Rails.application.routes.url_helpers.story_url(story)
+    assert story.save
+    assert_equal Rails.configuration.x.twitter.class.last_tweet, story.body + ' ' + Rails.application.routes.url_helpers.story_url(story)
   end
 
   def test_identifier
