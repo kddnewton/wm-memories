@@ -3,6 +3,9 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 require 'minitest/mock'
+require 'simplecov'
+
+SimpleCov.start('rails')
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -10,7 +13,7 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   def pending
-    assert false, 'Pending'
+    assert false, "Pending #{caller[0]}"
   end
 end
 

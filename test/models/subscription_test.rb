@@ -14,4 +14,10 @@ class SubscriptionTest < ActiveSupport::TestCase
     assert_not subscription.errors[:email].blank?
   end
 
+  def test_verify
+    subscription = subscriptions(:avery)
+    subscription.verify!
+    assert subscription.validated?
+  end
+
 end

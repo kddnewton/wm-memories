@@ -14,16 +14,14 @@ class StoriesControllerTest < ActionController::TestCase
 
   def test_create_valid
     assert_difference('Story.count', 1) do
-      post :create, { story: { year: 2013, body: 'test body', lat: Rails.configuration.x.lat, lng: Rails.configuration.x.lng }}
+      xhr :post, :create, { story: { year: 2013, body: 'test body', lat: Rails.configuration.x.lat, lng: Rails.configuration.x.lng }}
     end
-    assert_redirected_to stories_path
   end
 
   def test_create_invalid
     assert_no_difference('Story.count') do
-      post :create, { story: { year: '', body: '' }}
+      xhr :post, :create, { story: { year: '', body: '' }}
     end
-    assert_template :create
   end
 
   def test_feed

@@ -1,3 +1,7 @@
 kevin:
-  email: kevin.deisz@gmail.com
+  email: kevin@test.com
   validated: true
+
+avery:
+  email: avery@test.com
+  validated: false
