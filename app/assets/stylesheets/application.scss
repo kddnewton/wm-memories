@@ -27,6 +27,10 @@ $font-family-base: 'Avenir Next Regular', Arial, 'PT Sans', sans-serif;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+	background: image-url('background.png') repeat;
+}
+
 a {
 	color: $wm-green;
 	
