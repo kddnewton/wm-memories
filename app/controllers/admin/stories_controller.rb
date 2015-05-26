@@ -4,7 +4,13 @@ class Admin::StoriesController < ApplicationController
 
   # GET /admin/stories
   def index
-    @stories = Story.all
+    @stories = Story.feed_ordered
+  end
+
+  # PATCH /admin/stories/:id/approve
+  def approve
+    @story = Story.find(params[:id])
+    @story.approve!
   end
 
 end

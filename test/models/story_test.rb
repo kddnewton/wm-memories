@@ -20,21 +20,17 @@ class StoryTest < ActiveSupport::TestCase
     assert_not story.errors[:year].blank?
   end
 
-  def test_after_create_mailer
-    story = Story.new(body: 'test body', year: 1900)
-
+  def test_approve
+    story = stories(:first)
     mailer_mock = Minitest::Mock.new
     mailer_mock.expect :deliver_now, nil
 
     AdminMailer.stub :story_created, mailer_mock do
-      assert story.save
+      assert story.approve!
     end
-    mailer_mock.verify
-  end
 
-  def test_after_create_twitter
-    story = Story.new(body: 'test body', year: 1900)
-    assert story.save
+    mailer_mock.verify
+    assert story.approved?
     assert_equal Rails.configuration.x.twitter.class.last_tweet, story.body + ' ' + Rails.application.routes.url_helpers.story_url(story)
   end
 

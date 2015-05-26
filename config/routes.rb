@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :stories, only: :index
+    resources :stories, only: :index do
+      patch :approve, on: :member
+    end
     resources :subscriptions, only: :index
   end
 end

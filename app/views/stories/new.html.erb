@@ -5,7 +5,7 @@
 				<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
 				<h4 class="modal-title">New Story</h4>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body" id="story-body">
 				<div id="errors"></div>
 				
 				<%= form_for(@story, remote: true, html: { class: 'form-horizontal' }) do |form| %>
@@ -31,6 +31,9 @@
 						</div>
 					</div>
 				<% end %>
+			</div>
+			<div class="modal-body" style="display: none" id="success-body">
+				Your memory has been stored. It will be displayed once it is approved.
 			</div>
 		</div>
 	</div>

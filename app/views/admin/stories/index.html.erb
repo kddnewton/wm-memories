@@ -9,15 +9,17 @@
 		<th>Body</th>
 		<th>Lat/Lng</th>
 		<th>Created</th>
+		<th>Approved</th>
 	</thead>
 	<tbody>
 		<% @stories.each do |story| %>
 			<tr>
 				<td><%= link_to(story.identifier, story_path(story)) %></td>
 				<td><%= story.year %></td>
-				<td><%= truncate(story.body, length: 300) %></td>
+				<td><%= story.body %></td>
 				<td><%= story.lat %>/<%= story.lng %></td>
 				<td><%= story.created_at %></td>
+				<%= render('admin/stories/approval', story: story) %>
 			</tr>
 		<% end %>
 	</tbody>

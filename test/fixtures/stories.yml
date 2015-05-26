@@ -1,3 +1,4 @@
 first:
+  approved: false
   body: This is my first test story.
   year: 2013

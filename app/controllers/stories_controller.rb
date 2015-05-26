@@ -3,7 +3,7 @@ class StoriesController < ApplicationController
   # GET /
   # GET /stories
   def index
-    @stories = Story.all
+    @stories = Story.approved
     @story = Story.new
   end
 

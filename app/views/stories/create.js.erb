@@ -1,7 +1,11 @@
-$("#new-story").modal("hide");
+$("#story-body, #success-body").toggle();
 
-var map = window.Memories.activeMarker.map;
-var position = window.Memories.activeMarker.position;
+setTimeout(function() {
+	$("#new-story").modal("hide");
+	
+	setTimeout(function() {
+		$("#story-body, #success-body").toggle();
+	}, 1000);
+}, 1000);
 
 window.Memories.activeMarker.setMap(null);
-window.Memories.loadMarker(map, position.A, position.F, "<%= j truncate(@story.body, length: 200) %>", <%= @story.id %>);
