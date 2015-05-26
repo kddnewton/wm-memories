@@ -20,12 +20,23 @@ class StoryTest < ActiveSupport::TestCase
     assert_not story.errors[:year].blank?
   end
 
+  def test_after_create
+    story = Story.new(body: 'test body', year: 1900)
+    mailer_mock = Minitest::Mock.new
+    mailer_mock.expect :deliver_now, nil
+
+    AdminMailer.stub :story_created, mailer_mock do
+      assert story.save
+    end
+    mailer_mock.verify
+  end
+
   def test_approve
     story = stories(:first)
     mailer_mock = Minitest::Mock.new
     mailer_mock.expect :deliver_now, nil
 
-    AdminMailer.stub :story_created, mailer_mock do
+    AdminMailer.stub :story_approved, mailer_mock do
       assert story.approve!
     end
 
