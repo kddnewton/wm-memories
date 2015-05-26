@@ -1,5 +1,11 @@
 module ApplicationHelper
 
+  # build the main google map from the given stories
+  def init_map_from(stories)
+    stories = stories.select('lat, lng, body, id').map { |story| { lat: story.lat, lng: story.lng, body: j(truncate(story.body, length: 200)), storyId: story.id } }
+    javascript_tag("window.Memories.init(#{Rails.configuration.x.lat}, #{Rails.configuration.x.lng}, #{stories.to_json})")
+  end
+
   # build a nav link
   def nav_link(label, path, glyph)
     link_to(path, class: 'col-sm-2 col-xs-4 ' + (current_page?(path) ? 'active' : '')) do

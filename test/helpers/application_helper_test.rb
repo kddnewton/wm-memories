@@ -6,6 +6,13 @@ class ApplicationHelperTest < ActionView::TestCase
 
   attr_reader :request
 
+  def test_init_map_from
+    story = stories(:first)
+    stories = Story.where(id: story.id)
+    result = init_map_from(stories).match(/\[.*\]/)[0]
+    assert_equal result, [{ lat: story.lat, lng: story.lng, body: story.body, storyId: story.id }].to_json
+  end
+
   def test_nav_link
     result = nav_link('test', root_path, :test)
     assert_equal result, "<a class=\"col-sm-2 col-xs-4 \" href=\"/\"><span class=\"glyphicon glyphicon-test\"></span>&nbsp<span class=\"hidden-xs\">test</span></a>"

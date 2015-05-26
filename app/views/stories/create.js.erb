@@ -1,8 +1,7 @@
 $("#new-story").modal("hide");
 
-var map = activeMarker.map;
-var position = activeMarker.position;
+var map = window.Memories.activeMarker.map;
+var position = window.Memories.activeMarker.position;
 
-activeMarker.setMap(null);
-
-loadMarker(map, position.A, position.F, "<%= j truncate(@story.body, length: 200) %>", <%= @story.id %>);
+window.Memories.activeMarker.setMap(null);
+window.Memories.loadMarker(map, position.A, position.F, "<%= j truncate(@story.body, length: 200) %>", <%= @story.id %>);
