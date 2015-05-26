@@ -20,7 +20,7 @@ class StoryTest < ActiveSupport::TestCase
     assert_not story.errors[:year].blank?
   end
 
-  def test_after_create
+  def test_after_create_mailer
     story = Story.new(body: 'test body', year: 1900)
 
     mailer_mock = Minitest::Mock.new
@@ -30,6 +30,15 @@ class StoryTest < ActiveSupport::TestCase
       assert story.save
     end
     mailer_mock.verify
+  end
+
+  def test_after_create_twitter
+    story = Story.new(body: 'test body', year: 1900)
+
+    assert_difference('TwitterFake.tweets.length', 1) do
+      assert story.save
+    end
+    assert_equal TwitterFake.tweets.last, story.body + ' ' + Rails.application.routes.url_helpers.story_url(story)
   end
 
   def test_identifier
