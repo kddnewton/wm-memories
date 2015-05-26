@@ -20,4 +20,7 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'simplecov', group: :test
+group :test do
+  gem 'rake'
+  gem 'simplecov'
+end
