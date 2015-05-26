@@ -4,10 +4,7 @@ class AdminMailer < ApplicationMailer
   def story_created(story)
     @story = story
     emails = Subscription.validated.pluck(:email)
-    
-    if emails.any?
-      mail(to: emails, subject: "[WM-Memories] #{story.identifier} Created")
-    end
+    mail(to: 'kevin.deisz@gmail.com', subject: "[WM-Memories] #{story.identifier} Created", bcc: emails)
   end
 
   # send an email to request verification

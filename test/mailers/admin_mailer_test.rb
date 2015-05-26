@@ -30,8 +30,9 @@ class AdminMailerTest < ActionMailer::TestCase
     
     assert_not ActionMailer::Base.deliveries.empty?
     assert_equal ['noreply@wm-memories.herokuapp.com'], email.from
-    assert_equal subscribed_emails, email.to
+    assert_equal ['kevin.deisz@gmail.com'], email.to
     assert_equal "[WM-Memories] #{story.identifier} Created", email.subject
+    assert_equal subscribed_emails, email.bcc
 
     assert_equal email.parts.count, 2
     email_fixture = EmailFixture.new('story_created', binding)
