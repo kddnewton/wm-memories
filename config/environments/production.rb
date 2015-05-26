@@ -79,7 +79,7 @@ Rails.application.configure do
 
   # configure the mandrill mailer
   config.action_mailer.smtp_settings = {
-    port: '465',
+    port: '587',
     address: 'smtp.mandrillapp.com',
     user_name: ENV['MANDRILL_USERNAME'],
     password: ENV['MANDRILL_APIKEY'],
