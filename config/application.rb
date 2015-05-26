@@ -28,3 +28,6 @@ module Stories
     config.x.lng = -76.716916
   end
 end
+
+# the overall default host
+Rails.application.routes.default_url_options[:host] = Rails.env.production? ? 'wm-memories.herokuapp.com' : 'localhost:3000'

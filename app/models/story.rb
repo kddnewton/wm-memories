@@ -6,7 +6,10 @@ class Story < ActiveRecord::Base
   scope :feed_ordered, ->{ order('created_at DESC') }
   scope :search, ->(query){ where('body LIKE ?', "%#{query}%") }
 
-  after_create { AdminMailer.story_created(self).deliver_now }
+  after_create do
+    AdminMailer.story_created(self).deliver_now
+    Rails.configuration.x.twitter.update(self.body.truncate(100) + ' ' + Rails.application.routes.url_helpers.story_url(self))
+  end
 
   # long-form id
   def identifier
