@@ -22,13 +22,13 @@ class StoriesController < ApplicationController
 
   # GET /stories/feed
   def feed
-    @stories = Story.feed_ordered
+    @stories = Story.approved.feed_ordered
   end
 
   # GET /stories/search
   def search
     @query = params[:query]
-    @stories = Story.search(@query).feed_ordered
+    @stories = Story.search(@query).approved.feed_ordered
   end
 
   private
