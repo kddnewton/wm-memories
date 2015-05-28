@@ -18,7 +18,7 @@ class Story < ActiveRecord::Base
 
   # long-form id
   def identifier
-    "Story %03d" % self.id
+    "Story %03d (Class of #{self.year})" % self.id
   end
 
 end

@@ -2,25 +2,27 @@
 	<h1>Stories</h1>
 </div>
 
-<table class="table table-striped">
-	<thead>
-		<th>Identifier</th>
-		<th>Year</th>
-		<th>Body</th>
-		<th>Lat/Lng</th>
-		<th>Created</th>
-		<th>Approved</th>
-	</thead>
-	<tbody>
-		<% @stories.each do |story| %>
-			<tr>
-				<td><%= link_to(story.identifier, story_path(story)) %></td>
-				<td><%= story.year %></td>
-				<td><%= story.body %></td>
-				<td><%= story.lat %>/<%= story.lng %></td>
-				<td><%= story.created_at %></td>
-				<%= render('admin/stories/approval', story: story) %>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<th>Identifier</th>
+			<th>Year</th>
+			<th>Body</th>
+			<th>Lat/Lng</th>
+			<th>Created</th>
+			<th>Approved</th>
+		</thead>
+		<tbody>
+			<% @stories.each do |story| %>
+				<tr>
+					<td><%= link_to(story.identifier, story_path(story)) %></td>
+					<td><%= story.year %></td>
+					<td><%= story.body %></td>
+					<td><%= story.lat %>/<%= story.lng %></td>
+					<td><%= story.created_at %></td>
+					<%= render('admin/stories/approval', story: story) %>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

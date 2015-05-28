@@ -10,7 +10,7 @@ class ApplicationHelperTest < ActionView::TestCase
     story = stories(:first)
     stories = Story.where(id: story.id)
     result = init_map_from(stories).match(/\[.*\]/)[0]
-    assert_equal result, [{ lat: story.lat, lng: story.lng, body: story.body, storyId: story.id }].to_json
+    assert_equal result, [{ lat: story.lat, lng: story.lng, body: "#{story.identifier}: #{story.body}", storyId: story.id }].to_json
   end
 
   def test_nav_link
