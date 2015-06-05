@@ -2,3 +2,19 @@ first:
   approved: false
   body: This is my first test story.
   year: 2013
+  lat: <%= Rails.configuration.x.lat %>
+  lng: <%= Rails.configuration.x.lng %>
+
+second:
+  approved: true
+  body: This is my second test story.
+  year: 2014
+  lat: <%= Rails.configuration.x.lat %>
+  lng: <%= Rails.configuration.x.lng %>
+
+third:
+  approved: true
+  body: This is my third test story.
+  year: 2015
+  lat: <%= Rails.configuration.x.lat %>
+  lng: <%= Rails.configuration.x.lng %>

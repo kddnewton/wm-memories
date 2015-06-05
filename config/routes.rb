@@ -18,4 +18,10 @@ Rails.application.routes.draw do
     end
     resources :subscriptions, only: :index
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :stories, only: %i[index show create]
+    end
+  end
 end

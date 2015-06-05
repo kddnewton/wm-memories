@@ -3,21 +3,15 @@ require 'test_helper'
 class SubscriptionTest < ActiveSupport::TestCase
 
   def test_email_presence_validation
-    subscription = Subscription.new
-    assert_not subscription.save
-    assert_not subscription.errors[:email].blank?
+    assert_validates_presence_of Subscription, :email
   end
 
   def test_email_uniqueness_validation
-    subscription = Subscription.new(email: subscriptions(:kevin).email)
-    assert_not subscription.save
-    assert_not subscription.errors[:email].blank?
+    assert_validates_uniqueness_of Subscription, :email, message: 'is already subscribed'
   end
 
   def test_email_format_validation
-    subscription = Subscription.new(email: 'testemailtest.com')
-    assert_not subscription.save
-    assert_not subscription.errors[:email].blank?
+    assert_validates_format_of Subscription, :email, 'testemailtest.com'
   end
 
   def test_after_create_mailer

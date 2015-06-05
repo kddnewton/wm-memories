@@ -1,6 +1,6 @@
 class Story < ActiveRecord::Base
 
-  validates :body, presence: true
+  validates :body, :lat, :lng, presence: true
   validates :year, presence: true, inclusion: 1900..Date.today.year
 
   scope :approved, ->{ where(approved: true) }

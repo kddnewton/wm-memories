@@ -25,10 +25,10 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   def test_story_body_search
-    @query = 'This'
+    @query = 'first test'
     story = stories(:first)
     result = story_body(story, context: :search)
-    assert_equal result, "<p><mark>This</mark> is my first test story.</p>"
+    assert_equal result, "<p>This is my <mark>first test</mark> story.</p>"
   end
 
 end

@@ -2,26 +2,16 @@ require 'test_helper'
 
 class StoryTest < ActiveSupport::TestCase
 
-  def test_body_presence_validation
-    story = Story.new(year: 1900)
-    assert_not story.save
-    assert_not story.errors[:body].blank?
-  end
-
-  def test_year_presence_validation
-    story = Story.new(body: 'test body')
-    assert_not story.save
-    assert_not story.errors[:year].blank?
+  def test_presence_validations
+    assert_validates_presence_of Story, :body, :lat, :lng, :year
   end
 
   def test_year_inclusion_validation
-    story = Story.new(body: 'test body', year: 1800)
-    assert_not story.save
-    assert_not story.errors[:year].blank?
+    assert_validates_inclusion_of Story, :year, 1800
   end
 
   def test_after_create
-    story = Story.new(body: 'test body', year: 1900)
+    story = Story.new(body: 'test body', year: 1900, lat: Rails.configuration.x.lat, lng: Rails.configuration.x.lng)
     mailer_mock = Minitest::Mock.new
     mailer_mock.expect :deliver_now, nil
 

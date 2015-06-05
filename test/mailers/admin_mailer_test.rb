@@ -1,25 +1,5 @@
 require 'test_helper'
-
-class EmailFixture
-
-  attr_reader :text, :html
-
-  # store the text and html
-  def initialize(name, current_binding)
-    @name = name
-    @text = read('text', current_binding)
-    @html = read('html', current_binding)
-  end
-
-  private
-
-    # read the part from a fixture
-    def read(part, current_binding)
-      plain = IO.readlines(Rails.root.join('test', 'fixtures', 'admin_mailer', "#{@name}.#{part}.erb")).join
-      ERB.new(plain).result(current_binding)
-    end
-
-end
+require 'support/email_fixture'
 
 class AdminMailerTest < ActionMailer::TestCase
 
@@ -63,7 +43,7 @@ class AdminMailerTest < ActionMailer::TestCase
     assert_not ActionMailer::Base.deliveries.empty?
     assert_equal ['noreply@wm-memories.herokuapp.com'], email.from
     assert_equal [subscription.email], email.to
-    assert_equal "[WM-Memories] Email Verification", email.subject
+    assert_equal '[WM-Memories] Email Verification', email.subject
 
     assert_equal email.parts.count, 2
     email_fixture = EmailFixture.new('subscription_verification', binding)
