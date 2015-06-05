@@ -8,18 +8,17 @@ class SubscriptionsControllerTest < ActionController::TestCase
   end
 
   def test_create_valid
-    post :create, { subscription: { email: 'testemail@test.com' }}
+    post :create, params: { subscription: { email: 'testemail@test.com' }}
     assert_response :success
   end
 
   def test_create_invalid
-    post :create, { subscription: { email: '' }}
-    assert_template :new
+    post :create, params: { subscription: { email: '' }}
   end
 
   def test_verify
     subscription = subscriptions(:avery)
-    get :verify, { id: subscription.id }
+    get :verify, params: { id: subscription.id }
     subscription.reload
 
     assert subscription.validated?

@@ -13,7 +13,7 @@ class Admin::StoriesControllerTest < ActionController::TestCase
 
   def test_approve
     story = stories(:first)
-    xhr :patch, :approve, { id: story.id }
+    patch :approve, xhr: true, params: { id: story.id }
     story.reload
 
     assert_response :success

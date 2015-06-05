@@ -8,19 +8,19 @@ class StoriesControllerTest < ActionController::TestCase
   end
 
   def test_show
-    get :show, { id: stories(:first).id }
+    get :show, params: { id: stories(:first).id }
     assert_response :success
   end
 
   def test_create_valid
     assert_difference('Story.count', 1) do
-      xhr :post, :create, { story: { year: 2013, body: 'test body', lat: Rails.configuration.x.lat, lng: Rails.configuration.x.lng }}
+      post :create, xhr: true, params: { story: { year: 2013, body: 'test body', lat: Rails.configuration.x.lat, lng: Rails.configuration.x.lng }}
     end
   end
 
   def test_create_invalid
     assert_no_difference('Story.count') do
-      xhr :post, :create, { story: { year: '', body: '' }}
+      post :create, xhr: true, params: { story: { year: '', body: '' }}
     end
   end
 
@@ -30,7 +30,7 @@ class StoriesControllerTest < ActionController::TestCase
   end
 
   def test_search
-    post :search, { query: 'test query' }
+    post :search, params: { query: 'test query' }
     assert_response :success
   end
 
