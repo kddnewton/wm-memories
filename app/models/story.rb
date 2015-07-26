@@ -1,5 +1,7 @@
 class Story < ActiveRecord::Base
 
+  has_many :photos, dependent: :destroy
+
   validates :body, :lat, :lng, presence: true
   validates :year, presence: true, inclusion: 1900..Date.today.year
 
@@ -8,6 +10,8 @@ class Story < ActiveRecord::Base
   scope :search, ->(query){ where('body LIKE ?', "%#{query}%") }
 
   after_create { AdminMailer.story_created(self).deliver_now }
+
+  attr_reader :photo_proxies
 
   # approve this story by admin
   def approve!
@@ -21,4 +25,10 @@ class Story < ActiveRecord::Base
     "Story %03d (Class of #{self.year})" % self.id
   end
 
+  # build the photo objects
+  def photo_proxies=(photo_proxies)
+    (photo_proxies || []).each do |photo_proxy|
+      self.photos.build(attachment: photo_proxy)
+    end
+  end
 end

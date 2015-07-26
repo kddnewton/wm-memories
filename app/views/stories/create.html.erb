@@ -1,0 +1,14 @@
+<script>
+var p = window.parent;
+$(document).ready(function() {
+	p.$("#story-body, #success-body").toggle();
+
+	p.setTimeout(function() {
+		p.$("#new-story").modal("hide");
+
+		p.setTimeout(function() {
+			p.$("#story-body, #success-body").toggle();
+		}, 2000);
+	}, 1000);
+});
+</script>

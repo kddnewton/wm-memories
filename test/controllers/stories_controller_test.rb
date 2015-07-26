@@ -8,7 +8,7 @@ class StoriesControllerTest < ActionController::TestCase
   end
 
   def test_show
-    get :show, params: { id: stories(:first).id }
+    get :show, params: { id: stories(:second).id }
     assert_response :success
   end
 

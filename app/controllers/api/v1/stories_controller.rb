@@ -29,5 +29,4 @@ class Api::V1::StoriesController < ApplicationController
     def story_params
       params.require(:story).permit(:year, :body, :lat, :lng)
     end
-
 end

@@ -1,5 +1,7 @@
 class StoriesController < ApplicationController
 
+  layout 'file_upload', only: :create
+
   # GET /
   # GET /stories
   def index
@@ -9,14 +11,14 @@ class StoriesController < ApplicationController
 
   # GET /stories/:id
   def show
-    @story = Story.find(params[:id])
+    @story = Story.approved.find(params[:id])
   end
 
   # POST /stories
   def create
     @story = Story.new(story_params)
     unless @story.save
-      render 'create_error'
+      render :create_error
     end
   end
 
@@ -35,7 +37,6 @@ class StoriesController < ApplicationController
 
     # strong params for stories
     def story_params
-      params.require(:story).permit(:year, :body, :lat, :lng)
+      params.require(:story).permit(:year, :body, :lat, :lng, { photo_proxies: [] })
     end
-
 end

@@ -15,7 +15,7 @@
 		<tbody>
 			<% @stories.each do |story| %>
 				<tr>
-					<td><%= link_to(story.identifier, story_path(story)) %></td>
+					<td><%= link_to(story.identifier, admin_story_path(story)) %></td>
 					<td><%= story.year %></td>
 					<td><%= story.body %></td>
 					<td><%= story.lat %>/<%= story.lng %></td>

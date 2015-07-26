@@ -13,4 +13,9 @@ class Admin::StoriesController < ApplicationController
     @story.approve!
   end
 
+  # GET /admin/stories/:id
+  def show
+    @story = Story.find(params[:id])
+    render 'stories/show'
+  end
 end

@@ -12,5 +12,4 @@ class Subscription < ActiveRecord::Base
   def verify!
     self.update!(validated: true)
   end
-
 end

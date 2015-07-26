@@ -7,11 +7,11 @@
 			</div>
 			<div class="modal-body" id="story-body">
 				<div id="errors"></div>
-				
-				<%= form_for(@story, remote: true, html: { class: 'form-horizontal' }) do |form| %>
+
+				<%= form_for(@story, html: { class: 'form-horizontal', multipart: true, target: 'new-story-target' }) do |form| %>
 					<%= form.hidden_field(:lat) %>
 					<%= form.hidden_field(:lng) %>
-					
+
 					<div class="form-group">
 						<div class="col-xs-12">
 							<%= form.number_field(:year, class: 'form-control', placeholder: 'Class Year') %>
@@ -23,9 +23,23 @@
 						</div>
 					</div>
 					<div class="form-group">
+						<div class="col-xs-3">
+							<span class="btn btn-primary fileinput-button">
+								<i class="glyphicon glyphicon-plus"></i>
+								<span>Add images</span>
+								<%= file_field_tag(:"story[photo_proxies][]", multiple: true) %>
+							</span>
+						</div>
+						<div class="col-xs-9">
+							<div class="well well-sm" style="display: none">
+								<ul id="fileinput-list" class="list-unstyled"></ul>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
 						<div class="col-xs-12">
 							<div class="pull-right">
-								<%= form.submit('Submit', class: "btn btn-primary", data: { disable_with: 'Submitting...' }) %>
+								<%= form.submit('Submit', class: 'btn btn-primary', data: { disable_with: 'Submitting...' }, id: 'submit-story') %>
 								<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel-story">Cancel</button>
 							</div>
 						</div>

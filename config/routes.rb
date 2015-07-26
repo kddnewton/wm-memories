@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get 'about', to: 'home#about', as: :about
 
+  resources :photos, only: :show
+
   resources :stories, only: %i[index create show] do
     get :feed, on: :collection
     post :search, on: :collection
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :stories, only: :index do
+    resources :stories, only: %i[index show] do
       patch :approve, on: :member
     end
     resources :subscriptions, only: :index

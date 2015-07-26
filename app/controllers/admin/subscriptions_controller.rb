@@ -6,5 +6,4 @@ class Admin::SubscriptionsController < ApplicationController
   def index
     @subscriptions = Subscription.email_ordered
   end
-
 end

@@ -8,5 +8,4 @@ class ApplicationController < ActionController::Base
   def self.authenticate_admin
     http_basic_authenticate_with name: 'admin', password: Rails.application.secrets.admin_pass
   end
-
 end
