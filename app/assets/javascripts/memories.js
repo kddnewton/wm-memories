@@ -34,8 +34,8 @@ window.Memories = {
 				map: map
 			});
 
-			$("#story_lat").val(latLng.A);
-			$("#story_lng").val(latLng.F);
+			$("#story_lat").val(latLng.lat());
+			$("#story_lng").val(latLng.lng());
 			$("#new-story").modal();
 
 			$("#story_photo_proxies_").change(function() {
@@ -48,7 +48,7 @@ window.Memories = {
 
 		$("#new-story").on("hidden.bs.modal", function(event) {
 			window.Memories.activeMarker.setMap(null);
-			$("#errors").html("");
+			$("#errors, #fileinput-list").html("");
 			$("#new_story").get(0).reset();
 			$.rails.enableFormElement($("#submit-story"));
 		});
