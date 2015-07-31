@@ -18,3 +18,6 @@
 
 # Ignore coverage reports
 /coverage
+
+# Ignore uploaded images
+/public/system
