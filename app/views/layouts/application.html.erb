@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>One Tribe, Many Memories</title>
+		<title><%= t('views.layouts.application.title') %></title>
 		
 		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -15,16 +15,16 @@
 		<div id="nav-container">
 			<div class="container">
 				<div class="row">
-					<%= nav_link('Home', root_path, :globe) %>
-					<%= nav_link('Feed', feed_stories_path, :signal) %>
-					<%= nav_link('About', about_path, :cog) %>
+					<%= nav_link(t('views.layouts.application.home'), root_path, :globe) %>
+					<%= nav_link(t('views.layouts.application.feed'), feed_stories_path, :signal) %>
+					<%= nav_link(t('views.layouts.application.about'), about_path, :cog) %>
 					
 					<div class="col-sm-4 col-sm-offset-2 col-xs-12">
 						<%= form_tag(search_stories_path, id: 'search-form') do %>
 							<div class="input-group">
-								<%= text_field_tag(:query, params[:query], class: 'form-control', placeholder: 'Search...') %>
+								<%= text_field_tag(:query, params[:query], class: 'form-control', placeholder: t('views.layouts.application.search') + '...') %>
 								<span class="input-group-btn">
-									<%= submit_tag('Search', class: 'btn btn-default') %>
+									<%= submit_tag(t('views.layouts.application.search'), class: 'btn btn-default') %>
 								</span>
 							</div>
 						<% end %>

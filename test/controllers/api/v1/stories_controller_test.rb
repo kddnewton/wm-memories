@@ -54,5 +54,4 @@ class Api::V1::StoriesControllerTest < ActionController::TestCase
     def response_for(fixture)
       stories(fixture).attributes.slice(*%w[id year body created_at updated_at lat lng]).transform_values(&jsonify)
     end
-
 end

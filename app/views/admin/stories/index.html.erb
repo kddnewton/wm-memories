@@ -1,16 +1,16 @@
 <div class="page-header">
-	<h1>Stories</h1>
+	<h1><%= vt('stories') %></h1>
 </div>
 
 <div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
-			<th>Identifier</th>
-			<th>Year</th>
-			<th>Body</th>
-			<th>Lat/Lng</th>
-			<th>Created</th>
-			<th>Approved</th>
+			<th><%= vt('identifier') %></th>
+			<th><%= vt('year') %></th>
+			<th><%= vt('body') %></th>
+			<th><%= vt('lat_lng') %></th>
+			<th><%= vt('created') %></th>
+			<th><%= vt('approved') %></th>
 		</thead>
 		<tbody>
 			<% @stories.each do |story| %>

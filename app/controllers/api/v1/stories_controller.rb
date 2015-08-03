@@ -9,7 +9,7 @@ class Api::V1::StoriesController < ApplicationController
   def show
     @story = Story.approved.find_by_id(params[:id])
     if @story.nil?
-      render json: { error: 'Record not found.' }, status: :not_found
+      render json: { error: ct('show_error') }, status: :not_found
     end
   end
 
@@ -19,7 +19,7 @@ class Api::V1::StoriesController < ApplicationController
     if @story.save
       render status: :created
     else
-      render json: { error: 'Invalid parameters.' }, status: :bad_request
+      render json: { error: ct('create_error') }, status: :bad_request
     end
   end
 

@@ -31,5 +31,4 @@ class SubscriptionTest < ActiveSupport::TestCase
     subscription.verify!
     assert subscription.validated?
   end
-
 end

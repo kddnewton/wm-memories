@@ -27,5 +27,4 @@ class SubscriptionsControllerTest < ActionController::TestCase
     subscription.reload
     assert subscription.validated?
   end
-
 end

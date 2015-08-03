@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1>Subscribe</h1>
+	<h1><%= vt('subscribe') %></h1>
 </div>
 
 <div class="row">
@@ -12,7 +12,7 @@
 					<%= form.text_field(:email, class: 'form-control', placeholder: 'Email') %>
 				</div>
 				<div class="col-xs-3">
-					<%= form.submit('Subscribe', class: 'btn btn-primary pull-right', data: { disable_with: 'Subscribing...' }) %>
+					<%= form.submit(vt('subscribe'), class: 'btn btn-primary pull-right', data: { disable_with: vt('subscribing') }) %>
 				</div>
 			</div>
 		<% end %>

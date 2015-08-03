@@ -35,5 +35,4 @@ class StoriesControllerTest < ActionController::TestCase
     post :search, params: { query: 'test query' }
     assert_response :success
   end
-
 end

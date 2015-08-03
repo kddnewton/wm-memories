@@ -30,5 +30,4 @@ class ApplicationHelperTest < ActionView::TestCase
     result = story_body(story, context: :search)
     assert_equal result, "<p>This is my <mark>first test</mark> story.</p>"
   end
-
 end

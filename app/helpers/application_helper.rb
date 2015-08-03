@@ -25,4 +25,10 @@ module ApplicationHelper
     end
   end
 
+  # translate the key based on the current controller and action
+  def view_translate(key, substitutions = {})
+    components = ['views'] + params[:controller].split('/') + [key]
+    t(components.join('.'), substitutions)
+  end
+  alias_method :vt, :view_translate
 end

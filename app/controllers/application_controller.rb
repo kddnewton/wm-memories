@@ -8,4 +8,13 @@ class ApplicationController < ActionController::Base
   def self.authenticate_admin
     http_basic_authenticate_with name: 'admin', password: Rails.application.secrets.admin_pass
   end
+
+  private
+
+    # translate based on the current controller
+    def controller_translate(key, substitutions = {})
+      components = ['controllers'] + self.class.name.gsub(/Controller\z/, '').split('::').map(&:downcase) + [key]
+      I18n.t(components.join('.'), substitutions)
+    end
+    alias_method :ct, :controller_translate
 end

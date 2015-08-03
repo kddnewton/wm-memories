@@ -50,5 +50,4 @@ class AdminMailerTest < ActionMailer::TestCase
     assert_equal email_fixture.text, email.text_part.body.to_s
     assert_equal email_fixture.html, email.html_part.body.to_s
   end
-
 end

@@ -3,7 +3,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-				<h4 class="modal-title">New Story</h4>
+				<h4 class="modal-title"><%= vt('new.title') %></h4>
 			</div>
 			<div class="modal-body" id="story-body">
 				<div id="errors"></div>
@@ -14,19 +14,19 @@
 
 					<div class="form-group">
 						<div class="col-xs-12">
-							<%= form.number_field(:year, class: 'form-control', placeholder: 'Class Year') %>
+							<%= form.number_field(:year, class: 'form-control', placeholder: vt('new.class_year')) %>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-12">
-							<%= form.text_area(:body, rows: 10, class: 'form-control', placeholder: 'Memory') %>
+							<%= form.text_area(:body, rows: 10, class: 'form-control', placeholder: vt('new.memory')) %>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-3">
 							<span class="btn btn-primary fileinput-button">
 								<i class="glyphicon glyphicon-plus"></i>
-								<span>Add images</span>
+								<span><%= vt('new.add_images') %></span>
 								<%= file_field_tag(:"story[photo_proxies][]", multiple: true) %>
 							</span>
 						</div>
@@ -39,15 +39,15 @@
 					<div class="form-group">
 						<div class="col-xs-12">
 							<div class="pull-right">
-								<%= form.submit('Submit', class: 'btn btn-primary', data: { disable_with: 'Submitting...' }, id: 'submit-story') %>
-								<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel-story">Cancel</button>
+								<%= form.submit(vt('new.submit'), class: 'btn btn-primary', data: { disable_with: vt('new.submitting') }, id: 'submit-story') %>
+								<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel-story"><%= t('basics.cancel') %></button>
 							</div>
 						</div>
 					</div>
 				<% end %>
 			</div>
 			<div class="modal-body" style="display: none" id="success-body">
-				Your memory has been stored. It will be displayed once it is approved.
+				<%= vt('new.success') %>
 			</div>
 		</div>
 	</div>

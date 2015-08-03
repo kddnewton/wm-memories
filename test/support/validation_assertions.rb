@@ -46,5 +46,4 @@ module ValidationAssertions
         assert_has_validator klass, attribute, ActiveRecord::Validations::UniquenessValidator
       end
     end
-
 end

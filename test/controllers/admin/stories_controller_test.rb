@@ -20,4 +20,8 @@ class Admin::StoriesControllerTest < ActionController::TestCase
     assert story.approved?
   end
 
+  def test_show
+    get :show, params: { id: stories(:second).id }
+    assert_response :success
+  end
 end

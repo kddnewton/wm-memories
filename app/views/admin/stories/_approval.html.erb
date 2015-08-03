@@ -1,7 +1,7 @@
 <td id="story-<%= story.id %>-approval">
 	<% if story.approved? %>
-		Yes
+		<%= t('basics.yes') %>
 	<% else %>
-		<%= button_to('Approve', approve_admin_story_path(story), method: :patch, remote: true, class: 'btn btn-primary') %>
+		<%= button_to(vt('approve'), approve_admin_story_path(story), method: :patch, remote: true, class: 'btn btn-primary') %>
 	<% end %>
 </td>

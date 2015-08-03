@@ -1,12 +1,12 @@
 <div class="page-header">
-	<h1>One Tribe, Many Memories</h1>
+	<h1><%= vt('index.title') %></h1>
 </div>
 
 <%= render(template: 'stories/new') %>
 
 <div class="row">
 	<div class="col-xs-12">
-		<em class="text-muted">Double-click the map to add a memory</em>
+		<em class="text-muted"><%= vt('index.hint') %></em>
 		<div id="map"></div>
 	</div>
 </div>

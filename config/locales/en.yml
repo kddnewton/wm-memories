@@ -20,4 +20,79 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  basics:
+    and: 'and'
+    cancel: 'Cancel'
+    error: 'Error'
+    'no': 'No'
+    'yes': 'Yes'
+  controllers:
+    api:
+      v1:
+        stories:
+          create_error: 'Invalid parameters.'
+          show_error: 'Record not found.'
+  mailers:
+    admin_mailer:
+      story_approved:
+        subject: '[WM-Memories] %{story_identifier}'
+      story_created:
+        subject: '[WM-Memories] %{story_identifier} Created'
+      subscription_verification:
+        subject: '[WM-Memories] Email Verification'
+  models:
+    story:
+      identifier: 'Story %03d (Class of %{year})'
+  views:
+    admin:
+      stories:
+        approve: 'Approve'
+        approved: 'Approved'
+        body: 'Body'
+        created: 'Created'
+        identifier: 'Identifier'
+        lat_lng: 'Lat/Lng'
+        stories: 'Stories'
+        year: 'Year'
+      subscriptions:
+        created: 'Created'
+        email: 'Email'
+        subscriptions: 'Subscriptions'
+        validated: 'Validated'
+    home:
+      about: 'About'
+      here: 'here'
+      project: 'The Project'
+      p1: 'While reviewing a sketched map of the William and Mary campus, five alumni began pointing out to each other some of the locations that were important to them during their time at the College. They quickly realized that despite having different experiences throughout their 4 years, their individual memories were all captured within a single map.'
+      p2: "As the oldest university in the United States, W&M has provided memories to generations of students and alumni. It's a place of history - our history, as a community and as a Tribe. Despite new construction and other changes over the years, the campus has remained the one constant throughout every student's college experience. We seek to celebrate that by welcoming all students, past and present, to share their own memories on this website."
+      p3_html: 'This site is still very much in beta. Send any feedback %{link}.'
+    layouts:
+      application:
+        about: 'About'
+        feed: 'Feed'
+        home: 'Home'
+        search: 'Search'
+        title: 'One Tribe, Many Memories'
+    stories:
+      feed:
+        feed: 'Feed'
+        subscribe: 'Subscribe'
+      index:
+        hint: 'Double-click the map to add a memory'
+        title: 'One Tribe, Many Memories'
+      new:
+        add_images: 'Add images'
+        class_year: 'Class Year'
+        memory: 'Memory'
+        success: 'Your memory has been stored. It will be displayed once it is approved.'
+        submit: 'Submit'
+        submitting: 'Submitting...'
+        title: 'New Story'
+      search: 'Search'
+    subscriptions:
+      create:
+        success: 'You have been sent an email to confirm your email address.'
+      subscribe: 'Subscribe'
+      subscribing: 'Subscribing...'
+      verify:
+        success: 'You have been successfully subscribed.'

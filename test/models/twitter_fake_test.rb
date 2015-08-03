@@ -7,5 +7,4 @@ class TwitterFakeTest < ActiveSupport::TestCase
     TwitterFake.new.update(tweet)
     assert_equal TwitterFake.last_tweet, tweet
   end
-
 end

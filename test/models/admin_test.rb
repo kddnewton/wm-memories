@@ -13,5 +13,4 @@ class AdminTest < ActiveSupport::TestCase
   def test_email_format_validation
     assert_validates_format_of Admin, :email, 'testemailtest.com'
   end
-
 end

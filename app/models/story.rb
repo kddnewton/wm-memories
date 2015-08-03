@@ -22,7 +22,7 @@ class Story < ActiveRecord::Base
 
   # long-form id
   def identifier
-    "Story %03d (Class of #{self.year})" % self.id
+    I18n.t('models.story.identifier', year: self.year) % self.id
   end
 
   # build the photo objects
