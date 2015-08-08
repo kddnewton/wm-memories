@@ -23,6 +23,10 @@ a {
 	}
 }
 
+#lg-font {
+	font-size: 18px;
+}
+
 #nav-container {
 	@include box-shadow(0px 2px 5px 0px #dddddd);
 	background-color: $wm-green;
