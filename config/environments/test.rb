@@ -36,8 +36,8 @@ Rails.application.configure do
   # Randomize the order test cases are executed.
   config.active_support.test_order = :random
 
-  # Raise deprecation warnings.
-  config.active_support.deprecation = :raise
+  # Log warnings to standard error
+  config.active_support.deprecation = :stderr
 
   # Raises error for missing translations
   config.action_view.raise_on_missing_translations = true
