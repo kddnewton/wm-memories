@@ -4,6 +4,7 @@ ruby '2.2.2'
 gem 'rails', github: 'rails/rails'
 gem 'arel', github: 'rails/arel'
 gem 'pg'
+gem 'puma'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 2.7'

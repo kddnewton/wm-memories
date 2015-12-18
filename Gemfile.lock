@@ -170,6 +170,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.4)
+    puma (2.15.3)
     rack (2.0.0.alpha)
       json
     rack-test (0.6.3)
@@ -254,6 +255,7 @@ DEPENDENCIES
   jquery-rails
   paperclip
   pg
+  puma
   rails!
   rake
   sass-rails (~> 5.0)
