@@ -1,15 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
-gem 'rails', github: 'rails/rails'
-gem 'arel', github: 'rails/arel'
-gem 'rack', github: 'rack/rack'
+gem 'rails', '~> 5.0.0.beta1'
 gem 'pg'
 gem 'puma'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 2.7'
-gem 'coffee-rails', github: 'rails/coffee-rails'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3'
@@ -24,7 +22,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', github: 'rails/web-console'
+  gem 'web-console'
   gem 'spring'
 end
 
