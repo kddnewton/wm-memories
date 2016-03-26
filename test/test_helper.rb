@@ -3,6 +3,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'simplecov'
 SimpleCov.start('rails')
 
+require 'knapsack'
+
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'minitest/mock'
@@ -25,3 +27,5 @@ class ActionController::TestCase
     @request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials('admin', Rails.application.secrets.admin_pass)
   end
 end
+
+Knapsack::Adapters::MinitestAdapter.bind.set_test_helper_path(__FILE__)
