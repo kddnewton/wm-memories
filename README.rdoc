@@ -1,3 +1,0 @@
-== WM Memories
-
-A site for storying memories linked to specific locations on campus.
