@@ -22,5 +22,9 @@ group :development do
   gem 'spring'
 end
 
+group :test, :development do
+  gem 'knapsack'
+end
+
 gem 'simplecov', group: :test
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
