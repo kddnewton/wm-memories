@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.3.0'
 
-gem 'rails', github: 'rails/rails'
-gem 'arel', github: 'rails/arel'
+gem 'rails', '~> 5.0.0.beta3'
 gem 'pg'
+gem 'puma'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -18,9 +18,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'twitter'
 gem 'paperclip'
 
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
+group :development do
+  gem 'web-console', '~> 3.0'
   gem 'spring'
 end
 

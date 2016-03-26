@@ -3,8 +3,8 @@ require 'test_helper'
 class Api::V1::StoriesControllerTest < ActionController::TestCase
 
   def setup
-    request.headers['Accept'] = Mime::JSON
-    request.headers['Content-Type'] = Mime::JSON.to_s
+    request.headers['Accept'] = Mime[:json]
+    request.headers['Content-Type'] = Mime[:json].to_s
   end
 
   def test_index
@@ -26,7 +26,9 @@ class Api::V1::StoriesControllerTest < ActionController::TestCase
     post :create, params: { story: attributes }
     assert_equal parsed_response.slice('body', 'year', 'lat', 'lng'), attributes.stringify_keys.transform_values(&jsonify)
     assert_response :created
+  end
 
+  def test_create_invalid
     post :create, params: { story: { name: '' } }
     assert_equal parsed_response, { 'error' => 'Invalid parameters.' }
     assert_response :bad_request
