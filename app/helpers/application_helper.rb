@@ -21,7 +21,7 @@ module ApplicationHelper
     when :feed
       simple_format(truncate(story.body, length: 300))
     when :search
-      simple_format(highlight(excerpt(story.body, @query, radius: 200), @query))
+      highlight(simple_format(excerpt(story.body, @query, radius: 200)), @query)
     end
   end
 

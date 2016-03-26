@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.3.0'
 
-gem 'rails', '~> 5.0.0.beta1'
+gem 'rails', '~> 5.0.0.beta3'
 gem 'pg'
 gem 'puma'
 
@@ -17,12 +17,8 @@ gem 'sdoc', '~> 0.4', group: :doc
 gem 'twitter'
 gem 'paperclip'
 
-group :development, :test do
-  gem 'byebug'
-end
-
 group :development do
-  gem 'web-console'
+  gem 'web-console', '~> 3.0'
   gem 'spring'
 end
 

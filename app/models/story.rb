@@ -1,4 +1,4 @@
-class Story < ActiveRecord::Base
+class Story < ApplicationRecord
 
   has_many :photos, dependent: :destroy
 

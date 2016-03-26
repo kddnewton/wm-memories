@@ -1,4 +1,4 @@
 language: ruby
-rvm: 2.2.2
-before_script: rake db:create
+rvm: 2.3.0
+before_script: bundle exec rake db:create
 cache: bundler
