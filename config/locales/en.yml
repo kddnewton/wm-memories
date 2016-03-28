@@ -26,12 +26,6 @@ en:
     error: 'Error'
     'no': 'No'
     'yes': 'Yes'
-  controllers:
-    api:
-      v1:
-        stories:
-          create_error: 'Invalid parameters.'
-          show_error: 'Record not found.'
   mailers:
     admin_mailer:
       story_approved:
