@@ -5,7 +5,7 @@ class StoryRelayJob < ApplicationJob
   def perform(story)
     ActionCable.server.broadcast('stories', story: serialize_story(story))
     AdminMailer.story_approved(story).deliver_now
-    Rails.configuration.x.twitter.update(story.body.truncate(100) + ' ' + Rails.application.routes.url_helpers.story_url(story))
+    TwitterInterface.update(story.body.truncate(100) + ' ' + Rails.application.routes.url_helpers.story_url(story))
   end
 
   private

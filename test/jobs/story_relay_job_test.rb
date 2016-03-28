@@ -31,6 +31,6 @@ class StoryRelayJobTest < ActiveJob::TestCase
 
     mailer_mock.verify
     cable_mock.verify
-    assert_equal(Rails.configuration.x.twitter.class.last_tweet, story.body + ' ' + Rails.application.routes.url_helpers.story_url(story))
+    assert_equal(TwitterInterface.instance.last_tweet, story.body + ' ' + Rails.application.routes.url_helpers.story_url(story))
   end
 end
