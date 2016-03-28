@@ -4,9 +4,14 @@ class StoryRelayJobTest < ActiveJob::TestCase
 
   def test_story_approval
     story = stories(:first)
-    assert_enqueued_with(job: StoryRelayJob) do
+    mock = Minitest::Mock.new
+    mock.expect(:call, nil, [story])
+
+    StoryRelayJob.stub(:perform_now, mock) do
       story.approve!
     end
+
+    mock.verify
   end
 
   def test_job

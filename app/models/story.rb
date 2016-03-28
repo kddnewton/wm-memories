@@ -16,7 +16,7 @@ class Story < ApplicationRecord
   # approve this story by admin
   def approve!
     self.update!(approved: true)
-    StoryRelayJob.perform_later(self)
+    StoryRelayJob.perform_now(self)
   end
 
   # long-form id
