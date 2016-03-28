@@ -5,6 +5,9 @@ SimpleCov.start('rails') do
   add_group('Cable', 'app/channels')
 end
 
+require 'coveralls'
+Coveralls.wear!
+
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'minitest/mock'
