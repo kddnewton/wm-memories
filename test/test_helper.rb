@@ -7,11 +7,13 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'minitest/mock'
 
+require 'support/concurrent_ruby_helpers'
 require 'support/validation_assertions'
 
 class ActiveSupport::TestCase
   fixtures :all
 
+  include ConcurrentRubyHelpers
   include ValidationAssertions
 
   def pending
