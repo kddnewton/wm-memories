@@ -6,8 +6,8 @@
 	<div class="col-sm-8 col-xs-12">
 		<% if @story.photos.any? %>
 			<% @story.photos.each do |photo| %>
-				<%= link_to(photo_path(photo), data: { display: 'popup', url: photo.attachment.url(:modal) }) do %>
-					<%= image_tag(photo.attachment.url(:thumbnail), class: 'img-thumbnail') %>
+				<%= link_to(photo.attachment.url(:modal), data: { display: 'popup', url: photo.attachment.url(:modal) }) do %>
+					<%= image_tag(photo.attachment.url(:thumbnail), class: 'img-thumbnail') -%>
 				<% end %>
 			<% end %>
 			<br /><br />
