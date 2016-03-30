@@ -20,6 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  social_share_button:
+    share_to: Share to %{name}
+    twitter: Twitter
+    facebook: Facebook
+    google_plus: Google+
+    pinterest: Pinterest
   basics:
     and: 'and'
     cancel: 'Cancel'

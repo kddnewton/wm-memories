@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require action_cable
+//= require social-share-button
 //= require_self
 //= require_tree .
 

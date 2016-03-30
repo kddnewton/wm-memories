@@ -14,6 +14,9 @@
 		<% end %>
 
 		<%= simple_format(@story.body) %>
+
+		<br />
+		<%= social_share_button_tag("Story ##{@story.id}", via: 'wmmemories') %>
 	</div>
 	
 	<div class="col-sm-4 col-xs-12">
