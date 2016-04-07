@@ -12,99 +12,99 @@ $font-family-base: 'Avenir Next Regular', Arial, 'PT Sans', sans-serif;
 @import "bootstrap";
 
 body {
-	background: image-url('background.png') repeat;
+  background: image-url('background.png') repeat;
 }
 
 a {
-	color: $wm-green;
-	
-	&:hover {
-		color: $wm-green-hover;
-	}
+  color: $wm-green;
+ 
+  &:hover {
+    color: $wm-green-hover;
+  }
 }
 
 #lg-font {
-	font-size: 18px;
+  font-size: 18px;
 }
 
 #nav-container {
-	@include box-shadow(0px 2px 5px 0px #dddddd);
-	background-color: $wm-green;
-	border-bottom: 3px solid $wm-spirit-gold;
-	
-	a {
-		color: white;
-		float: left;
-		height: 45px;
-		line-height: 45px;
-		text-align: center;
-		text-decoration: none;
-		
-		&:hover, &:active, &.active {
-			background-color: $wm-green-hover;
-			text-decoration: none;
-		}
-	}
-	#search-form {
-		margin: 5px 0;
-	}
+  @include box-shadow(0px 2px 5px 0px #dddddd);
+  background-color: $wm-green;
+  border-bottom: 3px solid $wm-spirit-gold;
+ 
+  a {
+    color: white;
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    text-decoration: none;
+    
+    &:hover, &:active, &.active {
+      background-color: $wm-green-hover;
+      text-decoration: none;
+    }
+  }
+  #search-form {
+    margin: 5px 0;
+  }
 }
 
 #stories {
-	.story {
-		margin-bottom: 25px;
-	}
-	.header {
-		border-bottom: 1px solid $wm-silver;
-		margin-bottom: 5px;
-	}
-	mark {
-		background-color: $wm-gold-hover;
-		color: $wm-gold;
-	}
+  .story {
+    margin-bottom: 25px;
+  }
+  .header {
+    border-bottom: 1px solid $wm-silver;
+    margin-bottom: 5px;
+  }
+  mark {
+    background-color: $wm-gold-hover;
+    color: $wm-gold;
+  }
 }
 
 .right-image {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 #map {
-	height: 700px;
+  height: 700px;
 }
 #mini-map {
-	height: 300px;
+  height: 300px;
 }
 #footer {
-	margin: 80px 0 40px 0;
+  margin: 80px 0 40px 0;
 }
 
 .fileinput-button {
-	display: inline-block;
-	overflow: hidden;
-	position: relative;
-	
-	& > input {
-		-ms-filter: 'alpha(opacity=0)';
-		cursor: pointer;
-		direction: ltr;
-		font-size: 200px;
-		margin: 0;
-		opacity: 0;
-		position: absolute;
-		right: 0;
-		top: 0;
-	}
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+ 
+  & > input {
+    -ms-filter: 'alpha(opacity=0)';
+    cursor: pointer;
+    direction: ltr;
+    font-size: 200px;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 .hidden-iframe {
-	border: none;
-	height: 0;
-	width: 0;
+  border: none;
+  height: 0;
+  width: 0;
 }
 
 .modal-image {
-	background-color: black;
+  background-color: black;
 }
 
 #fileinput-list {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
