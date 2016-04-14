@@ -19,7 +19,6 @@ gem 'social-share-button'
 
 group :development do
   gem 'web-console', '~> 3.0'
-  gem 'pry'
   gem 'spring'
 end
 
