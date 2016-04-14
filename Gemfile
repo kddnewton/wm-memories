@@ -25,8 +25,10 @@ end
 
 group :test do
   gem 'coveralls', require: false
-  gem 'simplecov'
+  gem 'simplecov', require: false
 end
 
-gem 'rubocop', group: %i[development test]
-gem 'sdoc', '~> 0.4', group: :doc
+group :development, :test do
+  gem 'brakeman', require: false
+  gem 'rubocop', require: false
+end
