@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class StoriesController < ApplicationController
 
   layout 'file_upload', only: :create

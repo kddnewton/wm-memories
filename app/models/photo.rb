@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Photo < ApplicationRecord
 
   has_attached_file :attachment, styles: { thumbnail: '140x140#', modal: '440x>' }

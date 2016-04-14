@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class SubscriptionsController < ApplicationController
 
   # GET /subscriptions/new

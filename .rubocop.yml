@@ -27,10 +27,6 @@ Style/EmptyLinesAroundModuleBody:
 Style/FormatString:
   Enabled: false
 
-# Disabling for this until I have time
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
 # Useful and concise in gsub statements
 Style/PerlBackrefs:
   Enabled: false
