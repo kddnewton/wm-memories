@@ -4,7 +4,7 @@ module ApplicationHelper
   # build the main google map from the given stories
   def init_map_from(stories)
     stories = stories.map { |story| view_story_from(story) }.to_json
-    javascript_tag("window.Memories.init(#{Rails.configuration.x.lat}, #{Rails.configuration.x.lng}, #{stories})")
+    javascript_tag("MapManager.init(#{Rails.configuration.x.lat}, #{Rails.configuration.x.lng}, #{stories})")
   end
 
   # build a json structure a story for the view

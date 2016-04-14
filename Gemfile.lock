@@ -250,7 +250,6 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3)
   brakeman
-  coffee-rails
   coveralls
   jquery-rails
   paperclip

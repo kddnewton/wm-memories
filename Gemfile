@@ -8,7 +8,6 @@ gem 'puma'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 3.0'
-gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3'
