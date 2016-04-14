@@ -23,8 +23,16 @@ class StoryTest < ActiveSupport::TestCase
 
   def test_approve!
     story = stories(:first)
-    story.approve!
+    mailer_mock = Minitest::Mock.new
+    mailer_mock.expect :deliver_now, nil
+
+    AdminMailer.stub :story_approved, mailer_mock do
+      story.approve!
+    end
+
+    mailer_mock.verify
     assert story.approved?
+    assert_equal "#{story.body} http://localhost:3000/stories/#{story.id}", TwitterInterface.instance.last_tweet
   end
 
   def test_identifier

@@ -16,7 +16,8 @@ class Story < ApplicationRecord
   # approve this story by admin
   def approve!
     self.update!(approved: true)
-    StoryRelayJob.perform_now(self)
+    AdminMailer.story_approved(self).deliver_now
+    TwitterInterface.update(self.body.truncate(100) + ' ' + Rails.application.routes.url_helpers.story_url(self))
   end
 
   # long-form id
