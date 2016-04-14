@@ -251,7 +251,6 @@ DEPENDENCIES
   spring
   turbolinks
   twitter
-  tzinfo-data
   uglifier (~> 3.0)
   web-console (~> 3.0)
 

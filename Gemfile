@@ -30,4 +30,3 @@ end
 
 gem 'simplecov', group: :test
 gem 'sdoc', '~> 0.4', group: :doc
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
