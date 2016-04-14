@@ -3,5 +3,6 @@
 [![Build Status](https://travis-ci.org/kddeisz/wm-memories.svg?branch=master)](https://travis-ci.org/kddeisz/wm-memories)
 [![Coverage Status](https://coveralls.io/repos/github/kddeisz/wm-memories/badge.svg?branch=master)](https://coveralls.io/github/kddeisz/wm-memories?branch=master)
 [![Code Climate](https://codeclimate.com/github/kddeisz/wm-memories/badges/gpa.svg)](https://codeclimate.com/github/kddeisz/wm-memories)
+[![Dependency Status](https://gemnasium.com/badges/github.com/kddeisz/wm-memories.svg)](https://gemnasium.com/github.com/kddeisz/wm-memories)
 
 WM Memories is a website for hosting memories collected from the College of William and Mary. It is currently a [Rails 5.0.0.beta3](http://rubyonrails.org/) application hosted on [heroku](https://www.heroku.com).
