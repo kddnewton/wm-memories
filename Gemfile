@@ -23,10 +23,10 @@ group :development do
   gem 'spring'
 end
 
-group :development, :test do
+group :test do
   gem 'coveralls', require: false
-  gem 'rubocop'
+  gem 'simplecov'
 end
 
-gem 'simplecov', group: :test
+gem 'rubocop', group: %i[development test]
 gem 'sdoc', '~> 0.4', group: :doc
