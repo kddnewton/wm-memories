@@ -20,7 +20,7 @@ class TwitterInterfaceTest < ActiveSupport::TestCase
     unset_twitter_instance
     Rails.stub(:env, ActiveSupport::StringInquirer.new('production')) do
       switch_client_constant do
-        assert_kind_of FakeClient, TwitterInterface.instance
+        assert_kind_of FakeClient, TwitterInterface.instance.client
       end
     end
     unset_twitter_instance
@@ -28,19 +28,19 @@ class TwitterInterfaceTest < ActiveSupport::TestCase
 
   private
 
-    def switch_client_constant
-      client = Twitter::REST::Client
-      begin
-        Twitter::REST.send(:remove_const, :Client)
-        Twitter::REST.const_set(:Client, FakeClient)
-        yield
-      ensure
-        Twitter::REST.send(:remove_const, :Client)
-        Twitter::REST.const_set(:Client, client)
-      end
+  def switch_client_constant
+    client = Twitter::REST::Client
+    begin
+      Twitter::REST.send(:remove_const, :Client)
+      Twitter::REST.const_set(:Client, FakeClient)
+      yield
+    ensure
+      Twitter::REST.send(:remove_const, :Client)
+      Twitter::REST.const_set(:Client, client)
     end
+  end
 
-    def unset_twitter_instance
-      TwitterInterface.instance_variable_set(:@instance, nil)
-    end
+  def unset_twitter_instance
+    TwitterInterface.instance_variable_set(:@instance, nil)
+  end
 end

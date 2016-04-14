@@ -4,14 +4,23 @@ class AdminMailer < ApplicationMailer
   def story_approved(story)
     @story = story
     emails = Subscription.validated.pluck(:email)
-    mail(to: 'noreply@wm-memories.herokuapp.com', subject: I18n.t('mailers.admin_mailer.story_approved.subject', story_identifier: story.identifier), bcc: emails)
+    mail(
+      to: 'noreply@wm-memories.herokuapp.com',
+      subject: I18n.t('mailers.admin_mailer.story_approved.subject', story_identifier: story.identifier),
+      bcc: emails
+    )
   end
 
   # notify admins of a new story
   def story_created(story)
     @story = story
     emails = Admin.pluck(:email)
-    mail(to: emails, subject: I18n.t('mailers.admin_mailer.story_created.subject', story_identifier: story.identifier)) if emails.any?
+    if emails.any?
+      mail(
+        to: emails,
+        subject: I18n.t('mailers.admin_mailer.story_created.subject', story_identifier: story.identifier)
+      )
+    end
   end
 
   # send an email to request verification

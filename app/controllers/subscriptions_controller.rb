@@ -8,9 +8,7 @@ class SubscriptionsController < ApplicationController
   # POST /subscriptions
   def create
     @subscription = Subscription.new(subscription_params)
-    unless @subscription.save
-      render :new
-    end
+    render :new unless @subscription.save
   end
 
   # GET /subscriptions/:id/verify
@@ -21,8 +19,8 @@ class SubscriptionsController < ApplicationController
 
   private
 
-    # strong params for subscriptions
-    def subscription_params
-      params.require(:subscription).permit(:email)
-    end
+  # strong params for subscriptions
+  def subscription_params
+    params.require(:subscription).permit(:email)
+  end
 end

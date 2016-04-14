@@ -12,10 +12,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3'
 
-gem 'sdoc', '~> 0.4', group: :doc
-
 gem 'twitter'
 gem 'paperclip'
+gem 'social-share-button'
 
 group :development do
   gem 'web-console', '~> 3.0'
@@ -23,9 +22,11 @@ group :development do
   gem 'spring'
 end
 
+group :development, :test do
+  gem 'coveralls', require: false
+  gem 'rubocop'
+end
+
 gem 'simplecov', group: :test
+gem 'sdoc', '~> 0.4', group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'coveralls', require: false
-
-gem 'social-share-button'

@@ -2,8 +2,18 @@ module ApplicationHelper
 
   # build the main google map from the given stories
   def init_map_from(stories)
-    stories = stories.map { |story| { lat: story.lat, lng: story.lng, body: j(story.identifier + ': ' + truncate(story.body, length: 200)), storyId: story.id } }
-    javascript_tag("window.Memories.init(#{Rails.configuration.x.lat}, #{Rails.configuration.x.lng}, #{stories.to_json})")
+    stories = stories.map { |story| view_story_from(story) }.to_json
+    javascript_tag("window.Memories.init(#{Rails.configuration.x.lat}, #{Rails.configuration.x.lng}, #{stories})")
+  end
+
+  # build a json structure a story for the view
+  def view_story_from(story)
+    {
+      lat: story.lat,
+      lng: story.lng,
+      body: j(story.identifier + ': ' + truncate(story.body, length: 200)),
+      storyId: story.id
+    }
   end
 
   # build a nav link
@@ -30,5 +40,5 @@ module ApplicationHelper
     components = ['views'] + params[:controller].split('/') + [key]
     t(components.join('.'), substitutions)
   end
-  alias_method :vt, :view_translate
+  alias vt view_translate
 end

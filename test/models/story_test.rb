@@ -37,7 +37,7 @@ class StoryTest < ActiveSupport::TestCase
 
   def test_identifier
     story = stories(:first)
-    assert_equal ("Story %03d (Class of 2013)" % story.id), story.identifier
+    assert_equal ('Story %03d (Class of 2013)' % story.id), story.identifier
   end
 
   def test_photo_proxies=
@@ -49,8 +49,8 @@ class StoryTest < ActiveSupport::TestCase
 
   private
 
-    # a fake uploaded file for testing the photo proxies
-    def uploaded_file(filename)
-      Rack::Test::UploadedFile.new(Rails.root.join('test', 'support', filename))
-    end
+  # a fake uploaded file for testing the photo proxies
+  def uploaded_file(filename)
+    Rack::Test::UploadedFile.new(Rails.root.join('test', 'support', filename))
+  end
 end

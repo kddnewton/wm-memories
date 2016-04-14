@@ -17,9 +17,7 @@ class StoriesController < ApplicationController
   # POST /stories
   def create
     @story = Story.new(story_params)
-    unless @story.save
-      render :create_error
-    end
+    render :create_error unless @story.save
   end
 
   # GET /stories/feed
@@ -35,8 +33,8 @@ class StoriesController < ApplicationController
 
   private
 
-    # strong params for stories
-    def story_params
-      params.require(:story).permit(:year, :body, :lat, :lng, { photo_proxies: [] })
-    end
+  # strong params for stories
+  def story_params
+    params.require(:story).permit(:year, :body, :lat, :lng, photo_proxies: [])
+  end
 end

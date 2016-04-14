@@ -11,9 +11,9 @@ class EmailFixture
 
   private
 
-    # read the part from a fixture
-    def read(part, current_binding)
-      plain = IO.readlines(Rails.root.join('test', 'fixtures', 'admin_mailer', "#{@name}.#{part}.erb")).join
-      ERB.new(plain).result(current_binding)
-    end
+  # read the part from a fixture
+  def read(part, current_binding)
+    plain = IO.readlines(Rails.root.join('test', 'fixtures', 'admin_mailer', "#{@name}.#{part}.erb")).join
+    ERB.new(plain).result(current_binding)
+  end
 end

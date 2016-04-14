@@ -1,0 +1,42 @@
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+  TargetRubyVersion: 2.3
+
+# Increase to github width
+Metrics/LineLength:
+  Max: 117
+
+# Document later! Procrastinate now!
+Style/Documentation:
+  Enabled: false
+
+# Ignore because whitespace is good
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+# Ignore because whitespace is good
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+# It's weird not doing this
+Style/FormatString:
+  Enabled: false
+
+# Disabling for this until I have time
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Useful and concise in gsub statements
+Style/PerlBackrefs:
+  Enabled: false
+
+# Prefer [] to () default
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': '[]'
+    '%w': '[]'
