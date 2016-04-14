@@ -5,6 +5,7 @@ AllCops:
     - 'bin/**/*'
     - 'config/**/*'
     - 'db/**/*'
+    - 'vendor/**/*'
   TargetRubyVersion: 2.3
 
 # Increase to github width
