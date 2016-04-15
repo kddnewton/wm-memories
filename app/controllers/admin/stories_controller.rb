@@ -20,4 +20,3 @@ class Admin::StoriesController < ApplicationController
     render 'stories/show'
   end
 end
-end
