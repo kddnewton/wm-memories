@@ -81,6 +81,6 @@ var MapManager = {
       zoom: 18,
       zoomControl: false
     });
-    new google.maps.Marker({ map: map, position: latLng });
+    return new google.maps.Marker({ map: map, position: latLng });
   }
 };
