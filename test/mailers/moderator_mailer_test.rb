@@ -2,11 +2,11 @@
 require 'test_helper'
 require 'support/email_fixture'
 
-class AdminMailerTest < ActionMailer::TestCase
+class ModeratorMailerTest < ActionMailer::TestCase
 
   def test_story_approved_properties
     story = stories(:first)
-    email = AdminMailer.story_approved(story).deliver_now
+    email = ModeratorMailer.story_approved(story).deliver_now
     subscribed_emails = Subscription.validated.pluck(:email)
 
     assert_not ActionMailer::Base.deliveries.empty?
@@ -18,30 +18,30 @@ class AdminMailerTest < ActionMailer::TestCase
   end
 
   def test_story_approved_body
-    email = AdminMailer.story_approved(stories(:first)).deliver_now
+    email = ModeratorMailer.story_approved(stories(:first)).deliver_now
     assert_email_body email, 'story_approved'
   end
 
   def test_story_created_properties
     story = stories(:first)
-    email = AdminMailer.story_created(story).deliver_now
-    admin_emails = Admin.pluck(:email)
+    email = ModeratorMailer.story_created(story).deliver_now
+    moderator_emails = Moderator.pluck(:email)
 
     assert_not ActionMailer::Base.deliveries.empty?
     assert_email_properties(email,
                             from: ['noreply@wm-memories.herokuapp.com'],
-                            to: admin_emails,
+                            to: moderator_emails,
                             subject: "[WM-Memories] #{story.identifier} Created")
   end
 
   def test_story_created_body
-    email = AdminMailer.story_created(stories(:first)).deliver_now
+    email = ModeratorMailer.story_created(stories(:first)).deliver_now
     assert_email_body email, 'story_created'
   end
 
   def test_subscription_verification_properties
     subscription = subscriptions(:avery)
-    email = AdminMailer.subscription_verification(subscription).deliver_now
+    email = ModeratorMailer.subscription_verification(subscription).deliver_now
 
     assert_not ActionMailer::Base.deliveries.empty?
     assert_email_properties(email,
@@ -51,7 +51,7 @@ class AdminMailerTest < ActionMailer::TestCase
   end
 
   def test_subscription_verification_body
-    email = AdminMailer.subscription_verification(subscriptions(:avery)).deliver_now
+    email = ModeratorMailer.subscription_verification(subscriptions(:avery)).deliver_now
     assert_email_body email, 'subscription_verification'
   end
 

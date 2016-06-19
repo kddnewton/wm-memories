@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class AdminMailer < ApplicationMailer
+class ModeratorMailer < ApplicationMailer
 
   # notify subscribers of a story approval
   def story_approved(story)
@@ -7,19 +7,19 @@ class AdminMailer < ApplicationMailer
     emails = Subscription.validated.pluck(:email)
     mail(
       to: 'noreply@wm-memories.herokuapp.com',
-      subject: I18n.t('mailers.admin_mailer.story_approved.subject', story_identifier: story.identifier),
+      subject: I18n.t('mailers.moderator_mailer.story_approved.subject', story_identifier: story.identifier),
       bcc: emails
     )
   end
 
-  # notify admins of a new story
+  # notify moderators of a new story
   def story_created(story)
     @story = story
-    emails = Admin.pluck(:email)
+    emails = Moderator.pluck(:email)
     if emails.any?
       mail(
         to: emails,
-        subject: I18n.t('mailers.admin_mailer.story_created.subject', story_identifier: story.identifier)
+        subject: I18n.t('mailers.moderator_mailer.story_created.subject', story_identifier: story.identifier)
       )
     end
   end
@@ -27,6 +27,6 @@ class AdminMailer < ApplicationMailer
   # send an email to request verification
   def subscription_verification(subscription)
     @subscription = subscription
-    mail(to: subscription.email, subject: I18n.t('mailers.admin_mailer.subscription_verification.subject'))
+    mail(to: subscription.email, subject: I18n.t('mailers.moderator_mailer.subscription_verification.subject'))
   end
 end

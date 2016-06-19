@@ -21,7 +21,7 @@ class SubscriptionTest < ActiveSupport::TestCase
     mailer_mock = Minitest::Mock.new
     mailer_mock.expect :deliver_now, nil
 
-    AdminMailer.stub :subscription_verification, mailer_mock do
+    ModeratorMailer.stub :subscription_verification, mailer_mock do
       assert subscription.save
     end
     mailer_mock.verify

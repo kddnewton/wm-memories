@@ -10,14 +10,14 @@ class Story < ApplicationRecord
   scope :feed_ordered, -> { order('created_at DESC') }
   scope :search, ->(query) { where('body LIKE ?', "%#{query}%") }
 
-  after_create { AdminMailer.story_created(self).deliver_now }
+  after_create { ModeratorMailer.story_created(self).deliver_now }
 
   attr_reader :photo_proxies
 
-  # approve this story by admin
+  # approve this story by moderator
   def approve!
     update!(approved: true)
-    AdminMailer.story_approved(self).deliver_now
+    ModeratorMailer.story_approved(self).deliver_now
     TwitterInterface.update(body.truncate(100) + ' ' + Rails.application.routes.url_helpers.story_url(self))
   end
 

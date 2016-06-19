@@ -16,7 +16,7 @@ class StoryTest < ActiveSupport::TestCase
     mailer_mock = Minitest::Mock.new
     mailer_mock.expect :deliver_now, nil
 
-    AdminMailer.stub :story_created, mailer_mock do
+    ModeratorMailer.stub :story_created, mailer_mock do
       assert story.save
     end
     mailer_mock.verify
@@ -27,7 +27,7 @@ class StoryTest < ActiveSupport::TestCase
     mailer_mock = Minitest::Mock.new
     mailer_mock.expect :deliver_now, nil
 
-    AdminMailer.stub :story_approved, mailer_mock do
+    ModeratorMailer.stub :story_approved, mailer_mock do
       story.approve!
     end
 

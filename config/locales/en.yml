@@ -33,7 +33,7 @@ en:
     'no': 'No'
     'yes': 'Yes'
   mailers:
-    admin_mailer:
+    moderator_mailer:
       story_approved:
         subject: '[WM-Memories] %{story_identifier}'
       story_created:
