@@ -2,14 +2,14 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem 'rails', '~> 5.0.0.rc2'
+gem 'rails', '~> 5.0.0'
 gem 'pg'
 gem 'puma'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 3.0'
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5.0.0.beta2'
+gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3'
 
 gem 'twitter'
