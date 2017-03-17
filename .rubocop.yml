@@ -8,32 +8,14 @@ AllCops:
     - 'vendor/**/*'
   TargetRubyVersion: 2.3
 
-# Increase to github width
-Metrics/LineLength:
-  Max: 117
+Bundler/OrderedGems:
+  Enabled: false
 
-# Document later! Procrastinate now!
+Metrics/LineLength:
+  Max: 120
+
 Style/Documentation:
   Enabled: false
 
-# Ignore because whitespace is good
-Style/EmptyLinesAroundClassBody:
-  Enabled: false
-
-# Ignore because whitespace is good
-Style/EmptyLinesAroundModuleBody:
-  Enabled: false
-
-# It's weird not doing this
 Style/FormatString:
-  Enabled: false
-
-# Useful and concise in gsub statements
-Style/PerlBackrefs:
-  Enabled: false
-
-# Prefer [] to () default
-Style/PercentLiteralDelimiters:
-  PreferredDelimiters:
-    '%i': '[]'
-    '%w': '[]'
+  EnforcedStyle: percent

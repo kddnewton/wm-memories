@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 class EmailFixture
-
   attr_reader :text, :html
 
   # store the text and html

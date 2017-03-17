@@ -3,7 +3,6 @@ require 'test_helper'
 require 'support/email_fixture'
 
 class ModeratorMailerTest < ActionMailer::TestCase
-
   def test_story_approved_properties
     story = stories(:first)
     email = ModeratorMailer.story_approved(story).deliver_now

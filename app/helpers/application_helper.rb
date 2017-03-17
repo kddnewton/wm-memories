@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 module ApplicationHelper
-
   # build the main google map from the given stories
   def init_map_from(stories)
     stories = stories.map { |story| view_story_from(story) }.to_json

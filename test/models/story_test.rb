@@ -2,7 +2,6 @@
 require 'test_helper'
 
 class StoryTest < ActiveSupport::TestCase
-
   def test_presence_validations
     assert_validates_presence_of Story, :body, :lat, :lng, :year
   end

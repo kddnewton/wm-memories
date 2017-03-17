@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 module ValidationAssertions
-
   private
 
     # assert that the given klass has a validator on the given attribute

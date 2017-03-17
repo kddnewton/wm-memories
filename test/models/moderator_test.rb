@@ -2,7 +2,6 @@
 require 'test_helper'
 
 class ModeratorTest < ActiveSupport::TestCase
-
   def test_email_presence_validation
     assert_validates_presence_of Moderator, :email
   end

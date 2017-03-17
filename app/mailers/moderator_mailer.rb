@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 class ModeratorMailer < ApplicationMailer
-
   # notify subscribers of a story approval
   def story_approved(story)
     @story = story
@@ -16,12 +15,12 @@ class ModeratorMailer < ApplicationMailer
   def story_created(story)
     @story = story
     emails = Moderator.pluck(:email)
-    if emails.any?
-      mail(
-        to: emails,
-        subject: I18n.t('mailers.moderator_mailer.story_created.subject', story_identifier: story.identifier)
-      )
-    end
+    return if emails.empty?
+
+    mail(
+      to: emails,
+      subject: I18n.t('mailers.moderator_mailer.story_created.subject', story_identifier: story.identifier)
+    )
   end
 
   # send an email to request verification

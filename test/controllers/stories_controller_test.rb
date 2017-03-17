@@ -2,7 +2,6 @@
 require 'test_helper'
 
 class StoriesControllerTest < ActionController::TestCase
-
   def test_index
     get :index
     assert_response :success

@@ -3,7 +3,6 @@ require 'test_helper'
 
 module Admin
   class StoriesControllerTest < ActionController::TestCase
-
     def setup
       authorize_basic_http
     end

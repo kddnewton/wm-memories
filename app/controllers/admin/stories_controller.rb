@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 module Admin
   class StoriesController < ApplicationController
-
     authenticate_admin
 
     # GET /admin/stories
