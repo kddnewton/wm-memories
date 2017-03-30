@@ -1,8 +1,7 @@
-# frozen_string_literal: true
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.4.1'
 
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.0.2'
 gem 'pg'
 gem 'puma'
 

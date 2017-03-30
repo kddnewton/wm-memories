@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 class ModeratorMailer < ApplicationMailer
   # notify subscribers of a story approval
   def story_approved(story)

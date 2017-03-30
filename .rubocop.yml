@@ -6,7 +6,7 @@ AllCops:
     - 'config/**/*'
     - 'db/**/*'
     - 'vendor/**/*'
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.4
 
 Bundler/OrderedGems:
   Enabled: false
@@ -19,3 +19,6 @@ Style/Documentation:
 
 Style/FormatString:
   EnforcedStyle: percent
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
