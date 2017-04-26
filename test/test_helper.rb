@@ -18,10 +18,6 @@ module ActiveSupport
     fixtures :all
 
     include ValidationAssertions
-
-    def pending
-      assert false, "Pending #{caller[0]}"
-    end
   end
 end
 
