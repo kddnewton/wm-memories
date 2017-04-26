@@ -1,9 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 
 require 'simplecov'
-SimpleCov.start('rails') do
-  add_group('Cable', 'app/channels')
-end
+SimpleCov.start('rails')
 
 if ENV['CI']
   require 'coveralls'
@@ -20,10 +18,6 @@ module ActiveSupport
     fixtures :all
 
     include ValidationAssertions
-
-    def pending
-      assert false, "Pending #{caller[0]}"
-    end
   end
 end
 
