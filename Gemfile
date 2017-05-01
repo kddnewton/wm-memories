@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.4.1'
 
-gem 'rails', '~> 5.0.2'
-gem 'iseq_rails_tools', '~> 0.0.0', '>= 0.0.6'
+gem 'rails', '~> 5.1.0'
+gem 'iseq_rails_tools', '~> 0.0.0', '>= 0.0.7'
 gem 'pg'
 gem 'puma'
 

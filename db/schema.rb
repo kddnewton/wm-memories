@@ -15,35 +15,35 @@ ActiveRecord::Schema.define(version: 20160619152538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "moderators", force: :cascade do |t|
-    t.string   "email",      null: false
+  create_table "moderators", id: :serial, force: :cascade do |t|
+    t.string "email", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.integer  "story_id"
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
+  create_table "photos", id: :serial, force: :cascade do |t|
+    t.integer "story_id"
+    t.string "attachment_file_name"
+    t.string "attachment_content_type"
+    t.integer "attachment_file_size"
     t.datetime "attachment_updated_at"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "stories", force: :cascade do |t|
-    t.integer  "year"
-    t.text     "body"
+  create_table "stories", id: :serial, force: :cascade do |t|
+    t.integer "year"
+    t.text "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "lat",        precision: 10, scale: 6
-    t.decimal  "lng",        precision: 10, scale: 6
-    t.boolean  "approved",                            default: false, null: false
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "lng", precision: 10, scale: 6
+    t.boolean "approved", default: false, null: false
   end
 
-  create_table "subscriptions", force: :cascade do |t|
-    t.string   "email",                      null: false
-    t.boolean  "validated",  default: false, null: false
+  create_table "subscriptions", id: :serial, force: :cascade do |t|
+    t.string "email", null: false
+    t.boolean "validated", default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
