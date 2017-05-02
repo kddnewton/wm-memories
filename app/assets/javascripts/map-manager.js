@@ -59,7 +59,7 @@ var MapManager = {
   loadMarker: function (lat, lng, body, storyId) {
     var marker = new google.maps.Marker({ map: this.map, position: new google.maps.LatLng(lat, lng) });
     var infoWindow = new google.maps.InfoWindow({
-      content: body + "<br /><br /><a href='/stories/#{storyId}'>Read more...</a>"
+      content: body + "<br /><br /><a href='/stories/" + storyId + "'>Read more...</a>"
     });
 
     this.infoWindows.push(infoWindow);
