@@ -1,14 +1,8 @@
 language: ruby
+rvm: 2.4.1
 before_script: bundle exec rake db:create
 cache: bundler
-matrix:
-  fast_finish: true
-  include:
-  - rvm: 2.4.1
-    script: bundle exec rails test
-  - rvm: 2.4.1
-    script: bundle exec rails test:system
-  - rvm: 2.4.1
-    script: bundle exec rubocop
-  - rvm: 2.4.1
-    script: bundle exec brakeman -z
+script:
+- bundle exec rails test
+- bundle exec rubocop
+- bundle exec brakeman -z
