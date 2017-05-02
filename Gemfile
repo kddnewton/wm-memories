@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 
 gem 'rails', '~> 5.1.0'
-gem 'iseq_rails_tools', '>= 0.0.7'
+gem 'iseq_rails_tools', '>= 0.0.8'
 gem 'pg'
 gem 'puma'
 
