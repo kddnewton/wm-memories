@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 
 gem 'rails', '~> 5.1.0'
-gem 'iseq_rails_tools', '~> 0.0.0', '>= 0.0.7'
+gem 'iseq_rails_tools', '>= 0.0.7'
 gem 'pg'
 gem 'puma'
 
@@ -22,11 +22,14 @@ group :development do
 end
 
 group :test do
-  gem 'coveralls', require: false
-  gem 'simplecov', require: false
+  gem 'coveralls'
+  gem 'simplecov'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :development, :test do
-  gem 'brakeman', require: false
-  gem 'rubocop', require: false
+  gem 'brakeman'
+  gem 'rubocop'
+  gem 'pry'
 end

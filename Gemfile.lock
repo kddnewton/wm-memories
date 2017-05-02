@@ -51,9 +51,19 @@ GEM
     brakeman (3.6.1)
     buftok (0.2.0)
     builder (3.2.3)
+    capybara (2.14.0)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    childprocess (0.6.3)
+      ffi (~> 1.0, >= 1.0.11)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -76,6 +86,7 @@ GEM
     execjs (2.7.0)
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
+    ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     http (2.2.2)
@@ -123,6 +134,10 @@ GEM
       ast (~> 2.2)
     pg (0.20.0)
     powerpack (0.1.1)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     public_suffix (2.0.5)
     puma (3.8.2)
     rack (2.0.1)
@@ -161,6 +176,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
+    rubyzip (1.2.1)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -168,12 +184,17 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (3.4.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     simple_oauth (0.3.1)
     simplecov (0.14.1)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    slop (3.6.0)
     social-share-button (0.10.0)
       coffee-rails
     spring (2.0.1)
@@ -217,9 +238,12 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    websocket (1.2.4)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -227,15 +251,18 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3)
   brakeman
+  capybara
   coveralls
-  iseq_rails_tools (~> 0.0.0, >= 0.0.7)
+  iseq_rails_tools (>= 0.0.7)
   jquery-rails
   paperclip
   pg
+  pry
   puma
   rails (~> 5.1.0)
   rubocop
   sass-rails (~> 5.0)
+  selenium-webdriver
   simplecov
   social-share-button
   spring
