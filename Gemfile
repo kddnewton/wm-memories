@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.4.1'
 
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.1.3'
 gem 'iseq_rails_tools', '>= 0.0.9'
 gem 'pg'
 gem 'puma'
 
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '~> 3.0'
+gem 'uglifier', '~> 3.2'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass', '~> 3.3'
@@ -17,7 +17,7 @@ gem 'paperclip'
 gem 'social-share-button'
 
 group :development do
-  gem 'web-console', '~> 3.0'
+  gem 'web-console', '~> 3.5'
   gem 'spring'
 end
 
