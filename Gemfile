@@ -1,35 +1,34 @@
 source 'https://rubygems.org'
 ruby '2.4.3'
 
-gem 'rails', '~> 5.1.4'
-gem 'bootsnap'
-gem 'pg'
-gem 'puma'
+gem 'rails', '~> 5.1'
+gem 'bootsnap', '~> 1.1'
+gem 'pg', '~> 0.21'
+gem 'puma', '~> 3.11'
 
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '~> 3.2'
-gem 'jquery-rails'
-gem 'turbolinks'
+gem 'uglifier', '~> 4.0'
+gem 'jquery-rails', '~> 4.3'
+gem 'turbolinks', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3'
 
-gem 'twitter'
-gem 'paperclip'
-gem 'social-share-button'
+gem 'twitter', '~> 6.2'
+gem 'paperclip', '~> 5.1'
+gem 'social-share-button', '~> 1.1'
 
 group :development do
   gem 'web-console', '~> 3.5'
-  gem 'spring'
+  gem 'spring', '~> 2.0'
 end
 
 group :test do
-  gem 'coveralls'
-  gem 'simplecov'
-  gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'simplecov', '~> 0.15'
+  gem 'capybara', '~> 2.16'
+  gem 'selenium-webdriver', '~> 3.8'
 end
 
 group :development, :test do
-  gem 'brakeman'
-  gem 'rubocop'
-  gem 'pry'
+  gem 'brakeman', '~> 4.1'
+  gem 'rubocop', '~> 0.52'
+  gem 'pry', '~> 0.11'
 end

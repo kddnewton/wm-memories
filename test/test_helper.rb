@@ -3,11 +3,6 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'simplecov'
 SimpleCov.start('rails')
 
-if ENV['CI']
-  require 'coveralls'
-  Coveralls.wear!
-end
-
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'minitest/mock'
