@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
-ruby '2.4.3'
+ruby '2.5.0'
 
-gem 'rails', '~> 5.1'
+gem 'rails', '~> 5.2.0.rc1'
 gem 'bootsnap', '~> 1.1'
 gem 'pg', '~> 0.21'
 gem 'puma', '~> 3.11'
 
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '~> 4.0'
+gem 'uglifier', '~> 4.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'turbolinks', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3'

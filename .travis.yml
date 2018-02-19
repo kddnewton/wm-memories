@@ -1,8 +1,8 @@
 language: ruby
 rvm: 2.4.3
-before_script: bundle exec rake db:create
+before_script: bin/rails db:create
 cache: bundler
 script:
-- bundle exec rails test
+- bin/rails test
 - bundle exec rubocop
 - bundle exec brakeman -z
