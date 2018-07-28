@@ -1,8 +1,8 @@
 language: ruby
-rvm: 2.5.0
+rvm: 2.5.1
 before_script: bin/rails db:create
 cache: bundler
 script:
 - bin/rails test
-- bundle exec rubocop
+- bundle exec rubocop --parallel
 - bundle exec brakeman -z
