@@ -18,7 +18,9 @@ class Story < ApplicationRecord
   def approve!
     update!(approved: true)
     ModeratorMailer.story_approved(self).deliver_now
-    TwitterInterface.update(body.truncate(100) + ' ' + Rails.application.routes.url_helpers.story_url(self))
+
+    link = Rails.application.routes.url_helpers.story_url(self)
+    TwitterInterface.update("#{body.truncate(100)} #{link}")
   end
 
   # long-form id

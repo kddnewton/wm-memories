@@ -23,7 +23,10 @@ module ActionController
     # authorize using basic http authorization
     def authorize_basic_http
       @request.env['HTTP_AUTHORIZATION'] =
-        ActionController::HttpAuthentication::Basic.encode_credentials('admin', Rails.application.secrets.admin_pass)
+        ActionController::HttpAuthentication::Basic.encode_credentials(
+          'admin',
+          Rails.application.secrets.admin_pass
+        )
     end
   end
 end

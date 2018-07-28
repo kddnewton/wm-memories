@@ -11,13 +11,22 @@ class ApplicationHelperTest < ActionView::TestCase
     story = stories(:first)
     stories = Story.where(id: story.id)
 
-    expected = [{ lat: story.lat, lng: story.lng, body: "#{story.identifier}: #{story.body}", storyId: story.id }]
+    expected = [{
+      lat: story.lat,
+      lng: story.lng,
+      body: "#{story.identifier}: #{story.body}",
+      storyId: story.id
+    }]
+
     assert_equal expected.to_json, init_map_from(stories).match(/\[.*\]/)[0]
   end
 
   def test_nav_link
-    expected = '<a class="col-sm-2 col-xs-4 " href="/"><span class="glyphicon glyphicon-test"></span>' \
+    expected =
+      '<a class="col-sm-2 col-xs-4 " href="/">' \
+      '<span class="glyphicon glyphicon-test"></span>' \
       '&nbsp<span class="hidden-xs">test</span></a>'
+
     assert_equal expected, nav_link('test', root_path, :test)
   end
 

@@ -4,7 +4,10 @@ module ApplicationHelper
   # build the main google map from the given stories
   def init_map_from(stories)
     stories = stories.map { |story| view_story_from(story) }.to_json
-    javascript_tag("MapManager.init(#{Rails.configuration.x.lat}, #{Rails.configuration.x.lng}, #{stories})")
+    javascript_tag(
+      "MapManager.init(#{Rails.configuration.x.lat}, " \
+      "#{Rails.configuration.x.lng}, #{stories})"
+    )
   end
 
   # build a json structure a story for the view
@@ -19,7 +22,9 @@ module ApplicationHelper
 
   # build a nav link
   def nav_link(label, path, glyph)
-    link_to(path, class: 'col-sm-2 col-xs-4 ' + (current_page?(path) ? 'active' : '')) do
+    css_class = 'col-sm-2 col-xs-4 ' + (current_page?(path) ? 'active' : '')
+
+    link_to(path, class: css_class) do
       concat content_tag(:span, nil, class: "glyphicon glyphicon-#{glyph}")
       concat '&nbsp'.html_safe
       concat content_tag(:span, label, class: 'hidden-xs')

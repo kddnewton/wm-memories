@@ -8,7 +8,8 @@ class SubscriptionTest < ActiveSupport::TestCase
   end
 
   def test_email_uniqueness_validation
-    assert_validates_uniqueness_of Subscription, :email, message: 'is already subscribed'
+    assert_validates_uniqueness_of Subscription, :email,
+                                   message: 'is already subscribed'
   end
 
   def test_email_format_validation

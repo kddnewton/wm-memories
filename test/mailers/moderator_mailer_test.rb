@@ -9,12 +9,13 @@ class ModeratorMailerTest < ActionMailer::TestCase
     email = ModeratorMailer.story_approved(story).deliver_now
     subscribed_emails = Subscription.validated.pluck(:email)
 
-    assert_not ActionMailer::Base.deliveries.empty?
-    assert_email_properties(email,
-                            from: ['noreply@wm-memories.herokuapp.com'],
-                            to: ['noreply@wm-memories.herokuapp.com'],
-                            subject: "[WM-Memories] #{story.identifier}",
-                            bcc: subscribed_emails)
+    assert_email_properties(
+      email,
+      from: ['noreply@wm-memories.herokuapp.com'],
+      to: ['noreply@wm-memories.herokuapp.com'],
+      subject: "[WM-Memories] #{story.identifier}",
+      bcc: subscribed_emails
+    )
   end
 
   def test_story_approved_body
@@ -28,10 +29,13 @@ class ModeratorMailerTest < ActionMailer::TestCase
     moderator_emails = Moderator.pluck(:email)
 
     assert_not ActionMailer::Base.deliveries.empty?
-    assert_email_properties(email,
-                            from: ['noreply@wm-memories.herokuapp.com'],
-                            to: moderator_emails,
-                            subject: "[WM-Memories] #{story.identifier} Created")
+
+    assert_email_properties(
+      email,
+      from: ['noreply@wm-memories.herokuapp.com'],
+      to: moderator_emails,
+      subject: "[WM-Memories] #{story.identifier} Created"
+    )
   end
 
   def test_story_created_body
@@ -44,14 +48,18 @@ class ModeratorMailerTest < ActionMailer::TestCase
     email = ModeratorMailer.subscription_verification(subscription).deliver_now
 
     assert_not ActionMailer::Base.deliveries.empty?
-    assert_email_properties(email,
-                            from: ['noreply@wm-memories.herokuapp.com'],
-                            to: [subscription.email],
-                            subject: '[WM-Memories] Email Verification')
+    assert_email_properties(
+      email,
+      from: ['noreply@wm-memories.herokuapp.com'],
+      to: [subscription.email],
+      subject: '[WM-Memories] Email Verification'
+    )
   end
 
   def test_subscription_verification_body
-    email = ModeratorMailer.subscription_verification(subscriptions(:avery)).deliver_now
+    subscription = subscriptions(:avery)
+    email = ModeratorMailer.subscription_verification(subscription).deliver_now
+
     assert_email_body email, 'subscription_verification'
   end
 

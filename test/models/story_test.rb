@@ -12,7 +12,8 @@ class StoryTest < ActiveSupport::TestCase
   end
 
   def test_after_create
-    story = Story.new(body: 'test body', year: 1900, lat: Rails.configuration.x.lat, lng: Rails.configuration.x.lng)
+    story = build
+
     mailer_mock = Minitest::Mock.new
     mailer_mock.expect :deliver_now, nil
 
@@ -33,7 +34,9 @@ class StoryTest < ActiveSupport::TestCase
 
     mailer_mock.verify
     assert story.approved?
-    assert_equal "#{story.body} http://localhost:3000/stories/#{story.id}", TwitterInterface.instance.last_tweet
+
+    assert_equal "#{story.body} http://localhost:3000/stories/#{story.id}",
+                 TwitterInterface.instance.last_tweet
   end
 
   def test_identifier
@@ -43,12 +46,26 @@ class StoryTest < ActiveSupport::TestCase
 
   def test_photo_proxies=
     story = stories(:first)
-    story.photo_proxies = [uploaded_file('image1.png'), uploaded_file('image2.png')]
+    story.photo_proxies = [
+      uploaded_file('image1.png'),
+      uploaded_file('image2.png')
+    ]
+
     assert_equal 2, story.photos.size
-    assert_equal ['image1.png', 'image2.png'], story.photos.map(&:attachment_file_name)
+    assert_equal ['image1.png', 'image2.png'],
+                 story.photos.map(&:attachment_file_name)
   end
 
   private
+
+  def build
+    Story.new(
+      body: 'test body',
+      year: 1900,
+      lat: Rails.configuration.x.lat,
+      lng: Rails.configuration.x.lng
+    )
+  end
 
   # a fake uploaded file for testing the photo proxies
   def uploaded_file(filename)

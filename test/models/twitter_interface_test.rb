@@ -4,7 +4,8 @@ require 'test_helper'
 
 class TwitterInterfaceTest < ActiveSupport::TestCase
   class FakeClient
-    attr_accessor :consumer_key, :consumer_secret, :access_token, :access_token_secret
+    attr_accessor :consumer_key, :consumer_secret, :access_token,
+                  :access_token_secret
 
     def initialize
       yield self

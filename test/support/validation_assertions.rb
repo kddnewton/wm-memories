@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/LineLength
 module ValidationAssertions
   private
 
@@ -14,7 +15,8 @@ module ValidationAssertions
       instance = klass.new(attribute => value)
       assert_not instance.save
       assert_includes instance.errors[attribute], message
-      assert_has_validator klass, attribute, ActiveModel::Validations::FormatValidator
+      assert_has_validator klass, attribute,
+                           ActiveModel::Validations::FormatValidator
     end
   end
 
@@ -24,7 +26,8 @@ module ValidationAssertions
       instance = klass.new(attribute => value)
       assert_not instance.save
       assert_includes instance.errors[attribute], message
-      assert_has_validator klass, attribute, ActiveModel::Validations::InclusionValidator
+      assert_has_validator klass, attribute,
+                           ActiveModel::Validations::InclusionValidator
     end
   end
 
@@ -34,7 +37,8 @@ module ValidationAssertions
       instance = klass.new(attribute => nil)
       assert_not instance.save
       assert_includes instance.errors[attribute], message
-      assert_has_validator klass, attribute, ActiveRecord::Validations::PresenceValidator
+      assert_has_validator klass, attribute,
+                           ActiveRecord::Validations::PresenceValidator
     end
   end
 
@@ -44,7 +48,9 @@ module ValidationAssertions
       instance = klass.new(attribute => klass.first.send(attribute))
       assert_not instance.save
       assert_includes instance.errors[attribute], message
-      assert_has_validator klass, attribute, ActiveRecord::Validations::UniquenessValidator
+      assert_has_validator klass, attribute,
+                           ActiveRecord::Validations::UniquenessValidator
     end
   end
 end
+# rubocop:enable Metrics/LineLength
