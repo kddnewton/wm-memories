@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TwitterInterface
   class Local
     attr_accessor :last_tweet

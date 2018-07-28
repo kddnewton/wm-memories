@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   # build the main google map from the given stories
   def init_map_from(stories)

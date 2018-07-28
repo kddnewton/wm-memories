@@ -22,6 +22,3 @@ Style/Documentation:
 
 Style/FormatString:
   EnforcedStyle: percent
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
