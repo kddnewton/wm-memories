@@ -22,7 +22,7 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov', '~> 0.15'
+  gem 'simplecov', '~> 0.16'
   gem 'capybara', '~> 2.16'
   gem 'selenium-webdriver', '~> 3.8'
 end
