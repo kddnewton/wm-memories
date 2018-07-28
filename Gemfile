@@ -13,7 +13,7 @@ gem 'turbolinks', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3'
 
 gem 'twitter', '~> 6.2'
-gem 'paperclip', '~> 5.1'
+gem 'paperclip', '~> 6.1'
 gem 'social-share-button', '~> 1.1'
 
 group :development do
