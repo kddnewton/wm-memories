@@ -29,6 +29,6 @@ end
 
 group :development, :test do
   gem 'brakeman', '~> 4.1'
-  gem 'rubocop', '~> 0.52'
+  gem 'rubocop', '~> 0.58'
   gem 'pry', '~> 0.11'
 end
