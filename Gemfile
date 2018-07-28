@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.5.0'
 
-gem 'rails', '~> 5.2.0.rc1'
+gem 'rails', '~> 5.2.0'
 gem 'bootsnap', '~> 1.1'
 gem 'pg', '~> 1.0'
 gem 'puma', '~> 3.11'
