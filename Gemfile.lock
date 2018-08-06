@@ -269,7 +269,7 @@ DEPENDENCIES
   rails (~> 5.2.0)
   rubocop (~> 0.58)
   sass-rails (~> 5.0)
-  selenium-webdriver (~> 3.13)
+  selenium-webdriver (~> 3.14)
   simplecov (~> 0.15)
   social-share-button (~> 1.1)
   spring (~> 2.0)
