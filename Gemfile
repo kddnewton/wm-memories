@@ -11,7 +11,7 @@ gem 'puma', '~> 3.12'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 4.1'
 gem 'jquery-rails', '~> 4.3'
-gem 'turbolinks', '~> 5.1'
+gem 'turbolinks', '~> 5.2'
 gem 'bootstrap-sass', '~> 3.3'
 
 gem 'twitter', '~> 6.2'
