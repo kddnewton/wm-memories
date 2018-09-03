@@ -19,13 +19,12 @@ gem 'paperclip', '~> 6.1'
 gem 'social-share-button', '~> 1.1'
 
 group :development do
-  gem 'web-console', '~> 3.6'
   gem 'spring', '~> 2.0'
 end
 
 group :test do
   gem 'simplecov', '~> 0.15'
-  gem 'capybara', '~> 3.6'
+  gem 'capybara', '~> 3.7'
   gem 'selenium-webdriver', '~> 3.14'
 end
 
