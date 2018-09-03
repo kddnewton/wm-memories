@@ -19,7 +19,7 @@ gem 'paperclip', '~> 6.1'
 gem 'social-share-button', '~> 1.1'
 
 group :development do
-  gem 'web-console', '~> 3.6'
+  gem 'web-console', '~> 3.7'
   gem 'spring', '~> 2.0'
 end
 
