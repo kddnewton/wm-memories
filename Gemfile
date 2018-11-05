@@ -30,6 +30,6 @@ end
 
 group :development, :test do
   gem 'brakeman', '~> 4.3'
-  gem 'rubocop', '~> 0.59'
+  gem 'rubocop', '~> 0.60'
   gem 'pry', '~> 0.12'
 end
