@@ -6,7 +6,7 @@ AllCops:
     - 'config/**/*'
     - 'db/**/*'
     - 'vendor/**/*'
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.5
 
 Bundler/OrderedGems:
   Enabled: false

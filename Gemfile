@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.5.1'
+ruby '2.5.3'
 
 gem 'rails', '~> 5.2.1'
 gem 'bootsnap', '~> 1.3'
@@ -19,17 +19,17 @@ gem 'paperclip', '~> 6.1'
 gem 'social-share-button', '~> 1.1'
 
 group :development do
-  gem 'spring', '~> 2.0'
+  gem 'spring'
 end
 
 group :test do
-  gem 'simplecov', '~> 0.15'
-  gem 'capybara', '~> 3.10'
-  gem 'selenium-webdriver', '~> 3.141'
+  gem 'simplecov'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :development, :test do
-  gem 'brakeman', '~> 4.3'
-  gem 'rubocop', '~> 0.59'
-  gem 'pry', '~> 0.12'
+  gem 'brakeman'
+  gem 'rubocop'
+  gem 'pry'
 end
