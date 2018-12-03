@@ -16,7 +16,7 @@ gem 'bootstrap-sass', '~> 3.3'
 
 gem 'twitter', '~> 6.2'
 gem 'paperclip', '~> 6.1'
-gem 'social-share-button', '~> 1.1'
+gem 'social-share-button', '~> 1.2'
 
 group :development do
   gem 'spring'
