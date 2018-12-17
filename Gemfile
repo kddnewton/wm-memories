@@ -12,7 +12,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 4.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'turbolinks', '~> 5.2'
-gem 'bootstrap-sass', '~> 3.3'
+gem 'bootstrap-sass', '~> 3.4'
 
 gem 'twitter', '~> 6.2'
 gem 'paperclip', '~> 6.1'
