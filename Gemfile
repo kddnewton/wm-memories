@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.6.0'
+ruby '2.6.1'
 
-gem 'rails', '~> 5.2.2'
+gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 gem 'bootsnap', '~> 1.4'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 3.12'
