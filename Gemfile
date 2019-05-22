@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.6.1'
+ruby '2.6.3'
 
 gem 'rails', '~> 5.2.3'
 gem 'bootsnap', '~> 1.4'
