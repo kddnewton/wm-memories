@@ -5,7 +5,9 @@ AllCops:
     - 'bin/**/*'
     - 'config/**/*'
     - 'db/**/*'
+    - 'log/**/*'
     - 'vendor/**/*'
+    - 'tmp/**/*'
   TargetRubyVersion: 2.6
 
 Bundler/OrderedGems:
