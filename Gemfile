@@ -8,7 +8,7 @@ gem 'bootsnap', '~> 1.4'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 4.1'
 
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '~> 4.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'turbolinks', '~> 5.2'
