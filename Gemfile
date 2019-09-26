@@ -9,7 +9,7 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 4.2'
 
 gem 'sass-rails', '~> 6.0'
-gem 'uglifier', '~> 4.1'
+gem 'uglifier', '~> 4.2'
 gem 'jquery-rails', '~> 4.3'
 gem 'turbolinks', '~> 5.2'
 gem 'bootstrap-sass', '~> 3.4'
