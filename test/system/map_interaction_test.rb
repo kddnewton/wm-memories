@@ -24,7 +24,13 @@ class MapInteractionTest < ApplicationSystemTestCase
   test 'clicking on a story' do
     visit root_path
 
-    execute_script 'MapManager.infoWindows[0].open(MapManager.map)'
+    execute_script <<~JS
+      MapManager.markers[0].infoWindow.open(
+        MapManager.map,
+        MapManager.markers[0].marker
+      )
+    JS
+
     find('#map a', text: 'Read more...').click
 
     assert_current_path story_path(stories(:second))

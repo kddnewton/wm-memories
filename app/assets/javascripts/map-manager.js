@@ -1,10 +1,10 @@
 var MapManager = {
   activeMarker: null,
-  infoWindows: [],
+  markers: [],
 
   closeInfoWindows: function () {
-    this.infoWindows.forEach(function (infoWindow) {
-      infoWindow.close();
+    this.markers.forEach(function (marker) {
+      marker.infoWindow.close();
     });
   },
 
@@ -62,7 +62,7 @@ var MapManager = {
       content: body + "<br /><br /><a href='/stories/" + storyId + "'>Read more...</a>"
     });
 
-    this.infoWindows.push(infoWindow);
+    this.markers.push({ marker: marker, infoWindow: infoWindow });
     google.maps.event.addListener(marker, 'click', function (event) {
       this.closeInfoWindows();
       infoWindow.open(this.map, marker);
