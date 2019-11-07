@@ -2,8 +2,15 @@
 #   srb rbi todo
 
 # typed: strong
-module ::Anonymous_Delegator_15; end
-module ::Anonymous_Delegator_4; end
+module ::Anonymous_Delegator_10; end
+module ::Anonymous_Delegator_11; end
+module ::Anonymous_Delegator_12; end
+module ::Anonymous_Delegator_13; end
+module ::Anonymous_Delegator_14; end
+module ::Anonymous_Delegator_2; end
+module ::Anonymous_Delegator_25; end
+module ::Anonymous_Delegator_8; end
+module ::Anonymous_Delegator_9; end
 module ::Spring; end
 module ActionMailer::Base::Mail::Message; end
 module ActiveRecord::CollectionCacheKey; end
@@ -88,6 +95,8 @@ module T::Private::Methods::MethodHooks; end
 module T::Private::Methods::MethodHooks; end
 module T::Private::Methods::MethodHooks; end
 module T::Private::Methods::MethodHooks; end
+module T::Private::Methods::MethodHooks; end
+module T::Private::Methods::SingletonMethodHooks; end
 module T::Private::Methods::SingletonMethodHooks; end
 module T::Private::Methods::SingletonMethodHooks; end
 module T::Private::Methods::SingletonMethodHooks; end

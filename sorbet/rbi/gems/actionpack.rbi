@@ -1990,3 +1990,502 @@ class ActionDispatch::Routing::Mapper::Scope
   def scope_level; end
   include Enumerable
 end
+module ActionController::TemplateAssertions
+  def assert_template(options = nil, message = nil); end
+end
+module ActionDispatch::Http::FilterRedirect
+  def filtered_location; end
+  def location_filter_match?; end
+  def location_filters; end
+end
+class ActionDispatch::Response
+  def [](*args, &block); end
+  def []=(*args, &block); end
+  def _cache_control; end
+  def _cache_control=(v); end
+  def abort; end
+  def assign_default_content_type_and_charset!; end
+  def await_commit; end
+  def await_sent; end
+  def before_committed; end
+  def before_sending; end
+  def body; end
+  def body=(body); end
+  def body_parts; end
+  def build_buffer(response, body); end
+  def charset; end
+  def charset=(charset); end
+  def close; end
+  def code; end
+  def commit!; end
+  def committed?; end
+  def content_type; end
+  def content_type=(content_type); end
+  def cookies; end
+  def default_charset; end
+  def default_charset=(obj); end
+  def default_headers; end
+  def default_headers=(obj); end
+  def delete_header(key); end
+  def each(&block); end
+  def get_header(key); end
+  def handle_no_content!; end
+  def has_header?(key); end
+  def header; end
+  def headers; end
+  def initialize(status = nil, header = nil, body = nil); end
+  def media_type; end
+  def message; end
+  def munge_body_object(body); end
+  def parse_content_type(content_type); end
+  def parsed_content_type_header; end
+  def prepare!; end
+  def rack_response(status, header); end
+  def redirect_url; end
+  def request; end
+  def request=(arg0); end
+  def reset_body!; end
+  def response_code; end
+  def return_only_media_type_on_content_type; end
+  def return_only_media_type_on_content_type=(obj); end
+  def self.create(status = nil, header = nil, body = nil, default_headers: nil); end
+  def self.default_charset; end
+  def self.default_charset=(obj); end
+  def self.default_headers; end
+  def self.default_headers=(obj); end
+  def self.merge_default_headers(original, default); end
+  def self.return_only_media_type_on_content_type; end
+  def self.return_only_media_type_on_content_type=(obj); end
+  def send_file(path); end
+  def sending!; end
+  def sending?; end
+  def sending_file=(v); end
+  def sent!; end
+  def sent?; end
+  def set_content_type(content_type, charset); end
+  def set_header(key, v); end
+  def status; end
+  def status=(status); end
+  def status_message; end
+  def stream; end
+  def to_a; end
+  def write(string); end
+  include ActionDispatch::Http::Cache::Response
+  include ActionDispatch::Http::FilterRedirect
+  include MonitorMixin
+  include Rack::Response::Helpers
+end
+class ActionDispatch::Response::Header < Anonymous_Delegator_2
+  def []=(k, v); end
+  def initialize(response, header); end
+  def merge(other); end
+  def to_hash; end
+end
+class ActionDispatch::Response::Buffer
+  def abort; end
+  def body; end
+  def close; end
+  def closed?; end
+  def each(&block); end
+  def each_chunk(&block); end
+  def initialize(response, buf); end
+  def write(string); end
+end
+class ActionDispatch::Response::FileBody
+  def body; end
+  def each; end
+  def initialize(path); end
+  def to_path; end
+end
+class ActionDispatch::Response::ContentTypeHeader < Struct
+  def charset; end
+  def charset=(_); end
+  def mime_type; end
+  def mime_type=(_); end
+  def self.[](*arg0); end
+  def self.inspect; end
+  def self.members; end
+  def self.new(*arg0); end
+end
+class ActionDispatch::Response::RackBody
+  def body; end
+  def close; end
+  def each(*args, &block); end
+  def initialize(response); end
+  def respond_to?(method, include_private = nil); end
+  def to_ary; end
+  def to_path; end
+end
+class AbstractController::Error < StandardError
+end
+class AbstractController::ActionNotFound < StandardError
+end
+class AbstractController::Base
+  def _find_action_name(action_name); end
+  def _handle_action_missing(*args); end
+  def _valid_action_name?(action_name); end
+  def action_method?(name); end
+  def action_methods; end
+  def action_name; end
+  def action_name=(arg0); end
+  def available_action?(action_name); end
+  def controller_path; end
+  def formats; end
+  def formats=(arg0); end
+  def method_for_action(action_name); end
+  def performed?; end
+  def process(action, *args); end
+  def process_action(method_name, *args); end
+  def response_body; end
+  def response_body=(arg0); end
+  def self.abstract!; end
+  def self.abstract; end
+  def self.abstract?; end
+  def self.action_methods; end
+  def self.clear_action_methods!; end
+  def self.controller_path; end
+  def self.inherited(klass); end
+  def self.internal_methods; end
+  def self.method_added(name); end
+  def self.supports_path?; end
+  def send_action(*arg0); end
+  extend ActiveSupport::Configurable::ClassMethods
+  extend ActiveSupport::DescendantsTracker
+  include ActiveSupport::Configurable
+end
+class ActionController::MiddlewareStack < ActionDispatch::MiddlewareStack
+  def build(action, app = nil, &block); end
+  def build_middleware(klass, args, block); end
+end
+class ActionController::MiddlewareStack::Middleware < ActionDispatch::MiddlewareStack::Middleware
+  def initialize(klass, args, actions, strategy, block); end
+  def valid?(action); end
+end
+class ActionController::Metal < AbstractController::Base
+  def content_type(*args, &block); end
+  def content_type=(arg); end
+  def controller_name; end
+  def dispatch(name, request, response); end
+  def headers(*args, &block); end
+  def initialize; end
+  def location(*args, &block); end
+  def location=(arg); end
+  def media_type(*args, &block); end
+  def middleware_stack; end
+  def middleware_stack=(val); end
+  def middleware_stack?; end
+  def params; end
+  def params=(val); end
+  def performed?; end
+  def request; end
+  def request=(arg0); end
+  def reset_session; end
+  def response; end
+  def response=(arg0); end
+  def response_body=(body); end
+  def response_code(*args, &block); end
+  def self.action(name); end
+  def self.binary_params_for?(action); end
+  def self.controller_name; end
+  def self.dispatch(name, req, res); end
+  def self.inherited(base); end
+  def self.make_response!(request); end
+  def self.middleware; end
+  def self.middleware_stack; end
+  def self.middleware_stack=(val); end
+  def self.middleware_stack?; end
+  def self.use(*args, &block); end
+  def session(*args, &block); end
+  def set_request!(request); end
+  def set_response!(response); end
+  def status(*args, &block); end
+  def status=(arg); end
+  def to_a; end
+  def url_for(string); end
+  include ActionController::Testing::Functional
+end
+module ActionController::Testing
+  extend ActiveSupport::Concern
+end
+module ActionController::Testing::Functional
+  def recycle!; end
+end
+module ActionController::Live
+  def log_error(exception); end
+  def new_controller_thread; end
+  def process(name); end
+  def response_body=(body); end
+  extend ActiveSupport::Concern
+end
+module ActionController::Live::ClassMethods
+  def make_response!(request); end
+end
+class ActionController::Live::SSE
+  def close; end
+  def initialize(stream, options = nil); end
+  def perform_write(json, options); end
+  def write(object, options = nil); end
+end
+class ActionController::Live::ClientDisconnected < RuntimeError
+end
+class ActionController::Live::Buffer < ActionDispatch::Response::Buffer
+  def abort; end
+  def call_on_error; end
+  def close; end
+  def connected?; end
+  def each_chunk(&block); end
+  def ignore_disconnect; end
+  def ignore_disconnect=(arg0); end
+  def initialize(response); end
+  def on_error(&block); end
+  def write(string); end
+  include MonitorMixin
+end
+class ActionController::Live::Response < ActionDispatch::Response
+  def before_committed; end
+  def build_buffer(response, body); end
+end
+class ActionDispatch::TestRequest < ActionDispatch::Request
+  def accept=(mime_types); end
+  def action=(action_name); end
+  def host=(host); end
+  def if_modified_since=(last_modified); end
+  def if_none_match=(etag); end
+  def path=(path); end
+  def port=(number); end
+  def remote_addr=(addr); end
+  def request_method=(method); end
+  def request_uri=(uri); end
+  def self.create(env = nil); end
+  def self.default_env; end
+  def user_agent=(user_agent); end
+end
+module ActionDispatch::TestProcess
+  def assigns(key = nil); end
+  def cookies; end
+  def flash; end
+  def redirect_to_url; end
+  def session; end
+  include ActionDispatch::TestProcess::FixtureFile
+end
+module ActionDispatch::TestProcess::FixtureFile
+  def fixture_file_upload(path, mime_type = nil, binary = nil); end
+end
+module ActionDispatch::Assertions
+  def html_document; end
+  extend ActiveSupport::Concern
+  include ActionDispatch::Assertions::ResponseAssertions
+  include ActionDispatch::Assertions::RoutingAssertions
+  include Rails::Dom::Testing::Assertions
+end
+module ActionDispatch::Assertions::ResponseAssertions
+  def assert_redirected_to(options = nil, message = nil); end
+  def assert_response(type, message = nil); end
+  def code_with_name(code_or_name); end
+  def generate_response_message(expected, actual = nil); end
+  def location_if_redirected; end
+  def normalize_argument_to_redirection(fragment); end
+  def parameterize(value); end
+  def response_body_if_short; end
+end
+module ActionDispatch::Assertions::RoutingAssertions
+  def assert_generates(expected_path, options, defaults = nil, extras = nil, message = nil); end
+  def assert_recognizes(expected_options, path, extras = nil, msg = nil); end
+  def assert_routing(path, options, defaults = nil, extras = nil, message = nil); end
+  def fail_on(exception_class, message); end
+  def method_missing(selector, *args, &block); end
+  def recognized_request_for(path, extras = nil, msg); end
+  def setup; end
+  def with_routing; end
+end
+class ActionController::TestRequest < ActionDispatch::TestRequest
+  def assign_parameters(routes, controller_path, action, parameters, generated_path, query_string_keys); end
+  def content_type=(type); end
+  def controller_class; end
+  def initialize(env, session, controller_class); end
+  def params_parsers; end
+  def query_string=(string); end
+  def self.create(controller_class); end
+  def self.default_env; end
+  def self.new_session; end
+end
+class ActionController::LiveTestResponse < ActionController::Live::Response
+  def error?; end
+  def missing?; end
+  def success?; end
+end
+class ActionController::TestSession < Rack::Session::Abstract::SessionHash
+  def destroy; end
+  def exists?; end
+  def fetch(key, *args, &block); end
+  def initialize(session = nil); end
+  def keys; end
+  def load!; end
+  def values; end
+end
+class ActionController::TestCase < ActiveSupport::TestCase
+  def _controller_class; end
+  def _controller_class=(val); end
+  def _controller_class?; end
+  def self.__callbacks; end
+  def self._controller_class; end
+  def self._controller_class=(val); end
+  def self._controller_class?; end
+  extend ActionController::TestCase::Behavior::ClassMethods
+  extend ActiveSupport::Testing::ConstantLookup::ClassMethods
+  include ActionController::TemplateAssertions
+  include ActionController::TestCase::Behavior
+  include ActionDispatch::Assertions
+  include ActiveSupport::Testing::ConstantLookup
+  include Rails::Dom::Testing::Assertions
+  include Rails::Dom::Testing::Assertions
+end
+module ActionController::TestCase::Behavior
+  def build_response(klass); end
+  def check_required_ivars; end
+  def controller_class_name; end
+  def delete(action, **args); end
+  def document_root_element; end
+  def generated_path(generated_extras); end
+  def get(action, **args); end
+  def head(action, **args); end
+  def patch(action, **args); end
+  def post(action, **args); end
+  def process(action, method: nil, params: nil, session: nil, body: nil, flash: nil, format: nil, xhr: nil, as: nil); end
+  def put(action, **args); end
+  def query_parameter_names(generated_extras); end
+  def request; end
+  def response; end
+  def scrub_env!(env); end
+  def setup_controller_request_and_response; end
+  extend ActiveSupport::Concern
+  include ActionDispatch::TestProcess
+  include ActiveSupport::Testing::ConstantLookup
+  include Rails::Dom::Testing::Assertions
+end
+module ActionController::TestCase::Behavior::ClassMethods
+  def controller_class; end
+  def controller_class=(new_class); end
+  def determine_default_controller_class(name); end
+  def tests(controller_class); end
+end
+class ActionDispatch::RequestEncoder
+  def accept_header; end
+  def content_type; end
+  def encode_params(params); end
+  def initialize(mime_name, param_encoder, response_parser); end
+  def response_parser; end
+  def self.encoder(name); end
+  def self.parser(content_type); end
+  def self.register_encoder(mime_name, param_encoder: nil, response_parser: nil); end
+end
+class ActionDispatch::RequestEncoder::IdentityEncoder
+  def accept_header; end
+  def content_type; end
+  def encode_params(params); end
+  def response_parser; end
+end
+module ActionDispatch::Integration
+end
+module ActionDispatch::Integration::RequestHelpers
+  def delete(path, **args); end
+  def follow_redirect!(**args); end
+  def get(path, **args); end
+  def head(path, *args); end
+  def patch(path, **args); end
+  def post(path, **args); end
+  def put(path, **args); end
+end
+class ActionDispatch::Integration::Session
+  def _mock_session; end
+  def accept; end
+  def accept=(arg0); end
+  def body(*args, &block); end
+  def build_expanded_path(path); end
+  def build_full_uri(path, env); end
+  def controller; end
+  def cookies; end
+  def default_url_options; end
+  def default_url_options=(val); end
+  def default_url_options?; end
+  def headers(*args, &block); end
+  def host!(arg0); end
+  def host; end
+  def host=(arg0); end
+  def https!(flag = nil); end
+  def https?; end
+  def initialize(app); end
+  def path(*args, &block); end
+  def process(method, path, params: nil, headers: nil, env: nil, xhr: nil, as: nil); end
+  def redirect?(*args, &block); end
+  def remote_addr; end
+  def remote_addr=(arg0); end
+  def request; end
+  def request_count; end
+  def request_count=(arg0); end
+  def reset!; end
+  def response; end
+  def self.default_url_options; end
+  def self.default_url_options=(val); end
+  def self.default_url_options?; end
+  def status(*args, &block); end
+  def status_message(*args, &block); end
+  def url_options; end
+  include ActionDispatch::Routing::UrlFor
+  include ActionDispatch::TestProcess
+  include Minitest::Assertions
+  include Rails::Dom::Testing::Assertions
+end
+module ActionDispatch::Integration::Runner
+  def app; end
+  def assigns(*args); end
+  def before_setup; end
+  def cookies(*args); end
+  def copy_session_variables!; end
+  def create_session(app); end
+  def default_url_options; end
+  def default_url_options=(options); end
+  def delete(*args); end
+  def follow_redirect!(*args); end
+  def get(*args); end
+  def head(*args); end
+  def initialize(*args, &blk); end
+  def integration_session; end
+  def method_missing(method, *args, &block); end
+  def open_session; end
+  def patch(*args); end
+  def post(*args); end
+  def put(*args); end
+  def remove!; end
+  def reset!; end
+  def respond_to_missing?(method, _); end
+  include ActionDispatch::Assertions
+  include Rails::Dom::Testing::Assertions
+end
+class ActionDispatch::IntegrationTest < ActiveSupport::TestCase
+  def self.__callbacks; end
+  extend ActionDispatch::IntegrationTest::Behavior::ClassMethods
+  include ActionDispatch::IntegrationTest::Behavior
+  include ActionDispatch::IntegrationTest::UrlOptions
+  include ActionDispatch::Routing::UrlFor
+  include ActionDispatch::TestProcess::FixtureFile
+  include ActionMailer::TestCase::ClearTestDeliveries
+  include ActionMailer::TestHelper
+  include ActiveJob::TestHelper
+end
+module ActionDispatch::IntegrationTest::UrlOptions
+  def url_options; end
+  extend ActiveSupport::Concern
+end
+module ActionDispatch::IntegrationTest::Behavior
+  def app; end
+  def document_root_element; end
+  extend ActiveSupport::Concern
+  include ActionController::TemplateAssertions
+  include ActionDispatch::Integration::Runner
+end
+module ActionDispatch::IntegrationTest::Behavior::ClassMethods
+  def app; end
+  def app=(app); end
+  def register_encoder(*args); end
+end

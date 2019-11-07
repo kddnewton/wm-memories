@@ -203,3 +203,32 @@ end
 class BooleanString < String
   def self.===(other); end
 end
+class ActiveRecordOverrides
+  def enum_calls; end
+  def get_enum_call(klass, enum_sym); end
+  def initialize; end
+  def self.allocate; end
+  def self.instance; end
+  def self.new(*arg0); end
+  def store_enum_call(klass, kwargs); end
+  extend Singleton::SingletonClassMethods
+  include Singleton
+end
+module ActiveRecord::Enum
+  def old_enum(definitions); end
+end
+module SorbetRails::CustomFinderMethods
+  def find_by_id!(id); end
+  def find_by_id(id); end
+  def find_n(*ids); end
+  def first_n(n); end
+  def last_n(n); end
+end
+module SorbetRails::PluckToTStruct
+  def pluck_to_tstruct(*args, &blk); end
+  extend T::Private::Methods::MethodHooks
+  extend T::Private::Methods::SingletonMethodHooks
+  extend T::Sig
+end
+class SorbetRails::PluckToTStruct::UnexpectedType < StandardError
+end
