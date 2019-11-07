@@ -2575,12 +2575,6 @@ class ActionView::AbstractRenderer::RenderedTemplate
   EMPTY_SPACER = ::T.let(nil, ::T.untyped)
 end
 
-class ActionView::ActionViewError
-end
-
-class ActionView::ActionViewError
-end
-
 class ActionView::Base
   include ::ActionView::Context
   include ::ERB::Util
@@ -2772,12 +2766,6 @@ class ActionView::Digestor
   def self.tree(name, finder, partial=T.unsafe(nil), seen=T.unsafe(nil)); end
 end
 
-class ActionView::EncodingError
-end
-
-class ActionView::EncodingError
-end
-
 module ActionView::Helpers::AssetUrlHelper
   ASSET_EXTENSIONS = ::T.let(nil, ::T.untyped)
   ASSET_PUBLIC_DIRECTORIES = ::T.let(nil, ::T.untyped)
@@ -2860,11 +2848,6 @@ end
 
 class ActionView::MissingTemplate
   def initialize(paths, path, prefixes, partial, details, *_); end
-
-  def path(); end
-end
-
-class ActionView::MissingTemplate
 end
 
 class ActionView::OutputBuffer
@@ -3090,9 +3073,6 @@ class ActionView::Template::Error
   SOURCE_CODE_RADIUS = ::T.let(nil, ::T.untyped)
 end
 
-class ActionView::Template::Error
-end
-
 class ActionView::Template::HTML
   def format(); end
 
@@ -3186,8 +3166,6 @@ end
 class ActionView::Template::Types::Type
   SET = ::T.let(nil, ::T.untyped)
 end
-
-ActionView::TemplateError = ActionView::Template::Error
 
 class ActionView::TemplateRenderer
   def render(context, options); end
@@ -3428,9 +3406,6 @@ end
 
 class ActionView::WrongEncodingError
   def initialize(string, encoding); end
-end
-
-class ActionView::WrongEncodingError
 end
 
 module ActiveJob::Arguments

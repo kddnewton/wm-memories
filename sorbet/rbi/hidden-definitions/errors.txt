@@ -820,13 +820,13 @@
 # wrong constant name <Class:NullSessionHash>
 # wrong constant name handle_unverified_request
 # wrong constant name initialize
-# uninitialized constant #<Class:0x00007ffbdb5d87f0>::DOMAIN_REGEXP
+# uninitialized constant #<Class:0x00007fced92609d0>::DOMAIN_REGEXP
 # Did you mean?  ActionController::RequestForgeryProtection::ProtectionMethods::NullSession::NullCookieJar::DOMAIN_REGEXP
-# uninitialized constant #<Class:0x00007ffbdb5d87f0>::Elem
+# uninitialized constant #<Class:0x00007fced92609d0>::Elem
 # wrong constant name write
 # wrong constant name <static-init>
-# uninitialized constant #<Class:0x00007ffbdb5d8908>::Elem
-# uninitialized constant #<Class:0x00007ffbdb5d8908>::Unspecified
+# uninitialized constant #<Class:0x00007fced9260b38>::Elem
+# uninitialized constant #<Class:0x00007fced9260b38>::Unspecified
 # Did you mean?  ActionController::RequestForgeryProtection::ProtectionMethods::NullSession::NullSessionHash::Unspecified
 # wrong constant name initialize
 # wrong constant name <static-init>
@@ -1611,17 +1611,12 @@
 # wrong constant name handle_exception
 # wrong constant name <static-init>
 # wrong constant name <static-init>
-# wrong constant name <Class:ActionViewError>
 # wrong constant name <Class:Digestor>
-# wrong constant name <Class:EncodingError>
 # wrong constant name <Class:I18nProxy>
-# wrong constant name <Class:Layouts>
-# wrong constant name <Class:MissingTemplate>
 # wrong constant name <Class:OutputBuffer>
 # wrong constant name <Class:OutputFlow>
 # wrong constant name <Class:PathSet>
 # wrong constant name <Class:Renderer>
-# wrong constant name <Class:Rendering>
 # wrong constant name <Class:RoutingUrlFor>
 # wrong constant name <Class:StreamingBuffer>
 # wrong constant name <Class:StreamingFlow>
@@ -1629,9 +1624,6 @@
 # wrong constant name <Class:TemplateRenderer>
 # wrong constant name <Class:TestCase>
 # wrong constant name <Class:UnboundTemplate>
-# wrong constant name <Class:ViewPaths>
-# wrong constant name <Class:WrongEncodingError>
-# wrong constant name <static-init>
 # uninitialized constant ActionView::Base::ASSET_EXTENSIONS
 # uninitialized constant ActionView::Base::ASSET_PUBLIC_DIRECTORIES
 # uninitialized constant ActionView::Base::BOOLEAN_ATTRIBUTES
@@ -1758,19 +1750,16 @@
 # wrong constant name tree<defaultArg>1
 # wrong constant name tree<defaultArg>2
 # wrong constant name tree
-# wrong constant name <static-init>
 # wrong constant name initialize
 # wrong constant name locale=
 # wrong constant name lookup_context
 # wrong constant name original_config
 # wrong constant name <static-init>
-# wrong constant name <Class:ClassMethods>
 # wrong constant name _layout_conditions
 # wrong constant name _normalize_options
 # wrong constant name action_has_layout=
 # wrong constant name action_has_layout?
 # wrong constant name initialize
-# wrong constant name <static-init>
 # wrong constant name <static-init>
 # uninitialized constant ActionView::LogSubscriber::BLACK
 # uninitialized constant ActionView::LogSubscriber::BLUE
@@ -1786,8 +1775,6 @@
 # wrong constant name render_partial
 # wrong constant name render_template
 # wrong constant name initialize
-# wrong constant name path
-# wrong constant name <static-init>
 # uninitialized constant ActionView::OutputBuffer::BLANK_RE
 # uninitialized constant ActionView::OutputBuffer::ENCODED_BLANKS
 # uninitialized constant ActionView::OutputBuffer::UNSAFE_STRING_METHODS
@@ -1852,7 +1839,6 @@
 # wrong constant name view_context
 # wrong constant name view_context_class
 # wrong constant name view_renderer
-# wrong constant name <static-init>
 # undefined method `url_for<defaultArg>1' for module `ActionView::RoutingUrlFor'
 # wrong constant name default_url_options=
 # wrong constant name url_for<defaultArg>1
@@ -1891,7 +1877,6 @@
 # wrong constant name source_extract
 # wrong constant name sub_template_message
 # wrong constant name sub_template_of
-# wrong constant name <static-init>
 # undefined method `initialize<defaultArg>1' for class `ActionView::Template::HTML'
 # Did you mean?  initialize_dup
 # wrong constant name format
@@ -2058,12 +2043,10 @@
 # wrong constant name prepend_view_path
 # wrong constant name template_exists?
 # wrong constant name view_paths
-# wrong constant name <static-init>
 # wrong constant name all_view_paths
 # wrong constant name get_view_paths
 # wrong constant name set_view_paths
 # wrong constant name initialize
-# wrong constant name <static-init>
 # undefined method `initialize<defaultArg>1' for class `ActiveJob::ConfiguredJob'
 # Did you mean?  initialize_dup
 # wrong constant name initialize<defaultArg>1
@@ -5063,27 +5046,27 @@
 # uninitialized constant Minitest::Test::SIGNALS
 # Did you mean?  Signal
 # uninitialized constant Minitest::Test::UNDEFINED
-# uninitialized constant #<Class:0x00007ffbdd3d5eb0>::ACTIONS
+# uninitialized constant #<Class:0x00007fced33e1148>::ACTIONS
 # Did you mean?  Moderator::ACTIONS
-# uninitialized constant #<Class:0x00007ffbdd3d5eb0>::CALLBACKS
+# uninitialized constant #<Class:0x00007fced33e1148>::CALLBACKS
 # Did you mean?  Moderator::Callbacks
 #                Moderator::Callback
 #                Moderator::CALLBACKS
-# uninitialized constant #<Class:0x00007ffbdd3d5eb0>::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fced33e1148>::CALLBACK_FILTER_TYPES
 # Did you mean?  Moderator::CALLBACK_FILTER_TYPES
-# uninitialized constant #<Class:0x00007ffbdd3d5eb0>::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fced33e1148>::CALL_COMPILABLE_REGEXP
 # Did you mean?  Moderator::CALL_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007ffbdd3d5eb0>::COLUMNS
+# uninitialized constant #<Class:0x00007fced33e1148>::COLUMNS
 # Did you mean?  Moderator::COLUMNS
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedRelationMethods>
-# uninitialized constant #<Class:0x00007ffbdd3d5eb0>::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fced33e1148>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  Moderator::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant #<Class:0x00007ffbdd3d5eb0>::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fced33e1148>::NAME_COMPILABLE_REGEXP
 # Did you mean?  Moderator::NAME_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007ffbdd3d5eb0>::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fced33e1148>::RESTRICTED_CLASS_METHODS
 # Did you mean?  Moderator::RESTRICTED_CLASS_METHODS
-# uninitialized constant #<Class:0x00007ffbdd3d5eb0>::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fced33e1148>::UNASSIGNABLE_KEYS
 # Did you mean?  Moderator::UNASSIGNABLE_KEYS
 # uninitialized constant Moderator::ActiveRecord_AssociationRelation::CLAUSE_METHODS
 # Did you mean?  Moderator::ActiveRecord_AssociationRelation::ClassMethods
@@ -8210,26 +8193,26 @@
 # wrong constant name fnmatch?
 # wrong constant name glob
 # wrong constant name make_symlink
-# uninitialized constant #<Class:0x00007ffbd816c368>::ACTIONS
+# uninitialized constant #<Class:0x00007fced9d52ff0>::ACTIONS
 # Did you mean?  Photo::ACTIONS
-# uninitialized constant #<Class:0x00007ffbd816c368>::CALLBACKS
+# uninitialized constant #<Class:0x00007fced9d52ff0>::CALLBACKS
 # Did you mean?  Photo::Callbacks
 #                Photo::Callback
 #                Photo::CALLBACKS
-# uninitialized constant #<Class:0x00007ffbd816c368>::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fced9d52ff0>::CALLBACK_FILTER_TYPES
 # Did you mean?  Photo::CALLBACK_FILTER_TYPES
-# uninitialized constant #<Class:0x00007ffbd816c368>::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fced9d52ff0>::CALL_COMPILABLE_REGEXP
 # Did you mean?  Photo::CALL_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007ffbd816c368>::COLUMNS
+# uninitialized constant #<Class:0x00007fced9d52ff0>::COLUMNS
 # Did you mean?  Photo::COLUMNS
 # wrong constant name <Class:GeneratedRelationMethods>
-# uninitialized constant #<Class:0x00007ffbd816c368>::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fced9d52ff0>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  Photo::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant #<Class:0x00007ffbd816c368>::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fced9d52ff0>::NAME_COMPILABLE_REGEXP
 # Did you mean?  Photo::NAME_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007ffbd816c368>::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fced9d52ff0>::RESTRICTED_CLASS_METHODS
 # Did you mean?  Photo::RESTRICTED_CLASS_METHODS
-# uninitialized constant #<Class:0x00007ffbd816c368>::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fced9d52ff0>::UNASSIGNABLE_KEYS
 # Did you mean?  Photo::UNASSIGNABLE_KEYS
 # wrong constant name _attachment_post_process_callbacks
 # wrong constant name _post_process_callbacks
@@ -10057,7 +10040,7 @@
 # Did you mean?  Rails::VERSION
 # wrong constant name properties
 # wrong constant name properties=
-# undefined singleton method `property<defaultArg>1' for `#<Module:0x00007ffbd83695d0>'
+# undefined singleton method `property<defaultArg>1' for `#<Module:0x00007fced9f30778>'
 # wrong constant name <static-init>
 # wrong constant name properties
 # wrong constant name properties=
@@ -12589,26 +12572,26 @@
 # uninitialized constant StoriesController::RENDERERS
 # uninitialized constant StoriesController::RENDER_FORMATS_IN_PRIORITY
 # uninitialized constant StoriesController::URL_OPTIONS
-# uninitialized constant #<Class:0x00007ffbdd3ed830>::ACTIONS
+# uninitialized constant #<Class:0x00007fced3498410>::ACTIONS
 # Did you mean?  Story::ACTIONS
-# uninitialized constant #<Class:0x00007ffbdd3ed830>::CALLBACKS
+# uninitialized constant #<Class:0x00007fced3498410>::CALLBACKS
 # Did you mean?  Story::Callbacks
 #                Story::Callback
 #                Story::CALLBACKS
-# uninitialized constant #<Class:0x00007ffbdd3ed830>::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fced3498410>::CALLBACK_FILTER_TYPES
 # Did you mean?  Story::CALLBACK_FILTER_TYPES
-# uninitialized constant #<Class:0x00007ffbdd3ed830>::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fced3498410>::CALL_COMPILABLE_REGEXP
 # Did you mean?  Story::CALL_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007ffbdd3ed830>::COLUMNS
+# uninitialized constant #<Class:0x00007fced3498410>::COLUMNS
 # Did you mean?  Story::COLUMNS
 # wrong constant name <Class:GeneratedRelationMethods>
-# uninitialized constant #<Class:0x00007ffbdd3ed830>::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fced3498410>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  Story::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant #<Class:0x00007ffbdd3ed830>::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fced3498410>::NAME_COMPILABLE_REGEXP
 # Did you mean?  Story::NAME_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007ffbdd3ed830>::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fced3498410>::RESTRICTED_CLASS_METHODS
 # Did you mean?  Story::RESTRICTED_CLASS_METHODS
-# uninitialized constant #<Class:0x00007ffbdd3ed830>::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fced3498410>::UNASSIGNABLE_KEYS
 # Did you mean?  Story::UNASSIGNABLE_KEYS
 # wrong constant name after_add_for_photos
 # wrong constant name after_add_for_photos=
@@ -12774,27 +12757,27 @@
 # wrong constant name to_h
 # wrong constant name values
 # wrong constant name values_at
-# uninitialized constant #<Class:0x00007ffbdd3defd8>::ACTIONS
+# uninitialized constant #<Class:0x00007fced3419ed0>::ACTIONS
 # Did you mean?  Subscription::ACTIONS
-# uninitialized constant #<Class:0x00007ffbdd3defd8>::CALLBACKS
+# uninitialized constant #<Class:0x00007fced3419ed0>::CALLBACKS
 # Did you mean?  Subscription::Callbacks
 #                Subscription::Callback
 #                Subscription::CALLBACKS
-# uninitialized constant #<Class:0x00007ffbdd3defd8>::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fced3419ed0>::CALLBACK_FILTER_TYPES
 # Did you mean?  Subscription::CALLBACK_FILTER_TYPES
-# uninitialized constant #<Class:0x00007ffbdd3defd8>::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fced3419ed0>::CALL_COMPILABLE_REGEXP
 # Did you mean?  Subscription::CALL_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007ffbdd3defd8>::COLUMNS
+# uninitialized constant #<Class:0x00007fced3419ed0>::COLUMNS
 # Did you mean?  Subscription::COLUMNS
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedRelationMethods>
-# uninitialized constant #<Class:0x00007ffbdd3defd8>::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fced3419ed0>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  Subscription::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant #<Class:0x00007ffbdd3defd8>::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fced3419ed0>::NAME_COMPILABLE_REGEXP
 # Did you mean?  Subscription::NAME_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007ffbdd3defd8>::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fced3419ed0>::RESTRICTED_CLASS_METHODS
 # Did you mean?  Subscription::RESTRICTED_CLASS_METHODS
-# uninitialized constant #<Class:0x00007ffbdd3defd8>::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fced3419ed0>::UNASSIGNABLE_KEYS
 # Did you mean?  Subscription::UNASSIGNABLE_KEYS
 # uninitialized constant Subscription::ActiveRecord_AssociationRelation::CLAUSE_METHODS
 # Did you mean?  Subscription::ActiveRecord_AssociationRelation::ClassMethods
