@@ -277,6 +277,7 @@ DEPENDENCIES
   capybara
   jquery-rails (~> 4.3)
   paperclip (~> 6.1)
+  parlour
   pg (~> 1.1)
   pry
   puma (~> 4.2)

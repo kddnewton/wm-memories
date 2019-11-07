@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 require 'test_helper'
@@ -70,6 +70,7 @@ class StoryTest < ActiveSupport::TestCase
 
   # a fake uploaded file for testing the photo proxies
   def uploaded_file(filename)
-    Rack::Test::UploadedFile.new(Rails.root.join('test', 'support', filename))
+    filepath = T.must(Rails.root).join('test', 'support', filename)
+    Rack::Test::UploadedFile.new(filepath)
   end
 end
