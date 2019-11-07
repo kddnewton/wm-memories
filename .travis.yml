@@ -9,5 +9,6 @@ script:
 - bin/rails test
 - bundle exec rubocop --parallel
 - bundle exec brakeman -z
+- bundle exec srb tc
 services:
 - postgresql
