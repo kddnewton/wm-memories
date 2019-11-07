@@ -22,11 +22,4 @@ class SubscriptionsControllerTest < ActionController::TestCase
     end
     assert_response :success
   end
-
-  def test_verify
-    subscription = subscriptions(:avery)
-    get :verify, params: { id: subscription.id }
-    subscription.reload
-    assert subscription.validated?
-  end
 end

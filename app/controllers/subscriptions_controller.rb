@@ -17,15 +17,6 @@ class SubscriptionsController < ApplicationController
     render :new unless T.must(@subscription).save
   end
 
-  # GET /subscriptions/:id/verify
-  sig { void }
-  def verify
-    @subscription =
-      T.let(Subscription.find(params[:id]), T.nilable(Subscription))
-
-    T.must(@subscription).verify!
-  end
-
   private
 
   # strong params for subscriptions

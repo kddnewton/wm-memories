@@ -102,5 +102,6 @@ en:
         success: 'You have been sent an email to confirm your email address.'
       subscribe: 'Subscribe'
       subscribing: 'Subscribing...'
-      verify:
-        success: 'You have been successfully subscribed.'
+    verifications:
+      subscribe: 'Subscribe'
+      success: 'You have been successfully subscribed.'

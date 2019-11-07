@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :stories, only: %i[index create show]
 
   resources :subscriptions, only: %i[new create] do
-    get :verify, on: :member
+    resource :verification, only: :show
   end
 
   namespace :admin do

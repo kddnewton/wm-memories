@@ -59,12 +59,12 @@ module GeneratedUrlHelpers
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
   def story_url(*args, **kwargs); end
 
-  # Sigs for route /subscriptions/:id/verify(.:format)
+  # Sigs for route /subscriptions/:subscription_id/verification(.:format)
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
-  def verify_subscription_path(*args, **kwargs); end
+  def subscription_verification_path(*args, **kwargs); end
 
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
-  def verify_subscription_url(*args, **kwargs); end
+  def subscription_verification_url(*args, **kwargs); end
 
   # Sigs for route /subscriptions(.:format)
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
