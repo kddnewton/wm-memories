@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/activesupport/all/activesupport.rbi
 #
-# activesupport-6.0.0
+# activesupport-6.0.1
 class Hash
   def _deep_transform_keys_in_object!(object, &block); end
   def _deep_transform_keys_in_object(object, &block); end
@@ -966,7 +966,7 @@ module ActiveSupport::Dependencies
   def self.run_interlock; end
   def self.unload_interlock; end
   def self.verbose; end
-  def self.verbose=(obj); end
+  def self.verbose=(verbose); end
   def self.warnings_on_first_load; end
   def self.warnings_on_first_load=(obj); end
   def to_constant_name(desc); end
@@ -1060,6 +1060,7 @@ module ActiveSupport::Dependencies::ZeitwerkIntegration::RequireDependency
 end
 module ActiveSupport::Dependencies::ZeitwerkIntegration::Inflector
   def self.camelize(basename, _abspath); end
+  def self.inflect(overrides); end
 end
 class Method
   def duplicable?; end
@@ -2030,7 +2031,7 @@ module ActiveSupport::NumericWithFormat
   def to_s(format = nil, options = nil); end
 end
 class File < IO
-  def self.atomic_write(file_name, temp_dir = nil); end
+  def self.empty?(arg0); end
   def self.probe_stat_in(dir); end
 end
 module Digest
@@ -2245,6 +2246,11 @@ class ActiveSupport::Cache::MemoryStore < ActiveSupport::Cache::Store
   def synchronize(&block); end
   def write_entry(key, entry, options); end
 end
+class ActiveSupport::Digest
+  def self.hash_digest_class; end
+  def self.hash_digest_class=(klass); end
+  def self.hexdigest(arg); end
+end
 module ActiveSupport::Rescuable
   def handler_for_rescue(exception); end
   def rescue_with_handler(exception); end
@@ -2256,178 +2262,4 @@ module ActiveSupport::Rescuable::ClassMethods
   def handler_for_rescue(exception, object: nil); end
   def rescue_from(*klasses, with: nil, &block); end
   def rescue_with_handler(exception, object: nil, visited_exceptions: nil); end
-end
-module ActiveSupport::Configurable
-  def config; end
-  extend ActiveSupport::Concern
-end
-class ActiveSupport::Configurable::Configuration < ActiveSupport::InheritableOptions
-  def compile_methods!; end
-  def self.compile_methods!(keys); end
-end
-module ActiveSupport::Configurable::ClassMethods
-  def config; end
-  def config_accessor(*names, instance_reader: nil, instance_writer: nil, instance_accessor: nil); end
-  def configure; end
-end
-module ActiveSupport::Testing
-end
-module ActiveSupport::Testing::TaggedLogging
-  def before_setup; end
-  def tagged_logger; end
-  def tagged_logger=(arg0); end
-end
-module ActiveSupport::Testing::SetupAndTeardown
-  def after_teardown; end
-  def before_setup; end
-  def self.prepended(klass); end
-end
-module ActiveSupport::Testing::SetupAndTeardown::ClassMethods
-  def setup(*args, &block); end
-  def teardown(*args, &block); end
-end
-module ActiveSupport::Testing::Assertions
-  def assert_changes(expression, message = nil, from: nil, to: nil, &block); end
-  def assert_difference(expression, *args, &block); end
-  def assert_no_changes(expression, message = nil, &block); end
-  def assert_no_difference(expression, message = nil, &block); end
-  def assert_not(object, message = nil); end
-  def assert_nothing_raised; end
-end
-module ActiveSupport::Testing::Deprecation
-  def assert_deprecated(match = nil, deprecator = nil, &block); end
-  def assert_not_deprecated(deprecator = nil, &block); end
-  def collect_deprecations(deprecator = nil); end
-end
-module ActiveSupport::Testing::Declarative
-  def test(name, &block); end
-end
-module ActiveSupport::Testing::Isolation
-  def run; end
-  def self.forking_env?; end
-  def self.included(klass); end
-  include ActiveSupport::Testing::Isolation::Forking
-end
-module ActiveSupport::Testing::Isolation::Forking
-  def run_in_isolation(&blk); end
-end
-module ActiveSupport::Testing::Isolation::Subprocess
-  def run_in_isolation(&blk); end
-end
-module ActiveSupport::Testing::ConstantLookup
-  extend ActiveSupport::Concern
-end
-module ActiveSupport::Testing::ConstantLookup::ClassMethods
-  def determine_constant_from_test_name(test_name); end
-end
-class ActiveSupport::Testing::SimpleStubs
-  def initialize; end
-  def stub_object(object, method_name, &block); end
-  def stubbing(object, method_name); end
-  def unstub_all!; end
-  def unstub_object(stub); end
-end
-class ActiveSupport::Testing::SimpleStubs::Stub < Struct
-  def method_name; end
-  def method_name=(_); end
-  def object; end
-  def object=(_); end
-  def original_method; end
-  def original_method=(_); end
-  def self.[](*arg0); end
-  def self.inspect; end
-  def self.members; end
-  def self.new(*arg0); end
-end
-module ActiveSupport::Testing::TimeHelpers
-  def after_teardown; end
-  def freeze_time(&block); end
-  def simple_stubs; end
-  def travel(duration, &block); end
-  def travel_back; end
-  def travel_to(date_or_time); end
-  def unfreeze_time; end
-end
-module ActiveSupport::Testing::FileFixtures
-  def file_fixture(fixture_name); end
-  extend ActiveSupport::Concern
-end
-class ActiveSupport::Testing::Parallelization
-  def <<(work); end
-  def add_setup_exception(result, setup_exception); end
-  def after_fork(worker); end
-  def after_fork_hooks; end
-  def initialize(queue_size); end
-  def run_cleanup(worker); end
-  def run_cleanup_hooks; end
-  def self.after_fork_hook(&blk); end
-  def self.after_fork_hooks; end
-  def self.run_cleanup_hook(&blk); end
-  def self.run_cleanup_hooks; end
-  def shutdown; end
-  def start; end
-end
-class ActiveSupport::Testing::Parallelization::Server
-  def <<(o); end
-  def initialize; end
-  def length; end
-  def pop; end
-  def record(reporter, result); end
-  include DRb::DRbUndumped
-end
-class ActiveSupport::TestCase < Minitest::Test
-  def __callbacks; end
-  def __callbacks?; end
-  def _run_setup_callbacks(&block); end
-  def _run_teardown_callbacks(&block); end
-  def _setup_callbacks; end
-  def _teardown_callbacks; end
-  def assert_no_match(matcher, obj, msg = nil); end
-  def assert_not_empty(obj, msg = nil); end
-  def assert_not_equal(exp, act, msg = nil); end
-  def assert_not_in_delta(exp, act, delta = nil, msg = nil); end
-  def assert_not_in_epsilon(a, b, epsilon = nil, msg = nil); end
-  def assert_not_includes(collection, obj, msg = nil); end
-  def assert_not_instance_of(cls, obj, msg = nil); end
-  def assert_not_kind_of(cls, obj, msg = nil); end
-  def assert_not_nil(obj, msg = nil); end
-  def assert_not_operator(o1, op, o2 = nil, msg = nil); end
-  def assert_not_predicate(o1, op, msg = nil); end
-  def assert_not_respond_to(obj, meth, msg = nil); end
-  def assert_not_same(exp, act, msg = nil); end
-  def assert_raise(*exp); end
-  def file_fixture_path; end
-  def file_fixture_path?; end
-  def method_name; end
-  def self.__callbacks; end
-  def self.__callbacks=(val); end
-  def self.__callbacks?; end
-  def self._setup_callbacks; end
-  def self._setup_callbacks=(value); end
-  def self._teardown_callbacks; end
-  def self._teardown_callbacks=(value); end
-  def self.file_fixture_path; end
-  def self.file_fixture_path=(val); end
-  def self.file_fixture_path?; end
-  def self.parallelize(workers: nil, with: nil); end
-  def self.parallelize_setup(&block); end
-  def self.parallelize_teardown(&block); end
-  def self.test_order; end
-  def self.test_order=(new_order); end
-  extend ActiveSupport::Callbacks::ClassMethods
-  extend ActiveSupport::DescendantsTracker
-  extend ActiveSupport::Testing::Declarative
-  extend ActiveSupport::Testing::SetupAndTeardown::ClassMethods
-  extend Rails::LineFiltering
-  include ActiveSupport::Callbacks
-  include ActiveSupport::Testing::Assertions
-  include ActiveSupport::Testing::Deprecation
-  include ActiveSupport::Testing::FileFixtures
-  include ActiveSupport::Testing::TaggedLogging
-  include ActiveSupport::Testing::TimeHelpers
-end
-module ActiveSupport::Testing::Stream
-  def capture(stream); end
-  def quietly; end
-  def silence_stream(stream); end
 end

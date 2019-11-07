@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/mime-types-data/all/mime-types-data.rbi
 #
-# mime-types-data-3.2019.0904
+# mime-types-data-3.2019.1009
 module MIME
 end
 class MIME::Types

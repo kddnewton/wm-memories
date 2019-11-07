@@ -1,4 +1,4 @@
-# typed: true
+# typed: ignore
 # frozen_string_literal: true
 
 ENV['RAILS_ENV'] ||= 'test'

@@ -1,4 +1,4 @@
-# typed: strong
+# typed: ignore
 
 class MoveAdminToModerator < ActiveRecord::Migration[5.0]
   extend T::Sig

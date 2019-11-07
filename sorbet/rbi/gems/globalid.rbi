@@ -87,12 +87,3 @@ class GlobalID::Verifier < ActiveSupport::MessageVerifier
   def decode(data); end
   def encode(data); end
 end
-module GlobalID::Identification
-  def to_gid(options = nil); end
-  def to_gid_param(options = nil); end
-  def to_global_id(options = nil); end
-  def to_sgid(options = nil); end
-  def to_sgid_param(options = nil); end
-  def to_signed_global_id(options = nil); end
-  extend ActiveSupport::Concern
-end
