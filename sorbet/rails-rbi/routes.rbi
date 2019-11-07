@@ -108,20 +108,6 @@ module GeneratedUrlHelpers
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
   def admin_subscriptions_url(*args, **kwargs); end
 
-  # Sigs for route /api/v1/stories(.:format)
-  sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
-  def api_v1_stories_path(*args, **kwargs); end
-
-  sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
-  def api_v1_stories_url(*args, **kwargs); end
-
-  # Sigs for route /api/v1/stories/:id(.:format)
-  sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
-  def api_v1_story_path(*args, **kwargs); end
-
-  sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
-  def api_v1_story_url(*args, **kwargs); end
-
   # Sigs for route /rails/action_mailbox/mandrill/inbound_emails(.:format)
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
   def rails_mandrill_inbound_emails_path(*args, **kwargs); end
