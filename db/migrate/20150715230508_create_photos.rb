@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 class CreatePhotos < ActiveRecord::Migration
   def change
     create_table :photos do |t|
