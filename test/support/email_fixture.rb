@@ -1,8 +1,9 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 class EmailFixture
-  DIR = Rails.root.join('test', 'fixtures', 'moderator_mailer').to_s.freeze
+  directory = T.must(Rails.root).join('test', 'fixtures', 'moderator_mailer')
+  DIRECTORY = directory.to_s.freeze
 
   attr_reader :text, :html
 
@@ -17,7 +18,7 @@ class EmailFixture
 
   # read the part from a fixture
   def read(part, current_binding)
-    plain = IO.readlines(File.join(DIR, "#{@name}.#{part}.erb")).join
+    plain = IO.readlines(File.join(DIRECTORY, "#{@name}.#{part}.erb")).join
     ERB.new(plain).result(current_binding)
   end
 end
