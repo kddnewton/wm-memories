@@ -16,7 +16,7 @@ class MapInteractionTest < ApplicationSystemTestCase
     fill_in 'story[year]', with: '2013'
     fill_in 'story[body]', with: 'foo bar'
 
-    assert_difference 'Story.count', +1 do
+    assert_difference -> { Story.count }, +1 do
       click_on 'Submit'
     end
   end
