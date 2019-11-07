@@ -11,6 +11,8 @@ class TwitterInterfaceTest < ActiveSupport::TestCase
     def initialize
       yield self
     end
+
+    def update(*); end
   end
 
   def test_update
@@ -19,15 +21,13 @@ class TwitterInterfaceTest < ActiveSupport::TestCase
     assert_equal TwitterInterface.instance.last_tweet, tweet
   end
 
-  # there has got to be a better way to do this test
   def test_interface_prod
-    unset_twitter_instance
-    Rails.stub(:env, ActiveSupport::StringInquirer.new('production')) do
-      switch_client_constant do
-        assert_kind_of FakeClient, T.cast(TwitterInterface.instance, TwitterInterface::Remote).client
-      end
+    switch_client_constant do
+      remote = TwitterInterface::Remote.new
+      assert_kind_of FakeClient, remote.client
+
+      remote.update('test tweet')
     end
-    unset_twitter_instance
   end
 
   private
@@ -42,9 +42,5 @@ class TwitterInterfaceTest < ActiveSupport::TestCase
       Twitter::REST.send(:remove_const, :Client)
       Twitter::REST.const_set(:Client, client)
     end
-  end
-
-  def unset_twitter_instance
-    TwitterInterface.instance_variable_set(:@instance, nil)
   end
 end
