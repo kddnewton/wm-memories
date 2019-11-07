@@ -19,6 +19,7 @@ gem 'paperclip', '~> 6.1'
 gem 'social-share-button', '~> 1.2'
 
 group :development do
+  gem 'sorbet'
   gem 'spring'
 end
 
