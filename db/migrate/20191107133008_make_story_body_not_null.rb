@@ -1,4 +1,4 @@
-# typed: strict
+# typed: strong
 
 class MakeStoryBodyNotNull < ActiveRecord::Migration[6.0]
   extend T::Sig

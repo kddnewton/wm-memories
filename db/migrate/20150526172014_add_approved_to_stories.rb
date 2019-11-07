@@ -1,4 +1,4 @@
-# typed: strict
+# typed: strong
 
 class AddApprovedToStories < ActiveRecord::Migration
   extend T::Sig

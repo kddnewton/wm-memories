@@ -1,4 +1,4 @@
-# typed: strict
+# typed: strong
 
 class AddCoordinationsToStories < ActiveRecord::Migration
   extend T::Sig
