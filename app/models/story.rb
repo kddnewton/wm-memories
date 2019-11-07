@@ -2,8 +2,6 @@
 # frozen_string_literal: true
 
 class Story < ApplicationRecord
-  extend T::Sig
-
   has_many :photos, dependent: :destroy
 
   validates :body, :lat, :lng, presence: true

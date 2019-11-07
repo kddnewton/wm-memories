@@ -3,8 +3,6 @@
 
 module Admin
   class StoriesController < ApplicationController
-    extend T::Sig
-
     authenticate_admin
 
     # GET /admin/stories

@@ -2,7 +2,6 @@
 # frozen_string_literal: true
 
 class StoriesController < ApplicationController
-  extend T::Sig
   layout 'file_upload', only: :create
 
   # This method here to enforce the types given by the instance variables
