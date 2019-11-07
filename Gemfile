@@ -20,6 +20,7 @@ gem 'social-share-button', '~> 1.2'
 
 group :development do
   gem 'sorbet'
+  gem 'sorbet-rails'
   gem 'spring'
 end
 
