@@ -24,7 +24,7 @@ class TwitterInterfaceTest < ActiveSupport::TestCase
     unset_twitter_instance
     Rails.stub(:env, ActiveSupport::StringInquirer.new('production')) do
       switch_client_constant do
-        assert_kind_of FakeClient, TwitterInterface.instance.client
+        assert_kind_of FakeClient, T.cast(TwitterInterface.instance, TwitterInterface::Remote).client
       end
     end
     unset_twitter_instance
