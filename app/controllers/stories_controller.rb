@@ -43,7 +43,12 @@ class StoriesController < ApplicationController
   # GET /stories/search
   sig { void }
   def search
-    @query = T.let(params[:query], T.nilable(T.any(String, Numeric, ActionController::Parameters)))
+    @query =
+      T.let(
+        params[:query],
+        T.nilable(T.any(String, Numeric, ActionController::Parameters))
+      )
+
     @stories = Story.search(@query).approved.feed_ordered
   end
 

@@ -8,7 +8,11 @@ module Admin
     # GET /admin/subscriptions
     sig { void }
     def index
-      @subscriptions = T.let(Subscription.email_ordered, T.nilable(Subscription::ActiveRecord_Relation))
+      @subscriptions =
+        T.let(
+          Subscription.email_ordered,
+          T.nilable(Subscription::ActiveRecord_Relation)
+        )
     end
   end
 end

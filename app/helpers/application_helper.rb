@@ -5,7 +5,7 @@ module ApplicationHelper
   extend T::Sig
 
   # build the main google map from the given stories
-  sig { params(stories: Story::ActiveRecord_Relation).returns(ActiveSupport::SafeBuffer) }
+  sig { params(stories: Story::ActiveRecord_Relation).returns(ActiveSupport::SafeBuffer) } # rubocop:disable Metrics/LineLength
   def init_map_from(stories)
     stories = stories.map { |story| view_story_from(story) }.to_json
     javascript_tag(
@@ -26,7 +26,7 @@ module ApplicationHelper
   end
 
   # build a nav link
-  sig { params(label: String, path: String, glyph: Symbol).returns(ActiveSupport::SafeBuffer) }
+  sig { params(label: String, path: String, glyph: Symbol).returns(ActiveSupport::SafeBuffer) } # rubocop:disable Metrics/LineLength
   def nav_link(label, path, glyph)
     css_class = 'col-sm-2 col-xs-4 ' + (current_page?(path) ? 'active' : '')
 
@@ -38,7 +38,7 @@ module ApplicationHelper
   end
 
   # render the body of the story
-  sig { params(story: Story, query: T.nilable(String)).returns(ActiveSupport::SafeBuffer) }
+  sig { params(story: Story, query: T.nilable(String)).returns(ActiveSupport::SafeBuffer) } # rubocop:disable Metrics/LineLength
   def story_body(story, query:)
     if query
       highlight(simple_format(excerpt(story.body, query, radius: 200)), query)
@@ -48,7 +48,7 @@ module ApplicationHelper
   end
 
   # translate the key based on the current controller and action
-  sig { params(key: String, substitutions: T.nilable(T::Hash[Symbol, String])).returns(String) }
+  sig { params(key: String, substitutions: T.nilable(T::Hash[Symbol, String])).returns(String) } # rubocop:disable Metrics/LineLength
   def view_translate(key, substitutions = {})
     components = ['views'] + params[:controller].split('/') + [key]
     t(components.join('.'), substitutions)

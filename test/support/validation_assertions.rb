@@ -1,6 +1,7 @@
 # typed: false
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/LineLength
 module ValidationAssertions
   private
 
@@ -53,3 +54,4 @@ module ValidationAssertions
     end
   end
 end
+# rubocop:enable Metrics/LineLength

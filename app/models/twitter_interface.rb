@@ -63,5 +63,6 @@ class TwitterInterface
     attr_reader :instance
   end
 
-  @instance = T.let(Rails.env.production? ? Remote.new : Local.new, T.any(Remote, Local))
+  @instance =
+    T.let(Rails.env.production? ? Remote.new : Local.new, T.any(Remote, Local))
 end

@@ -4,7 +4,11 @@
 class EmailFixture
   extend T::Sig
 
-  DIRECTORY = T.let(T.must(Rails.root).join('test', 'fixtures', 'moderator_mailer').to_s.freeze, String)
+  DIRECTORY =
+    T.let(
+      -T.must(Rails.root).join('test', 'fixtures', 'moderator_mailer').to_s,
+      String
+    )
 
   sig { returns(String) }
   attr_reader :text

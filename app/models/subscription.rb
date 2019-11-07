@@ -2,7 +2,8 @@
 # frozen_string_literal: true
 
 class Subscription < ApplicationRecord
-  EMAIL_REGEX = T.let(/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i.freeze, Regexp)
+  EMAIL_REGEX =
+    T.let(/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i.freeze, Regexp)
 
   validates :email, presence: true,
                     uniqueness: { message: 'is already subscribed' },

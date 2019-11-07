@@ -8,7 +8,8 @@ module Admin
     # GET /admin/stories
     sig { void }
     def index
-      @stories = T.let(Story.feed_ordered, T.nilable(Story::ActiveRecord_Relation))
+      @stories =
+        T.let(Story.feed_ordered, T.nilable(Story::ActiveRecord_Relation))
     end
 
     # PATCH /admin/stories/:id/approve

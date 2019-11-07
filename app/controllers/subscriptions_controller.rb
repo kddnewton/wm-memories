@@ -11,14 +11,18 @@ class SubscriptionsController < ApplicationController
   # POST /subscriptions
   sig { void }
   def create
-    @subscription = T.let(Subscription.new(subscription_params), T.nilable(Subscription))
+    @subscription =
+      T.let(Subscription.new(subscription_params), T.nilable(Subscription))
+
     render :new unless T.must(@subscription).save
   end
 
   # GET /subscriptions/:id/verify
   sig { void }
   def verify
-    @subscription = T.let(Subscription.find(params[:id]), T.nilable(Subscription))
+    @subscription =
+      T.let(Subscription.find(params[:id]), T.nilable(Subscription))
+
     T.must(@subscription).verify!
   end
 
