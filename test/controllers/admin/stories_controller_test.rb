@@ -14,15 +14,6 @@ module Admin
       assert_response :success
     end
 
-    def test_approve
-      story = stories(:first)
-      patch :approve, xhr: true, params: { id: story.id }
-      story.reload
-
-      assert_response :success
-      assert story.approved?
-    end
-
     def test_show
       get :show, params: { id: stories(:second).id }
       assert_response :success

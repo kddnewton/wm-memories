@@ -12,13 +12,6 @@ module Admin
         T.let(Story.feed_ordered, T.nilable(Story::ActiveRecord_Relation))
     end
 
-    # PATCH /admin/stories/:id/approve
-    sig { void }
-    def approve
-      @story = T.let(Story.find(params[:id]), T.nilable(Story))
-      T.must(@story).approve!
-    end
-
     # GET /admin/stories/:id
     sig { void }
     def show

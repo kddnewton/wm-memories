@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :stories, only: %i[index show] do
-      patch :approve, on: :member
+      resource :approval, only: :create
     end
     resources :subscriptions, only: :index
   end

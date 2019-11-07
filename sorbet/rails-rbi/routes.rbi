@@ -80,12 +80,12 @@ module GeneratedUrlHelpers
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
   def new_subscription_url(*args, **kwargs); end
 
-  # Sigs for route /admin/stories/:id/approve(.:format)
+  # Sigs for route /admin/stories/:story_id/approval(.:format)
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
-  def approve_admin_story_path(*args, **kwargs); end
+  def admin_story_approval_path(*args, **kwargs); end
 
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
-  def approve_admin_story_url(*args, **kwargs); end
+  def admin_story_approval_url(*args, **kwargs); end
 
   # Sigs for route /admin/stories(.:format)
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
