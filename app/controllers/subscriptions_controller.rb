@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 class SubscriptionsController < ApplicationController
@@ -23,6 +23,9 @@ class SubscriptionsController < ApplicationController
 
   # strong params for subscriptions
   def subscription_params
-    params.require(:subscription).permit(:email)
+    subscription =
+      params.require_typed(:subscription, TA[ActionController::Parameters].new)
+
+    subscription.permit(:email)
   end
 end

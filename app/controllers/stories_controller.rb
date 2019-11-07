@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 class StoriesController < ApplicationController
@@ -37,6 +37,9 @@ class StoriesController < ApplicationController
 
   # strong params for stories
   def story_params
-    params.require(:story).permit(:year, :body, :lat, :lng, photo_proxies: [])
+    story =
+      params.require_typed(:story, TA[ActionController::Parameters].new)
+
+    story.permit(:year, :body, :lat, :lng, photo_proxies: [])
   end
 end
