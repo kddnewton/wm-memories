@@ -13,6 +13,9 @@ AllCops:
 Bundler/OrderedGems:
   Enabled: false
 
+Metrics/LineLength:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
