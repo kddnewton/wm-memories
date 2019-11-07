@@ -16,9 +16,6 @@ module ActiveStorage::Blob::Identifiable; end
 module ActiveStorage::Blob::Identifiable; end
 module ActiveStorage::Blob::Identifiable; end
 module ActiveStorage::Variant; end
-module Minitest::Mock; end
-module Minitest::Mock; end
-module Minitest::Mock; end
 module T::InterfaceWrapper::Helpers; end
 module T::InterfaceWrapper::Helpers; end
 module T::InterfaceWrapper::Helpers; end
@@ -89,6 +86,10 @@ module T::Private::Methods::MethodHooks; end
 module T::Private::Methods::MethodHooks; end
 module T::Private::Methods::MethodHooks; end
 module T::Private::Methods::MethodHooks; end
+module T::Private::Methods::MethodHooks; end
+module T::Private::Methods::MethodHooks; end
+module T::Private::Methods::SingletonMethodHooks; end
+module T::Private::Methods::SingletonMethodHooks; end
 module T::Private::Methods::SingletonMethodHooks; end
 module T::Private::Methods::SingletonMethodHooks; end
 module T::Private::Methods::SingletonMethodHooks; end

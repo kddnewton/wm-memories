@@ -756,6 +756,31 @@
 # wrong constant name write
 # wrong constant name <static-init>
 # wrong constant name <static-init>
+# uninitialized constant ActionController::LiveTestResponse::CONTENT_TYPE
+# uninitialized constant ActionController::LiveTestResponse::CONTENT_TYPE_PARSER
+# Did you mean?  ActionController::LiveTestResponse::ContentTypeHeader
+# uninitialized constant ActionController::LiveTestResponse::DATE
+# Did you mean?  Date
+#                Data
+# uninitialized constant ActionController::LiveTestResponse::DEFAULT_CACHE_CONTROL
+# uninitialized constant ActionController::LiveTestResponse::EXCEPTION_IMMEDIATE
+# uninitialized constant ActionController::LiveTestResponse::EXCEPTION_NEVER
+# uninitialized constant ActionController::LiveTestResponse::FILTERED
+# uninitialized constant ActionController::LiveTestResponse::LAST_MODIFIED
+# uninitialized constant ActionController::LiveTestResponse::LOCATION
+# uninitialized constant ActionController::LiveTestResponse::MUST_REVALIDATE
+# uninitialized constant ActionController::LiveTestResponse::NO_CACHE
+# uninitialized constant ActionController::LiveTestResponse::NO_CONTENT_CODES
+# uninitialized constant ActionController::LiveTestResponse::NullContentTypeHeader
+# Did you mean?  ActionController::LiveTestResponse::ContentTypeHeader
+# uninitialized constant ActionController::LiveTestResponse::PRIVATE
+# uninitialized constant ActionController::LiveTestResponse::PUBLIC
+# uninitialized constant ActionController::LiveTestResponse::SET_COOKIE
+# uninitialized constant ActionController::LiveTestResponse::SPECIAL_KEYS
+# wrong constant name error?
+# wrong constant name missing?
+# wrong constant name success?
+# wrong constant name <static-init>
 # uninitialized constant ActionController::LogSubscriber::BLACK
 # uninitialized constant ActionController::LogSubscriber::BLUE
 # uninitialized constant ActionController::LogSubscriber::BOLD
@@ -940,13 +965,13 @@
 # wrong constant name <Class:NullSessionHash>
 # wrong constant name handle_unverified_request
 # wrong constant name initialize
-# uninitialized constant #<Class:0x00007fd9bd30c7f0>::DOMAIN_REGEXP
+# uninitialized constant #<Class:0x00007fe759d79ba8>::DOMAIN_REGEXP
 # Did you mean?  ActionController::RequestForgeryProtection::ProtectionMethods::NullSession::NullCookieJar::DOMAIN_REGEXP
-# uninitialized constant #<Class:0x00007fd9bd30c7f0>::Elem
+# uninitialized constant #<Class:0x00007fe759d79ba8>::Elem
 # wrong constant name write
 # wrong constant name <static-init>
-# uninitialized constant #<Class:0x00007fd9bd30c908>::Elem
-# uninitialized constant #<Class:0x00007fd9bd30c908>::Unspecified
+# uninitialized constant #<Class:0x00007fe759d79cc0>::Elem
+# uninitialized constant #<Class:0x00007fe759d79cc0>::Unspecified
 # Did you mean?  ActionController::RequestForgeryProtection::ProtectionMethods::NullSession::NullSessionHash::Unspecified
 # wrong constant name initialize
 # wrong constant name <static-init>
@@ -973,7 +998,6 @@
 # uninitialized constant ActionController::TestCase::SIGNALS
 # Did you mean?  Signal
 # uninitialized constant ActionController::TestCase::TEARDOWN_METHODS
-# uninitialized constant ActionController::TestCase::TURBOLINKS_VISIT
 # uninitialized constant ActionController::TestCase::UNDEFINED
 # uninitialized constant ActionController::TestCase::UNTRACKED
 # wrong constant name _controller_class
@@ -1016,10 +1040,97 @@
 # wrong constant name tests
 # wrong constant name <static-init>
 # wrong constant name <static-init>
-# wrong constant name <static-init>
 # wrong constant name _controller_class
 # wrong constant name _controller_class=
 # wrong constant name _controller_class?
+# uninitialized constant ActionController::TestRequest::ACTION_DISPATCH_REQUEST_ID
+# uninitialized constant ActionController::TestRequest::BROWSER_LIKE_ACCEPTS
+# uninitialized constant ActionController::TestRequest::DEFAULT_PARSERS
+# Did you mean?  ActionController::DefaultHeaders
+#                ActionController::TestRequest::DEFAULT_PORTS
+# uninitialized constant ActionController::TestRequest::DEFAULT_PORTS
+# Did you mean?  ActionController::TestRequest::DEFAULT_PARSERS
+# uninitialized constant ActionController::TestRequest::ENV_MATCH
+# uninitialized constant ActionController::TestRequest::ENV_METHODS
+# uninitialized constant ActionController::TestRequest::FORM_DATA_MEDIA_TYPES
+# uninitialized constant ActionController::TestRequest::HOST_REGEXP
+# Did you mean?  ActionController::TestRequest::IP_HOST_REGEXP
+# uninitialized constant ActionController::TestRequest::HTTP_IF_MODIFIED_SINCE
+# uninitialized constant ActionController::TestRequest::HTTP_IF_NONE_MATCH
+# uninitialized constant ActionController::TestRequest::HTTP_METHODS
+# uninitialized constant ActionController::TestRequest::HTTP_METHOD_LOOKUP
+# uninitialized constant ActionController::TestRequest::HTTP_X_FORWARDED_HOST
+# Did you mean?  ActionController::TestRequest::HTTP_X_FORWARDED_SSL
+#                ActionController::TestRequest::HTTP_X_FORWARDED_PORT
+#                ActionController::TestRequest::HTTP_X_FORWARDED_PROTO
+#                ActionController::TestRequest::HTTP_X_FORWARDED_SCHEME
+# uninitialized constant ActionController::TestRequest::HTTP_X_FORWARDED_PORT
+# Did you mean?  ActionController::TestRequest::HTTP_X_FORWARDED_SSL
+#                ActionController::TestRequest::HTTP_X_FORWARDED_HOST
+#                ActionController::TestRequest::HTTP_X_FORWARDED_PROTO
+#                ActionController::TestRequest::HTTP_X_FORWARDED_SCHEME
+# uninitialized constant ActionController::TestRequest::HTTP_X_FORWARDED_PROTO
+# Did you mean?  ActionController::TestRequest::HTTP_X_FORWARDED_SSL
+#                ActionController::TestRequest::HTTP_X_FORWARDED_PORT
+#                ActionController::TestRequest::HTTP_X_FORWARDED_HOST
+#                ActionController::TestRequest::HTTP_X_FORWARDED_SCHEME
+# uninitialized constant ActionController::TestRequest::HTTP_X_FORWARDED_SCHEME
+# Did you mean?  ActionController::TestRequest::HTTP_X_FORWARDED_SSL
+#                ActionController::TestRequest::HTTP_X_FORWARDED_HOST
+#                ActionController::TestRequest::HTTP_X_FORWARDED_PORT
+#                ActionController::TestRequest::HTTP_X_FORWARDED_PROTO
+# uninitialized constant ActionController::TestRequest::HTTP_X_FORWARDED_SSL
+# Did you mean?  ActionController::TestRequest::HTTP_X_FORWARDED_PORT
+#                ActionController::TestRequest::HTTP_X_FORWARDED_HOST
+#                ActionController::TestRequest::HTTP_X_FORWARDED_PROTO
+#                ActionController::TestRequest::HTTP_X_FORWARDED_SCHEME
+# uninitialized constant ActionController::TestRequest::IP_HOST_REGEXP
+# Did you mean?  ActionController::TestRequest::HOST_REGEXP
+# uninitialized constant ActionController::TestRequest::KV_RE
+# uninitialized constant ActionController::TestRequest::LOCALHOST
+# uninitialized constant ActionController::TestRequest::NONCE
+# uninitialized constant ActionController::TestRequest::NONCE_DIRECTIVES
+# uninitialized constant ActionController::TestRequest::NONCE_GENERATOR
+# uninitialized constant ActionController::TestRequest::NULL_ENV_FILTER
+# uninitialized constant ActionController::TestRequest::NULL_PARAM_FILTER
+# Did you mean?  ActionController::TestRequest::NULL_ENV_FILTER
+# uninitialized constant ActionController::TestRequest::PAIR_RE
+# uninitialized constant ActionController::TestRequest::PARAMETERS_KEY
+# Did you mean?  ActionController::Parameters
+# uninitialized constant ActionController::TestRequest::PARSEABLE_DATA_MEDIA_TYPES
+# uninitialized constant ActionController::TestRequest::POLICY
+# uninitialized constant ActionController::TestRequest::POLICY_REPORT_ONLY
+# uninitialized constant ActionController::TestRequest::PROTOCOL_REGEXP
+# uninitialized constant ActionController::TestRequest::RESCUABLE_MIME_FORMAT_ERRORS
+# uninitialized constant ActionController::TestRequest::RFC2518
+# Did you mean?  ActionController::TestRequest::RFC2616
+# uninitialized constant ActionController::TestRequest::RFC2616
+# Did you mean?  ActionController::TestRequest::RFC2518
+# uninitialized constant ActionController::TestRequest::RFC3253
+# Did you mean?  ActionController::TestRequest::RFC5323
+# uninitialized constant ActionController::TestRequest::RFC3648
+# Did you mean?  ActionController::TestRequest::RFC3744
+# uninitialized constant ActionController::TestRequest::RFC3744
+# Did you mean?  ActionController::TestRequest::RFC3648
+# uninitialized constant ActionController::TestRequest::RFC4791
+# uninitialized constant ActionController::TestRequest::RFC5323
+# Did you mean?  ActionController::TestRequest::RFC3253
+# uninitialized constant ActionController::TestRequest::RFC5789
+# wrong constant name assign_parameters
+# wrong constant name content_type=
+# wrong constant name initialize
+# wrong constant name query_string=
+# wrong constant name <static-init>
+# wrong constant name create
+# wrong constant name new_session
+# undefined method `initialize<defaultArg>1' for class `ActionController::TestSession'
+# Did you mean?  initialize_dup
+# uninitialized constant ActionController::TestSession::Elem
+# uninitialized constant ActionController::TestSession::Unspecified
+# wrong constant name fetch
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name <static-init>
 # wrong constant name <Class:Functional>
 # wrong constant name recycle!
 # wrong constant name <static-init>
@@ -1131,7 +1242,6 @@
 # wrong constant name put
 # wrong constant name <static-init>
 # uninitialized constant ActionDispatch::Integration::Runner::RESPONSE_PREDICATES
-# uninitialized constant ActionDispatch::Integration::Runner::TURBOLINKS_VISIT
 # wrong constant name app
 # wrong constant name assigns
 # wrong constant name before_setup
@@ -1161,7 +1271,6 @@
 # undefined method `process<defaultArg>5' for class `ActionDispatch::Integration::Session'
 # uninitialized constant ActionDispatch::Integration::Session::E
 # uninitialized constant ActionDispatch::Integration::Session::RESPONSE_PREDICATES
-# uninitialized constant ActionDispatch::Integration::Session::TURBOLINKS_VISIT
 # uninitialized constant ActionDispatch::Integration::Session::UNDEFINED
 # wrong constant name accept
 # wrong constant name accept=
@@ -1209,7 +1318,6 @@
 # uninitialized constant ActionDispatch::IntegrationTest::SIGNALS
 # Did you mean?  Signal
 # uninitialized constant ActionDispatch::IntegrationTest::TEARDOWN_METHODS
-# uninitialized constant ActionDispatch::IntegrationTest::TURBOLINKS_VISIT
 # uninitialized constant ActionDispatch::IntegrationTest::UNDEFINED
 # uninitialized constant ActionDispatch::IntegrationTest::UNTRACKED
 # wrong constant name <Class:UrlOptions>
@@ -1218,8 +1326,6 @@
 # wrong constant name <Class:ClassMethods>
 # uninitialized constant ActionDispatch::IntegrationTest::Behavior::RESPONSE_PREDICATES
 # Did you mean?  ActionDispatch::IntegrationTest::RESPONSE_PREDICATES
-# uninitialized constant ActionDispatch::IntegrationTest::Behavior::TURBOLINKS_VISIT
-# Did you mean?  ActionDispatch::IntegrationTest::TURBOLINKS_VISIT
 # wrong constant name app
 # wrong constant name document_root_element
 # wrong constant name app
@@ -1344,6 +1450,25 @@
 # uninitialized constant ActionDispatch::Request::POLICY_REPORT_ONLY
 # uninitialized constant ActionDispatch::Request::PROTOCOL_REGEXP
 # uninitialized constant ActionDispatch::Request::RESCUABLE_MIME_FORMAT_ERRORS
+# wrong constant name <Class:IdentityEncoder>
+# wrong constant name accept_header
+# wrong constant name content_type
+# wrong constant name encode_params
+# wrong constant name initialize
+# wrong constant name response_parser
+# wrong constant name accept_header
+# wrong constant name content_type
+# wrong constant name encode_params
+# wrong constant name response_parser
+# wrong constant name <static-init>
+# undefined singleton method `register_encoder<defaultArg>1' for `ActionDispatch::RequestEncoder'
+# undefined singleton method `register_encoder<defaultArg>2' for `ActionDispatch::RequestEncoder'
+# wrong constant name <static-init>
+# wrong constant name encoder
+# wrong constant name parser
+# wrong constant name register_encoder<defaultArg>1
+# wrong constant name register_encoder<defaultArg>2
+# wrong constant name register_encoder
 # undefined method `initialize<defaultArg>1' for class `ActionDispatch::Response'
 # Did you mean?  initialize_dup
 # undefined method `initialize<defaultArg>2' for class `ActionDispatch::Response'
@@ -1996,12 +2121,17 @@
 # wrong constant name assert_no_emails
 # wrong constant name assert_no_enqueued_emails
 # wrong constant name <static-init>
+# wrong constant name <Class:ActionViewError>
 # wrong constant name <Class:Digestor>
+# wrong constant name <Class:EncodingError>
 # wrong constant name <Class:I18nProxy>
+# wrong constant name <Class:Layouts>
+# wrong constant name <Class:MissingTemplate>
 # wrong constant name <Class:OutputBuffer>
 # wrong constant name <Class:OutputFlow>
 # wrong constant name <Class:PathSet>
 # wrong constant name <Class:Renderer>
+# wrong constant name <Class:Rendering>
 # wrong constant name <Class:RoutingUrlFor>
 # wrong constant name <Class:StreamingBuffer>
 # wrong constant name <Class:StreamingFlow>
@@ -2009,6 +2139,9 @@
 # wrong constant name <Class:TemplateRenderer>
 # wrong constant name <Class:TestCase>
 # wrong constant name <Class:UnboundTemplate>
+# wrong constant name <Class:ViewPaths>
+# wrong constant name <Class:WrongEncodingError>
+# wrong constant name <static-init>
 # uninitialized constant ActionView::Base::ASSET_EXTENSIONS
 # uninitialized constant ActionView::Base::ASSET_PUBLIC_DIRECTORIES
 # uninitialized constant ActionView::Base::BOOLEAN_ATTRIBUTES
@@ -2135,16 +2268,19 @@
 # wrong constant name tree<defaultArg>1
 # wrong constant name tree<defaultArg>2
 # wrong constant name tree
+# wrong constant name <static-init>
 # wrong constant name initialize
 # wrong constant name locale=
 # wrong constant name lookup_context
 # wrong constant name original_config
 # wrong constant name <static-init>
+# wrong constant name <Class:ClassMethods>
 # wrong constant name _layout_conditions
 # wrong constant name _normalize_options
 # wrong constant name action_has_layout=
 # wrong constant name action_has_layout?
 # wrong constant name initialize
+# wrong constant name <static-init>
 # wrong constant name <static-init>
 # uninitialized constant ActionView::LogSubscriber::BLACK
 # uninitialized constant ActionView::LogSubscriber::BLUE
@@ -2160,6 +2296,8 @@
 # wrong constant name render_partial
 # wrong constant name render_template
 # wrong constant name initialize
+# wrong constant name path
+# wrong constant name <static-init>
 # uninitialized constant ActionView::OutputBuffer::BLANK_RE
 # uninitialized constant ActionView::OutputBuffer::ENCODED_BLANKS
 # uninitialized constant ActionView::OutputBuffer::UNSAFE_STRING_METHODS
@@ -2224,6 +2362,7 @@
 # wrong constant name view_context
 # wrong constant name view_context_class
 # wrong constant name view_renderer
+# wrong constant name <static-init>
 # undefined method `url_for<defaultArg>1' for module `ActionView::RoutingUrlFor'
 # wrong constant name default_url_options=
 # wrong constant name url_for<defaultArg>1
@@ -2262,6 +2401,7 @@
 # wrong constant name source_extract
 # wrong constant name sub_template_message
 # wrong constant name sub_template_of
+# wrong constant name <static-init>
 # undefined method `initialize<defaultArg>1' for class `ActionView::Template::HTML'
 # Did you mean?  initialize_dup
 # wrong constant name format
@@ -2428,10 +2568,12 @@
 # wrong constant name prepend_view_path
 # wrong constant name template_exists?
 # wrong constant name view_paths
+# wrong constant name <static-init>
 # wrong constant name all_view_paths
 # wrong constant name get_view_paths
 # wrong constant name set_view_paths
 # wrong constant name initialize
+# wrong constant name <static-init>
 # wrong constant name deserialize
 # wrong constant name serialize
 # wrong constant name <static-init>
@@ -3454,8 +3596,8 @@
 # wrong constant name <static-init>
 # uninitialized constant ActiveRecord::Base::ACTIONS
 # uninitialized constant ActiveRecord::Base::CALLBACKS
-# Did you mean?  ActiveRecord::Callbacks
-#                ActiveRecord::Base::Callbacks
+# Did you mean?  ActiveRecord::Base::Callbacks
+#                ActiveRecord::Callbacks
 #                ActiveRecord::Base::Callback
 # uninitialized constant ActiveRecord::Base::CALLBACK_FILTER_TYPES
 # uninitialized constant ActiveRecord::Base::CALL_COMPILABLE_REGEXP
@@ -4007,7 +4149,7 @@
 # wrong constant name initialize
 # wrong constant name to_hash
 # wrong constant name <static-init>
-# undefined method `resolve<defaultArg>1' for class `#<Class:0x00007fd9b52b7898>'
+# undefined method `resolve<defaultArg>1' for class `#<Class:0x00007fe754b08ea0>'
 # wrong constant name configurations
 # wrong constant name initialize
 # wrong constant name resolve<defaultArg>1
@@ -4467,9 +4609,9 @@
 # wrong constant name supports_pgcrypto_uuid?
 # wrong constant name supports_ranges?
 # wrong constant name use_insert_returning?
-# uninitialized constant #<Class:0x00007fd9bd26d150>::DEFAULT_STATEMENT_LIMIT
+# uninitialized constant #<Class:0x00007fe759ce1010>::DEFAULT_STATEMENT_LIMIT
 # Did you mean?  ActiveRecord::ConnectionAdapters::PostgreSQLAdapter::StatementPool::DEFAULT_STATEMENT_LIMIT
-# uninitialized constant #<Class:0x00007fd9bd26d150>::Elem
+# uninitialized constant #<Class:0x00007fe759ce1010>::Elem
 # wrong constant name []=
 # wrong constant name initialize
 # wrong constant name next_key
@@ -4789,6 +4931,7 @@
 # wrong constant name -
 # wrong constant name <Class:ClassMethods>
 # wrong constant name <Class:ClassSpecificRelation>
+# wrong constant name <Class:DelegateCache>
 # wrong constant name []
 # wrong constant name as_json
 # wrong constant name compact
@@ -4823,6 +4966,7 @@
 # wrong constant name inherited
 # wrong constant name initialize_relation_delegate_cache
 # wrong constant name relation_delegate_class
+# wrong constant name <static-init>
 # wrong constant name <static-init>
 # undefined method `initialize<defaultArg>1' for class `ActiveRecord::DeleteRestrictionError'
 # Did you mean?  initialize_dup
@@ -4919,6 +5063,110 @@
 # wrong constant name third_to_last
 # wrong constant name third_to_last!
 # wrong constant name <static-init>
+# uninitialized constant ActiveRecord::Fixture::Elem
+# wrong constant name <Class:FixtureError>
+# wrong constant name <Class:FormatError>
+# wrong constant name []
+# wrong constant name class_name
+# wrong constant name each
+# wrong constant name find
+# wrong constant name fixture
+# wrong constant name initialize
+# wrong constant name model_class
+# wrong constant name to_hash
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# undefined method `initialize<defaultArg>1' for class `ActiveRecord::FixtureSet'
+# Did you mean?  initialize_dup
+# wrong constant name <Class:ClassCache>
+# wrong constant name <Class:File>
+# wrong constant name <Class:ModelMetadata>
+# wrong constant name <Class:RenderContext>
+# wrong constant name <Class:TableRow>
+# wrong constant name <Class:TableRows>
+# wrong constant name []
+# wrong constant name []=
+# wrong constant name all_loaded_fixtures
+# wrong constant name all_loaded_fixtures=
+# wrong constant name config
+# wrong constant name each
+# wrong constant name fixtures
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name model_class
+# wrong constant name name
+# wrong constant name size
+# wrong constant name table_name
+# wrong constant name table_rows
+# wrong constant name []
+# wrong constant name initialize
+# wrong constant name <static-init>
+# uninitialized constant ActiveRecord::FixtureSet::File::Elem
+# wrong constant name each
+# wrong constant name initialize
+# wrong constant name model_class
+# wrong constant name <static-init>
+# wrong constant name open
+# wrong constant name has_primary_key_column?
+# wrong constant name inheritance_column_name
+# wrong constant name initialize
+# wrong constant name primary_key_name
+# wrong constant name primary_key_type
+# wrong constant name timestamp_column_names
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name create_subclass
+# wrong constant name <Class:HasManyThroughProxy>
+# wrong constant name <Class:ReflectionProxy>
+# wrong constant name initialize
+# wrong constant name to_hash
+# wrong constant name lhs_key
+# wrong constant name rhs_key
+# wrong constant name <static-init>
+# wrong constant name initialize
+# wrong constant name join_table
+# wrong constant name name
+# wrong constant name primary_key_type
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name initialize
+# wrong constant name model_class
+# wrong constant name model_metadata
+# wrong constant name tables
+# wrong constant name to_hash
+# wrong constant name <static-init>
+# undefined singleton method `cached_fixtures<defaultArg>1' for `ActiveRecord::FixtureSet'
+# undefined singleton method `create_fixtures<defaultArg>1' for `ActiveRecord::FixtureSet'
+# undefined singleton method `create_fixtures<defaultArg>2' for `ActiveRecord::FixtureSet'
+# undefined singleton method `default_fixture_model_name<defaultArg>1' for `ActiveRecord::FixtureSet'
+# undefined singleton method `default_fixture_table_name<defaultArg>1' for `ActiveRecord::FixtureSet'
+# undefined singleton method `identify<defaultArg>1' for `ActiveRecord::FixtureSet'
+# undefined singleton method `instantiate_all_loaded_fixtures<defaultArg>1' for `ActiveRecord::FixtureSet'
+# undefined singleton method `instantiate_fixtures<defaultArg>1' for `ActiveRecord::FixtureSet'
+# wrong constant name <static-init>
+# wrong constant name all_loaded_fixtures
+# wrong constant name all_loaded_fixtures=
+# wrong constant name cache_fixtures
+# wrong constant name cache_for_connection
+# wrong constant name cached_fixtures<defaultArg>1
+# wrong constant name cached_fixtures
+# wrong constant name context_class
+# wrong constant name create_fixtures<defaultArg>1
+# wrong constant name create_fixtures<defaultArg>2
+# wrong constant name create_fixtures
+# wrong constant name default_fixture_model_name<defaultArg>1
+# wrong constant name default_fixture_model_name
+# wrong constant name default_fixture_table_name<defaultArg>1
+# wrong constant name default_fixture_table_name
+# wrong constant name fixture_is_cached?
+# wrong constant name identify<defaultArg>1
+# wrong constant name identify
+# wrong constant name instantiate_all_loaded_fixtures<defaultArg>1
+# wrong constant name instantiate_all_loaded_fixtures
+# wrong constant name instantiate_fixtures<defaultArg>1
+# wrong constant name instantiate_fixtures
+# wrong constant name reset_cache
 # undefined method `initialize<defaultArg>1' for class `ActiveRecord::HasManyThroughAssociationNotFoundError'
 # Did you mean?  initialize_dup
 # undefined method `initialize<defaultArg>2' for class `ActiveRecord::HasManyThroughAssociationNotFoundError'
@@ -5044,28 +5292,28 @@
 # wrong constant name to_param
 # wrong constant name <static-init>
 # wrong constant name <static-init>
-# uninitialized constant #<Class:0x00007fd9b56aec08>::ACTIONS
+# uninitialized constant #<Class:0x00007fe75b24cb48>::ACTIONS
 # Did you mean?  ActiveRecord::InternalMetadata::ACTIONS
-# uninitialized constant #<Class:0x00007fd9b56aec08>::CALLBACKS
-# Did you mean?  ActiveRecord::Callbacks
-#                ActiveRecord::InternalMetadata::Callbacks
+# uninitialized constant #<Class:0x00007fe75b24cb48>::CALLBACKS
+# Did you mean?  ActiveRecord::InternalMetadata::Callbacks
+#                ActiveRecord::Callbacks
 #                ActiveRecord::InternalMetadata::Callback
 #                ActiveRecord::InternalMetadata::CALLBACKS
-# uninitialized constant #<Class:0x00007fd9b56aec08>::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fe75b24cb48>::CALLBACK_FILTER_TYPES
 # Did you mean?  ActiveRecord::InternalMetadata::CALLBACK_FILTER_TYPES
-# uninitialized constant #<Class:0x00007fd9b56aec08>::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fe75b24cb48>::CALL_COMPILABLE_REGEXP
 # Did you mean?  ActiveRecord::InternalMetadata::CALL_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007fd9b56aec08>::COLUMNS
+# uninitialized constant #<Class:0x00007fe75b24cb48>::COLUMNS
 # Did you mean?  ActiveRecord::InternalMetadata::COLUMNS
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedRelationMethods>
-# uninitialized constant #<Class:0x00007fd9b56aec08>::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fe75b24cb48>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  ActiveRecord::InternalMetadata::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant #<Class:0x00007fd9b56aec08>::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fe75b24cb48>::NAME_COMPILABLE_REGEXP
 # Did you mean?  ActiveRecord::InternalMetadata::NAME_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007fd9b56aec08>::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fe75b24cb48>::RESTRICTED_CLASS_METHODS
 # Did you mean?  ActiveRecord::InternalMetadata::RESTRICTED_CLASS_METHODS
-# uninitialized constant #<Class:0x00007fd9b56aec08>::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fe75b24cb48>::UNASSIGNABLE_KEYS
 # Did you mean?  ActiveRecord::InternalMetadata::UNASSIGNABLE_KEYS
 # uninitialized constant ActiveRecord::InternalMetadata::ActiveRecord_AssociationRelation::CLAUSE_METHODS
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_AssociationRelation::ClassMethods
@@ -5086,36 +5334,36 @@
 # uninitialized constant ActiveRecord::InternalMetadata::ActiveRecord_AssociationRelation::VALID_UNSCOPING_VALUES
 # uninitialized constant ActiveRecord::InternalMetadata::ActiveRecord_AssociationRelation::VALUE_METHODS
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_AssociationRelation::CLAUSE_METHODS
-# uninitialized constant #<Class:0x00007fd9b56adc40>::CLAUSE_METHODS
+# uninitialized constant #<Class:0x00007fe754b81850>::CLAUSE_METHODS
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::ClassMethods
 #                ActiveRecord::InternalMetadata::ClassMethods
 #                ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::VALUE_METHODS
 #                ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::CLAUSE_METHODS
-# uninitialized constant #<Class:0x00007fd9b56adc40>::DEFAULT_VALUES
+# uninitialized constant #<Class:0x00007fe754b81850>::DEFAULT_VALUES
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::DEFAULT_VALUES
-# uninitialized constant #<Class:0x00007fd9b56adc40>::FROZEN_EMPTY_ARRAY
+# uninitialized constant #<Class:0x00007fe754b81850>::FROZEN_EMPTY_ARRAY
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::FROZEN_EMPTY_HASH
 #                ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::FROZEN_EMPTY_ARRAY
-# uninitialized constant #<Class:0x00007fd9b56adc40>::FROZEN_EMPTY_HASH
+# uninitialized constant #<Class:0x00007fe754b81850>::FROZEN_EMPTY_HASH
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::FROZEN_EMPTY_HASH
 #                ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::FROZEN_EMPTY_ARRAY
-# uninitialized constant #<Class:0x00007fd9b56adc40>::INVALID_METHODS_FOR_DELETE_ALL
+# uninitialized constant #<Class:0x00007fe754b81850>::INVALID_METHODS_FOR_DELETE_ALL
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::INVALID_METHODS_FOR_DELETE_ALL
-# uninitialized constant #<Class:0x00007fd9b56adc40>::MULTI_VALUE_METHODS
+# uninitialized constant #<Class:0x00007fe754b81850>::MULTI_VALUE_METHODS
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::MULTI_VALUE_METHODS
-# uninitialized constant #<Class:0x00007fd9b56adc40>::ONE_AS_ONE
+# uninitialized constant #<Class:0x00007fe754b81850>::ONE_AS_ONE
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::ONE_AS_ONE
-# uninitialized constant #<Class:0x00007fd9b56adc40>::ORDER_IGNORE_MESSAGE
+# uninitialized constant #<Class:0x00007fe754b81850>::ORDER_IGNORE_MESSAGE
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::ORDER_IGNORE_MESSAGE
-# uninitialized constant #<Class:0x00007fd9b56adc40>::SINGLE_VALUE_METHODS
+# uninitialized constant #<Class:0x00007fe754b81850>::SINGLE_VALUE_METHODS
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::SINGLE_VALUE_METHODS
-# uninitialized constant #<Class:0x00007fd9b56adc40>::STRUCTURAL_OR_METHODS
+# uninitialized constant #<Class:0x00007fe754b81850>::STRUCTURAL_OR_METHODS
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::STRUCTURAL_OR_METHODS
-# uninitialized constant #<Class:0x00007fd9b56adc40>::VALID_DIRECTIONS
+# uninitialized constant #<Class:0x00007fe754b81850>::VALID_DIRECTIONS
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::VALID_DIRECTIONS
-# uninitialized constant #<Class:0x00007fd9b56adc40>::VALID_UNSCOPING_VALUES
+# uninitialized constant #<Class:0x00007fe754b81850>::VALID_UNSCOPING_VALUES
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::VALID_UNSCOPING_VALUES
-# uninitialized constant #<Class:0x00007fd9b56adc40>::VALUE_METHODS
+# uninitialized constant #<Class:0x00007fe754b81850>::VALUE_METHODS
 # Did you mean?  ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::VALUE_METHODS
 #                ActiveRecord::InternalMetadata::ActiveRecord_Associations_CollectionProxy::CLAUSE_METHODS
 # uninitialized constant ActiveRecord::InternalMetadata::ActiveRecord_Relation::CLAUSE_METHODS
@@ -6129,8 +6377,8 @@
 # uninitialized constant ActiveRecord::SchemaMigration(version: string)::ACTIONS
 # Did you mean?  ActiveRecord::SchemaMigration::ACTIONS
 # uninitialized constant ActiveRecord::SchemaMigration(version: string)::CALLBACKS
-# Did you mean?  ActiveRecord::Callbacks
-#                ActiveRecord::SchemaMigration::Callbacks
+# Did you mean?  ActiveRecord::SchemaMigration::Callbacks
+#                ActiveRecord::Callbacks
 #                ActiveRecord::SchemaMigration::Callback
 #                ActiveRecord::SchemaMigration::CALLBACKS
 # uninitialized constant ActiveRecord::SchemaMigration(version: string)::CALLBACK_FILTER_TYPES
@@ -6169,36 +6417,36 @@
 # uninitialized constant ActiveRecord::SchemaMigration::ActiveRecord_AssociationRelation::VALID_UNSCOPING_VALUES
 # uninitialized constant ActiveRecord::SchemaMigration::ActiveRecord_AssociationRelation::VALUE_METHODS
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_AssociationRelation::CLAUSE_METHODS
-# uninitialized constant #<Class:0x00007fd9b56be400>::CLAUSE_METHODS
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::CLAUSE_METHODS
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::ClassMethods
 #                ActiveRecord::SchemaMigration::ClassMethods
 #                ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::VALUE_METHODS
 #                ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::CLAUSE_METHODS
-# uninitialized constant #<Class:0x00007fd9b56be400>::DEFAULT_VALUES
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::DEFAULT_VALUES
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::DEFAULT_VALUES
-# uninitialized constant #<Class:0x00007fd9b56be400>::FROZEN_EMPTY_ARRAY
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::FROZEN_EMPTY_ARRAY
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::FROZEN_EMPTY_HASH
 #                ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::FROZEN_EMPTY_ARRAY
-# uninitialized constant #<Class:0x00007fd9b56be400>::FROZEN_EMPTY_HASH
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::FROZEN_EMPTY_HASH
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::FROZEN_EMPTY_HASH
 #                ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::FROZEN_EMPTY_ARRAY
-# uninitialized constant #<Class:0x00007fd9b56be400>::INVALID_METHODS_FOR_DELETE_ALL
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::INVALID_METHODS_FOR_DELETE_ALL
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::INVALID_METHODS_FOR_DELETE_ALL
-# uninitialized constant #<Class:0x00007fd9b56be400>::MULTI_VALUE_METHODS
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::MULTI_VALUE_METHODS
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::MULTI_VALUE_METHODS
-# uninitialized constant #<Class:0x00007fd9b56be400>::ONE_AS_ONE
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::ONE_AS_ONE
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::ONE_AS_ONE
-# uninitialized constant #<Class:0x00007fd9b56be400>::ORDER_IGNORE_MESSAGE
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::ORDER_IGNORE_MESSAGE
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::ORDER_IGNORE_MESSAGE
-# uninitialized constant #<Class:0x00007fd9b56be400>::SINGLE_VALUE_METHODS
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::SINGLE_VALUE_METHODS
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::SINGLE_VALUE_METHODS
-# uninitialized constant #<Class:0x00007fd9b56be400>::STRUCTURAL_OR_METHODS
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::STRUCTURAL_OR_METHODS
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::STRUCTURAL_OR_METHODS
-# uninitialized constant #<Class:0x00007fd9b56be400>::VALID_DIRECTIONS
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::VALID_DIRECTIONS
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::VALID_DIRECTIONS
-# uninitialized constant #<Class:0x00007fd9b56be400>::VALID_UNSCOPING_VALUES
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::VALID_UNSCOPING_VALUES
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::VALID_UNSCOPING_VALUES
-# uninitialized constant #<Class:0x00007fd9b56be400>::VALUE_METHODS
+# uninitialized constant #<Class:0x00007fe75b2d5c90>::VALUE_METHODS
 # Did you mean?  ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::VALUE_METHODS
 #                ActiveRecord::SchemaMigration::ActiveRecord_Associations_CollectionProxy::CLAUSE_METHODS
 # uninitialized constant ActiveRecord::SchemaMigration::ActiveRecord_Relation::CLAUSE_METHODS
@@ -6335,6 +6583,8 @@
 # wrong constant name reflect_on_aggregation
 # wrong constant name resolve_column_aliases
 # wrong constant name type
+# wrong constant name <static-init>
+# wrong constant name <static-init>
 # wrong constant name <static-init>
 # undefined method `charset_current<defaultArg>1' for module `ActiveRecord::Tasks::DatabaseTasks'
 # Did you mean?  charset_current
@@ -6526,7 +6776,6 @@
 # wrong constant name <static-init>
 # wrong constant name create_and_load_schema
 # undefined method `setup_fixtures<defaultArg>1' for module `ActiveRecord::TestFixtures'
-# wrong constant name <Class:ClassMethods>
 # wrong constant name after_teardown
 # wrong constant name before_setup
 # wrong constant name enlist_fixture_connections
@@ -6534,16 +6783,6 @@
 # wrong constant name setup_fixtures<defaultArg>1
 # wrong constant name setup_fixtures
 # wrong constant name teardown_fixtures
-# undefined method `set_fixture_class<defaultArg>1' for module `ActiveRecord::TestFixtures::ClassMethods'
-# undefined method `setup_fixture_accessors<defaultArg>1' for module `ActiveRecord::TestFixtures::ClassMethods'
-# wrong constant name fixtures
-# wrong constant name set_fixture_class<defaultArg>1
-# wrong constant name set_fixture_class
-# wrong constant name setup_fixture_accessors<defaultArg>1
-# wrong constant name setup_fixture_accessors
-# wrong constant name uses_transaction
-# wrong constant name uses_transaction?
-# wrong constant name <static-init>
 # wrong constant name <static-init>
 # undefined method `initialize<defaultArg>1' for class `ActiveRecord::ThroughCantAssociateThroughHasOneOrManyReflection'
 # Did you mean?  initialize_dup
@@ -6733,6 +6972,11 @@
 # wrong constant name validate_each
 # wrong constant name <static-init>
 # wrong constant name <static-init>
+# wrong constant name enum_calls
+# wrong constant name get_enum_call
+# wrong constant name store_enum_call
+# wrong constant name <static-init>
+# wrong constant name instance
 # wrong constant name <Class:FileStore>
 # undefined method `initialize<defaultArg>1' for class `ActiveSupport::Cache::FileStore'
 # Did you mean?  initialize_dup
@@ -6965,9 +7209,32 @@
 # wrong constant name assert_not_same<defaultArg>1
 # wrong constant name assert_not_same
 # wrong constant name assert_raise
+# wrong constant name config
+# wrong constant name config=
+# wrong constant name config?
 # wrong constant name file_fixture_path
 # wrong constant name file_fixture_path?
+# wrong constant name fixture_class_names
+# wrong constant name fixture_class_names=
+# wrong constant name fixture_class_names?
+# wrong constant name fixture_path
+# wrong constant name fixture_path?
+# wrong constant name fixture_table_names
+# wrong constant name fixture_table_names=
+# wrong constant name fixture_table_names?
+# wrong constant name lock_threads
+# wrong constant name lock_threads=
+# wrong constant name lock_threads?
 # wrong constant name method_name
+# wrong constant name pre_loaded_fixtures
+# wrong constant name pre_loaded_fixtures=
+# wrong constant name pre_loaded_fixtures?
+# wrong constant name use_instantiated_fixtures
+# wrong constant name use_instantiated_fixtures=
+# wrong constant name use_instantiated_fixtures?
+# wrong constant name use_transactional_tests
+# wrong constant name use_transactional_tests=
+# wrong constant name use_transactional_tests?
 # undefined singleton method `parallelize<defaultArg>1' for `ActiveSupport::TestCase'
 # undefined singleton method `parallelize<defaultArg>2' for `ActiveSupport::TestCase'
 # wrong constant name __callbacks
@@ -6977,15 +7244,39 @@
 # wrong constant name _setup_callbacks=
 # wrong constant name _teardown_callbacks
 # wrong constant name _teardown_callbacks=
+# wrong constant name config
+# wrong constant name config=
+# wrong constant name config?
 # wrong constant name file_fixture_path
 # wrong constant name file_fixture_path=
 # wrong constant name file_fixture_path?
+# wrong constant name fixture_class_names
+# wrong constant name fixture_class_names=
+# wrong constant name fixture_class_names?
+# wrong constant name fixture_path
+# wrong constant name fixture_path=
+# wrong constant name fixture_path?
+# wrong constant name fixture_table_names
+# wrong constant name fixture_table_names=
+# wrong constant name fixture_table_names?
+# wrong constant name lock_threads
+# wrong constant name lock_threads=
+# wrong constant name lock_threads?
 # wrong constant name parallelize<defaultArg>1
 # wrong constant name parallelize<defaultArg>2
 # wrong constant name parallelize
 # wrong constant name parallelize_setup
 # wrong constant name parallelize_teardown
+# wrong constant name pre_loaded_fixtures
+# wrong constant name pre_loaded_fixtures=
+# wrong constant name pre_loaded_fixtures?
 # wrong constant name test_order=
+# wrong constant name use_instantiated_fixtures
+# wrong constant name use_instantiated_fixtures=
+# wrong constant name use_instantiated_fixtures?
+# wrong constant name use_transactional_tests
+# wrong constant name use_transactional_tests=
+# wrong constant name use_transactional_tests?
 # wrong constant name <Class:Assertions>
 # wrong constant name <Class:ConstantLookup>
 # wrong constant name <Class:Declarative>
@@ -6995,6 +7286,7 @@
 # wrong constant name <Class:Parallelization>
 # wrong constant name <Class:SetupAndTeardown>
 # wrong constant name <Class:SimpleStubs>
+# wrong constant name <Class:Stream>
 # wrong constant name <Class:TaggedLogging>
 # wrong constant name <Class:TimeHelpers>
 # undefined method `assert_changes<defaultArg>1' for module `ActiveSupport::Testing::Assertions'
@@ -7080,6 +7372,7 @@
 # wrong constant name <static-init>
 # wrong constant name []
 # wrong constant name members
+# wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name before_setup
 # wrong constant name tagged_logger=
@@ -8198,8 +8491,207 @@
 # wrong constant name line_stub
 # wrong constant name peek_result
 # wrong constant name running?
+# wrong constant name <Class:DRbArray>
+# wrong constant name <Class:DRbBadScheme>
+# wrong constant name <Class:DRbBadURI>
+# wrong constant name <Class:DRbConn>
+# wrong constant name <Class:DRbConnError>
+# wrong constant name <Class:DRbError>
+# wrong constant name <Class:DRbIdConv>
+# wrong constant name <Class:DRbMessage>
+# wrong constant name <Class:DRbObject>
+# wrong constant name <Class:DRbProtocol>
+# wrong constant name <Class:DRbRemoteError>
+# wrong constant name <Class:DRbServer>
+# wrong constant name <Class:DRbServerNotFound>
+# wrong constant name <Class:DRbTCPSocket>
+# wrong constant name <Class:DRbUNIXSocket>
+# wrong constant name <Class:DRbURIOption>
+# wrong constant name <Class:DRbUndumped>
+# wrong constant name <Class:DRbUnknown>
+# wrong constant name <Class:DRbUnknownError>
+# wrong constant name _dump
+# wrong constant name initialize
+# wrong constant name <static-init>
+# wrong constant name _load
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name alive?
+# wrong constant name close
+# wrong constant name initialize
+# wrong constant name send_message
+# wrong constant name uri
+# wrong constant name <static-init>
+# wrong constant name open
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name to_id
+# wrong constant name to_obj
+# wrong constant name <static-init>
+# undefined method `dump<defaultArg>1' for class `DRb::DRbMessage'
+# wrong constant name dump<defaultArg>1
+# wrong constant name dump
+# wrong constant name initialize
+# wrong constant name load
+# wrong constant name recv_reply
+# wrong constant name recv_request
+# wrong constant name send_reply
+# wrong constant name send_request
+# wrong constant name <static-init>
+# undefined method `initialize<defaultArg>1' for class `DRb::DRbObject'
+# Did you mean?  initialize_dup
+# undefined method `respond_to?<defaultArg>1' for class `DRb::DRbObject'
+# wrong constant name ==
+# wrong constant name __drbref
+# wrong constant name __drburi
+# wrong constant name _dump
+# wrong constant name eql?
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name method_missing
+# wrong constant name respond_to?<defaultArg>1
+# wrong constant name respond_to?
+# wrong constant name <static-init>
+# wrong constant name _load
+# wrong constant name new_with
+# wrong constant name new_with_uri
+# wrong constant name prepare_backtrace
+# wrong constant name with_friend
+# undefined singleton method `open<defaultArg>1' for `DRb::DRbProtocol'
+# undefined singleton method `open_server<defaultArg>1' for `DRb::DRbProtocol'
+# undefined singleton method `uri_option<defaultArg>1' for `DRb::DRbProtocol'
+# wrong constant name <static-init>
+# wrong constant name add_protocol
+# wrong constant name auto_load
+# wrong constant name open<defaultArg>1
+# wrong constant name open
+# wrong constant name open_server<defaultArg>1
+# wrong constant name open_server
+# wrong constant name uri_option<defaultArg>1
+# wrong constant name uri_option
+# wrong constant name initialize
+# wrong constant name reason
+# wrong constant name <static-init>
+# undefined method `initialize<defaultArg>1' for class `DRb::DRbServer'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>2' for class `DRb::DRbServer'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>3' for class `DRb::DRbServer'
+# Did you mean?  initialize_dup
+# wrong constant name <Class:InvokeMethod>
+# wrong constant name <Class:InvokeMethod18Mixin>
+# wrong constant name alive?
+# wrong constant name check_insecure_method
+# wrong constant name config
+# wrong constant name front
+# wrong constant name here?
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize<defaultArg>2
+# wrong constant name initialize<defaultArg>3
+# wrong constant name initialize
+# wrong constant name safe_level
+# wrong constant name stop_service
+# wrong constant name thread
+# wrong constant name to_id
+# wrong constant name to_obj
+# wrong constant name uri
+# wrong constant name verbose
+# wrong constant name verbose=
+# wrong constant name initialize
+# wrong constant name perform
+# wrong constant name <static-init>
+# wrong constant name block_yield
+# wrong constant name perform_with_block
+# wrong constant name <static-init>
+# undefined singleton method `make_config<defaultArg>1' for `DRb::DRbServer'
+# wrong constant name <static-init>
+# wrong constant name default_acl
+# wrong constant name default_argc_limit
+# wrong constant name default_id_conv
+# wrong constant name default_load_limit
+# wrong constant name default_safe_level
+# wrong constant name make_config<defaultArg>1
+# wrong constant name make_config
+# wrong constant name verbose
+# wrong constant name verbose=
+# wrong constant name <static-init>
+# undefined method `initialize<defaultArg>1' for class `DRb::DRbTCPSocket'
+# Did you mean?  initialize_dup
+# wrong constant name accept
+# wrong constant name alive?
+# wrong constant name close
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name peeraddr
+# wrong constant name recv_reply
+# wrong constant name recv_request
+# wrong constant name send_reply
+# wrong constant name send_request
+# wrong constant name set_sockopt
+# wrong constant name shutdown
+# wrong constant name stream
+# wrong constant name uri
+# wrong constant name <static-init>
+# wrong constant name getservername
+# wrong constant name open
+# wrong constant name open_server
+# wrong constant name open_server_inaddr_any
+# wrong constant name parse_uri
+# wrong constant name uri_option
+# undefined method `initialize<defaultArg>1' for class `DRb::DRbUNIXSocket'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>2' for class `DRb::DRbUNIXSocket'
+# Did you mean?  initialize_dup
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize<defaultArg>2
+# wrong constant name initialize
+# wrong constant name <static-init>
+# wrong constant name temp_server
+# wrong constant name ==
+# wrong constant name eql?
+# wrong constant name initialize
+# wrong constant name option
+# wrong constant name <static-init>
 # wrong constant name _dump
 # wrong constant name <static-init>
+# wrong constant name _dump
+# wrong constant name buf
+# wrong constant name exception
+# wrong constant name initialize
+# wrong constant name name
+# wrong constant name reload
+# wrong constant name <static-init>
+# wrong constant name _load
+# wrong constant name _dump
+# wrong constant name initialize
+# wrong constant name unknown
+# wrong constant name <static-init>
+# wrong constant name _load
+# undefined singleton method `start_service<defaultArg>1' for `DRb'
+# undefined singleton method `start_service<defaultArg>2' for `DRb'
+# undefined singleton method `start_service<defaultArg>3' for `DRb'
+# wrong constant name <static-init>
+# wrong constant name config
+# wrong constant name current_server
+# wrong constant name fetch_server
+# wrong constant name front
+# wrong constant name here?
+# wrong constant name install_acl
+# wrong constant name install_id_conv
+# wrong constant name mutex
+# wrong constant name primary_server
+# wrong constant name primary_server=
+# wrong constant name regist_server
+# wrong constant name remove_server
+# wrong constant name start_service<defaultArg>1
+# wrong constant name start_service<defaultArg>2
+# wrong constant name start_service<defaultArg>3
+# wrong constant name start_service
+# wrong constant name stop_service
+# wrong constant name thread
+# wrong constant name to_id
+# wrong constant name to_obj
+# wrong constant name uri
 # undefined method `to_s<defaultArg>1' for class `Date'
 # undefined method `to_time<defaultArg>1' for class `Date'
 # uninitialized constant Date::DAYS_INTO_WEEK
@@ -8637,6 +9129,18 @@
 # wrong constant name locate_signed
 # wrong constant name use<defaultArg>1
 # wrong constant name use
+# undefined method `initialize<defaultArg>1' for class `HTMLSelector'
+# Did you mean?  initialize_dup
+# wrong constant name context
+# wrong constant name css_selector
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name message
+# wrong constant name select
+# wrong constant name selecting_no_body?
+# wrong constant name tests
+# wrong constant name <static-init>
+# wrong constant name context
 # wrong constant name <Class:RequestParser>
 # wrong constant name <Class:ResponseParser>
 # wrong constant name <Class:Scanner>
@@ -9303,6 +9807,40 @@
 # wrong constant name vstack
 # wrong constant name zero<defaultArg>1
 # wrong constant name zero
+# wrong constant name <Class:AbstractReporter>
+# wrong constant name <Class:Assertion>
+# wrong constant name <Class:BacktraceFilter>
+# wrong constant name <Class:CompositeReporter>
+# wrong constant name <Class:Guard>
+# wrong constant name <Class:Parallel>
+# wrong constant name <Class:ProgressReporter>
+# wrong constant name <Class:Reportable>
+# wrong constant name <Class:Reporter>
+# wrong constant name <Class:Result>
+# wrong constant name <Class:Runnable>
+# wrong constant name <Class:Skip>
+# wrong constant name <Class:StatisticsReporter>
+# wrong constant name <Class:SummaryReporter>
+# wrong constant name <Class:UnexpectedError>
+# wrong constant name <Class:Unit>
+# uninitialized constant Minitest::AbstractReporter::VERSION
+# Did you mean?  Minitest::VERSION
+# wrong constant name lock
+# wrong constant name locked?
+# wrong constant name passed?
+# wrong constant name prerecord
+# wrong constant name record
+# wrong constant name report
+# wrong constant name start
+# wrong constant name synchronize
+# wrong constant name try_lock
+# wrong constant name unlock
+# wrong constant name <static-init>
+# wrong constant name error
+# wrong constant name location
+# wrong constant name result_code
+# wrong constant name result_label
+# wrong constant name <static-init>
 # undefined method `assert_in_delta<defaultArg>1' for module `Minitest::Assertions'
 # undefined method `assert_in_delta<defaultArg>2' for module `Minitest::Assertions'
 # undefined method `assert_in_epsilon<defaultArg>1' for module `Minitest::Assertions'
@@ -9352,6 +9890,7 @@
 # wrong constant name assert_kind_of
 # wrong constant name assert_match<defaultArg>1
 # wrong constant name assert_match
+# wrong constant name assert_mock
 # wrong constant name assert_operator<defaultArg>1
 # wrong constant name assert_operator<defaultArg>2
 # wrong constant name assert_operator
@@ -9416,6 +9955,16 @@
 # wrong constant name things_to_diff
 # wrong constant name diff
 # wrong constant name diff=
+# wrong constant name filter
+# wrong constant name <static-init>
+# wrong constant name <<
+# uninitialized constant Minitest::CompositeReporter::VERSION
+# Did you mean?  Minitest::VERSION
+# wrong constant name initialize
+# wrong constant name io
+# wrong constant name reporters
+# wrong constant name reporters=
+# wrong constant name <static-init>
 # undefined method `jruby?<defaultArg>1' for module `Minitest::Guard'
 # undefined method `maglev?<defaultArg>1' for module `Minitest::Guard'
 # undefined method `mri?<defaultArg>1' for module `Minitest::Guard'
@@ -9435,6 +9984,47 @@
 # wrong constant name windows?<defaultArg>1
 # wrong constant name windows?
 # wrong constant name <static-init>
+# undefined method `expect<defaultArg>1' for class `Minitest::Mock'
+# undefined method `initialize<defaultArg>1' for class `Minitest::Mock'
+# Did you mean?  initialize_dup
+# undefined method `respond_to?<defaultArg>1' for class `Minitest::Mock'
+# wrong constant name ===
+# wrong constant name __call
+# wrong constant name __respond_to?
+# wrong constant name class
+# wrong constant name expect<defaultArg>1
+# wrong constant name expect
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name inspect
+# wrong constant name instance_eval
+# wrong constant name instance_variables
+# wrong constant name method_missing
+# wrong constant name object_id
+# wrong constant name public_send
+# wrong constant name respond_to?<defaultArg>1
+# wrong constant name respond_to?
+# wrong constant name send
+# wrong constant name to_s
+# wrong constant name verify
+# wrong constant name <Class:Executor>
+# wrong constant name <Class:Test>
+# wrong constant name <<
+# wrong constant name initialize
+# wrong constant name shutdown
+# wrong constant name size
+# wrong constant name start
+# wrong constant name <static-init>
+# wrong constant name <Class:ClassMethods>
+# wrong constant name _synchronize
+# wrong constant name run_one_method
+# wrong constant name test_order
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# uninitialized constant Minitest::ProgressReporter::VERSION
+# Did you mean?  Minitest::VERSION
+# wrong constant name <static-init>
 # wrong constant name class_name
 # wrong constant name error?
 # wrong constant name location
@@ -9442,6 +10032,28 @@
 # wrong constant name result_code
 # wrong constant name skipped?
 # wrong constant name <static-init>
+# undefined method `initialize<defaultArg>1' for class `Minitest::Reporter'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>2' for class `Minitest::Reporter'
+# Did you mean?  initialize_dup
+# uninitialized constant Minitest::Reporter::VERSION
+# Did you mean?  Minitest::VERSION
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize<defaultArg>2
+# wrong constant name initialize
+# wrong constant name io
+# wrong constant name io=
+# wrong constant name options
+# wrong constant name options=
+# wrong constant name <static-init>
+# uninitialized constant Minitest::Result::SIGNALS
+# Did you mean?  Signal
+# wrong constant name klass
+# wrong constant name klass=
+# wrong constant name source_location
+# wrong constant name source_location=
+# wrong constant name <static-init>
+# wrong constant name from
 # wrong constant name assertions
 # wrong constant name assertions=
 # wrong constant name failure
@@ -9471,6 +10083,36 @@
 # wrong constant name runnable_methods
 # wrong constant name runnables
 # wrong constant name with_info_handler
+# wrong constant name <static-init>
+# uninitialized constant Minitest::StatisticsReporter::VERSION
+# Did you mean?  Minitest::VERSION
+# wrong constant name assertions
+# wrong constant name assertions=
+# wrong constant name count
+# wrong constant name count=
+# wrong constant name errors
+# wrong constant name errors=
+# wrong constant name failures
+# wrong constant name failures=
+# wrong constant name results
+# wrong constant name results=
+# wrong constant name skips
+# wrong constant name skips=
+# wrong constant name start_time
+# wrong constant name start_time=
+# wrong constant name total_time
+# wrong constant name total_time=
+# wrong constant name <static-init>
+# uninitialized constant Minitest::SummaryReporter::VERSION
+# Did you mean?  Minitest::VERSION
+# wrong constant name aggregated_results
+# wrong constant name old_sync
+# wrong constant name old_sync=
+# wrong constant name statistics
+# wrong constant name summary
+# wrong constant name sync
+# wrong constant name sync=
+# wrong constant name <static-init>
 # uninitialized constant Minitest::Test::E
 # wrong constant name <Class:LifecycleHooks>
 # uninitialized constant Minitest::Test::SIGNALS
@@ -9491,27 +10133,67 @@
 # wrong constant name make_my_diffs_pretty!
 # wrong constant name parallelize_me!
 # wrong constant name test_order
-# uninitialized constant #<Class:0x00007fd9b53c7030>::ACTIONS
+# wrong constant name exception
+# wrong constant name exception=
+# wrong constant name initialize
+# wrong constant name <static-init>
+# wrong constant name <Class:TestCase>
+# uninitialized constant Minitest::Unit::TestCase::E
+# uninitialized constant Minitest::Unit::TestCase::PASSTHROUGH_EXCEPTIONS
+# uninitialized constant Minitest::Unit::TestCase::SIGNALS
+# Did you mean?  Signal
+# uninitialized constant Minitest::Unit::TestCase::TEARDOWN_METHODS
+# uninitialized constant Minitest::Unit::TestCase::UNDEFINED
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name after_tests
+# wrong constant name autorun
+# undefined singleton method `process_args<defaultArg>1' for `Minitest'
+# undefined singleton method `run<defaultArg>1' for `Minitest'
+# wrong constant name __run
+# wrong constant name after_run
+# wrong constant name autorun
+# wrong constant name backtrace_filter
+# wrong constant name backtrace_filter=
+# wrong constant name clock_time
+# wrong constant name extensions
+# wrong constant name extensions=
+# wrong constant name filter_backtrace
+# wrong constant name info_signal
+# wrong constant name info_signal=
+# wrong constant name init_plugins
+# wrong constant name load_plugins
+# wrong constant name parallel_executor
+# wrong constant name parallel_executor=
+# wrong constant name process_args<defaultArg>1
+# wrong constant name process_args
+# wrong constant name reporter
+# wrong constant name reporter=
+# wrong constant name run<defaultArg>1
+# wrong constant name run
+# wrong constant name run_one_method
+# wrong constant name <static-init>
+# uninitialized constant #<Class:0x00007fe759f03190>::ACTIONS
 # Did you mean?  Moderator::ACTIONS
-# uninitialized constant #<Class:0x00007fd9b53c7030>::CALLBACKS
+# uninitialized constant #<Class:0x00007fe759f03190>::CALLBACKS
 # Did you mean?  Moderator::Callbacks
 #                Moderator::Callback
 #                Moderator::CALLBACKS
-# uninitialized constant #<Class:0x00007fd9b53c7030>::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fe759f03190>::CALLBACK_FILTER_TYPES
 # Did you mean?  Moderator::CALLBACK_FILTER_TYPES
-# uninitialized constant #<Class:0x00007fd9b53c7030>::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fe759f03190>::CALL_COMPILABLE_REGEXP
 # Did you mean?  Moderator::CALL_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007fd9b53c7030>::COLUMNS
+# uninitialized constant #<Class:0x00007fe759f03190>::COLUMNS
 # Did you mean?  Moderator::COLUMNS
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedRelationMethods>
-# uninitialized constant #<Class:0x00007fd9b53c7030>::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fe759f03190>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  Moderator::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant #<Class:0x00007fd9b53c7030>::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fe759f03190>::NAME_COMPILABLE_REGEXP
 # Did you mean?  Moderator::NAME_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007fd9b53c7030>::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fe759f03190>::RESTRICTED_CLASS_METHODS
 # Did you mean?  Moderator::RESTRICTED_CLASS_METHODS
-# uninitialized constant #<Class:0x00007fd9b53c7030>::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fe759f03190>::UNASSIGNABLE_KEYS
 # Did you mean?  Moderator::UNASSIGNABLE_KEYS
 # uninitialized constant Moderator::ActiveRecord_AssociationRelation::CLAUSE_METHODS
 # Did you mean?  Moderator::ActiveRecord_AssociationRelation::ClassMethods
@@ -9599,6 +10281,7 @@
 # wrong constant name wait_until
 # wrong constant name wait_while
 # wrong constant name extend_object
+# uninitialized constant MoveAdminToModerator::MigrationFilenameRegexp
 # uninitialized constant NIO::ByteBuffer::Elem
 # wrong constant name <Class:MarkUnsetError>
 # wrong constant name <Class:OverflowError>
@@ -9618,11 +10301,11 @@
 # uninitialized constant Net::FTPConnectionError
 # uninitialized constant Net::FTPConnectionError
 # uninitialized constant Net::FTPError
-# Did you mean?  Net::SMTPError
-#                Net::HTTPError
+# Did you mean?  Net::HTTPError
+#                Net::SMTPError
 # uninitialized constant Net::FTPError
-# Did you mean?  Net::SMTPError
-#                Net::HTTPError
+# Did you mean?  Net::HTTPError
+#                Net::SMTPError
 # uninitialized constant Net::FTPPermError
 # Did you mean?  FiberError
 # uninitialized constant Net::FTPPermError
@@ -9873,6 +10556,7 @@
 # undefined method `to_yaml<defaultArg>1' for class `Object'
 # uninitialized constant RUBYGEMS_ACTIVATION_MONITOR
 # wrong constant name dclone
+# wrong constant name stub
 # wrong constant name to_yaml<defaultArg>1
 # wrong constant name to_yaml
 # wrong constant name yaml_tag
@@ -12638,26 +13322,26 @@
 # wrong constant name fnmatch?
 # wrong constant name glob
 # wrong constant name make_symlink
-# uninitialized constant #<Class:0x00007fd9b6b00990>::ACTIONS
+# uninitialized constant #<Class:0x00007fe75b3956f8>::ACTIONS
 # Did you mean?  Photo::ACTIONS
-# uninitialized constant #<Class:0x00007fd9b6b00990>::CALLBACKS
+# uninitialized constant #<Class:0x00007fe75b3956f8>::CALLBACKS
 # Did you mean?  Photo::Callbacks
 #                Photo::Callback
 #                Photo::CALLBACKS
-# uninitialized constant #<Class:0x00007fd9b6b00990>::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fe75b3956f8>::CALLBACK_FILTER_TYPES
 # Did you mean?  Photo::CALLBACK_FILTER_TYPES
-# uninitialized constant #<Class:0x00007fd9b6b00990>::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fe75b3956f8>::CALL_COMPILABLE_REGEXP
 # Did you mean?  Photo::CALL_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007fd9b6b00990>::COLUMNS
+# uninitialized constant #<Class:0x00007fe75b3956f8>::COLUMNS
 # Did you mean?  Photo::COLUMNS
 # wrong constant name <Class:GeneratedRelationMethods>
-# uninitialized constant #<Class:0x00007fd9b6b00990>::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fe75b3956f8>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  Photo::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant #<Class:0x00007fd9b6b00990>::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fe75b3956f8>::NAME_COMPILABLE_REGEXP
 # Did you mean?  Photo::NAME_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007fd9b6b00990>::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fe75b3956f8>::RESTRICTED_CLASS_METHODS
 # Did you mean?  Photo::RESTRICTED_CLASS_METHODS
-# uninitialized constant #<Class:0x00007fd9b6b00990>::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fe75b3956f8>::UNASSIGNABLE_KEYS
 # Did you mean?  Photo::UNASSIGNABLE_KEYS
 # wrong constant name _attachment_post_process_callbacks
 # wrong constant name _post_process_callbacks
@@ -14406,6 +15090,63 @@
 # uninitialized constant Rails::Autoloaders::Elem
 # uninitialized constant Rails::BacktraceCleaner::FORMATTED_GEMS_PATTERN
 # wrong constant name <static-init>
+# wrong constant name <Class:Actions>
+# wrong constant name <Class:Base>
+# wrong constant name <Class:Behavior>
+# wrong constant name <Class:Spellchecker>
+# wrong constant name load_generators
+# wrong constant name load_tasks
+# wrong constant name require_application!
+# wrong constant name require_application_and_environment!
+# wrong constant name require_environment!
+# wrong constant name set_application_directory!
+# wrong constant name <static-init>
+# uninitialized constant Rails::Command::Base::Correctable
+# wrong constant name <Class:Error>
+# uninitialized constant Rails::Command::Base::HELP_MAPPINGS
+# Did you mean?  Rails::Command::HELP_MAPPINGS
+# uninitialized constant Rails::Command::Base::SHELL_DELEGATED_METHODS
+# uninitialized constant Rails::Command::Base::TEMPLATE_EXTNAME
+# uninitialized constant Rails::Command::Base::THOR_RESERVED_WORDS
+# wrong constant name help
+# wrong constant name <static-init>
+# undefined singleton method `desc<defaultArg>1' for `Rails::Command::Base'
+# undefined singleton method `desc<defaultArg>2' for `Rails::Command::Base'
+# undefined singleton method `desc<defaultArg>3' for `Rails::Command::Base'
+# wrong constant name <static-init>
+# wrong constant name banner
+# wrong constant name base_name
+# wrong constant name command_name
+# wrong constant name default_command_root
+# wrong constant name desc<defaultArg>1
+# wrong constant name desc<defaultArg>2
+# wrong constant name desc<defaultArg>3
+# wrong constant name desc
+# wrong constant name engine?
+# wrong constant name executable
+# wrong constant name hide_command!
+# wrong constant name inherited
+# wrong constant name perform
+# wrong constant name printing_commands
+# wrong constant name usage_path
+# wrong constant name <Class:ClassMethods>
+# wrong constant name no_color!
+# wrong constant name subclasses
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name suggest
+# undefined singleton method `find_by_namespace<defaultArg>1' for `Rails::Command'
+# undefined singleton method `invoke<defaultArg>1' for `Rails::Command'
+# wrong constant name <static-init>
+# wrong constant name environment
+# wrong constant name find_by_namespace<defaultArg>1
+# wrong constant name find_by_namespace
+# wrong constant name hidden_commands
+# wrong constant name invoke<defaultArg>1
+# wrong constant name invoke
+# wrong constant name print_commands
+# wrong constant name root
 # wrong constant name <Class:Testing>
 # wrong constant name <Class:Assertions>
 # wrong constant name <Class:DomAssertions>
@@ -14433,9 +15174,250 @@
 # wrong constant name <static-init>
 # wrong constant name <static-init>
 # wrong constant name <static-init>
+# wrong constant name <Class:Actions>
+# wrong constant name <Class:ActiveModel>
+# wrong constant name <Class:AppName>
+# wrong constant name <Class:Base>
+# wrong constant name <Class:Database>
+# wrong constant name <Class:Migration>
+# wrong constant name <Class:NamedBase>
+# wrong constant name <Class:ResourceHelpers>
+# wrong constant name <Class:TestCase>
+# wrong constant name <Class:Testing>
+# wrong constant name namespace
+# wrong constant name namespace=
+# undefined method `add_source<defaultArg>1' for module `Rails::Generators::Actions'
+# undefined method `application<defaultArg>1' for module `Rails::Generators::Actions'
+# undefined method `application<defaultArg>2' for module `Rails::Generators::Actions'
+# undefined method `environment<defaultArg>1' for module `Rails::Generators::Actions'
+# undefined method `environment<defaultArg>2' for module `Rails::Generators::Actions'
+# undefined method `git<defaultArg>1' for module `Rails::Generators::Actions'
+# undefined method `github<defaultArg>1' for module `Rails::Generators::Actions'
+# undefined method `initializer<defaultArg>1' for module `Rails::Generators::Actions'
+# Did you mean?  initialize_dup
+# undefined method `lib<defaultArg>1' for module `Rails::Generators::Actions'
+# undefined method `rails_command<defaultArg>1' for module `Rails::Generators::Actions'
+# undefined method `rake<defaultArg>1' for module `Rails::Generators::Actions'
+# undefined method `rakefile<defaultArg>1' for module `Rails::Generators::Actions'
+# undefined method `vendor<defaultArg>1' for module `Rails::Generators::Actions'
+# wrong constant name <Class:CreateMigration>
+# wrong constant name add_source<defaultArg>1
+# wrong constant name add_source
+# wrong constant name application<defaultArg>1
+# wrong constant name application<defaultArg>2
+# wrong constant name application
+# wrong constant name environment<defaultArg>1
+# wrong constant name environment<defaultArg>2
+# wrong constant name environment
+# wrong constant name gem
+# wrong constant name gem_group
+# wrong constant name generate
+# wrong constant name git<defaultArg>1
+# wrong constant name git
+# wrong constant name github<defaultArg>1
+# wrong constant name github
+# wrong constant name initialize
+# wrong constant name initializer<defaultArg>1
+# wrong constant name initializer
+# wrong constant name lib<defaultArg>1
+# wrong constant name lib
+# wrong constant name rails_command<defaultArg>1
+# wrong constant name rails_command
+# wrong constant name rake<defaultArg>1
+# wrong constant name rake
+# wrong constant name rakefile<defaultArg>1
+# wrong constant name rakefile
+# wrong constant name readme
+# wrong constant name route
+# wrong constant name vendor<defaultArg>1
+# wrong constant name vendor
+# wrong constant name existing_migration
+# wrong constant name migration_dir
+# wrong constant name migration_file_name
+# wrong constant name relative_existing_migration
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# undefined method `update<defaultArg>1' for class `Rails::Generators::ActiveModel'
+# wrong constant name destroy
+# wrong constant name errors
+# wrong constant name initialize
+# wrong constant name name
+# wrong constant name save
+# wrong constant name update<defaultArg>1
+# wrong constant name update
+# undefined singleton method `build<defaultArg>1' for `Rails::Generators::ActiveModel'
+# undefined singleton method `find<defaultArg>1' for `Rails::Generators::ActiveModel'
+# wrong constant name <static-init>
+# wrong constant name all
+# wrong constant name build<defaultArg>1
+# wrong constant name build
+# wrong constant name find<defaultArg>1
+# wrong constant name find
+# wrong constant name <static-init>
+# uninitialized constant Rails::Generators::Base::SHELL_DELEGATED_METHODS
+# wrong constant name <static-init>
+# wrong constant name add_shebang_option!
+# wrong constant name base_name
+# wrong constant name base_root
+# wrong constant name default_aliases_for_option
+# wrong constant name default_for_option
+# wrong constant name default_generator_root
+# wrong constant name default_source_root
+# wrong constant name default_value_for_option
+# wrong constant name generator_name
+# wrong constant name hide!
+# wrong constant name hook_for
+# wrong constant name hooks
+# wrong constant name inherited
+# wrong constant name prepare_for_invocation
+# wrong constant name remove_hook_for
+# wrong constant name usage_path
+# undefined method `gem_for_database<defaultArg>1' for module `Rails::Generators::Database'
+# wrong constant name convert_database_option_for_jruby
+# wrong constant name gem_for_database<defaultArg>1
+# wrong constant name gem_for_database
+# wrong constant name initialize
+# wrong constant name <static-init>
+# undefined method `create_migration<defaultArg>1' for module `Rails::Generators::Migration'
+# undefined method `migration_template<defaultArg>1' for module `Rails::Generators::Migration'
+# wrong constant name <Class:ClassMethods>
+# wrong constant name create_migration<defaultArg>1
+# wrong constant name create_migration
+# wrong constant name migration_class_name
+# wrong constant name migration_file_name
+# wrong constant name migration_number
+# wrong constant name migration_template<defaultArg>1
+# wrong constant name migration_template
+# wrong constant name set_migration_assigns!
+# wrong constant name current_migration_number
+# wrong constant name migration_exists?
+# wrong constant name migration_lookup_at
+# wrong constant name next_migration_number
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# uninitialized constant Rails::Generators::NamedBase::SHELL_DELEGATED_METHODS
+# wrong constant name file_name
+# wrong constant name initialize
+# wrong constant name js_template
+# wrong constant name name
+# wrong constant name name=
+# undefined singleton method `check_class_collision<defaultArg>1' for `Rails::Generators::NamedBase'
+# wrong constant name <static-init>
+# wrong constant name check_class_collision<defaultArg>1
+# wrong constant name check_class_collision
+# wrong constant name initialize
+# wrong constant name <static-init>
+# wrong constant name included
+# uninitialized constant Rails::Generators::TestCase::CALLBACK_FILTER_TYPES
+# uninitialized constant Rails::Generators::TestCase::E
+# uninitialized constant Rails::Generators::TestCase::LN_SUPPORTED
+# uninitialized constant Rails::Generators::TestCase::LOW_METHODS
+# Did you mean?  Rails::Generators::TestCase::LowMethods
+# uninitialized constant Rails::Generators::TestCase::METHODS
+# Did you mean?  Method
+# uninitialized constant Rails::Generators::TestCase::OPT_TABLE
+# uninitialized constant Rails::Generators::TestCase::PASSTHROUGH_EXCEPTIONS
+# uninitialized constant Rails::Generators::TestCase::RUBY
+# uninitialized constant Rails::Generators::TestCase::SIGNALS
+# Did you mean?  Signal
+# uninitialized constant Rails::Generators::TestCase::TEARDOWN_METHODS
+# uninitialized constant Rails::Generators::TestCase::UNDEFINED
+# uninitialized constant Rails::Generators::TestCase::UNTRACKED
+# uninitialized constant Rails::Generators::TestCase::VERSION
+# Did you mean?  Rails::VERSION
+# wrong constant name current_path
+# wrong constant name current_path=
+# wrong constant name current_path?
+# wrong constant name default_arguments
+# wrong constant name default_arguments=
+# wrong constant name default_arguments?
+# wrong constant name destination_root
+# wrong constant name destination_root=
+# wrong constant name destination_root?
+# wrong constant name generator_class
+# wrong constant name generator_class=
+# wrong constant name generator_class?
+# wrong constant name <static-init>
+# wrong constant name current_path
+# wrong constant name current_path=
+# wrong constant name current_path?
+# wrong constant name default_arguments
+# wrong constant name default_arguments=
+# wrong constant name default_arguments?
+# wrong constant name destination_root
+# wrong constant name destination_root=
+# wrong constant name destination_root?
+# wrong constant name generator_class
+# wrong constant name generator_class=
+# wrong constant name generator_class?
+# wrong constant name <Class:Assertions>
+# wrong constant name <Class:Behaviour>
+# wrong constant name <Class:SetupAndTeardown>
+# wrong constant name assert_class_method
+# wrong constant name assert_directory
+# wrong constant name assert_field_default_value
+# wrong constant name assert_field_type
+# wrong constant name assert_file
+# wrong constant name assert_instance_method
+# wrong constant name assert_method
+# wrong constant name assert_migration
+# wrong constant name assert_no_directory
+# wrong constant name assert_no_file
+# wrong constant name assert_no_migration
+# wrong constant name <static-init>
+# undefined method `create_generated_attribute<defaultArg>1' for module `Rails::Generators::Testing::Behaviour'
+# undefined method `create_generated_attribute<defaultArg>2' for module `Rails::Generators::Testing::Behaviour'
+# undefined method `generator<defaultArg>1' for module `Rails::Generators::Testing::Behaviour'
+# undefined method `generator<defaultArg>2' for module `Rails::Generators::Testing::Behaviour'
+# undefined method `generator<defaultArg>3' for module `Rails::Generators::Testing::Behaviour'
+# undefined method `run_generator<defaultArg>1' for module `Rails::Generators::Testing::Behaviour'
+# undefined method `run_generator<defaultArg>2' for module `Rails::Generators::Testing::Behaviour'
+# wrong constant name create_generated_attribute<defaultArg>1
+# wrong constant name create_generated_attribute<defaultArg>2
+# wrong constant name create_generated_attribute
+# wrong constant name generator<defaultArg>1
+# wrong constant name generator<defaultArg>2
+# wrong constant name generator<defaultArg>3
+# wrong constant name generator
+# wrong constant name run_generator<defaultArg>1
+# wrong constant name run_generator<defaultArg>2
+# wrong constant name run_generator
+# wrong constant name <static-init>
+# wrong constant name setup
+# wrong constant name teardown
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# undefined singleton method `find_by_namespace<defaultArg>1' for `Rails::Generators'
+# undefined singleton method `find_by_namespace<defaultArg>2' for `Rails::Generators'
+# undefined singleton method `help<defaultArg>1' for `Rails::Generators'
+# undefined singleton method `invoke<defaultArg>1' for `Rails::Generators'
+# undefined singleton method `invoke<defaultArg>2' for `Rails::Generators'
+# wrong constant name <static-init>
+# wrong constant name aliases
+# wrong constant name api_only!
+# wrong constant name configure!
+# wrong constant name fallbacks
+# wrong constant name find_by_namespace<defaultArg>1
+# wrong constant name find_by_namespace<defaultArg>2
+# wrong constant name find_by_namespace
+# wrong constant name help<defaultArg>1
+# wrong constant name help
+# wrong constant name hidden_namespaces
+# wrong constant name hide_namespace
+# wrong constant name hide_namespaces
+# wrong constant name invoke<defaultArg>1
+# wrong constant name invoke<defaultArg>2
+# wrong constant name invoke
+# wrong constant name namespace
+# wrong constant name namespace=
+# wrong constant name options
+# wrong constant name print_generators
+# wrong constant name public_namespaces
+# wrong constant name sorted_groups
+# wrong constant name templates_path
 # wrong constant name properties
 # wrong constant name properties=
-# undefined singleton method `property<defaultArg>1' for `#<Module:0x00007fd9b558d568>'
+# undefined singleton method `property<defaultArg>1' for `#<Module:0x00007fe756cb88c0>'
 # wrong constant name <static-init>
 # wrong constant name properties
 # wrong constant name properties=
@@ -14512,6 +15494,19 @@
 # uninitialized constant Rails::WelcomeController::URL_OPTIONS
 # wrong constant name index
 # wrong constant name <static-init>
+# wrong constant name <Class:DSL>
+# uninitialized constant Rake::DSL::DEFAULT
+# uninitialized constant Rake::DSL::LN_SUPPORTED
+# uninitialized constant Rake::DSL::LOW_METHODS
+# Did you mean?  Rake::DSL::LowMethods
+# uninitialized constant Rake::DSL::METHODS
+# Did you mean?  Method
+# uninitialized constant Rake::DSL::OPT_TABLE
+# uninitialized constant Rake::DSL::RUBY
+# uninitialized constant Rake::DSL::VERSION
+# Did you mean?  Rake::Version
+#                Rake::VERSION
+# wrong constant name <static-init>
 # uninitialized constant Rake::FileUtilsExt::LN_SUPPORTED
 # uninitialized constant Rake::FileUtilsExt::LOW_METHODS
 # Did you mean?  Rake::FileUtilsExt::LowMethods
@@ -14520,6 +15515,17 @@
 # uninitialized constant Rake::FileUtilsExt::OPT_TABLE
 # uninitialized constant Rake::FileUtilsExt::RUBY
 # uninitialized constant Rake::FileUtilsExt::VERSION
+# Did you mean?  Rake::Version
+#                Rake::VERSION
+# undefined singleton method `with_application<defaultArg>1' for `Rake'
+# wrong constant name add_rakelib
+# wrong constant name application
+# wrong constant name application=
+# wrong constant name load_rakefile
+# wrong constant name original_dir
+# wrong constant name suggested_thread_count
+# wrong constant name with_application<defaultArg>1
+# wrong constant name with_application
 # undefined method `alphanumeric<defaultArg>1' for module `Random::Formatter'
 # undefined method `random_bytes<defaultArg>1' for module `Random::Formatter'
 # undefined method `urlsafe_base64<defaultArg>1' for module `Random::Formatter'
@@ -14557,6 +15563,45 @@
 # wrong constant name fire_update!<defaultArg>2
 # wrong constant name fire_update!
 # wrong constant name ruby
+# wrong constant name <static-init>
+# wrong constant name basic_quote_characters
+# wrong constant name basic_quote_characters=
+# wrong constant name basic_word_break_characters
+# wrong constant name basic_word_break_characters=
+# wrong constant name completer_quote_characters
+# wrong constant name completer_quote_characters=
+# wrong constant name completer_word_break_characters
+# wrong constant name completer_word_break_characters=
+# wrong constant name completion_append_character
+# wrong constant name completion_append_character=
+# wrong constant name completion_case_fold
+# wrong constant name completion_case_fold=
+# wrong constant name completion_proc
+# wrong constant name completion_proc=
+# wrong constant name completion_quote_character
+# wrong constant name delete_text
+# wrong constant name emacs_editing_mode
+# wrong constant name emacs_editing_mode?
+# wrong constant name filename_quote_characters
+# wrong constant name filename_quote_characters=
+# wrong constant name get_screen_size
+# wrong constant name input=
+# wrong constant name insert_text
+# wrong constant name line_buffer
+# wrong constant name output=
+# wrong constant name point
+# wrong constant name point=
+# wrong constant name pre_input_hook
+# wrong constant name pre_input_hook=
+# wrong constant name quoting_detection_proc
+# wrong constant name quoting_detection_proc=
+# wrong constant name redisplay
+# wrong constant name refresh_line
+# wrong constant name set_screen_size
+# wrong constant name special_prefixes
+# wrong constant name special_prefixes=
+# wrong constant name vi_editing_mode
+# wrong constant name vi_editing_mode?
 # wrong constant name match?
 # uninitialized constant Regexp::Parser::VERSION_CONST_REGEXP
 # uninitialized constant Regexp::Parser::VERSION_FORMAT
@@ -16910,26 +17955,26 @@
 # uninitialized constant StoriesController::RENDERERS
 # uninitialized constant StoriesController::RENDER_FORMATS_IN_PRIORITY
 # uninitialized constant StoriesController::URL_OPTIONS
-# uninitialized constant #<Class:0x00007fd9b53d4ac8>::ACTIONS
+# uninitialized constant #<Class:0x00007fe759f1ab88>::ACTIONS
 # Did you mean?  Story::ACTIONS
-# uninitialized constant #<Class:0x00007fd9b53d4ac8>::CALLBACKS
+# uninitialized constant #<Class:0x00007fe759f1ab88>::CALLBACKS
 # Did you mean?  Story::Callbacks
 #                Story::Callback
 #                Story::CALLBACKS
-# uninitialized constant #<Class:0x00007fd9b53d4ac8>::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fe759f1ab88>::CALLBACK_FILTER_TYPES
 # Did you mean?  Story::CALLBACK_FILTER_TYPES
-# uninitialized constant #<Class:0x00007fd9b53d4ac8>::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fe759f1ab88>::CALL_COMPILABLE_REGEXP
 # Did you mean?  Story::CALL_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007fd9b53d4ac8>::COLUMNS
+# uninitialized constant #<Class:0x00007fe759f1ab88>::COLUMNS
 # Did you mean?  Story::COLUMNS
 # wrong constant name <Class:GeneratedRelationMethods>
-# uninitialized constant #<Class:0x00007fd9b53d4ac8>::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fe759f1ab88>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  Story::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant #<Class:0x00007fd9b53d4ac8>::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fe759f1ab88>::NAME_COMPILABLE_REGEXP
 # Did you mean?  Story::NAME_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007fd9b53d4ac8>::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fe759f1ab88>::RESTRICTED_CLASS_METHODS
 # Did you mean?  Story::RESTRICTED_CLASS_METHODS
-# uninitialized constant #<Class:0x00007fd9b53d4ac8>::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fe759f1ab88>::UNASSIGNABLE_KEYS
 # Did you mean?  Story::UNASSIGNABLE_KEYS
 # wrong constant name after_add_for_photos
 # wrong constant name after_add_for_photos=
@@ -16937,7 +17982,6 @@
 # wrong constant name after_remove_for_photos
 # wrong constant name after_remove_for_photos=
 # wrong constant name after_remove_for_photos?
-# wrong constant name approve!
 # wrong constant name autosave_associated_records_for_photos
 # wrong constant name before_add_for_photos
 # wrong constant name before_add_for_photos=
@@ -16945,8 +17989,6 @@
 # wrong constant name before_remove_for_photos
 # wrong constant name before_remove_for_photos=
 # wrong constant name before_remove_for_photos?
-# wrong constant name identifier
-# wrong constant name photo_proxies=
 # wrong constant name validate_associated_records_for_photos
 # uninitialized constant Story::ActiveRecord_AssociationRelation::CLAUSE_METHODS
 # Did you mean?  Story::ActiveRecord_AssociationRelation::ClassMethods
@@ -17098,27 +18140,27 @@
 # wrong constant name to_h
 # wrong constant name values
 # wrong constant name values_at
-# uninitialized constant #<Class:0x00007fd9b53b4c00>::ACTIONS
+# uninitialized constant #<Class:0x00007fe759f00328>::ACTIONS
 # Did you mean?  Subscription::ACTIONS
-# uninitialized constant #<Class:0x00007fd9b53b4c00>::CALLBACKS
+# uninitialized constant #<Class:0x00007fe759f00328>::CALLBACKS
 # Did you mean?  Subscription::Callbacks
 #                Subscription::Callback
 #                Subscription::CALLBACKS
-# uninitialized constant #<Class:0x00007fd9b53b4c00>::CALLBACK_FILTER_TYPES
+# uninitialized constant #<Class:0x00007fe759f00328>::CALLBACK_FILTER_TYPES
 # Did you mean?  Subscription::CALLBACK_FILTER_TYPES
-# uninitialized constant #<Class:0x00007fd9b53b4c00>::CALL_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fe759f00328>::CALL_COMPILABLE_REGEXP
 # Did you mean?  Subscription::CALL_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007fd9b53b4c00>::COLUMNS
+# uninitialized constant #<Class:0x00007fe759f00328>::COLUMNS
 # Did you mean?  Subscription::COLUMNS
 # wrong constant name <Class:GeneratedAssociationMethods>
 # wrong constant name <Class:GeneratedRelationMethods>
-# uninitialized constant #<Class:0x00007fd9b53b4c00>::MAX_PASSWORD_LENGTH_ALLOWED
+# uninitialized constant #<Class:0x00007fe759f00328>::MAX_PASSWORD_LENGTH_ALLOWED
 # Did you mean?  Subscription::MAX_PASSWORD_LENGTH_ALLOWED
-# uninitialized constant #<Class:0x00007fd9b53b4c00>::NAME_COMPILABLE_REGEXP
+# uninitialized constant #<Class:0x00007fe759f00328>::NAME_COMPILABLE_REGEXP
 # Did you mean?  Subscription::NAME_COMPILABLE_REGEXP
-# uninitialized constant #<Class:0x00007fd9b53b4c00>::RESTRICTED_CLASS_METHODS
+# uninitialized constant #<Class:0x00007fe759f00328>::RESTRICTED_CLASS_METHODS
 # Did you mean?  Subscription::RESTRICTED_CLASS_METHODS
-# uninitialized constant #<Class:0x00007fd9b53b4c00>::UNASSIGNABLE_KEYS
+# uninitialized constant #<Class:0x00007fe759f00328>::UNASSIGNABLE_KEYS
 # Did you mean?  Subscription::UNASSIGNABLE_KEYS
 # uninitialized constant Subscription::ActiveRecord_AssociationRelation::CLAUSE_METHODS
 # Did you mean?  Subscription::ActiveRecord_AssociationRelation::ClassMethods
@@ -17181,6 +18223,11 @@
 # wrong constant name email_ordered
 # wrong constant name validated
 # wrong constant name <static-init>
+# undefined method `substitute!<defaultArg>1' for class `SubstitutionContext'
+# wrong constant name match
+# wrong constant name substitute!<defaultArg>1
+# wrong constant name substitute!
+# wrong constant name <static-init>
 # wrong constant name from_msgpack_ext
 # wrong constant name errno
 # wrong constant name status
@@ -17205,6 +18252,531 @@
 # wrong constant name call
 # wrong constant name initialize
 # wrong constant name <static-init>
+# undefined method `help<defaultArg>1' for class `Thor'
+# undefined method `help<defaultArg>2' for class `Thor'
+# wrong constant name <Class:Actions>
+# wrong constant name <Class:AmbiguousCommandError>
+# wrong constant name <Class:Argument>
+# wrong constant name <Class:Arguments>
+# wrong constant name <Class:Base>
+# wrong constant name <Class:Command>
+# wrong constant name <Class:CoreExt>
+# wrong constant name <Class:DynamicCommand>
+# wrong constant name <Class:Error>
+# wrong constant name <Class:Group>
+# wrong constant name <Class:HiddenCommand>
+# wrong constant name <Class:Invocation>
+# wrong constant name <Class:InvocationError>
+# wrong constant name <Class:LineEditor>
+# wrong constant name <Class:MalformattedArgumentError>
+# wrong constant name <Class:Option>
+# wrong constant name <Class:Options>
+# wrong constant name <Class:RakeCompat>
+# wrong constant name <Class:RequiredArgumentMissingError>
+# uninitialized constant Thor::SHELL_DELEGATED_METHODS
+# wrong constant name <Class:Sandbox>
+# wrong constant name <Class:Shell>
+# wrong constant name <Class:UndefinedCommandError>
+# wrong constant name <Class:UnknownArgumentError>
+# wrong constant name <Class:Util>
+# wrong constant name help<defaultArg>1
+# wrong constant name help<defaultArg>2
+# wrong constant name help
+# undefined method `apply<defaultArg>1' for module `Thor::Actions'
+# undefined method `chmod<defaultArg>1' for module `Thor::Actions'
+# undefined method `empty_directory<defaultArg>1' for module `Thor::Actions'
+# undefined method `initialize<defaultArg>1' for module `Thor::Actions'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>2' for module `Thor::Actions'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>3' for module `Thor::Actions'
+# Did you mean?  initialize_dup
+# undefined method `inside<defaultArg>1' for module `Thor::Actions'
+# undefined method `inside<defaultArg>2' for module `Thor::Actions'
+# undefined method `relative_to_original_destination_root<defaultArg>1' for module `Thor::Actions'
+# undefined method `remove_dir<defaultArg>1' for module `Thor::Actions'
+# undefined method `remove_file<defaultArg>1' for module `Thor::Actions'
+# undefined method `run<defaultArg>1' for module `Thor::Actions'
+# undefined method `run_ruby_script<defaultArg>1' for module `Thor::Actions'
+# wrong constant name <Class:CreateFile>
+# wrong constant name <Class:EmptyDirectory>
+# wrong constant name _cleanup_options_and_set
+# wrong constant name _shared_configuration
+# wrong constant name action
+# wrong constant name add_file
+# wrong constant name add_link
+# wrong constant name append_file
+# wrong constant name append_to_file
+# wrong constant name apply<defaultArg>1
+# wrong constant name apply
+# wrong constant name behavior
+# wrong constant name behavior=
+# wrong constant name chmod<defaultArg>1
+# wrong constant name chmod
+# wrong constant name comment_lines
+# wrong constant name copy_file
+# wrong constant name create_file
+# wrong constant name create_link
+# wrong constant name destination_root
+# wrong constant name destination_root=
+# wrong constant name directory
+# wrong constant name empty_directory<defaultArg>1
+# wrong constant name empty_directory
+# wrong constant name find_in_source_paths
+# wrong constant name get
+# wrong constant name gsub_file
+# wrong constant name in_root
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize<defaultArg>2
+# wrong constant name initialize<defaultArg>3
+# wrong constant name initialize
+# wrong constant name inject_into_class
+# wrong constant name inject_into_file
+# wrong constant name inject_into_module
+# wrong constant name insert_into_file
+# wrong constant name inside<defaultArg>1
+# wrong constant name inside<defaultArg>2
+# wrong constant name inside
+# wrong constant name link_file
+# wrong constant name prepend_file
+# wrong constant name prepend_to_file
+# wrong constant name relative_to_original_destination_root<defaultArg>1
+# wrong constant name relative_to_original_destination_root
+# wrong constant name remove_dir<defaultArg>1
+# wrong constant name remove_dir
+# wrong constant name remove_file<defaultArg>1
+# wrong constant name remove_file
+# wrong constant name run<defaultArg>1
+# wrong constant name run
+# wrong constant name run_ruby_script<defaultArg>1
+# wrong constant name run_ruby_script
+# wrong constant name source_paths
+# wrong constant name template
+# wrong constant name thor
+# wrong constant name uncomment_lines
+# undefined method `initialize<defaultArg>1' for class `Thor::Actions::CreateFile'
+# Did you mean?  initialize_dup
+# wrong constant name data
+# wrong constant name force_on_collision?
+# wrong constant name force_or_skip_or_conflict
+# wrong constant name identical?
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name on_conflict_behavior
+# wrong constant name render
+# wrong constant name <static-init>
+# undefined method `initialize<defaultArg>1' for class `Thor::Actions::EmptyDirectory'
+# Did you mean?  initialize_dup
+# wrong constant name base
+# wrong constant name config
+# wrong constant name convert_encoded_instructions
+# wrong constant name destination
+# wrong constant name destination=
+# wrong constant name exists?
+# wrong constant name given_destination
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name invoke!
+# wrong constant name invoke_with_conflict_check
+# wrong constant name on_conflict_behavior
+# wrong constant name on_file_clash_behavior
+# wrong constant name pretend?
+# wrong constant name relative_destination
+# wrong constant name revoke!
+# wrong constant name say_status
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name included
+# wrong constant name <static-init>
+# undefined method `initialize<defaultArg>1' for class `Thor::Argument'
+# Did you mean?  initialize_dup
+# wrong constant name banner
+# wrong constant name default
+# wrong constant name default_banner
+# wrong constant name description
+# wrong constant name enum
+# wrong constant name human_name
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name name
+# wrong constant name required
+# wrong constant name required?
+# wrong constant name show_default?
+# wrong constant name type
+# wrong constant name usage
+# wrong constant name valid_type?
+# wrong constant name validate!
+# wrong constant name <static-init>
+# undefined method `initialize<defaultArg>1' for class `Thor::Arguments'
+# Did you mean?  initialize_dup
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name parse
+# wrong constant name remaining
+# wrong constant name <static-init>
+# wrong constant name parse
+# wrong constant name split
+# undefined method `initialize<defaultArg>1' for module `Thor::Base'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>2' for module `Thor::Base'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>3' for module `Thor::Base'
+# Did you mean?  initialize_dup
+# wrong constant name args
+# wrong constant name args=
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize<defaultArg>2
+# wrong constant name initialize<defaultArg>3
+# wrong constant name initialize
+# wrong constant name options
+# wrong constant name options=
+# wrong constant name parent_options
+# wrong constant name parent_options=
+# wrong constant name <static-init>
+# wrong constant name included
+# wrong constant name register_klass_file
+# wrong constant name shell
+# wrong constant name shell=
+# wrong constant name subclass_files
+# wrong constant name subclasses
+# undefined method `formatted_usage<defaultArg>1' for class `Thor::Command'
+# undefined method `formatted_usage<defaultArg>2' for class `Thor::Command'
+# undefined method `initialize<defaultArg>1' for class `Thor::Command'
+# Did you mean?  initialize_dup
+# undefined method `run<defaultArg>1' for class `Thor::Command'
+# wrong constant name formatted_usage<defaultArg>1
+# wrong constant name formatted_usage<defaultArg>2
+# wrong constant name formatted_usage
+# wrong constant name handle_argument_error?
+# wrong constant name handle_no_method_error?
+# wrong constant name hidden?
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name local_method?
+# wrong constant name not_debugging?
+# wrong constant name private_method?
+# wrong constant name public_method?
+# wrong constant name required_options
+# wrong constant name run<defaultArg>1
+# wrong constant name run
+# wrong constant name sans_backtrace
+# wrong constant name <static-init>
+# wrong constant name <Class:HashWithIndifferentAccess>
+# wrong constant name <Class:OrderedHash>
+# undefined method `initialize<defaultArg>1' for class `Thor::CoreExt::HashWithIndifferentAccess'
+# Did you mean?  initialize_dup
+# uninitialized constant Thor::CoreExt::HashWithIndifferentAccess::Elem
+# uninitialized constant Thor::CoreExt::HashWithIndifferentAccess::K
+# uninitialized constant Thor::CoreExt::HashWithIndifferentAccess::V
+# wrong constant name []
+# wrong constant name []=
+# wrong constant name convert_key
+# wrong constant name delete
+# wrong constant name fetch
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name key?
+# wrong constant name merge
+# wrong constant name merge!
+# wrong constant name method_missing
+# wrong constant name replace
+# wrong constant name reverse_merge
+# wrong constant name values_at
+# wrong constant name <static-init>
+# uninitialized constant Thor::CoreExt::OrderedHash::Elem
+# uninitialized constant Thor::CoreExt::OrderedHash::K
+# uninitialized constant Thor::CoreExt::OrderedHash::V
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# undefined method `initialize<defaultArg>1' for class `Thor::DynamicCommand'
+# Did you mean?  initialize_dup
+# uninitialized constant Thor::DynamicCommand::FILE_REGEXP
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# undefined method `_invoke_for_class_method<defaultArg>1' for class `Thor::Group'
+# uninitialized constant Thor::Group::SHELL_DELEGATED_METHODS
+# Did you mean?  Thor::SHELL_DELEGATED_METHODS
+# wrong constant name _invoke_for_class_method<defaultArg>1
+# wrong constant name _invoke_for_class_method
+# undefined singleton method `desc<defaultArg>1' for `Thor::Group'
+# wrong constant name <static-init>
+# wrong constant name banner
+# wrong constant name desc<defaultArg>1
+# wrong constant name desc
+# wrong constant name get_options_from_invocations
+# wrong constant name handle_argument_error
+# wrong constant name help
+# wrong constant name invocation_blocks
+# wrong constant name invocations
+# wrong constant name invoke
+# wrong constant name invoke_from_option
+# wrong constant name printable_commands
+# wrong constant name printable_tasks
+# wrong constant name remove_invocation
+# wrong constant name self_command
+# wrong constant name self_task
+# uninitialized constant Thor::HiddenCommand::FILE_REGEXP
+# wrong constant name <static-init>
+# undefined method `_retrieve_class_and_command<defaultArg>1' for module `Thor::Invocation'
+# undefined method `_retrieve_class_and_task<defaultArg>1' for module `Thor::Invocation'
+# undefined method `initialize<defaultArg>1' for module `Thor::Invocation'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>2' for module `Thor::Invocation'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>3' for module `Thor::Invocation'
+# Did you mean?  initialize_dup
+# undefined method `invoke<defaultArg>1' for module `Thor::Invocation'
+# wrong constant name _parse_initialization_options
+# wrong constant name _retrieve_class_and_command<defaultArg>1
+# wrong constant name _retrieve_class_and_command
+# wrong constant name _retrieve_class_and_task<defaultArg>1
+# wrong constant name _retrieve_class_and_task
+# wrong constant name _shared_configuration
+# wrong constant name current_command_chain
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize<defaultArg>2
+# wrong constant name initialize<defaultArg>3
+# wrong constant name initialize
+# wrong constant name invoke<defaultArg>1
+# wrong constant name invoke
+# wrong constant name invoke_all
+# wrong constant name invoke_command
+# wrong constant name invoke_task
+# wrong constant name invoke_with_padding
+# wrong constant name <static-init>
+# wrong constant name included
+# wrong constant name <static-init>
+# wrong constant name <Class:Basic>
+# wrong constant name <Class:Readline>
+# wrong constant name initialize
+# wrong constant name options
+# wrong constant name prompt
+# wrong constant name readline
+# wrong constant name <static-init>
+# wrong constant name available?
+# wrong constant name <Class:PathCompletion>
+# wrong constant name initialize
+# wrong constant name matches
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# undefined singleton method `readline<defaultArg>1' for `Thor::LineEditor'
+# wrong constant name <static-init>
+# wrong constant name best_available
+# wrong constant name readline<defaultArg>1
+# wrong constant name readline
+# wrong constant name <static-init>
+# undefined method `usage<defaultArg>1' for class `Thor::Option'
+# wrong constant name aliases
+# wrong constant name array?
+# wrong constant name boolean?
+# wrong constant name dasherize
+# wrong constant name dasherized?
+# wrong constant name group
+# wrong constant name hash?
+# wrong constant name hide
+# wrong constant name lazy_default
+# wrong constant name numeric?
+# wrong constant name string?
+# wrong constant name switch_name
+# wrong constant name undasherize
+# wrong constant name usage<defaultArg>1
+# wrong constant name usage
+# wrong constant name validate_default_type!
+# wrong constant name <static-init>
+# wrong constant name parse
+# undefined method `initialize<defaultArg>1' for class `Thor::Options'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>2' for class `Thor::Options'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>3' for class `Thor::Options'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>4' for class `Thor::Options'
+# Did you mean?  initialize_dup
+# uninitialized constant Thor::Options::NUMERIC
+# Did you mean?  Numeric
+# wrong constant name check_unknown!
+# wrong constant name current_is_switch?
+# wrong constant name current_is_switch_formatted?
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize<defaultArg>2
+# wrong constant name initialize<defaultArg>3
+# wrong constant name initialize<defaultArg>4
+# wrong constant name initialize
+# wrong constant name normalize_switch
+# wrong constant name parse_boolean
+# wrong constant name parse_peek
+# wrong constant name parsing_options?
+# wrong constant name switch?
+# wrong constant name switch_option
+# wrong constant name <static-init>
+# wrong constant name to_switches
+# uninitialized constant Thor::RakeCompat::DEFAULT
+# uninitialized constant Thor::RakeCompat::LN_SUPPORTED
+# uninitialized constant Thor::RakeCompat::LOW_METHODS
+# Did you mean?  Thor::RakeCompat::LowMethods
+# uninitialized constant Thor::RakeCompat::METHODS
+# Did you mean?  Method
+# uninitialized constant Thor::RakeCompat::OPT_TABLE
+# uninitialized constant Thor::RakeCompat::RUBY
+# uninitialized constant Thor::RakeCompat::VERSION
+# wrong constant name <static-init>
+# wrong constant name included
+# wrong constant name rake_classes
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# undefined method `initialize<defaultArg>1' for module `Thor::Shell'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>2' for module `Thor::Shell'
+# Did you mean?  initialize_dup
+# undefined method `initialize<defaultArg>3' for module `Thor::Shell'
+# Did you mean?  initialize_dup
+# wrong constant name _shared_configuration
+# wrong constant name ask
+# wrong constant name error
+# wrong constant name file_collision
+# wrong constant name initialize<defaultArg>1
+# wrong constant name initialize<defaultArg>2
+# wrong constant name initialize<defaultArg>3
+# wrong constant name initialize
+# wrong constant name no?
+# wrong constant name print_in_columns
+# wrong constant name print_table
+# wrong constant name print_wrapped
+# wrong constant name say
+# wrong constant name say_status
+# wrong constant name set_color
+# wrong constant name shell
+# wrong constant name shell=
+# wrong constant name terminal_width
+# wrong constant name with_padding
+# wrong constant name yes?
+# wrong constant name <static-init>
+# wrong constant name <Class:SpellChecker>
+# wrong constant name all_commands
+# wrong constant name command
+# wrong constant name initialize
+# wrong constant name corrections
+# wrong constant name error
+# wrong constant name initialize
+# wrong constant name spell_checker
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# wrong constant name <Class:SpellChecker>
+# wrong constant name initialize
+# wrong constant name switches
+# wrong constant name unknown
+# wrong constant name corrections
+# wrong constant name error
+# wrong constant name initialize
+# wrong constant name spell_checker
+# wrong constant name <static-init>
+# wrong constant name <static-init>
+# undefined singleton method `find_class_and_command_by_namespace<defaultArg>1' for `Thor::Util'
+# undefined singleton method `find_class_and_task_by_namespace<defaultArg>1' for `Thor::Util'
+# undefined singleton method `load_thorfile<defaultArg>1' for `Thor::Util'
+# undefined singleton method `load_thorfile<defaultArg>2' for `Thor::Util'
+# undefined singleton method `namespaces_in_content<defaultArg>1' for `Thor::Util'
+# wrong constant name <static-init>
+# wrong constant name camel_case
+# wrong constant name escape_globs
+# wrong constant name find_by_namespace
+# wrong constant name find_class_and_command_by_namespace<defaultArg>1
+# wrong constant name find_class_and_command_by_namespace
+# wrong constant name find_class_and_task_by_namespace<defaultArg>1
+# wrong constant name find_class_and_task_by_namespace
+# wrong constant name globs_for
+# wrong constant name load_thorfile<defaultArg>1
+# wrong constant name load_thorfile<defaultArg>2
+# wrong constant name load_thorfile
+# wrong constant name namespace_from_thor_class
+# wrong constant name namespaces_in_content<defaultArg>1
+# wrong constant name namespaces_in_content
+# wrong constant name ruby_command
+# wrong constant name snake_case
+# wrong constant name thor_classes_in
+# wrong constant name thor_root
+# wrong constant name thor_root_glob
+# wrong constant name user_home
+# undefined singleton method `banner<defaultArg>1' for `Thor'
+# undefined singleton method `banner<defaultArg>2' for `Thor'
+# undefined singleton method `check_unknown_options!<defaultArg>1' for `Thor'
+# undefined singleton method `default_command<defaultArg>1' for `Thor'
+# undefined singleton method `default_task<defaultArg>1' for `Thor'
+# undefined singleton method `desc<defaultArg>1' for `Thor'
+# undefined singleton method `help<defaultArg>1' for `Thor'
+# undefined singleton method `long_desc<defaultArg>1' for `Thor'
+# undefined singleton method `map<defaultArg>1' for `Thor'
+# undefined singleton method `method_option<defaultArg>1' for `Thor'
+# undefined singleton method `method_options<defaultArg>1' for `Thor'
+# undefined singleton method `option<defaultArg>1' for `Thor'
+# undefined singleton method `options<defaultArg>1' for `Thor'
+# undefined singleton method `package_name<defaultArg>1' for `Thor'
+# undefined singleton method `printable_commands<defaultArg>1' for `Thor'
+# undefined singleton method `printable_commands<defaultArg>2' for `Thor'
+# undefined singleton method `printable_tasks<defaultArg>1' for `Thor'
+# undefined singleton method `printable_tasks<defaultArg>2' for `Thor'
+# undefined singleton method `register<defaultArg>1' for `Thor'
+# wrong constant name <static-init>
+# wrong constant name banner<defaultArg>1
+# wrong constant name banner<defaultArg>2
+# wrong constant name banner
+# wrong constant name check_unknown_options!<defaultArg>1
+# wrong constant name check_unknown_options!
+# wrong constant name command_help
+# wrong constant name default_command<defaultArg>1
+# wrong constant name default_command
+# wrong constant name default_task<defaultArg>1
+# wrong constant name default_task
+# wrong constant name desc<defaultArg>1
+# wrong constant name desc
+# wrong constant name disable_required_check
+# wrong constant name disable_required_check!
+# wrong constant name disable_required_check?
+# wrong constant name dispatch
+# wrong constant name dynamic_command_class
+# wrong constant name find_command_possibilities
+# wrong constant name find_task_possibilities
+# wrong constant name help<defaultArg>1
+# wrong constant name help
+# wrong constant name long_desc<defaultArg>1
+# wrong constant name long_desc
+# wrong constant name map<defaultArg>1
+# wrong constant name map
+# wrong constant name method_option<defaultArg>1
+# wrong constant name method_option
+# wrong constant name method_options<defaultArg>1
+# wrong constant name method_options
+# wrong constant name normalize_command_name
+# wrong constant name normalize_task_name
+# wrong constant name option<defaultArg>1
+# wrong constant name option
+# wrong constant name options<defaultArg>1
+# wrong constant name options
+# wrong constant name package_name<defaultArg>1
+# wrong constant name package_name
+# wrong constant name printable_commands<defaultArg>1
+# wrong constant name printable_commands<defaultArg>2
+# wrong constant name printable_commands
+# wrong constant name printable_tasks<defaultArg>1
+# wrong constant name printable_tasks<defaultArg>2
+# wrong constant name printable_tasks
+# wrong constant name register<defaultArg>1
+# wrong constant name register
+# wrong constant name retrieve_command_name
+# wrong constant name retrieve_task_name
+# wrong constant name stop_on_unknown_option
+# wrong constant name stop_on_unknown_option!
+# wrong constant name stop_on_unknown_option?
+# wrong constant name subcommand
+# wrong constant name subcommand_classes
+# wrong constant name subcommand_help
+# wrong constant name subcommands
+# wrong constant name subtask
+# wrong constant name subtask_help
+# wrong constant name subtasks
+# wrong constant name task_help
 # wrong constant name <Class:AtomicReferenceCacheBackend>
 # wrong constant name <Class:SynchronizedCacheBackend>
 # wrong constant name <Class:Util>
