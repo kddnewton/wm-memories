@@ -3,5 +3,5 @@
 </div>
 
 <div class="row" id="stories">
-  <%= render(@stories, query: @query) %>
+  <%= render(collection: @stories, partial: 'stories/story', query: @query) %>
 </div>

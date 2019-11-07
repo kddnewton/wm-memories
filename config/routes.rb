@@ -11,11 +11,10 @@ Rails.application.routes.draw do
 
   namespace :stories do
     resource :feed, only: :show
+    resource :search, only: :create
   end
 
-  resources :stories, only: %i[index create show] do
-    post :search, on: :collection
-  end
+  resources :stories, only: %i[index create show]
 
   resources :subscriptions, only: %i[new create] do
     get :verify, on: :member

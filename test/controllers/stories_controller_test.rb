@@ -28,11 +28,6 @@ class StoriesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  def test_search
-    post :search, params: { query: 'test query' }
-    assert_response :success
-  end
-
   private
 
   def create_params

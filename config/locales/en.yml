@@ -95,7 +95,8 @@ en:
         submit: 'Submit'
         submitting: 'Submitting...'
         title: 'New Story'
-      search: 'Search'
+      searches:
+        search: 'Search'
     subscriptions:
       create:
         success: 'You have been sent an email to confirm your email address.'

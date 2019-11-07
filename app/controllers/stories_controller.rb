@@ -4,46 +4,26 @@
 class StoriesController < ApplicationController
   layout 'file_upload', only: :create
 
-  # This method here to enforce the types given by the instance variables
-  sig { void }
-  def initialize
-    super
-
-    @stories = T.let(nil, T.nilable(Story::ActiveRecord_Relation))
-    @story = T.let(nil, T.nilable(Story))
-  end
-
   # GET /
   # GET /stories
   sig { void }
   def index
-    @stories = Story.approved
-    @story = Story.new
+    @stories = T.let(Story.approved, T.nilable(Story::ActiveRecord_Relation))
+    @story = T.let(Story.new, T.nilable(Story))
   end
 
   # GET /stories/:id
   sig { void }
   def show
-    @story = Story.approved.find(params[:id])
+    @story = T.let(Story.approved.find(params[:id]), T.nilable(Story))
   end
 
   # POST /stories
   sig { void }
   def create
-    @story = Story.new(story_params)
-    render :create_error unless @story.save
-  end
+    @story = T.let(Story.new(story_params), T.nilable(Story))
 
-  # GET /stories/search
-  sig { void }
-  def search
-    @query =
-      T.let(
-        params[:query],
-        T.nilable(T.any(String, Numeric, ActionController::Parameters))
-      )
-
-    @stories = Story.search(@query).approved.feed_ordered
+    render :create_error unless T.must(@story).save
   end
 
   private

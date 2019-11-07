@@ -22,7 +22,7 @@
           <%= nav_link(t('views.layouts.application.about'), about_path, :cog) %>
           
           <div class="col-sm-4 col-sm-offset-2 col-xs-12">
-            <%= form_tag(search_stories_path, id: 'search-form') do %>
+            <%= form_tag(stories_search_path, id: 'search-form') do %>
               <div class="input-group">
                 <%= text_field_tag(:query, params[:query], class: 'form-control', placeholder: t('views.layouts.application.search') + '...') %>
                 <span class="input-group-btn">

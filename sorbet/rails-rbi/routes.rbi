@@ -40,10 +40,10 @@ module GeneratedUrlHelpers
 
   # Sigs for route /stories/search(.:format)
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
-  def search_stories_path(*args, **kwargs); end
+  def stories_search_path(*args, **kwargs); end
 
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
-  def search_stories_url(*args, **kwargs); end
+  def stories_search_url(*args, **kwargs); end
 
   # Sigs for route /stories(.:format)
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
