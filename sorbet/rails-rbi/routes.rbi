@@ -33,7 +33,7 @@ module GeneratedUrlHelpers
 
   # Sigs for route /stories/feed(.:format)
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
-  def feed_stories_path(*args, **kwargs); end
+  def stories_feed_path(*args, **kwargs); end
 
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }
   def feed_stories_url(*args, **kwargs); end

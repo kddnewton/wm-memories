@@ -34,12 +34,6 @@ class StoriesController < ApplicationController
     render :create_error unless @story.save
   end
 
-  # GET /stories/feed
-  sig { void }
-  def feed
-    @stories = Story.approved.feed_ordered
-  end
-
   # GET /stories/search
   sig { void }
   def search

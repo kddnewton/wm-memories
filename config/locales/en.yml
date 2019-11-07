@@ -81,7 +81,7 @@ en:
         search: 'Search'
         title: 'One Tribe, Many Memories'
     stories:
-      feed:
+      feeds:
         feed: 'Feed'
         subscribe: 'Subscribe'
       index:

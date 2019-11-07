@@ -9,8 +9,11 @@ Rails.application.routes.draw do
 
   resources :photos, only: :show
 
+  namespace :stories do
+    resource :feed, only: :show
+  end
+
   resources :stories, only: %i[index create show] do
-    get :feed, on: :collection
     post :search, on: :collection
   end
 
