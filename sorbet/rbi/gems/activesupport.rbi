@@ -1863,21 +1863,6 @@ end
 class ActiveSupport::SafeBuffer::SafeConcatError < StandardError
   def initialize; end
 end
-class ActiveSupport::ParameterFilter
-  def compiled_filter; end
-  def filter(params); end
-  def filter_param(key, value); end
-  def initialize(filters = nil, mask: nil); end
-end
-class ActiveSupport::ParameterFilter::CompiledFilter
-  def blocks; end
-  def call(params, parents = nil, original_params = nil); end
-  def deep_regexps; end
-  def initialize(regexps, deep_regexps, blocks, mask:); end
-  def regexps; end
-  def self.compile(filters, mask:); end
-  def value_for_key(key, value, parents = nil, original_params = nil); end
-end
 module Benchmark
   def self.ms; end
 end
@@ -2021,6 +2006,21 @@ class ActiveSupport::Reloader < ActiveSupport::ExecutionWrapper
   def self.run!; end
   def self.to_prepare(*args, &block); end
   def self.wrap; end
+end
+class ActiveSupport::ParameterFilter
+  def compiled_filter; end
+  def filter(params); end
+  def filter_param(key, value); end
+  def initialize(filters = nil, mask: nil); end
+end
+class ActiveSupport::ParameterFilter::CompiledFilter
+  def blocks; end
+  def call(params, parents = nil, original_params = nil); end
+  def deep_regexps; end
+  def initialize(regexps, deep_regexps, blocks, mask:); end
+  def regexps; end
+  def self.compile(filters, mask:); end
+  def value_for_key(key, value, parents = nil, original_params = nil); end
 end
 class ActiveSupport::ArrayInquirer < Array
   def any?(*candidates); end
@@ -2250,16 +2250,4 @@ class ActiveSupport::Digest
   def self.hash_digest_class; end
   def self.hash_digest_class=(klass); end
   def self.hexdigest(arg); end
-end
-module ActiveSupport::Rescuable
-  def handler_for_rescue(exception); end
-  def rescue_with_handler(exception); end
-  extend ActiveSupport::Concern
-end
-module ActiveSupport::Rescuable::ClassMethods
-  def constantize_rescue_handler_class(class_or_name); end
-  def find_rescue_handler(exception); end
-  def handler_for_rescue(exception, object: nil); end
-  def rescue_from(*klasses, with: nil, &block); end
-  def rescue_with_handler(exception, object: nil, visited_exceptions: nil); end
 end

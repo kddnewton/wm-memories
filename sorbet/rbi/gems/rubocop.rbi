@@ -406,7 +406,6 @@ module RuboCop::AST::CollectionNode
   def entries(*args, &block); end
   def exclude?(*args, &block); end
   def excluding(*args, &block); end
-  def extract!(*args, &block); end
   def extract_options!(*args, &block); end
   def fetch(*args, &block); end
   def fifth(*args, &block); end

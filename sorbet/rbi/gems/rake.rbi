@@ -135,7 +135,6 @@ class Rake::FileList
   def existing!; end
   def existing; end
   def ext(newext = nil); end
-  def extract!(*args, &block); end
   def extract_options!(*args, &block); end
   def fetch(*args, &block); end
   def fifth(*args, &block); end

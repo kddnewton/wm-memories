@@ -2,12 +2,20 @@
 #   srb rbi todo
 
 # typed: strong
-module ::Anonymous_Delegator_16; end
+module ::Anonymous_Delegator_15; end
 module ::Anonymous_Delegator_4; end
-module ::Anonymous_Delegator_5; end
 module ::Spring; end
+module ActionMailer::Base::Mail::Message; end
 module ActiveRecord::CollectionCacheKey; end
-module ActiveRecord::Delegation::DelegateCache; end
+module ActiveStorage::Blob::Analyzable; end
+module ActiveStorage::Blob::Analyzable; end
+module ActiveStorage::Blob::Analyzable; end
+module ActiveStorage::Blob::Analyzable; end
+module ActiveStorage::Blob::Identifiable; end
+module ActiveStorage::Blob::Identifiable; end
+module ActiveStorage::Blob::Identifiable; end
+module ActiveStorage::Blob::Identifiable; end
+module ActiveStorage::Variant; end
 module Minitest::Mock; end
 module Minitest::Mock; end
 module Minitest::Mock; end

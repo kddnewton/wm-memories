@@ -254,10 +254,10 @@ class Twitter::Identity < Twitter::Base
   def id(&block); end
   def id?(&block); end
   def initialize(attrs = nil); end
-  include Anonymous_Equalizer_11
+  include Anonymous_Equalizer_10
   include Equalizer::Methods
 end
-module Anonymous_Equalizer_11
+module Anonymous_Equalizer_10
   def cmp?(comparator, other); end
   def hash; end
   def inspect; end
@@ -384,10 +384,10 @@ class Twitter::Geo < Twitter::Base
   def coordinates(&block); end
   def coordinates?(&block); end
   def coords(&block); end
-  include Anonymous_Equalizer_12
+  include Anonymous_Equalizer_11
   include Equalizer::Methods
 end
-module Anonymous_Equalizer_12
+module Anonymous_Equalizer_11
   def cmp?(comparator, other); end
   def hash; end
   def inspect; end
@@ -928,11 +928,11 @@ class Twitter::Suggestion < Twitter::Base
   def slug?(&block); end
   def users(&block); end
   extend Memoizable::ModuleMethods
-  include Anonymous_Equalizer_13
+  include Anonymous_Equalizer_12
   include Equalizer::Methods
   include Memoizable
 end
-module Anonymous_Equalizer_13
+module Anonymous_Equalizer_12
   def cmp?(comparator, other); end
   def hash; end
   def inspect; end
@@ -1098,10 +1098,10 @@ class Twitter::Size < Twitter::Base
   def w(&block); end
   def w?(&block); end
   def width(&block); end
-  include Anonymous_Equalizer_14
+  include Anonymous_Equalizer_13
   include Equalizer::Methods
 end
-module Anonymous_Equalizer_14
+module Anonymous_Equalizer_13
   def cmp?(comparator, other); end
   def hash; end
   def inspect; end
@@ -1188,10 +1188,10 @@ class Twitter::Trend < Twitter::Base
   def uri?(&block); end
   def url(&block); end
   def url?(&block); end
-  include Anonymous_Equalizer_15
+  include Anonymous_Equalizer_14
   include Equalizer::Methods
 end
-module Anonymous_Equalizer_15
+module Anonymous_Equalizer_14
   def cmp?(comparator, other); end
   def hash; end
   def inspect; end
