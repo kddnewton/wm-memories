@@ -1,27 +1,39 @@
+# typed: strict
 # frozen_string_literal: true
 
 class SubscriptionsController < ApplicationController
   # GET /subscriptions/new
+  sig { void }
   def new
-    @subscription = Subscription.new
+    @subscription = T.let(Subscription.new, T.nilable(Subscription))
   end
 
   # POST /subscriptions
+  sig { void }
   def create
-    @subscription = Subscription.new(subscription_params)
-    render :new unless @subscription.save
+    @subscription =
+      T.let(Subscription.new(subscription_params), T.nilable(Subscription))
+
+    render :new unless T.must(@subscription).save
   end
 
   # GET /subscriptions/:id/verify
+  sig { void }
   def verify
-    @subscription = Subscription.find(params[:id])
-    @subscription.verify!
+    @subscription =
+      T.let(Subscription.find(params[:id]), T.nilable(Subscription))
+
+    T.must(@subscription).verify!
   end
 
   private
 
   # strong params for subscriptions
+  sig { returns(ActionController::Parameters) }
   def subscription_params
-    params.require(:subscription).permit(:email)
+    subscription =
+      params.require_typed(:subscription, TA[ActionController::Parameters].new)
+
+    subscription.permit(:email)
   end
 end

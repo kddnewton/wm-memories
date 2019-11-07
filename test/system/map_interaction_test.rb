@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'application_system_test_case'
@@ -15,7 +16,7 @@ class MapInteractionTest < ApplicationSystemTestCase
     fill_in 'story[year]', with: '2013'
     fill_in 'story[body]', with: 'foo bar'
 
-    assert_difference 'Story.count', +1 do
+    assert_difference -> { Story.count }, +1 do
       click_on 'Submit'
     end
   end
@@ -23,7 +24,13 @@ class MapInteractionTest < ApplicationSystemTestCase
   test 'clicking on a story' do
     visit root_path
 
-    execute_script 'MapManager.infoWindows[0].open(MapManager.map)'
+    execute_script <<~JS
+      MapManager.markers[0].infoWindow.open(
+        MapManager.map,
+        MapManager.markers[0].marker
+      )
+    JS
+
     find('#map a', text: 'Read more...').click
 
     assert_current_path story_path(stories(:second))

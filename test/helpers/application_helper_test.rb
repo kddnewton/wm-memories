@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require 'test_helper'
@@ -31,13 +32,12 @@ class ApplicationHelperTest < ActionView::TestCase
   end
 
   def test_story_body_feed
-    actual = story_body(stories(:first), context: :feed)
+    actual = story_body(stories(:first), query: nil)
     assert_equal '<p>This is my first test story.</p>', actual
   end
 
   def test_story_body_search
-    @query = 'first test'
-    actual = story_body(stories(:first), context: :search)
+    actual = story_body(stories(:first), query: 'first test')
     assert_equal '<p>This is my <mark>first test</mark> story.</p>', actual
   end
 end

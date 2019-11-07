@@ -3,5 +3,5 @@
 		<strong><%= link_to(story.identifier, story_path(story)) %></strong>
 		<em class="pull-right text-muted"><%= story.created_at.to_formatted_s(:long) %></em>
 	</div>
-	<%= story_body(story, context: context) %>
+	<%= story_body(story, query: @query) %>
 </div>

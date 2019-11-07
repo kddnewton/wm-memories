@@ -1,9 +1,11 @@
+# typed: strict
 # frozen_string_literal: true
 
 class ModeratorMailer < ApplicationMailer
   # notify subscribers of a story approval
+  sig { params(story: Story).void }
   def story_approved(story)
-    @story = story
+    @story = T.let(story, T.nilable(Story))
 
     emails = Subscription.validated.pluck(:email)
     subject =
@@ -16,8 +18,9 @@ class ModeratorMailer < ApplicationMailer
   end
 
   # notify moderators of a new story
+  sig { params(story: Story).void }
   def story_created(story)
-    @story = story
+    @story = T.let(story, T.nilable(Story))
 
     emails = Moderator.pluck(:email)
     return if emails.empty?
@@ -32,8 +35,9 @@ class ModeratorMailer < ApplicationMailer
   end
 
   # send an email to request verification
+  sig { params(subscription: Subscription).void }
   def subscription_verification(subscription)
-    @subscription = subscription
+    @subscription = T.let(subscription, T.nilable(Subscription))
 
     subject =
       I18n.t('mailers.moderator_mailer.subscription_verification.subject')

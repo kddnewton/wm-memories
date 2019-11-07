@@ -1,4 +1,9 @@
+# typed: strict
+
 class CreatePhotos < ActiveRecord::Migration
+  extend T::Sig
+
+  sig { void }
   def change
     create_table :photos do |t|
       t.references :story
