@@ -19,10 +19,10 @@ module Story::GeneratedAttributeMethods
   sig { returns(T::Boolean) }
   def approved?; end
 
-  sig { returns(T.nilable(String)) }
+  sig { returns(String) }
   def body; end
 
-  sig { params(value: T.nilable(String)).void }
+  sig { params(value: T.any(String, Symbol)).void }
   def body=(value); end
 
   sig { returns(T::Boolean) }
