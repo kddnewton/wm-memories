@@ -1,20 +1,20 @@
 <div class="page-header">
-	<h1><%= vt('subscriptions') %></h1>
+  <h1><%= vt('subscriptions') %></h1>
 </div>
 
 <table class="table table-striped">
-	<thead>
-		<th><%= vt('email') %></th>
-		<th><%= vt('validated') %></th>
-		<th><%= vt('created') %></th>
-	</thead>
-	<tbody>
-		<% @subscriptions.each do |subscription| %>
-			<tr>
-				<td><%= subscription.email %></td>
-				<td><%= subscription.validated? ? t('basics.yes') : t('basics.no') %></td>
-				<td><%= subscription.created_at.utc %></td>
-			</tr>
-		<% end %>
-	</tbody>
+  <thead>
+    <th><%= vt('email') %></th>
+    <th><%= vt('validated') %></th>
+    <th><%= vt('created') %></th>
+  </thead>
+  <tbody>
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= subscription.email %></td>
+        <td><%= subscription.validated? ? t('basics.yes') : t('basics.no') %></td>
+        <td><%= subscription.created_at.utc %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

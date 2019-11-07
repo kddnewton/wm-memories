@@ -1,7 +1,7 @@
 <div class="col-md-8 col-md-offset-2 story">
-	<div class="header">
-		<strong><%= link_to(story.identifier, story_path(story)) %></strong>
-		<em class="pull-right text-muted"><%= story.created_at.to_formatted_s(:long) %></em>
-	</div>
-	<%= story_body(story, query: @query) %>
+  <div class="header">
+    <strong><%= link_to(story.identifier, story_path(story)) %></strong>
+    <em class="pull-right text-muted"><%= story.created_at.to_formatted_s(:long) %></em>
+  </div>
+  <%= story_body(story, query: @query) %>
 </div>

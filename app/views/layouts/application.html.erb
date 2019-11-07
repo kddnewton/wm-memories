@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title><%= t('views.layouts.application.title') %></title>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= t('views.layouts.application.title') %></title>
 
-		<%= action_cable_meta_tag %>
-		<%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= csrf_meta_tags %>
 
-		<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-		<%= javascript_include_tag "//maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}" %>
-	</head>
-	<body>
-		<div id="nav-container">
-			<div class="container">
-				<div class="row">
-					<%= nav_link(t('views.layouts.application.home'), root_path, :globe) %>
-					<%= nav_link(t('views.layouts.application.feed'), feed_stories_path, :signal) %>
-					<%= nav_link(t('views.layouts.application.about'), about_path, :cog) %>
-					
-					<div class="col-sm-4 col-sm-offset-2 col-xs-12">
-						<%= form_tag(search_stories_path, id: 'search-form') do %>
-							<div class="input-group">
-								<%= text_field_tag(:query, params[:query], class: 'form-control', placeholder: t('views.layouts.application.search') + '...') %>
-								<span class="input-group-btn">
-									<%= submit_tag(t('views.layouts.application.search'), class: 'btn btn-default') %>
-								</span>
-							</div>
-						<% end %>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<%= yield %>
-		</div>
-		<div class="text-center" id="footer">
-			<%= image_tag('wm-cypher.png', size: '100x100') %>
-		</div>
-	</body>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "//maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}" %>
+  </head>
+  <body>
+    <div id="nav-container">
+      <div class="container">
+        <div class="row">
+          <%= nav_link(t('views.layouts.application.home'), root_path, :globe) %>
+          <%= nav_link(t('views.layouts.application.feed'), feed_stories_path, :signal) %>
+          <%= nav_link(t('views.layouts.application.about'), about_path, :cog) %>
+          
+          <div class="col-sm-4 col-sm-offset-2 col-xs-12">
+            <%= form_tag(search_stories_path, id: 'search-form') do %>
+              <div class="input-group">
+                <%= text_field_tag(:query, params[:query], class: 'form-control', placeholder: t('views.layouts.application.search') + '...') %>
+                <span class="input-group-btn">
+                  <%= submit_tag(t('views.layouts.application.search'), class: 'btn btn-default') %>
+                </span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <div class="text-center" id="footer">
+      <%= image_tag('wm-cypher.png', size: '100x100') %>
+    </div>
+  </body>
 </html>

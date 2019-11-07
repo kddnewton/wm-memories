@@ -1,28 +1,28 @@
 <div class="page-header">
-	<h1><%= vt('stories') %></h1>
+  <h1><%= vt('stories') %></h1>
 </div>
 
 <div class="table-responsive">
-	<table class="table table-striped">
-		<thead>
-			<th><%= vt('identifier') %></th>
-			<th><%= vt('year') %></th>
-			<th><%= vt('body') %></th>
-			<th><%= vt('lat_lng') %></th>
-			<th><%= vt('created') %></th>
-			<th><%= vt('approved') %></th>
-		</thead>
-		<tbody>
-			<% @stories.each do |story| %>
-				<tr>
-					<td><%= link_to(story.identifier, admin_story_path(story)) %></td>
-					<td><%= story.year %></td>
-					<td><%= story.body %></td>
-					<td><%= story.lat %>/<%= story.lng %></td>
-					<td><%= story.created_at %></td>
-					<%= render('admin/stories/approval', story: story) %>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+  <table class="table table-striped">
+    <thead>
+      <th><%= vt('identifier') %></th>
+      <th><%= vt('year') %></th>
+      <th><%= vt('body') %></th>
+      <th><%= vt('lat_lng') %></th>
+      <th><%= vt('created') %></th>
+      <th><%= vt('approved') %></th>
+    </thead>
+    <tbody>
+      <% @stories.each do |story| %>
+        <tr>
+          <td><%= link_to(story.identifier, admin_story_path(story)) %></td>
+          <td><%= story.year %></td>
+          <td><%= story.body %></td>
+          <td><%= story.lat %>/<%= story.lng %></td>
+          <td><%= story.created_at %></td>
+          <%= render('admin/stories/approval', story: story) %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

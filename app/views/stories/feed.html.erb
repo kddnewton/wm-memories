@@ -1,8 +1,8 @@
 <div class="page-header">
-	<%= link_to(vt('feed.subscribe'), new_subscription_path, class: 'btn btn-primary pull-right') %>
-	<h1><%= vt('feed.feed') %></h1>
+  <%= link_to(vt('feed.subscribe'), new_subscription_path, class: 'btn btn-primary pull-right') %>
+  <h1><%= vt('feed.feed') %></h1>
 </div>
 
 <div class="row" id="stories">
-	<%= render(@stories, query: @query) %>
+  <%= render(@stories, query: @query) %>
 </div>

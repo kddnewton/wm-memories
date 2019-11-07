@@ -1,54 +1,54 @@
 <div class="modal fade" tabindex="-1" role="dialog" id="new-story">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-				<h4 class="modal-title"><%= vt('new.title') %></h4>
-			</div>
-			<div class="modal-body" id="story-body">
-				<div id="errors"></div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        <h4 class="modal-title"><%= vt('new.title') %></h4>
+      </div>
+      <div class="modal-body" id="story-body">
+        <div id="errors"></div>
 
-				<%= form_for(@story, html: { class: 'form-horizontal', multipart: true, target: 'new-story-target' }) do |form| %>
-					<%= form.hidden_field(:lat) %>
-					<%= form.hidden_field(:lng) %>
+        <%= form_for(@story, html: { class: 'form-horizontal', multipart: true, target: 'new-story-target' }) do |form| %>
+          <%= form.hidden_field(:lat) %>
+          <%= form.hidden_field(:lng) %>
 
-					<div class="form-group">
-						<div class="col-xs-12">
-							<%= form.number_field(:year, class: 'form-control', placeholder: vt('new.class_year')) %>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-xs-12">
-							<%= form.text_area(:body, rows: 10, class: 'form-control', placeholder: vt('new.memory')) %>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-xs-3">
-							<span class="btn btn-primary fileinput-button">
-								<i class="glyphicon glyphicon-plus"></i>
-								<span><%= vt('new.add_images') %></span>
-								<%= file_field_tag(:"story[photo_proxies][]", multiple: true) %>
-							</span>
-						</div>
-						<div class="col-xs-9">
-							<div class="well well-sm" style="display: none">
-								<ul id="fileinput-list" class="list-unstyled"></ul>
-							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-xs-12">
-							<div class="pull-right">
-								<%= form.submit(vt('new.submit'), class: 'btn btn-primary', data: { disable_with: vt('new.submitting') }, id: 'submit-story') %>
-								<button type="button" class="btn btn-default" data-dismiss="modal" id="cancel-story"><%= t('basics.cancel') %></button>
-							</div>
-						</div>
-					</div>
-				<% end %>
-			</div>
-			<div class="modal-body" style="display: none" id="success-body">
-				<%= vt('new.success') %>
-			</div>
-		</div>
-	</div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <%= form.number_field(:year, class: 'form-control', placeholder: vt('new.class_year')) %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <%= form.text_area(:body, rows: 10, class: 'form-control', placeholder: vt('new.memory')) %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-3">
+              <span class="btn btn-primary fileinput-button">
+                <i class="glyphicon glyphicon-plus"></i>
+                <span><%= vt('new.add_images') %></span>
+                <%= file_field_tag(:"story[photo_proxies][]", multiple: true) %>
+              </span>
+            </div>
+            <div class="col-xs-9">
+              <div class="well well-sm" style="display: none">
+                <ul id="fileinput-list" class="list-unstyled"></ul>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-12">
+              <div class="pull-right">
+                <%= form.submit(vt('new.submit'), class: 'btn btn-primary', data: { disable_with: vt('new.submitting') }, id: 'submit-story') %>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="cancel-story"><%= t('basics.cancel') %></button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-body" style="display: none" id="success-body">
+        <%= vt('new.success') %>
+      </div>
+    </div>
+  </div>
 </div>
