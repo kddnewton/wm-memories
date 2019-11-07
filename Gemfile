@@ -18,10 +18,12 @@ gem 'twitter', '~> 6.2'
 gem 'paperclip', '~> 6.1'
 gem 'social-share-button', '~> 1.2'
 
+gem 'sorbet'
+gem 'sorbet-rails'
+gem 'sorbet-runtime', '~> 0.4'
+
 group :development do
   gem 'parlour', require: false
-  gem 'sorbet'
-  gem 'sorbet-rails'
   gem 'spring'
 end
 
