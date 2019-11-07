@@ -287,8 +287,8 @@ DEPENDENCIES
   selenium-webdriver
   simplecov
   social-share-button (~> 1.2)
-  sorbet
-  sorbet-rails
+  sorbet (~> 0.4)
+  sorbet-rails (~> 0.5)
   sorbet-runtime (~> 0.4)
   spring
   turbolinks (~> 5.2)

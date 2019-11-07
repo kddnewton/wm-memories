@@ -11,7 +11,9 @@ class Story < ApplicationRecord
   scope :feed_ordered, -> { order('created_at DESC') }
   scope :search, ->(query) { where('body LIKE ?', "%#{query}%") }
 
-  after_create { ModeratorMailer.story_created(self).deliver_now }
+  after_create_commit do |story|
+    ModeratorMailer.story_created(story).deliver_now
+  end
 
   # approve this story by moderator
   sig { void }
@@ -30,7 +32,16 @@ class Story < ApplicationRecord
   end
 
   # build the photo objects
-  sig { params(photo_proxies: T.nilable(T.any(T::Array[ActionDispatch::Http::UploadedFile], T::Array[Rack::Test::UploadedFile]))).void } # rubocop:disable Metrics/LineLength
+  sig {
+    params(
+      photo_proxies: T.nilable(
+        T.any(
+          T::Array[ActionDispatch::Http::UploadedFile],
+          T::Array[Rack::Test::UploadedFile]
+        )
+      )
+    ).void
+  }
   def photo_proxies=(photo_proxies)
     (photo_proxies || []).each do |photo_proxy|
       photos.build(attachment: photo_proxy)

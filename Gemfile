@@ -18,8 +18,8 @@ gem 'twitter', '~> 6.2'
 gem 'paperclip', '~> 6.1'
 gem 'social-share-button', '~> 1.2'
 
-gem 'sorbet'
-gem 'sorbet-rails'
+gem 'sorbet', '~> 0.4'
+gem 'sorbet-rails', '~> 0.5'
 gem 'sorbet-runtime', '~> 0.4'
 
 group :development do

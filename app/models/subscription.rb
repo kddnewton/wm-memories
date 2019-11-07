@@ -12,7 +12,9 @@ class Subscription < ApplicationRecord
   scope :email_ordered, -> { order(:email) }
   scope :validated, -> { where(validated: true) }
 
-  after_create { ModeratorMailer.subscription_verification(self).deliver_now }
+  after_create_commit do |subscription|
+    ModeratorMailer.subscription_verification(subscription).deliver_now
+  end
 
   # sets validated to true
   sig { returns(TrueClass) }

@@ -13,6 +13,9 @@ AllCops:
 Bundler/OrderedGems:
   Enabled: false
 
+Style/BlockDelimiters:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
