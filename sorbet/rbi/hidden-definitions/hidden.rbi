@@ -5171,8 +5171,6 @@ class Array
 
   def dig(*_); end
 
-  def filter!(); end
-
   def flatten!(*_); end
 
   def pack(*_); end
@@ -7601,8 +7599,6 @@ module Enumerable
 
   def each_entry(*_); end
 
-  def filter(); end
-
   def grep_v(_); end
 
   def slice_after(*_); end
@@ -7850,8 +7846,6 @@ class Etc::Passwd
 
   def change=(_); end
 
-  def dir(); end
-
   def dir=(_); end
 
   def expire(); end
@@ -7862,27 +7856,17 @@ class Etc::Passwd
 
   def gecos=(_); end
 
-  def gid(); end
-
   def gid=(_); end
-
-  def name(); end
 
   def name=(_); end
 
-  def passwd(); end
-
   def passwd=(_); end
-
-  def shell(); end
 
   def shell=(_); end
 
   def uclass(); end
 
   def uclass=(_); end
-
-  def uid(); end
 
   def uid=(_); end
 end
@@ -8103,6 +8087,7 @@ module FFI::Platform
   INT8_ALIGN = ::T.let(nil, ::T.untyped)
   INT8_SIZE = ::T.let(nil, ::T.untyped)
   IS_BSD = ::T.let(nil, ::T.untyped)
+  IS_DRAGONFLYBSD = ::T.let(nil, ::T.untyped)
   IS_FREEBSD = ::T.let(nil, ::T.untyped)
   IS_GNU = ::T.let(nil, ::T.untyped)
   IS_LINUX = ::T.let(nil, ::T.untyped)
@@ -8656,13 +8641,9 @@ class Hash
 
   def fetch_values(*_); end
 
-  def filter!(); end
-
   def flatten(*_); end
 
   def index(_); end
-
-  def merge!(*_); end
 
   def replace(_); end
 
@@ -15937,10 +15918,6 @@ module Regexp::Syntax::Token::UnicodeProperty::Category
   Symbol = ::T.let(nil, ::T.untyped)
 end
 
-class Regexp
-  def self.union(*_); end
-end
-
 class Resolv::DNS
   def extract_resources(msg, name, typeclass); end
 
@@ -16569,14 +16546,21 @@ module RuboCop::AST::Traversal
 end
 
 class RuboCop::CLI
-  PHASE_1 = ::T.let(nil, ::T.untyped)
-  PHASE_1_DISABLED = ::T.let(nil, ::T.untyped)
-  PHASE_1_OVERRIDDEN = ::T.let(nil, ::T.untyped)
-  PHASE_2 = ::T.let(nil, ::T.untyped)
   STATUS_ERROR = ::T.let(nil, ::T.untyped)
   STATUS_INTERRUPTED = ::T.let(nil, ::T.untyped)
   STATUS_OFFENSES = ::T.let(nil, ::T.untyped)
   STATUS_SUCCESS = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::CLI::Command::AutoGenerateConfig
+  PHASE_1 = ::T.let(nil, ::T.untyped)
+  PHASE_1_DISABLED = ::T.let(nil, ::T.untyped)
+  PHASE_1_OVERRIDDEN = ::T.let(nil, ::T.untyped)
+  PHASE_2 = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::CLI::Command::InitDotfile
+  DOTFILE = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::CommentConfig
@@ -16720,22 +16704,17 @@ class RuboCop::Cop::Layout::AccessModifierIndentation
   MSG = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Layout::AlignArguments
+class RuboCop::Cop::Layout::ArgumentAlignment
   ALIGN_PARAMS_MSG = ::T.let(nil, ::T.untyped)
   FIXED_INDENT_MSG = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Layout::AlignArray
+class RuboCop::Cop::Layout::ArrayAlignment
   MSG = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Layout::AlignHash
+class RuboCop::Cop::Layout::AssignmentIndentation
   MSG = ::T.let(nil, ::T.untyped)
-end
-
-class RuboCop::Cop::Layout::AlignParameters
-  ALIGN_PARAMS_MSG = ::T.let(nil, ::T.untyped)
-  FIXED_INDENT_MSG = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Layout::BlockAlignment
@@ -16856,7 +16835,19 @@ class RuboCop::Cop::Layout::ExtraSpacing
   MSG_UNNECESSARY = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Layout::FirstArgumentIndentation
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Layout::FirstArrayElementIndentation
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Layout::FirstArrayElementLineBreak
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Layout::FirstHashElementIndentation
   MSG = ::T.let(nil, ::T.untyped)
 end
 
@@ -16872,31 +16863,19 @@ class RuboCop::Cop::Layout::FirstMethodParameterLineBreak
   MSG = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Layout::FirstParameterIndentation
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Layout::HashAlignment
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Layout::HeredocArgumentClosingParenthesis
   MSG = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Layout::IndentAssignment
-  MSG = ::T.let(nil, ::T.untyped)
-end
-
-class RuboCop::Cop::Layout::IndentFirstArgument
-  MSG = ::T.let(nil, ::T.untyped)
-end
-
-class RuboCop::Cop::Layout::IndentFirstArrayElement
-  MSG = ::T.let(nil, ::T.untyped)
-end
-
-class RuboCop::Cop::Layout::IndentFirstHashElement
-  MSG = ::T.let(nil, ::T.untyped)
-end
-
-class RuboCop::Cop::Layout::IndentFirstParameter
-  MSG = ::T.let(nil, ::T.untyped)
-end
-
-class RuboCop::Cop::Layout::IndentHeredoc
+class RuboCop::Cop::Layout::HeredocIndentation
   LIBRARY_MSG = ::T.let(nil, ::T.untyped)
   RUBY23_TYPE_MSG = ::T.let(nil, ::T.untyped)
   RUBY23_WIDTH_MSG = ::T.let(nil, ::T.untyped)
@@ -16915,11 +16894,11 @@ class RuboCop::Cop::Layout::InitialIndentation
   MSG = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Layout::LeadingBlankLines
+class RuboCop::Cop::Layout::LeadingCommentSpace
   MSG = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Layout::LeadingCommentSpace
+class RuboCop::Cop::Layout::LeadingEmptyLines
   MSG = ::T.let(nil, ::T.untyped)
 end
 
@@ -16974,6 +16953,11 @@ class RuboCop::Cop::Layout::MultilineMethodDefinitionBraceLayout
   SAME_LINE_MESSAGE = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Layout::ParameterAlignment
+  ALIGN_PARAMS_MSG = ::T.let(nil, ::T.untyped)
+  FIXED_INDENT_MSG = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Layout::RescueEnsureAlignment
   ALTERNATIVE_ACCESS_MODIFIERS = ::T.let(nil, ::T.untyped)
   ANCESTOR_TYPES = ::T.let(nil, ::T.untyped)
@@ -17001,9 +16985,11 @@ end
 class RuboCop::Cop::Layout::SpaceAroundKeyword
   ACCEPT_LEFT_PAREN = ::T.let(nil, ::T.untyped)
   ACCEPT_LEFT_SQUARE_BRACKET = ::T.let(nil, ::T.untyped)
+  ACCEPT_NAMESPACE_OPERATOR = ::T.let(nil, ::T.untyped)
   DO = ::T.let(nil, ::T.untyped)
   MSG_AFTER = ::T.let(nil, ::T.untyped)
   MSG_BEFORE = ::T.let(nil, ::T.untyped)
+  NAMESPACE_OPERATOR = ::T.let(nil, ::T.untyped)
   SAFE_NAVIGATION = ::T.let(nil, ::T.untyped)
 end
 
@@ -17126,11 +17112,11 @@ class RuboCop::Cop::Lint::DuplicateCaseCondition
   MSG = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Lint::DuplicateMethods
+class RuboCop::Cop::Lint::DuplicateHashKey
   MSG = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Lint::DuplicatedKey
+class RuboCop::Cop::Lint::DuplicateMethods
   MSG = ::T.let(nil, ::T.untyped)
 end
 
@@ -17185,10 +17171,6 @@ class RuboCop::Cop::Lint::FormatParameterMismatch
   STRING_TYPES = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Lint::HandleExceptions
-  MSG = ::T.let(nil, ::T.untyped)
-end
-
 class RuboCop::Cop::Lint::HeredocMethodCallPosition
   MSG = ::T.let(nil, ::T.untyped)
 end
@@ -17233,7 +17215,7 @@ class RuboCop::Cop::Lint::MissingCopEnableDirective
   MSG_BOUND = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Lint::MultipleCompare
+class RuboCop::Cop::Lint::MultipleComparison
   MSG = ::T.let(nil, ::T.untyped)
 end
 
@@ -17305,6 +17287,11 @@ class RuboCop::Cop::Lint::RedundantSplatExpansion
   PERCENT_W = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::Cop::Lint::RedundantStringCoercion
+  MSG_DEFAULT = ::T.let(nil, ::T.untyped)
+  MSG_SELF = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::Cop::Lint::RedundantWithIndex
   MSG_EACH_WITH_INDEX = ::T.let(nil, ::T.untyped)
   MSG_WITH_INDEX = ::T.let(nil, ::T.untyped)
@@ -17370,9 +17357,8 @@ class RuboCop::Cop::Lint::ShadowingOuterLocalVariable
   MSG = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::Cop::Lint::StringConversionInInterpolation
-  MSG_DEFAULT = ::T.let(nil, ::T.untyped)
-  MSG_SELF = ::T.let(nil, ::T.untyped)
+class RuboCop::Cop::Lint::SuppressedException
+  MSG = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::Cop::Lint::Syntax
@@ -20287,8 +20273,6 @@ class Set
 
   def eql?(o); end
 
-  def filter!(&block); end
-
   def flatten_merge(set, seen=T.unsafe(nil)); end
 
   def pretty_print(pp); end
@@ -22485,8 +22469,6 @@ end
 class URI::HTTP
   include ::OpenURI::OpenRead
   def buffer_open(buf, proxy, options); end
-
-  def request_uri(); end
 end
 
 class URI::LDAP
@@ -22586,12 +22568,6 @@ end
 
 module URI
   extend ::URI::Escape
-  def self.decode_www_form(str, enc=T.unsafe(nil), separator: T.unsafe(nil), use__charset_: T.unsafe(nil), isindex: T.unsafe(nil)); end
-
-  def self.encode_www_form(enum, enc=T.unsafe(nil)); end
-
-  def self.encode_www_form_component(str, enc=T.unsafe(nil)); end
-
   def self.get_encoding(label); end
 
 end
