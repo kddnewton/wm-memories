@@ -1801,6 +1801,7 @@ class ActionDispatch::Routing::RouteWrapper
   def assets_prefix=(val); end
 
   def assets_prefix?(); end
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 class ActionDispatch::Routing::RouteWrapper
@@ -2122,6 +2123,7 @@ class ActionMailer::Base::LateAttachmentsProxy
   def []=(_name, _content); end
 
   def inline(); end
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 class ActionMailer::Base::LateAttachmentsProxy
@@ -2453,6 +2455,7 @@ class ActionMailer::MessageDelivery
   def message(); end
 
   def processed?(); end
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 class ActionMailer::MessageDelivery
@@ -2484,6 +2487,7 @@ end
 
 class ActionMailer::Parameterized::MessageDelivery
   def initialize(mailer_class, action, params, *args); end
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 class ActionMailer::Parameterized::MessageDelivery
@@ -3100,11 +3104,19 @@ class ActionView::Template::Handlers::ERB::Erubi
   BLOCK_EXPR = ::T.let(nil, ::T.untyped)
 end
 
+class ActionView::Template::Handlers::LegacyHandlerWrapper
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
+
 class ActionView::Template::Inline
   Finalizer = ::T.let(nil, ::T.untyped)
 end
 
 class ActionView::Template::Inline
+end
+
+class ActionView::Template::LegacyTemplate
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 class ActionView::Template::RawFile
@@ -3704,6 +3716,7 @@ class ActiveRecord::Associations::AssociationScope::ReflectionProxy
   def all_includes(); end
 
   def initialize(reflection, aliased_table); end
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 class ActiveRecord::Associations::AssociationScope::ReflectionProxy
@@ -4079,6 +4092,10 @@ module ActiveRecord::AttributeMethods::PrimaryKey::ClassMethods
   ID_ATTRIBUTE_METHODS = ::T.let(nil, ::T.untyped)
 end
 
+class ActiveRecord::AttributeMethods::TimeZoneConversion::TimeZoneConverter
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
+
 module ActiveRecord::Base::GeneratedAttributeMethods
   extend ::Mutex_m
 end
@@ -4145,6 +4162,10 @@ end
 
 class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Uuid
   ACCEPTABLE_UUID = ::T.let(nil, ::T.untyped)
+end
+
+class ActiveRecord::ConnectionAdapters::PostgreSQL::TypeMetadata
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 class ActiveRecord::ConnectionAdapters::PostgreSQLAdapter
@@ -4225,6 +4246,10 @@ end
 
 module ActiveRecord::LegacyYamlAdapter
   def self.convert(klass, coder); end
+end
+
+class ActiveRecord::Locking::LockingType
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 class ActiveRecord::LogSubscriber
@@ -4495,7 +4520,15 @@ ActiveRecord::Type::Float = ActiveModel::Type::Float
 
 ActiveRecord::Type::Integer = ActiveModel::Type::Integer
 
+class ActiveRecord::Type::Serialized
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
+
 ActiveRecord::Type::String = ActiveModel::Type::String
+
+class ActiveRecord::Type::Time::Value
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
 
 module ActiveRecord::VERSION
   MAJOR = ::T.let(nil, ::T.untyped)
@@ -6470,6 +6503,14 @@ class Capybara::RackTest::Node
   OPTION_OWNER_XPATH = ::T.let(nil, ::T.untyped)
 end
 
+class Capybara::ReadOnlySessionConfig
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
+
+class Capybara::Selector
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
+
 class Capybara::Selector::CSS
   ESCAPE = ::T.let(nil, ::T.untyped)
   H = ::T.let(nil, ::T.untyped)
@@ -6854,7 +6895,15 @@ class Concurrent::RubyThreadPoolExecutor
   DEFAULT_THREAD_IDLETIMEOUT = ::T.let(nil, ::T.untyped)
 end
 
+class Concurrent::SerializedExecutionDelegator
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
+
 Concurrent::Synchronization::Volatile = Concurrent::Synchronization::MriAttrVolatile
+
+class Concurrent::SynchronizedDelegator
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
 
 module Concurrent::ThreadSafe::Util
   CPU_COUNT = ::T.let(nil, ::T.untyped)
@@ -7319,6 +7368,7 @@ class Delegator
   def protected_methods(all=T.unsafe(nil)); end
 
   def public_methods(all=T.unsafe(nil)); end
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 class Delegator
@@ -8335,12 +8385,6 @@ module Forwardable
   def self.debug=(debug); end
 end
 
-class FrozenError
-end
-
-class FrozenError
-end
-
 module GC
   def garbage_collect(*_); end
 end
@@ -8355,12 +8399,72 @@ module GC
   def self.verify_transient_heap_internal_consistency(); end
 end
 
+module Gem
+  UNTAINT = ::T.let(nil, ::T.untyped)
+end
+
+class Gem::BasicSpecification
+  def self._deprecated_default_specifications_dir(); end
+end
+
+class Gem::Command
+  def check_deprecated_options(options); end
+
+  def deprecate_option(name, version: T.unsafe(nil), extra_msg: T.unsafe(nil)); end
+
+end
+
+class Gem::Dependency
+  def identity(); end
+end
+
+class Gem::DependencyInstaller
+  def _deprecated_available_set_for(dep_or_name, version); end
+
+  def _deprecated_find_gems_with_sources(dep, best_only=T.unsafe(nil)); end
+
+  def _deprecated_find_spec_by_name_and_version(gem_name, version=T.unsafe(nil), prerelease=T.unsafe(nil)); end
+end
+
+class Gem::Installer
+  def _deprecated_unpack(directory); end
+
+  def package(); end
+end
+
+class Gem::Package
+  def gem(); end
+end
+
 class Gem::Package::TarHeader
   def self.oct_or_256based(str); end
 end
 
+class Gem::Package
+  def self.raw_spec(path, security_policy=T.unsafe(nil)); end
+end
+
 class Gem::RemoteFetcher
+  include ::Gem::UriParsing
+  def _deprecated_fetch_size(uri); end
+
   def s3_uri_signer(uri); end
+end
+
+class Gem::RemoteFetcher
+  extend ::Gem::Deprecate
+end
+
+class Gem::Requirement
+  DefaultPrereleaseRequirement = ::T.let(nil, ::T.untyped)
+end
+
+class Gem::Requirement
+  def self.default_prerelease(); end
+end
+
+class Gem::Resolver::ActivationRequest
+  def platform(); end
 end
 
 class Gem::Resolver::Molinillo::DependencyGraph::Log
@@ -8376,7 +8480,8 @@ class Gem::S3URISigner
 
   def uri=(uri); end
   BASE64_URI_TRANSLATE = ::T.let(nil, ::T.untyped)
-  EC2_METADATA_CREDENTIALS = ::T.let(nil, ::T.untyped)
+  EC2_IAM_INFO = ::T.let(nil, ::T.untyped)
+  EC2_IAM_SECURITY_CREDENTIALS = ::T.let(nil, ::T.untyped)
 end
 
 class Gem::S3URISigner::ConfigurationError
@@ -8420,12 +8525,56 @@ end
 class Gem::S3URISigner
 end
 
+class Gem::Source
+  include ::Gem::Text
+  def typo_squatting?(host, distance_threshold=T.unsafe(nil)); end
+end
+
+class Gem::Specification
+  def _deprecated_rubyforge_project=(_deprecated_rubyforge_project); end
+  LOAD_CACHE_MUTEX = ::T.let(nil, ::T.untyped)
+end
+
 class Gem::Specification
   extend ::Enumerable
+  def self.default_stubs(pattern=T.unsafe(nil)); end
+end
+
+class Gem::SpecificationPolicy
+  include ::Gem::UserInteraction
+  include ::Gem::DefaultUserInteraction
+  include ::Gem::Text
+end
+
+class Gem::UriParser
+  def parse(uri); end
+
+  def parse!(uri); end
+end
+
+class Gem::UriParser
+end
+
+module Gem::UriParsing
+end
+
+module Gem::UriParsing
 end
 
 module Gem::Util
   def self.correct_for_windows_path(path); end
+end
+
+module Gem
+  def self.add_to_load_path(*paths); end
+
+  def self.default_specifications_dir(); end
+
+  def self.java_platform?(); end
+
+  def self.source_date_epoch(); end
+
+  def self.suffix_regexp(); end
 end
 
 module GlobalID::Locator
@@ -8600,6 +8749,7 @@ end
 
 class HTTP::Response::Status
   REASONS = ::T.let(nil, ::T.untyped)
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
   SYMBOLS = ::T.let(nil, ::T.untyped)
   SYMBOL_CODES = ::T.let(nil, ::T.untyped)
 end
@@ -8665,7 +8815,7 @@ class Hash
 end
 
 class Hash
-  def self.from_xml(xml, disallowed_types=T.unsafe(nil)); end
+  def self.try_convert(_); end
 end
 
 HashWithIndifferentAccess = ActiveSupport::HashWithIndifferentAccess
@@ -12871,6 +13021,10 @@ module Paperclip::Storage::Fog
   AWS_BUCKET_SUBDOMAIN_RESTRICTON_REGEX = ::T.let(nil, ::T.untyped)
 end
 
+class Paperclip::Tempfile
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
+
 class Paperclip::Thumbnail
   ANIMATED_FORMATS = ::T.let(nil, ::T.untyped)
   MULTI_FRAME_FORMATS = ::T.let(nil, ::T.untyped)
@@ -14133,6 +14287,7 @@ module Puma::Const
   LOCALHOST_ADDR = ::T.let(nil, ::T.untyped)
   LOCALHOST_IP = ::T.let(nil, ::T.untyped)
   MAX_BODY = ::T.let(nil, ::T.untyped)
+  MAX_FAST_INLINE = ::T.let(nil, ::T.untyped)
   MAX_HEADER = ::T.let(nil, ::T.untyped)
   NEWLINE = ::T.let(nil, ::T.untyped)
   PATH_INFO = ::T.let(nil, ::T.untyped)
@@ -15591,91 +15746,6 @@ module RbConfig
   def self.fire_update!(key, val, mkconf=T.unsafe(nil), conf=T.unsafe(nil)); end
 
   def self.ruby(); end
-end
-
-module Readline
-  FILENAME_COMPLETION_PROC = ::T.let(nil, ::T.untyped)
-  HISTORY = ::T.let(nil, ::T.untyped)
-  USERNAME_COMPLETION_PROC = ::T.let(nil, ::T.untyped)
-  VERSION = ::T.let(nil, ::T.untyped)
-end
-
-module Readline
-  def self.basic_quote_characters(); end
-
-  def self.basic_quote_characters=(basic_quote_characters); end
-
-  def self.basic_word_break_characters(); end
-
-  def self.basic_word_break_characters=(basic_word_break_characters); end
-
-  def self.completer_quote_characters(); end
-
-  def self.completer_quote_characters=(completer_quote_characters); end
-
-  def self.completer_word_break_characters(); end
-
-  def self.completer_word_break_characters=(completer_word_break_characters); end
-
-  def self.completion_append_character(); end
-
-  def self.completion_append_character=(completion_append_character); end
-
-  def self.completion_case_fold(); end
-
-  def self.completion_case_fold=(completion_case_fold); end
-
-  def self.completion_proc(); end
-
-  def self.completion_proc=(completion_proc); end
-
-  def self.completion_quote_character(); end
-
-  def self.delete_text(*_); end
-
-  def self.emacs_editing_mode(); end
-
-  def self.emacs_editing_mode?(); end
-
-  def self.filename_quote_characters(); end
-
-  def self.filename_quote_characters=(filename_quote_characters); end
-
-  def self.get_screen_size(); end
-
-  def self.input=(input); end
-
-  def self.insert_text(_); end
-
-  def self.line_buffer(); end
-
-  def self.output=(output); end
-
-  def self.point(); end
-
-  def self.point=(point); end
-
-  def self.pre_input_hook(); end
-
-  def self.pre_input_hook=(pre_input_hook); end
-
-  def self.quoting_detection_proc(); end
-
-  def self.quoting_detection_proc=(quoting_detection_proc); end
-
-  def self.redisplay(); end
-
-  def self.refresh_line(); end
-
-  def self.set_screen_size(_, _1); end
-
-  def self.special_prefixes(); end
-
-  def self.special_prefixes=(special_prefixes); end
-
-  def self.vi_editing_mode(); end
-
-  def self.vi_editing_mode?(); end
 end
 
 class Regexp
@@ -20331,6 +20401,10 @@ class SimpleCov::LinesClassifier
   WHITESPACE_OR_COMMENT_LINE = ::T.let(nil, ::T.untyped)
 end
 
+class SimpleDelegator
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
+
 class SimpleOAuth::Header
   ATTRIBUTE_KEYS = ::T.let(nil, ::T.untyped)
   IGNORED_KEYS = ::T.let(nil, ::T.untyped)
@@ -20840,6 +20914,8 @@ module Sorbet::Private::RealStdlib
 
   def self.real_is_a?(o, klass); end
 
+  def self.real_method(obj, sym); end
+
   def self.real_name(o); end
 
   def self.real_object_id(o); end
@@ -21100,6 +21176,10 @@ module Sprockets::Configuration
   include ::Sprockets::ProcessorUtils
   include ::Sprockets::HTTPUtils
   include ::Sprockets::DigestUtils
+end
+
+class Sprockets::Context::ENVProxy
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 module Sprockets::Dependencies
@@ -21615,6 +21695,10 @@ class Symbol
   def self.from_msgpack_ext(data); end
 end
 
+class SynchronizedDelegator
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
+end
+
 class SystemCallError
   def errno(); end
 end
@@ -21647,6 +21731,7 @@ class Tempfile
   def _close(); end
 
   def inspect(); end
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 class Tempfile::Remover
@@ -21663,8 +21748,6 @@ module Terrapin
 end
 
 class Thor
-  def help(command=T.unsafe(nil), subcommand=T.unsafe(nil)); end
-  Correctable = ::T.let(nil, ::T.untyped)
   HELP_MAPPINGS = ::T.let(nil, ::T.untyped)
   TEMPLATE_EXTNAME = ::T.let(nil, ::T.untyped)
   THOR_RESERVED_WORDS = ::T.let(nil, ::T.untyped)
@@ -21752,6 +21835,7 @@ module Thor::Actions
   def thor(command, *args); end
 
   def uncomment_lines(path, flag, *args); end
+  WARNINGS = ::T.let(nil, ::T.untyped)
 end
 
 class Thor::Actions::CreateFile
@@ -21828,11 +21912,9 @@ class Thor::Command
   FILE_REGEXP = ::T.let(nil, ::T.untyped)
 end
 
-Thor::DynamicTask = Thor::DynamicCommand
+Thor::Correctable = DidYouMean::Correctable
 
-class Thor::Group
-  def _invoke_for_class_method(klass, command=T.unsafe(nil), *args, &block); end
-end
+Thor::DynamicTask = Thor::DynamicCommand
 
 Thor::HiddenTask = Thor::HiddenCommand
 
@@ -21868,7 +21950,15 @@ end
 
 Thor::Task = Thor::Command
 
+class Thor::UndefinedCommandError
+  include ::DidYouMean::Correctable
+end
+
 Thor::UndefinedTaskError = Thor::UndefinedCommandError
+
+class Thor::UnknownArgumentError
+  include ::DidYouMean::Correctable
+end
 
 module ThreadSafe
   NULL = ::T.let(nil, ::T.untyped)
@@ -22743,6 +22833,7 @@ class WeakRef
   def initialize(orig); end
 
   def weakref_alive?(); end
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 class WeakRef::RefError
@@ -22760,10 +22851,6 @@ module XPath::DSL
   METHODS = ::T.let(nil, ::T.untyped)
   OPERATORS = ::T.let(nil, ::T.untyped)
   UPPERCASE_LETTERS = ::T.let(nil, ::T.untyped)
-end
-
-module XPath
-  def self.generate(); end
 end
 
 YAML = Psych
@@ -22880,6 +22967,10 @@ end
 
 module Zip::NullInputStream
   include ::ActiveSupport::ToJsonWithActiveSupportEncoder
+end
+
+class Zip::StreamableStream
+  RUBYGEMS_ACTIVATION_MONITOR = ::T.let(nil, ::T.untyped)
 end
 
 Zip::ZipCompressionMethodError = Zip::CompressionMethodError

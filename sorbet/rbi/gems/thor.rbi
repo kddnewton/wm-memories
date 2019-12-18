@@ -7,8 +7,9 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/thor/all/thor.rbi
 #
-# thor-0.20.3
+# thor-1.0.1
 class Thor
+  def help(command = nil, subcommand = nil); end
   def self.banner(command, namespace = nil, subcommand = nil); end
   def self.baseclass; end
   def self.check_unknown_options!(options = nil); end
@@ -18,6 +19,7 @@ class Thor
   def self.create_task(meth); end
   def self.default_command(meth = nil); end
   def self.default_task(meth = nil); end
+  def self.deprecation_warning(message); end
   def self.desc(usage, description, options = nil); end
   def self.disable_required_check!(*command_names); end
   def self.disable_required_check; end
@@ -29,7 +31,7 @@ class Thor
   def self.help(shell, subcommand = nil); end
   def self.initialize_added; end
   def self.long_desc(long_description, options = nil); end
-  def self.map(mappings = nil); end
+  def self.map(mappings = nil, **kw); end
   def self.method_option(name, options = nil); end
   def self.method_options(options = nil); end
   def self.normalize_command_name(meth); end
@@ -88,6 +90,7 @@ class Thor::Command < Anonymous_Struct_26
   def not_debugging?(instance); end
   def private_method?(instance); end
   def public_method?(instance); end
+  def required_arguments_for(klass, usage); end
   def required_options; end
   def run(instance, args = nil); end
   def sans_backtrace(backtrace, caller); end
@@ -118,7 +121,8 @@ class Thor::CoreExt::HashWithIndifferentAccess < Hash
   def to_hash; end
   def values_at(*indices); end
 end
-class Thor::CoreExt::OrderedHash < Hash
+class Thor::NoKwargSpellChecker < DidYouMean::SpellChecker
+  def initialize(dictionary); end
 end
 class Thor::Error < StandardError
 end
@@ -169,6 +173,13 @@ end
 module Thor::Invocation::ClassMethods
   def prepare_for_invocation(key, name); end
 end
+class Thor::NestedContext
+  def enter; end
+  def entered?; end
+  def initialize; end
+  def pop; end
+  def push; end
+end
 class Thor::Argument
   def banner; end
   def default; end
@@ -217,6 +228,7 @@ class Thor::Option < Thor::Argument
   def initialize(name, options = nil); end
   def lazy_default; end
   def numeric?; end
+  def repeatable; end
   def self.parse(key, value); end
   def string?; end
   def switch_name; end
@@ -226,6 +238,7 @@ class Thor::Option < Thor::Argument
   def validate_default_type!; end
 end
 class Thor::Options < Thor::Arguments
+  def assign_result!(option, result); end
   def check_unknown!; end
   def current_is_switch?; end
   def current_is_switch_formatted?; end
@@ -311,6 +324,7 @@ end
 module Thor::Util
   def self.camel_case(str); end
   def self.escape_globs(path); end
+  def self.escape_html(string); end
   def self.find_by_namespace(namespace); end
   def self.find_class_and_command_by_namespace(namespace, fallback = nil); end
   def self.find_class_and_task_by_namespace(namespace, fallback = nil); end
@@ -328,6 +342,7 @@ end
 module Thor::Base::ClassMethods
   def all_commands; end
   def all_tasks; end
+  def allow_incompatible_default_type!; end
   def argument(name, options = nil); end
   def arguments; end
   def attr_accessor(*arg0); end
@@ -339,7 +354,6 @@ module Thor::Base::ClassMethods
   def build_options(options, scope); end
   def check_default_type!; end
   def check_default_type; end
-  def check_default_type?; end
   def check_unknown_options!; end
   def check_unknown_options; end
   def check_unknown_options?(config); end
@@ -364,8 +378,10 @@ module Thor::Base::ClassMethods
   def is_thor_reserved_word?(word, type); end
   def method_added(meth); end
   def namespace(name = nil); end
-  def no_commands; end
-  def no_tasks; end
+  def no_commands(&block); end
+  def no_commands?; end
+  def no_commands_context; end
+  def no_tasks(&block); end
   def print_options(shell, options, group_name = nil); end
   def public_command(*names); end
   def public_task(*names); end
@@ -381,6 +397,7 @@ module Thor::Base::ClassMethods
   def tasks; end
 end
 class Thor::Group
+  def _invoke_for_class_method(klass, command = nil, *args, &block); end
   def self.banner; end
   def self.baseclass; end
   def self.class_options_help(shell, groups = nil); end
@@ -407,6 +424,7 @@ class Thor::Group
   include Thor::Shell
 end
 class Thor::Shell::Basic
+  def answer_match(possibilities, answer, case_insensitive); end
   def as_unicode; end
   def ask(statement, *args); end
   def ask_filtered(statement, color, options); end

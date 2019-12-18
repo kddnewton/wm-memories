@@ -6,7 +6,7 @@ class EmailFixture
 
   DIRECTORY =
     T.let(
-      -T.must(Rails.root).join('test', 'fixtures', 'moderator_mailer').to_s,
+      -Rails.root.join('test', 'fixtures', 'moderator_mailer').to_s,
       String
     )
 

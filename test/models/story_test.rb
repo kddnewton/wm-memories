@@ -70,7 +70,7 @@ class StoryTest < ActiveSupport::TestCase
 
   # a fake uploaded file for testing the photo proxies
   def uploaded_file(filename)
-    filepath = T.must(Rails.root).join('test', 'support', filename)
+    filepath = Rails.root.join('test', 'support', filename)
     Rack::Test::UploadedFile.new(filepath)
   end
 end
