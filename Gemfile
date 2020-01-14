@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.6.5'
+ruby '2.7.0'
 
-gem 'rails', '~> 6.0.2'
+gem 'rails', '~> 6.0.2.1'
 gem 'bootsnap', '~> 1.4'
-gem 'pg', '~> 1.1'
+gem 'pg', '~> 1.2'
 gem 'puma', '~> 4.3'
 
 gem 'sass-rails', '~> 6.0'
@@ -18,12 +18,14 @@ gem 'twitter', '~> 6.2'
 gem 'paperclip', '~> 6.1'
 gem 'social-share-button', '~> 1.2'
 
-gem 'sorbet', '~> 0.4'
+gem 'sorbet', '~> 0.5'
 gem 'sorbet-rails', '~> 0.5'
-gem 'sorbet-runtime', '~> 0.4'
+gem 'sorbet-runtime', '~> 0.5'
 
 group :development do
+  gem 'brakeman', require: false
   gem 'parlour', require: false
+  gem 'rubocop', require: false
   gem 'spring'
 end
 
@@ -31,10 +33,4 @@ group :test do
   gem 'simplecov'
   gem 'capybara'
   gem 'selenium-webdriver'
-end
-
-group :development, :test do
-  gem 'brakeman'
-  gem 'rubocop'
-  gem 'pry'
 end
