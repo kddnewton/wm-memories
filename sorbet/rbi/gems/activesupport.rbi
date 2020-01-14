@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/activesupport/all/activesupport.rbi
 #
-# activesupport-6.0.2
+# activesupport-6.0.2.1
 class Hash
   def _deep_transform_keys_in_object!(object, &block); end
   def _deep_transform_keys_in_object(object, &block); end
@@ -35,8 +35,8 @@ class Hash
   def reverse_merge!(other_hash); end
   def reverse_merge(other_hash); end
   def reverse_update(other_hash); end
-  def self.from_trusted_xml(xml); end
-  def self.from_xml(xml, disallowed_types = nil); end
+  def self.[](*arg0); end
+  def self.try_convert(arg0); end
   def slice!(*keys); end
   def stringify_keys!; end
   def stringify_keys; end
@@ -151,7 +151,6 @@ class ActiveSupport::Deprecation
   def self.gem_name(*args, &block); end
   def self.gem_name=(arg); end
   def self.initialize(*args, &block); end
-  def self.instance; end
   def self.silence(*args, &block); end
   def self.silenced(*args, &block); end
   def self.silenced=(arg); end
@@ -2029,8 +2028,8 @@ module ActiveSupport::NumericWithFormat
   def to_s(format = nil, options = nil); end
 end
 class File < IO
-  def self.empty?(arg0); end
-  def self.probe_stat_in(dir); end
+  def self.link(arg0, arg1); end
+  def self.lutime(*arg0); end
 end
 module Digest
 end

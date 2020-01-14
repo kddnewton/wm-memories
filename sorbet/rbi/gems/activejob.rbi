@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/activejob/all/activejob.rbi
 #
-# activejob-6.0.2
+# activejob-6.0.2.1
 module ActiveJob
   def self.gem_version; end
   def self.version; end
@@ -33,7 +33,6 @@ class ActiveJob::Serializers::ObjectSerializer
   def klass; end
   def self.allocate; end
   def self.deserialize(*args, &block); end
-  def self.instance; end
   def self.new(*arg0); end
   def self.serialize(*args, &block); end
   def self.serialize?(*args, &block); end
@@ -45,37 +44,31 @@ end
 class ActiveJob::Serializers::SymbolSerializer < ActiveJob::Serializers::ObjectSerializer
   def deserialize(argument); end
   def klass; end
-  def self.instance; end
   def serialize(argument); end
 end
 class ActiveJob::Serializers::DurationSerializer < ActiveJob::Serializers::ObjectSerializer
   def deserialize(hash); end
   def klass; end
-  def self.instance; end
   def serialize(duration); end
 end
 class ActiveJob::Serializers::DateTimeSerializer < ActiveJob::Serializers::ObjectSerializer
   def deserialize(hash); end
   def klass; end
-  def self.instance; end
   def serialize(time); end
 end
 class ActiveJob::Serializers::DateSerializer < ActiveJob::Serializers::ObjectSerializer
   def deserialize(hash); end
   def klass; end
-  def self.instance; end
   def serialize(date); end
 end
 class ActiveJob::Serializers::TimeWithZoneSerializer < ActiveJob::Serializers::ObjectSerializer
   def deserialize(hash); end
   def klass; end
-  def self.instance; end
   def serialize(time); end
 end
 class ActiveJob::Serializers::TimeSerializer < ActiveJob::Serializers::ObjectSerializer
   def deserialize(hash); end
   def klass; end
-  def self.instance; end
   def serialize(time); end
 end
 module ActiveJob::Core

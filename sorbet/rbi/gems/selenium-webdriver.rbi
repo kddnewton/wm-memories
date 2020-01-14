@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/selenium-webdriver/all/selenium-webdriver.rbi
 #
-# selenium-webdriver-3.142.6
+# selenium-webdriver-3.142.7
 module Selenium
 end
 module Selenium::WebDriver
@@ -670,6 +670,13 @@ module Selenium::WebDriver::ProfileHelper
 end
 module Selenium::WebDriver::ProfileHelper::ClassMethods
   def from_json(json); end
+end
+module Selenium::WebDriver::Common
+end
+class Selenium::WebDriver::Common::Options
+  def camel_case(str); end
+  def convert_json_key(key); end
+  def generate_as_json(value); end
 end
 class Selenium::WebDriver::Driver
   def [](sel); end

@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/mime-types/all/mime-types.rbi
 #
-# mime-types-3.3
+# mime-types-3.3.1
 module MIME
 end
 class MIME::Type
@@ -167,7 +167,7 @@ class MIME::Types::Loader
   def yaml_path; end
 end
 class MIME::Types::WarnLogger < Logger
-  def initialize(_1, _2 = nil, _3 = nil); end
+  def initialize(_one, _two = nil, _three = nil); end
 end
 class MIME::Types::WarnLogger::WarnLogDevice < Logger::LogDevice
   def close; end

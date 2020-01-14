@@ -481,7 +481,6 @@ class Paperclip::AttachmentRegistry
   def self.clear; end
   def self.definitions_for(klass); end
   def self.each_definition(&block); end
-  def self.instance; end
   def self.names_for(klass); end
   def self.new(*arg0); end
   def self.register(klass, attachment_name, attachment_options); end

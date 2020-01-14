@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/minitest/all/minitest.rbi
 #
-# minitest-5.13.0
+# minitest-5.14.0
 module Minitest
   def self.__run(reporter, options); end
   def self.after_run(&block); end
@@ -264,9 +264,8 @@ end
 class Minitest::UnexpectedError < Minitest::Assertion
   def backtrace; end
   def error; end
-  def exception; end
-  def exception=(arg0); end
-  def initialize(exception); end
+  def error=(arg0); end
+  def initialize(error); end
   def message; end
   def result_label; end
 end

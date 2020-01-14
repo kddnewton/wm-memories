@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/http-form_data/all/http-form_data.rbi
 #
-# http-form_data-2.1.1
+# http-form_data-2.2.0
 module HTTP
 end
 module HTTP::FormData
@@ -38,6 +38,8 @@ class HTTP::FormData::CompositeIO
   def current_io; end
   def initialize(ios); end
   def read(length = nil, outbuf = nil); end
+  def read_chunks(length = nil); end
+  def readpartial(max_length = nil); end
   def rewind; end
   def size; end
 end
