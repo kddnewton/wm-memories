@@ -14,7 +14,7 @@ gem 'jquery-rails', '~> 4.3'
 gem 'turbolinks', '~> 5.2'
 gem 'bootstrap-sass', '~> 3.4'
 
-gem 'twitter', '~> 6.2'
+gem 'twitter', '~> 7.0'
 gem 'paperclip', '~> 6.1'
 gem 'social-share-button', '~> 1.2'
 
