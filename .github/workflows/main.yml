@@ -1,0 +1,39 @@
+name: Main
+on: push
+jobs:
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11.5
+        ports:
+        - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+    - run: sudo apt-get -yqq install libpq-dev
+    - uses: actions/checkout@master
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+    - uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+    - run: bundle config path vendor/bundle
+    - run: bundle install --jobs 4 --retry 3
+    - run: bin/rails db:create
+    - run: bundle exec rubocop --parallel
+    - run: bundle exec brakeman -z
+    - run: bundle exec srb tc
+    - run: bundle exec rake test
+      env:
+        CI: true
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_USER: postgres
+        RAILS_ENV: test

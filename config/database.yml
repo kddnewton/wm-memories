@@ -19,6 +19,8 @@ development:
 test:
   <<: *default
   database: stories_test
+  username: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
 
 production:
   <<: *default
