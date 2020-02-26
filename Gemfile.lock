@@ -228,7 +228,7 @@ GEM
       sorbet-static (= 0.5.5376)
     sorbet-rails (0.5.9.1)
       parlour (~> 1.0)
-    sorbet-runtime (0.5.5391)
+    sorbet-runtime (0.5.5400)
     sorbet-static (0.5.5376-universal-darwin-14)
     spring (2.1.0)
     sprockets (4.0.0)
