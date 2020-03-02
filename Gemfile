@@ -19,7 +19,7 @@ gem 'paperclip', '~> 6.1'
 gem 'social-share-button', '~> 1.2'
 
 gem 'sorbet', '~> 0.5'
-gem 'sorbet-rails', '~> 0.5'
+gem 'sorbet-rails', '~> 0.6'
 gem 'sorbet-runtime', '~> 0.5'
 
 group :development do
