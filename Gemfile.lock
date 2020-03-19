@@ -158,7 +158,7 @@ GEM
       sorbet-runtime (>= 0.5)
     parser (2.7.0.4)
       ast (~> 2.4.0)
-    pg (1.2.2)
+    pg (1.2.3)
     polyfill (1.8.0)
     public_suffix (4.0.3)
     puma (4.3.3)
