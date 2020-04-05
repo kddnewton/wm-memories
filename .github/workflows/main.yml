@@ -12,7 +12,11 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
     - run: sudo apt-get -yqq install libpq-dev
     - uses: actions/checkout@master
@@ -27,13 +31,12 @@ jobs:
           ${{ runner.os }}-gems-
     - run: bundle config path vendor/bundle
     - run: bundle install --jobs 4 --retry 3
-    - run: bin/rails db:create
+    - run: bin/rails db:setup
     - run: bundle exec rubocop --parallel
     - run: bundle exec brakeman -z
     - run: bundle exec srb tc
     - run: bundle exec rake test
       env:
         CI: true
-        POSTGRES_PASSWORD: postgres
-        POSTGRES_USER: postgres
+        DATABASE_URL: postgres://postgres:@localhost:5432/test
         RAILS_ENV: test
