@@ -4,6 +4,10 @@ jobs:
   ci:
     name: CI
     runs-on: ubuntu-latest
+    env:
+      CI: true
+      DATABASE_URL: postgres://postgres:@localhost:5432/test
+      RAILS_ENV: test
     services:
       postgres:
         image: postgres:11.5
@@ -33,7 +37,3 @@ jobs:
     - run: bundle exec brakeman -z
     - run: bundle exec srb tc
     - run: bundle exec rake test
-      env:
-        CI: true
-        DATABASE_URL: postgres://postgres:@localhost:5432/test
-        RAILS_ENV: test
