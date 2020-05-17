@@ -3,14 +3,14 @@
 source 'https://rubygems.org'
 ruby '2.7.1'
 
-gem 'rails', '~> 6.0.2.2'
+gem 'rails', '~> 6.0.3'
 gem 'bootsnap', '~> 1.4'
 gem 'pg', '~> 1.2'
 gem 'puma', '~> 4.3'
 
 gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '~> 4.2'
-gem 'jquery-rails', '~> 4.3'
+gem 'jquery-rails', '~> 4.4'
 gem 'turbolinks', '~> 5.2'
 gem 'bootstrap-sass', '~> 3.4'
 
