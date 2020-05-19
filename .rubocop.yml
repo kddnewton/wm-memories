@@ -27,10 +27,19 @@ Style/FormatStringToken:
 
 ########################
 
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
 Lint/RaiseException:
   Enabled: true
 
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
 Lint/StructNewOverride:
+  Enabled: true
+
+Style/ExponentialNotation:
   Enabled: true
 
 Style/HashEachMethods:
@@ -40,4 +49,7 @@ Style/HashTransformKeys:
   Enabled: true
 
 Style/HashTransformValues:
+  Enabled: true
+
+Style/SlicingWithRange:
   Enabled: true
