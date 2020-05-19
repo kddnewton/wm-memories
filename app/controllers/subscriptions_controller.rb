@@ -2,6 +2,14 @@
 # frozen_string_literal: true
 
 class SubscriptionsController < ApplicationController
+  class SubscriptionParams < T::Struct
+    class ObjectParams < T::Struct
+      const :email, String
+    end
+
+    const :subscription, ObjectParams
+  end
+
   # GET /subscriptions/new
   sig { void }
   def new
@@ -12,7 +20,10 @@ class SubscriptionsController < ApplicationController
   sig { void }
   def create
     @subscription =
-      T.let(Subscription.new(subscription_params), T.nilable(Subscription))
+      T.let(
+        Subscription.new(subscription_params.serialize),
+        T.nilable(Subscription)
+      )
 
     render :new unless T.must(@subscription).save
   end
@@ -20,11 +31,8 @@ class SubscriptionsController < ApplicationController
   private
 
   # strong params for subscriptions
-  sig { returns(ActionController::Parameters) }
+  sig { returns(SubscriptionParams::ObjectParams) }
   def subscription_params
-    subscription =
-      params.require_typed(:subscription, TA[ActionController::Parameters].new)
-
-    subscription.permit(:email)
+    TypedParams[SubscriptionParams].new.extract!(params).subscription
   end
 end
