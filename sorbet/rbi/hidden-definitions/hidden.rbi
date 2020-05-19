@@ -1016,9 +1016,6 @@ class ActionView::Template::Inline
   Finalizer = ::T.let(nil, ::T.untyped)
 end
 
-class ActionView::Template::LegacyTemplate
-end
-
 class ActionView::Template::Sources::File
   def initialize(filename); end
 end
@@ -1795,9 +1792,6 @@ class ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Uuid
   ACCEPTABLE_UUID = ::T.let(nil, ::T.untyped)
 end
 
-class ActiveRecord::ConnectionAdapters::PostgreSQL::TypeMetadata
-end
-
 class ActiveRecord::ConnectionAdapters::PostgreSQLAdapter
   ADAPTER_NAME = ::T.let(nil, ::T.untyped)
   CACHED_PLAN_HEURISTIC = ::T.let(nil, ::T.untyped)
@@ -1853,10 +1847,6 @@ class ActiveRecord::FixtureSet
   MAX_ID = ::T.let(nil, ::T.untyped)
 end
 
-class ActiveRecord::InternalMetadata
-  RelationType = ::T.let(nil, ::T.untyped)
-end
-
 module ActiveRecord::InternalMetadata::GeneratedAttributeMethods
   extend ::Mutex_m
 end
@@ -1884,9 +1874,6 @@ end
 
 module ActiveRecord::LegacyYamlAdapter
   def self.convert(klass, coder); end
-end
-
-class ActiveRecord::Locking::LockingType
 end
 
 class ActiveRecord::LogSubscriber
@@ -2042,10 +2029,6 @@ end
 
 class ActiveRecord::Relation::WhereClause
   ARRAY_WITH_EMPTY_STRING = ::T.let(nil, ::T.untyped)
-end
-
-class ActiveRecord::SchemaMigration
-  RelationType = ::T.let(nil, ::T.untyped)
 end
 
 module ActiveRecord::SchemaMigration::GeneratedAttributeMethods
@@ -8650,9 +8633,6 @@ end
 class Mail::POP3
 end
 
-class Mail::PartsList
-end
-
 class Mail::PhraseList
   def initialize(string); end
 
@@ -9244,7 +9224,6 @@ end
 
 class Moderator
   include ::Moderator::GeneratedAssociationMethods
-  RelationType = ::T.let(nil, ::T.untyped)
 end
 
 class Moderator::ActiveRecord_AssociationRelation
@@ -12399,7 +12378,6 @@ class Photo
   def attachment?(); end
 
   def autosave_associated_records_for_story(*args); end
-  RelationType = ::T.let(nil, ::T.untyped)
 end
 
 class Photo::ActiveRecord_AssociationRelation
@@ -12451,6 +12429,42 @@ end
 
 module Polyfill
   VERSION = ::T.let(nil, ::T.untyped)
+end
+
+module Polyfill::Module::M70192378795020
+end
+
+module Polyfill::Module::M70192378795020
+end
+
+module Polyfill::Module::M70192378955820
+end
+
+module Polyfill::Module::M70192378955820
+end
+
+module Polyfill::Module::M70192379138640
+end
+
+module Polyfill::Module::M70192379138640
+end
+
+module Polyfill::Module::M70192379551180
+end
+
+module Polyfill::Module::M70192379551180
+end
+
+module Polyfill::Module::M70192379694040
+end
+
+module Polyfill::Module::M70192379694040
+end
+
+module Polyfill::Module::M70192380020700
+end
+
+module Polyfill::Module::M70192380020700
 end
 
 class Proc
@@ -14112,9 +14126,6 @@ end
 
 class Rack::Session::Abstract::SessionHash
   Unspecified = ::T.let(nil, ::T.untyped)
-end
-
-class Rack::Session::Cookie::SessionId
 end
 
 class Rack::Session::Pool
@@ -18549,7 +18560,6 @@ class Story
   def before_remove_for_photos?(); end
 
   def validate_associated_records_for_photos(*args); end
-  RelationType = ::T.let(nil, ::T.untyped)
 end
 
 class Story::ActiveRecord_AssociationRelation
@@ -18568,8 +18578,6 @@ class Story::ActiveRecord_Relation
 end
 
 module Story::GeneratedAssociationMethods
-  def photo_ids(); end
-
   def photo_ids=(ids); end
 end
 
@@ -18604,6 +18612,8 @@ class Story
 
   def self.after_remove_for_photos?(); end
 
+  def self.approved(*args); end
+
   def self.before_add_for_photos(); end
 
   def self.before_add_for_photos=(val); end
@@ -18615,6 +18625,10 @@ class Story
   def self.before_remove_for_photos=(val); end
 
   def self.before_remove_for_photos?(); end
+
+  def self.feed_ordered(*args); end
+
+  def self.search(*args); end
 end
 
 class String
@@ -18702,7 +18716,6 @@ Struct::Tms = Process::Tms
 
 class Subscription
   include ::Subscription::GeneratedAssociationMethods
-  RelationType = ::T.let(nil, ::T.untyped)
 end
 
 class Subscription::ActiveRecord_AssociationRelation
@@ -18743,6 +18756,9 @@ end
 class Subscription
   extend ::T::Private::Methods::MethodHooks
   extend ::T::Private::Methods::SingletonMethodHooks
+  def self.email_ordered(*args); end
+
+  def self.validated(*args); end
 end
 
 class SubscriptionsController
@@ -20216,9 +20232,6 @@ end
 
 module Zip::NullInputStream
   include ::ActiveSupport::ToJsonWithActiveSupportEncoder
-end
-
-class Zip::StreamableStream
 end
 
 Zip::ZipCompressionMethodError = Zip::CompressionMethodError
