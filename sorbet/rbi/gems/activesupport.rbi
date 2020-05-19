@@ -7,7 +7,8 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/activesupport/all/activesupport.rbi
 #
-# activesupport-6.0.2.1
+# activesupport-6.0.3
+
 class Hash
   def _deep_transform_keys_in_object!(object, &block); end
   def _deep_transform_keys_in_object(object, &block); end
@@ -35,7 +36,7 @@ class Hash
   def reverse_merge!(other_hash); end
   def reverse_merge(other_hash); end
   def reverse_update(other_hash); end
-  def self.[](*arg0); end
+  def self.from_trusted_xml(xml); end
   def self.try_convert(arg0); end
   def slice!(*keys); end
   def stringify_keys!; end
@@ -151,6 +152,7 @@ class ActiveSupport::Deprecation
   def self.gem_name(*args, &block); end
   def self.gem_name=(arg); end
   def self.initialize(*args, &block); end
+  def self.instance; end
   def self.silence(*args, &block); end
   def self.silenced(*args, &block); end
   def self.silenced=(arg); end
@@ -328,7 +330,7 @@ class Array
   def inquiry; end
   def second; end
   def second_to_last; end
-  def self.wrap(object); end
+  def self.try_convert(arg0); end
   def split(value = nil); end
   def third; end
   def third_to_last; end
@@ -362,10 +364,13 @@ end
 class ActiveSupport::Deprecation::DeprecatedConstantProxy < Module
   def class; end
   def const_missing(name); end
+  def hash(*args, &block); end
   def initialize(old_const, new_const, deprecator = nil, message: nil); end
   def inspect; end
+  def instance_methods(*args, &block); end
   def method_missing(called, *args, &block); end
-  def self.new(*args, &block); end
+  def name(*args, &block); end
+  def self.new(*args, **kwargs, &block); end
   def target; end
 end
 module ActiveSupport::Inflector
@@ -465,7 +470,7 @@ module ActiveSupport::LoggerSilence
   extend ActiveSupport::Concern
 end
 class ActiveSupport::Logger < Logger
-  def initialize(*args); end
+  def initialize(*args, **kwargs); end
   def self.broadcast(logger); end
   def self.local_levels; end
   def self.local_levels=(obj); end
@@ -726,7 +731,7 @@ class ActiveSupport::MessageVerifier
   def initialize(*arg0, **options); end
   def valid_message?(signed_message); end
   def verified(*args, on_rotation: nil, **options); end
-  def verify(*args); end
+  def verify(*args, **options); end
 end
 class ActiveSupport::MessageVerifier::InvalidSignature < StandardError
 end
@@ -784,6 +789,7 @@ class ActiveSupport::OrderedOptions < Hash
   def [](key); end
   def []=(key, value); end
   def _get(arg0); end
+  def extractable_options?; end
   def method_missing(name, *args); end
   def respond_to_missing?(name, include_private); end
 end
@@ -1544,6 +1550,7 @@ class Process::Status
 end
 class ActiveSupport::OptionMerger
   def initialize(context, options); end
+  def invoke_method(method, arguments, options, &block); end
   def method_missing(method, *arguments, &block); end
 end
 module I18n
@@ -1570,6 +1577,7 @@ class ActiveSupport::Messages::RotationConfiguration
 end
 class ActiveSupport::Concurrency::LoadInterlockAwareMonitor < Monitor
   def mon_enter; end
+  def synchronize; end
 end
 module ActiveSupport::DescendantsTracker
   def descendants; end
@@ -2028,8 +2036,8 @@ module ActiveSupport::NumericWithFormat
   def to_s(format = nil, options = nil); end
 end
 class File < IO
-  def self.link(arg0, arg1); end
-  def self.lutime(*arg0); end
+  def self.empty?(arg0); end
+  def self.probe_stat_in(dir); end
 end
 module Digest
 end
@@ -2065,7 +2073,7 @@ module ActiveSupport::TaggedLogging::Formatter
 end
 module ActiveSupport::Cache
   def self.expand_cache_key(key, namespace = nil); end
-  def self.lookup_store(*store_option); end
+  def self.lookup_store(store = nil, *parameters); end
   def self.retrieve_cache_key(key); end
   def self.retrieve_store_class(store); end
 end
@@ -2076,7 +2084,7 @@ class ActiveSupport::Cache::Store
   def clear(options = nil); end
   def decrement(name, amount = nil, options = nil); end
   def delete(name, options = nil); end
-  def delete_entry(key, options); end
+  def delete_entry(key, **options); end
   def delete_matched(matcher, options = nil); end
   def exist?(name, options = nil); end
   def expanded_key(key); end
@@ -2099,10 +2107,10 @@ class ActiveSupport::Cache::Store
   def normalize_version(key, options = nil); end
   def options; end
   def read(name, options = nil); end
-  def read_entry(key, options); end
+  def read_entry(key, **options); end
   def read_multi(*names); end
-  def read_multi_entries(names, options); end
-  def save_block_result_to_cache(name, options); end
+  def read_multi_entries(names, **options); end
+  def save_block_result_to_cache(name, **options); end
   def self.ensure_connection_pool_added!; end
   def self.logger; end
   def self.logger=(obj); end
@@ -2111,9 +2119,9 @@ class ActiveSupport::Cache::Store
   def silence; end
   def silence?; end
   def write(name, value, options = nil); end
-  def write_entry(key, entry, options); end
+  def write_entry(key, entry, **options); end
   def write_multi(hash, options = nil); end
-  def write_multi_entries(hash, options); end
+  def write_multi_entries(hash, **options); end
 end
 class ActiveSupport::Cache::Entry
   def compress!(compress_threshold); end
@@ -2131,20 +2139,20 @@ class ActiveSupport::Cache::Entry
 end
 module ActiveSupport::Cache::Strategy::LocalCache
   def bypass_local_cache; end
-  def cleanup(options = nil); end
-  def clear(options = nil); end
-  def decrement(name, amount = nil, options = nil); end
-  def delete_entry(key, options); end
-  def increment(name, amount = nil, options = nil); end
+  def cleanup(**options); end
+  def clear(**options); end
+  def decrement(name, amount = nil, **options); end
+  def delete_entry(key, **options); end
+  def increment(name, amount = nil, **options); end
   def local_cache; end
   def local_cache_key; end
   def middleware; end
-  def read_entry(key, options); end
-  def read_multi_entries(keys, options); end
+  def read_entry(key, **options); end
+  def read_multi_entries(keys, **options); end
   def use_temporary_local_cache(temporary_cache); end
   def with_local_cache; end
-  def write_cache_value(name, value, options); end
-  def write_entry(key, entry, options); end
+  def write_cache_value(name, value, **options); end
+  def write_entry(key, entry, **options); end
 end
 class ActiveSupport::Cache::Strategy::LocalCache::LocalCacheRegistry
   def cache_for(local_cache_key); end
@@ -2156,24 +2164,24 @@ class ActiveSupport::Cache::Strategy::LocalCache::LocalCacheRegistry
 end
 class ActiveSupport::Cache::Strategy::LocalCache::LocalStore < ActiveSupport::Cache::Store
   def clear(options = nil); end
-  def delete_entry(key, options); end
+  def delete_entry(key, **options); end
   def fetch_entry(key, options = nil); end
   def initialize; end
-  def read_entry(key, options); end
-  def read_multi_entries(keys, options); end
+  def read_entry(key, **options); end
+  def read_multi_entries(keys, **options); end
   def synchronize; end
-  def write_entry(key, value, options); end
+  def write_entry(key, value, **options); end
 end
 class ActiveSupport::Cache::NullStore < ActiveSupport::Cache::Store
-  def cleanup(options = nil); end
-  def clear(options = nil); end
-  def decrement(name, amount = nil, options = nil); end
-  def delete_entry(key, options); end
+  def cleanup(**options); end
+  def clear(**options); end
+  def decrement(name, amount = nil, **options); end
+  def delete_entry(key, **options); end
   def delete_matched(matcher, options = nil); end
-  def increment(name, amount = nil, options = nil); end
-  def read_entry(key, options); end
+  def increment(name, amount = nil, **options); end
+  def read_entry(key, **options); end
   def self.supports_cache_versioning?; end
-  def write_entry(key, entry, options); end
+  def write_entry(key, entry, **options); end
 end
 class ActiveSupport::Cache::Strategy::LocalCache::Middleware
   def call(env); end
@@ -2230,7 +2238,7 @@ class ActiveSupport::Cache::MemoryStore < ActiveSupport::Cache::Store
   def cleanup(options = nil); end
   def clear(options = nil); end
   def decrement(name, amount = nil, options = nil); end
-  def delete_entry(key, options); end
+  def delete_entry(key, **options); end
   def delete_matched(matcher, options = nil); end
   def increment(name, amount = nil, options = nil); end
   def initialize(options = nil); end
@@ -2238,15 +2246,40 @@ class ActiveSupport::Cache::MemoryStore < ActiveSupport::Cache::Store
   def modify_value(name, amount, options); end
   def prune(target_size, max_time = nil); end
   def pruning?; end
-  def read_entry(key, options); end
+  def read_entry(key, **options); end
   def self.supports_cache_versioning?; end
   def synchronize(&block); end
-  def write_entry(key, entry, options); end
+  def write_entry(key, entry, **options); end
 end
 class ActiveSupport::Digest
   def self.hash_digest_class; end
   def self.hash_digest_class=(klass); end
   def self.hexdigest(arg); end
+end
+module ActiveSupport::Configurable
+  def config; end
+  extend ActiveSupport::Concern
+end
+class ActiveSupport::Configurable::Configuration < ActiveSupport::InheritableOptions
+  def compile_methods!; end
+  def self.compile_methods!(keys); end
+end
+module ActiveSupport::Configurable::ClassMethods
+  def config; end
+  def config_accessor(*names, instance_reader: nil, instance_writer: nil, instance_accessor: nil); end
+  def configure; end
+end
+module ActiveSupport::Rescuable
+  def handler_for_rescue(exception); end
+  def rescue_with_handler(exception); end
+  extend ActiveSupport::Concern
+end
+module ActiveSupport::Rescuable::ClassMethods
+  def constantize_rescue_handler_class(class_or_name); end
+  def find_rescue_handler(exception); end
+  def handler_for_rescue(exception, object: nil); end
+  def rescue_from(*klasses, with: nil, &block); end
+  def rescue_with_handler(exception, object: nil, visited_exceptions: nil); end
 end
 module ActiveSupport::Testing
 end
@@ -2404,30 +2437,212 @@ class ActiveSupport::TestCase < Minitest::Test
   include ActiveSupport::Testing::TaggedLogging
   include ActiveSupport::Testing::TimeHelpers
 end
-module ActiveSupport::Configurable
-  def config; end
-  extend ActiveSupport::Concern
+class ActiveSupport::CurrentAttributes
+  def __callbacks; end
+  def __callbacks?; end
+  def _reset_callbacks; end
+  def _run_reset_callbacks(&block); end
+  def assign_attributes(new_attributes); end
+  def attributes; end
+  def attributes=(arg0); end
+  def compute_attributes(keys); end
+  def initialize; end
+  def reset; end
+  def self.__callbacks; end
+  def self.__callbacks=(val); end
+  def self.__callbacks?; end
+  def self._reset_callbacks; end
+  def self._reset_callbacks=(value); end
+  def self.after_reset(&block); end
+  def self.attribute(*names); end
+  def self.before_reset(&block); end
+  def self.clear_all; end
+  def self.current_instances; end
+  def self.generated_attribute_methods; end
+  def self.instance; end
+  def self.method_missing(name, *args, &block); end
+  def self.reset(*args, &block); end
+  def self.reset_all; end
+  def self.resets(&block); end
+  def self.set(*args, &block); end
+  def set(set_attributes); end
+  extend ActiveSupport::Callbacks::ClassMethods
+  extend ActiveSupport::DescendantsTracker
+  include ActiveSupport::Callbacks
 end
-class ActiveSupport::Configurable::Configuration < ActiveSupport::InheritableOptions
-  def compile_methods!; end
-  def self.compile_methods!(keys); end
+class ActiveSupport::EventedFileUpdateChecker
+  def boot!; end
+  def changed(modified, added, removed); end
+  def directories_to_watch; end
+  def execute; end
+  def execute_if_updated; end
+  def initialize(files, dirs = nil, &block); end
+  def normalize_dirs!; end
+  def shutdown!; end
+  def updated?; end
+  def watching?(file); end
 end
-module ActiveSupport::Configurable::ClassMethods
-  def config; end
-  def config_accessor(*names, instance_reader: nil, instance_writer: nil, instance_accessor: nil); end
-  def configure; end
+class ActiveSupport::EventedFileUpdateChecker::PathHelper
+  def ascendant_of?(base, other); end
+  def existing_parent(dir); end
+  def filter_out_descendants(dirs); end
+  def longest_common_subpath(paths); end
+  def normalize_extension(ext); end
+  def xpath(path); end
 end
-module ActiveSupport::Rescuable
-  def handler_for_rescue(exception); end
-  def rescue_with_handler(exception); end
-  extend ActiveSupport::Concern
+class ActiveSupport::ProxyObject < BasicObject
+  def raise(*args); end
 end
-module ActiveSupport::Rescuable::ClassMethods
-  def constantize_rescue_handler_class(class_or_name); end
-  def find_rescue_handler(exception); end
-  def handler_for_rescue(exception, object: nil); end
-  def rescue_from(*klasses, with: nil, &block); end
-  def rescue_with_handler(exception, object: nil, visited_exceptions: nil); end
+class ActiveSupport::Cache::FileStore < ActiveSupport::Cache::Store
+  def cache_path; end
+  def cleanup(**options); end
+  def clear(**options); end
+  def decrement(name, amount = nil, **options); end
+  def delete_empty_directories(dir); end
+  def delete_entry(key, **options); end
+  def delete_matched(matcher, options = nil); end
+  def ensure_cache_path(path); end
+  def file_path_key(path); end
+  def increment(name, amount = nil, **options); end
+  def initialize(cache_path, options = nil); end
+  def lock_file(file_name, &block); end
+  def modify_value(name, amount, options); end
+  def normalize_key(key, options); end
+  def read_entry(key, **options); end
+  def search_dir(dir, &callback); end
+  def self.supports_cache_versioning?; end
+  def write_entry(key, entry, **options); end
+end
+module ActiveSupport::Gzip
+  def self.compress(source, level = nil, strategy = nil); end
+  def self.decompress(source); end
+end
+class ActiveSupport::Gzip::Stream < StringIO
+  def close; end
+  def initialize(*arg0); end
+end
+class ActiveSupport::NumberHelper::NumberConverter
+  def default_format_options; end
+  def default_value(key); end
+  def execute; end
+  def format_options; end
+  def i18n_format_options; end
+  def initialize(number, options); end
+  def namespace; end
+  def namespace=(val); end
+  def namespace?; end
+  def number; end
+  def options; end
+  def opts; end
+  def self.convert(number, options); end
+  def self.namespace; end
+  def self.namespace=(val); end
+  def self.namespace?; end
+  def self.validate_float; end
+  def self.validate_float=(val); end
+  def self.validate_float?; end
+  def translate_in_locale(key, **i18n_options); end
+  def translate_number_value_with_default(key, **i18n_options); end
+  def valid_float?; end
+  def validate_float; end
+  def validate_float=(val); end
+  def validate_float?; end
+end
+class ActiveSupport::NumberHelper::RoundingHelper
+  def absolute_number(number); end
+  def convert_to_decimal(number); end
+  def digit_count(number); end
+  def initialize(options); end
+  def options; end
+  def precision; end
+  def round(number); end
+  def round_significant(number); end
+  def round_without_significant(number); end
+  def significant; end
+end
+class ActiveSupport::NumberHelper::NumberToRoundedConverter < ActiveSupport::NumberHelper::NumberConverter
+  def convert; end
+  def format_number(number); end
+  def self.namespace; end
+  def self.validate_float; end
+  def strip_insignificant_zeros; end
+end
+class ActiveSupport::NumberHelper::NumberToDelimitedConverter < ActiveSupport::NumberHelper::NumberConverter
+  def convert; end
+  def delimiter_pattern; end
+  def parts; end
+  def self.validate_float; end
+end
+class ActiveSupport::NumberHelper::NumberToHumanConverter < ActiveSupport::NumberHelper::NumberConverter
+  def calculate_exponent(units); end
+  def convert; end
+  def determine_unit(units, exponent); end
+  def format; end
+  def self.namespace; end
+  def self.validate_float; end
+  def unit_exponents(units); end
+end
+class ActiveSupport::NumberHelper::NumberToHumanSizeConverter < ActiveSupport::NumberHelper::NumberConverter
+  def base; end
+  def conversion_format; end
+  def convert; end
+  def exponent; end
+  def self.namespace; end
+  def self.validate_float; end
+  def smaller_than_base?; end
+  def storage_unit_key; end
+  def unit; end
+end
+class ActiveSupport::NumberHelper::NumberToPhoneConverter < ActiveSupport::NumberHelper::NumberConverter
+  def convert; end
+  def convert_to_phone_number(number); end
+  def convert_with_area_code(number); end
+  def convert_without_area_code(number); end
+  def country_code(code); end
+  def delimiter; end
+  def phone_ext(ext); end
+  def regexp_pattern(default_pattern); end
+  def start_with_delimiter?(number); end
+end
+class ActiveSupport::NumberHelper::NumberToCurrencyConverter < ActiveSupport::NumberHelper::NumberConverter
+  def convert; end
+  def i18n_opts; end
+  def options; end
+  def self.namespace; end
+end
+class ActiveSupport::NumberHelper::NumberToPercentageConverter < ActiveSupport::NumberHelper::NumberConverter
+  def convert; end
+  def self.namespace; end
+end
+class ActiveSupport::OrderedHash < Hash
+  def encode_with(coder); end
+  def extractable_options?; end
+  def nested_under_indifferent_access; end
+  def reject(*args, &block); end
+  def select(*args, &block); end
+  def to_yaml_type; end
+end
+class ActiveSupport::Duration::ISO8601Parser
+  def finished?; end
+  def initialize(string); end
+  def mode; end
+  def mode=(arg0); end
+  def number; end
+  def parse!; end
+  def parts; end
+  def raise_parsing_error(reason = nil); end
+  def scan(pattern); end
+  def scanner; end
+  def sign; end
+  def sign=(arg0); end
+  def validate!; end
+end
+class ActiveSupport::Duration::ISO8601Parser::ParsingError < ArgumentError
+end
+class ActiveSupport::Duration::ISO8601Serializer
+  def initialize(duration, precision: nil); end
+  def normalize; end
+  def serialize; end
 end
 module ActiveSupport::Testing::Stream
   def capture(stream); end

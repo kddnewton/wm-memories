@@ -8,6 +8,7 @@
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/selenium-webdriver/all/selenium-webdriver.rbi
 #
 # selenium-webdriver-3.142.7
+
 module Selenium
 end
 module Selenium::WebDriver
@@ -792,4 +793,812 @@ class Selenium::WebDriver::Location < Struct
   def self.inspect; end
   def self.members; end
   def self.new(*arg0); end
+end
+module Selenium::WebDriver::Chrome
+  def self.driver_path; end
+  def self.driver_path=(path); end
+  def self.path; end
+  def self.path=(path); end
+end
+module Selenium::WebDriver::Chrome::Bridge
+  def available_log_types; end
+  def commands(command); end
+  def log(type); end
+  def network_conditions; end
+  def network_conditions=(conditions); end
+  def send_command(command_params); end
+end
+class Selenium::WebDriver::Chrome::Driver < Selenium::WebDriver::Driver
+  def browser; end
+  def create_capabilities(opts); end
+  def execute_cdp(cmd, **params); end
+  def initialize(opts = nil); end
+  def quit; end
+  include Selenium::WebDriver::DriverExtensions::DownloadsFiles
+  include Selenium::WebDriver::DriverExtensions::HasLocation
+  include Selenium::WebDriver::DriverExtensions::HasNetworkConditions
+  include Selenium::WebDriver::DriverExtensions::HasTouchScreen
+  include Selenium::WebDriver::DriverExtensions::HasWebStorage
+  include Selenium::WebDriver::DriverExtensions::TakesScreenshot
+end
+class Selenium::WebDriver::Chrome::Profile
+  def [](key); end
+  def []=(key, value); end
+  def add_encoded_extension(encoded); end
+  def add_extension(path); end
+  def as_json(*arg0); end
+  def directory; end
+  def initialize(model = nil); end
+  def layout_on_disk; end
+  def prefs; end
+  def prefs_file_for(dir); end
+  def read_model_prefs; end
+  def write_prefs_to(dir); end
+  extend Selenium::WebDriver::ProfileHelper::ClassMethods
+  include Selenium::WebDriver::ProfileHelper
+end
+class Selenium::WebDriver::Chrome::Options < Selenium::WebDriver::Common::Options
+  def add_argument(arg); end
+  def add_emulation(device_name: nil, device_metrics: nil, user_agent: nil); end
+  def add_encoded_extension(encoded); end
+  def add_extension(path); end
+  def add_option(name, value); end
+  def add_preference(name, value); end
+  def args; end
+  def as_json(*arg0); end
+  def binary; end
+  def binary=(arg0); end
+  def detach; end
+  def detach=(arg0); end
+  def emulation; end
+  def encoded_extensions; end
+  def extensions; end
+  def headless!; end
+  def initialize(**opts); end
+  def options; end
+  def prefs; end
+  def profile; end
+  def profile=(arg0); end
+end
+class Selenium::WebDriver::Chrome::Service < Selenium::WebDriver::Service
+  def extract_service_args(driver_opts); end
+  def self.driver_path=(path); end
+end
+module Selenium::WebDriver::Edge
+  def self.driver_path; end
+  def self.driver_path=(path); end
+end
+module Selenium::WebDriver::Edge::Bridge
+  def commands(command); end
+  def maximize_window(handle = nil); end
+  def reposition_window(x, y, handle = nil); end
+  def resize_window(width, height, handle = nil); end
+  def send_keys_to_active_element(key); end
+  def window_handle; end
+  def window_position(handle = nil); end
+  def window_size(handle = nil); end
+end
+class Selenium::WebDriver::Edge::Driver < Selenium::WebDriver::Driver
+  def browser; end
+  def initialize(opts = nil); end
+  def quit; end
+  include Selenium::WebDriver::DriverExtensions::TakesScreenshot
+end
+class Selenium::WebDriver::Edge::Options
+  def add_extension_path(path); end
+  def as_json(*arg0); end
+  def extension_paths; end
+  def in_private; end
+  def in_private=(arg0); end
+  def initialize(**opts); end
+  def start_page; end
+  def start_page=(arg0); end
+end
+class Selenium::WebDriver::Edge::Service < Selenium::WebDriver::Service
+  def extract_service_args(driver_opts); end
+end
+module Selenium::WebDriver::Firefox
+  def self.driver_path; end
+  def self.driver_path=(path); end
+  def self.path=(path); end
+end
+module Selenium::WebDriver::Firefox::Driver
+  def self.marionette?(opts); end
+  def self.new(**opts); end
+end
+module Selenium::WebDriver::Firefox::Util
+  def app_data_path; end
+  def self.app_data_path; end
+  def self.stringified?(str); end
+  def stringified?(str); end
+end
+class Selenium::WebDriver::Firefox::Extension
+  def create_root; end
+  def initialize(path); end
+  def read_id(directory); end
+  def read_id_from_install_rdf(directory); end
+  def read_id_from_manifest_json(directory); end
+  def write_to(extensions_dir); end
+end
+class Selenium::WebDriver::Firefox::Binary
+  def execute(*extra_args); end
+  def modify_link_library_path(profile_path); end
+  def quit; end
+  def self.macosx_path; end
+  def self.path; end
+  def self.path=(path); end
+  def self.reset_path!; end
+  def self.version; end
+  def self.windows_path; end
+  def self.windows_registry_path; end
+  def start_with(profile, profile_path, *args); end
+  def wait; end
+end
+class Selenium::WebDriver::Firefox::ProfilesIni
+  def [](name); end
+  def initialize; end
+  def parse; end
+  def path_for(name, is_relative, path); end
+  def refresh; end
+end
+class Selenium::WebDriver::Firefox::Profile
+  def []=(key, value); end
+  def add_extension(path, name = nil); end
+  def add_webdriver_extension; end
+  def assume_untrusted_certificate_issuer=(bool); end
+  def assume_untrusted_certificate_issuer?; end
+  def delete_extensions_cache(directory); end
+  def delete_lock_files(directory); end
+  def encoded; end
+  def extension_name_for(path); end
+  def initialize(model = nil); end
+  def install_extensions(directory); end
+  def layout_on_disk; end
+  def load_no_focus_lib=(arg0); end
+  def load_no_focus_lib?; end
+  def log_file; end
+  def log_file=(file); end
+  def name; end
+  def native_events=(arg0); end
+  def native_events?; end
+  def port=(port); end
+  def proxy=(proxy); end
+  def read_model_prefs; end
+  def read_user_prefs(path); end
+  def secure_ssl=(arg0); end
+  def secure_ssl?; end
+  def self.default_preferences; end
+  def self.from_name(name); end
+  def self.ini; end
+  def set_manual_proxy_preference(key, value); end
+  def update_user_prefs_in(directory); end
+  def write_prefs(prefs, path); end
+  extend Selenium::WebDriver::ProfileHelper::ClassMethods
+  include Selenium::WebDriver::ProfileHelper
+end
+class Selenium::WebDriver::Firefox::Launcher
+  def assert_profile; end
+  def connect_until_stable; end
+  def create_profile; end
+  def fetch_profile; end
+  def find_free_port; end
+  def initialize(binary, port, profile = nil); end
+  def launch; end
+  def quit; end
+  def socket_lock; end
+  def start; end
+  def url; end
+end
+module Selenium::WebDriver::Firefox::Legacy
+end
+class Selenium::WebDriver::Firefox::Legacy::Driver < Selenium::WebDriver::Driver
+  def browser; end
+  def initialize(opts = nil); end
+  def quit; end
+  include Selenium::WebDriver::DriverExtensions::TakesScreenshot
+end
+module Selenium::WebDriver::Firefox::Marionette
+end
+module Selenium::WebDriver::Firefox::Marionette::Bridge
+  def commands(command); end
+  def install_addon(path, temporary); end
+  def uninstall_addon(id); end
+end
+class Selenium::WebDriver::Firefox::Marionette::Driver < Selenium::WebDriver::Driver
+  def browser; end
+  def create_capabilities(opts); end
+  def initialize(opts = nil); end
+  def quit; end
+  include Selenium::WebDriver::DriverExtensions::HasAddons
+  include Selenium::WebDriver::DriverExtensions::HasWebStorage
+  include Selenium::WebDriver::DriverExtensions::TakesScreenshot
+end
+class Selenium::WebDriver::Firefox::Options < Selenium::WebDriver::Common::Options
+  def add_argument(arg); end
+  def add_option(name, value); end
+  def add_preference(name, value); end
+  def args; end
+  def as_json(*arg0); end
+  def binary; end
+  def binary=(arg0); end
+  def headless!; end
+  def initialize(**opts); end
+  def log_level; end
+  def log_level=(arg0); end
+  def options; end
+  def prefs; end
+  def process_profile(profile); end
+  def profile; end
+  def profile=(profile); end
+end
+class Selenium::WebDriver::Firefox::Service < Selenium::WebDriver::Service
+  def extract_service_args(driver_opts); end
+end
+module Selenium::WebDriver::IE
+  def self.driver_path; end
+  def self.driver_path=(path); end
+end
+class Selenium::WebDriver::IE::Driver < Selenium::WebDriver::Driver
+  def browser; end
+  def create_capabilities(opts); end
+  def initialize(opts = nil); end
+  def quit; end
+  include Selenium::WebDriver::DriverExtensions::HasWebStorage
+  include Selenium::WebDriver::DriverExtensions::TakesScreenshot
+end
+class Selenium::WebDriver::IE::Options < Selenium::WebDriver::Common::Options
+  def add_argument(arg); end
+  def add_option(name, value); end
+  def args; end
+  def as_json(*arg0); end
+  def browser_attach_timeout; end
+  def browser_attach_timeout=(value); end
+  def element_scroll_behavior; end
+  def element_scroll_behavior=(value); end
+  def ensure_clean_session; end
+  def ensure_clean_session=(value); end
+  def file_upload_dialog_timeout; end
+  def file_upload_dialog_timeout=(value); end
+  def force_create_process_api; end
+  def force_create_process_api=(value); end
+  def force_shell_windows_api; end
+  def force_shell_windows_api=(value); end
+  def full_page_screenshot; end
+  def full_page_screenshot=(value); end
+  def ignore_protected_mode_settings; end
+  def ignore_protected_mode_settings=(value); end
+  def ignore_zoom_level; end
+  def ignore_zoom_level=(value); end
+  def initial_browser_url; end
+  def initial_browser_url=(value); end
+  def initialize(**opts); end
+  def native_events; end
+  def native_events=(value); end
+  def options; end
+  def persistent_hover; end
+  def persistent_hover=(value); end
+  def require_window_focus; end
+  def require_window_focus=(value); end
+  def use_per_process_proxy; end
+  def use_per_process_proxy=(value); end
+  def validate_cookie_document_type; end
+  def validate_cookie_document_type=(value); end
+end
+class Selenium::WebDriver::IE::Service < Selenium::WebDriver::Service
+  def extract_service_args(driver_opts); end
+end
+module Selenium::WebDriver::Remote
+end
+class Selenium::WebDriver::Remote::Bridge
+  def browser; end
+  def capabilities; end
+  def commands(command); end
+  def context; end
+  def context=(arg0); end
+  def create_session(desired_capabilities, options = nil); end
+  def dialect; end
+  def escaper; end
+  def execute(command, opts = nil, command_hash = nil); end
+  def file_detector; end
+  def file_detector=(arg0); end
+  def http; end
+  def http=(arg0); end
+  def initialize(opts = nil); end
+  def merged_capabilities(oss_capabilities, options = nil); end
+  def self.handshake(**opts); end
+  def session_id; end
+  include Selenium::WebDriver::Atoms
+  include Selenium::WebDriver::BridgeHelper
+end
+class Selenium::WebDriver::Remote::Driver < Selenium::WebDriver::Driver
+  def initialize(opts = nil); end
+  include Selenium::WebDriver::DriverExtensions::HasRemoteStatus
+  include Selenium::WebDriver::DriverExtensions::HasSessionId
+  include Selenium::WebDriver::DriverExtensions::HasWebStorage
+  include Selenium::WebDriver::DriverExtensions::Rotatable
+  include Selenium::WebDriver::DriverExtensions::TakesScreenshot
+  include Selenium::WebDriver::DriverExtensions::UploadsFiles
+end
+class Selenium::WebDriver::Remote::Response
+  def [](key); end
+  def add_backtrace(ex); end
+  def assert_ok; end
+  def backtrace_from_remote(server_trace); end
+  def code; end
+  def error; end
+  def error_message; end
+  def error_payload; end
+  def initialize(code, payload = nil); end
+  def payload; end
+  def payload=(arg0); end
+  def status; end
+  def value; end
+end
+class Selenium::WebDriver::Error::ServerError < StandardError
+  def initialize(response); end
+end
+module Selenium::WebDriver::Remote::Http
+end
+class Selenium::WebDriver::Remote::Http::Common
+  def call(verb, url, command_hash); end
+  def close; end
+  def create_response(code, body, content_type); end
+  def initialize; end
+  def quit_errors; end
+  def request(*arg0); end
+  def server_url; end
+  def server_url=(arg0); end
+  def timeout; end
+  def timeout=(arg0); end
+end
+class Selenium::WebDriver::Remote::Http::Default < Selenium::WebDriver::Remote::Http::Common
+  def close; end
+  def http; end
+  def initialize(open_timeout: nil, read_timeout: nil); end
+  def new_http_client; end
+  def new_request_for(verb, url, headers, payload); end
+  def open_timeout; end
+  def open_timeout=(arg0); end
+  def proxy; end
+  def proxy=(arg0); end
+  def read_timeout; end
+  def read_timeout=(arg0); end
+  def request(verb, url, headers, payload, redirects = nil); end
+  def response_for(request); end
+  def timeout=(value); end
+  def use_proxy?; end
+end
+class Selenium::WebDriver::Remote::Capabilities
+  def ==(other); end
+  def [](key); end
+  def []=(key, value); end
+  def as_json(*arg0); end
+  def browser_name; end
+  def browser_name=(value); end
+  def camel_case(str); end
+  def capabilities; end
+  def css_selectors_enabled; end
+  def css_selectors_enabled=(value); end
+  def css_selectors_enabled?; end
+  def eql?(other); end
+  def firefox_profile; end
+  def firefox_profile=(value); end
+  def initialize(opts = nil); end
+  def javascript_enabled; end
+  def javascript_enabled=(value); end
+  def javascript_enabled?; end
+  def merge!(other); end
+  def native_events; end
+  def native_events=(value); end
+  def native_events?; end
+  def platform; end
+  def platform=(value); end
+  def proxy; end
+  def proxy=(proxy); end
+  def rotatable; end
+  def rotatable=(value); end
+  def rotatable?; end
+  def self.chrome(opts = nil); end
+  def self.edge(opts = nil); end
+  def self.firefox(opts = nil); end
+  def self.firefox_legacy(opts = nil); end
+  def self.htmlunit(opts = nil); end
+  def self.htmlunitwithjs(opts = nil); end
+  def self.ie(opts = nil); end
+  def self.internet_explorer(opts = nil); end
+  def self.json_create(data); end
+  def self.phantomjs(opts = nil); end
+  def self.safari(opts = nil); end
+  def takes_screenshot; end
+  def takes_screenshot=(value); end
+  def takes_screenshot?; end
+  def to_json(*arg0); end
+  def version; end
+  def version=(value); end
+end
+module Selenium::WebDriver::Remote::OSS
+end
+class Selenium::WebDriver::Remote::OSS::Bridge < Selenium::WebDriver::Remote::Bridge
+  def accept_alert; end
+  def action; end
+  def active_element; end
+  def add_cookie(cookie); end
+  def alert=(keys); end
+  def alert_text; end
+  def assert_javascript_enabled; end
+  def authentication(credentials); end
+  def available_log_types; end
+  def clear_element(element); end
+  def clear_local_storage; end
+  def clear_session_storage; end
+  def click; end
+  def click_element(element); end
+  def close; end
+  def commands(command); end
+  def context_click; end
+  def cookies; end
+  def delete_all_cookies; end
+  def delete_cookie(name); end
+  def dialect; end
+  def dismiss_alert; end
+  def double_click; end
+  def drag_element(element, right_by, down_by); end
+  def element_attribute(element, name); end
+  def element_displayed?(element); end
+  def element_enabled?(element); end
+  def element_location(element); end
+  def element_location_once_scrolled_into_view(element); end
+  def element_property(element, name); end
+  def element_rect(element); end
+  def element_selected?(element); end
+  def element_size(element); end
+  def element_tag_name(element); end
+  def element_text(element); end
+  def element_value(element); end
+  def element_value_of_css_property(element, prop); end
+  def execute(*args); end
+  def execute_async_script(script, *args); end
+  def execute_script(script, *args); end
+  def find_element_by(how, what, parent = nil); end
+  def find_elements_by(how, what, parent = nil); end
+  def get(url); end
+  def go_back; end
+  def go_forward; end
+  def implicit_wait_timeout=(milliseconds); end
+  def initialize(capabilities, session_id, **opts); end
+  def keyboard; end
+  def local_storage_item(key, value = nil); end
+  def local_storage_keys; end
+  def local_storage_size; end
+  def location; end
+  def log(type); end
+  def manage; end
+  def maximize_window(handle = nil); end
+  def mouse; end
+  def mouse_down; end
+  def mouse_move_to(element, x = nil, y = nil); end
+  def mouse_up; end
+  def network_connection; end
+  def network_connection=(type); end
+  def page_source; end
+  def quit; end
+  def refresh; end
+  def remove_local_storage_item(key); end
+  def remove_session_storage_item(key); end
+  def reposition_window(x, y, handle = nil); end
+  def resize_window(width, height, handle = nil); end
+  def screen_orientation; end
+  def screen_orientation=(orientation); end
+  def screenshot; end
+  def script_timeout=(milliseconds); end
+  def send_keys_to_active_element(key); end
+  def send_keys_to_element(element, keys); end
+  def session_capabilities; end
+  def session_storage_item(key, value = nil); end
+  def session_storage_keys; end
+  def session_storage_size; end
+  def set_location(lat, lon, alt); end
+  def status; end
+  def submit_element(element); end
+  def switch_to_active_element; end
+  def switch_to_default_content; end
+  def switch_to_frame(id); end
+  def switch_to_parent_frame; end
+  def switch_to_window(name); end
+  def timeout(type, milliseconds); end
+  def title; end
+  def touch_double_tap(element); end
+  def touch_down(x, y); end
+  def touch_element_flick(element, right_by, down_by, speed); end
+  def touch_flick(xspeed, yspeed); end
+  def touch_long_press(element); end
+  def touch_move(x, y); end
+  def touch_scroll(element, x, y); end
+  def touch_single_tap(element); end
+  def touch_up(x, y); end
+  def upload(local_file); end
+  def url; end
+  def window_handle; end
+  def window_handles; end
+  def window_position(handle = nil); end
+  def window_size(handle = nil); end
+end
+module Selenium::WebDriver::Remote::W3C
+end
+class Selenium::WebDriver::Remote::W3C::Bridge < Selenium::WebDriver::Remote::Bridge
+  def accept_alert; end
+  def action(async = nil); end
+  def actions(async = nil); end
+  def active_element; end
+  def add_cookie(cookie); end
+  def alert=(keys); end
+  def alert_text; end
+  def clear_element(element); end
+  def clear_local_storage; end
+  def clear_session_storage; end
+  def click_element(element); end
+  def close; end
+  def commands(command); end
+  def convert_locators(how, what); end
+  def cookie(name); end
+  def cookies; end
+  def delete_all_cookies; end
+  def delete_cookie(name); end
+  def dialect; end
+  def dismiss_alert; end
+  def drag_element(element, right_by, down_by); end
+  def element_attribute(element, name); end
+  def element_displayed?(element); end
+  def element_enabled?(element); end
+  def element_location(element); end
+  def element_location_once_scrolled_into_view(element); end
+  def element_property(element, name); end
+  def element_rect(element); end
+  def element_selected?(element); end
+  def element_size(element); end
+  def element_tag_name(element); end
+  def element_text(element); end
+  def element_value(element); end
+  def element_value_of_css_property(element, prop); end
+  def escape_css(string); end
+  def execute(*arg0); end
+  def execute_async_script(script, *args); end
+  def execute_script(script, *args); end
+  def find_element_by(how, what, parent = nil); end
+  def find_elements_by(how, what, parent = nil); end
+  def full_screen_window; end
+  def get(url); end
+  def go_back; end
+  def go_forward; end
+  def implicit_wait_timeout=(milliseconds); end
+  def initialize(capabilities, session_id, **opts); end
+  def keyboard; end
+  def local_storage_item(key, value = nil); end
+  def local_storage_keys; end
+  def local_storage_size; end
+  def location; end
+  def manage; end
+  def maximize_window(handle = nil); end
+  def minimize_window; end
+  def mouse; end
+  def network_connection; end
+  def network_connection=(_type); end
+  def new_window(type); end
+  def page_source; end
+  def quit; end
+  def refresh; end
+  def release_actions; end
+  def remove_local_storage_item(key); end
+  def remove_session_storage_item(key); end
+  def reposition_window(x, y); end
+  def resize_window(width, height, handle = nil); end
+  def screen_orientation; end
+  def screen_orientation=(orientation); end
+  def screenshot; end
+  def script_timeout=(milliseconds); end
+  def send_actions(data); end
+  def send_keys_to_element(element, keys); end
+  def session_storage_item(key, value = nil); end
+  def session_storage_keys; end
+  def session_storage_size; end
+  def set_location(_lat, _lon, _alt); end
+  def set_window_rect(x: nil, y: nil, width: nil, height: nil); end
+  def status; end
+  def submit_element(element); end
+  def switch_to_active_element; end
+  def switch_to_default_content; end
+  def switch_to_frame(id); end
+  def switch_to_parent_frame; end
+  def switch_to_window(name); end
+  def timeout(type, milliseconds); end
+  def title; end
+  def touch_double_tap(element); end
+  def touch_down(x, y); end
+  def touch_element_flick(element, right_by, down_by, speed); end
+  def touch_flick(xspeed, yspeed); end
+  def touch_long_press(element); end
+  def touch_move(x, y); end
+  def touch_scroll(element, x, y); end
+  def touch_single_tap(element); end
+  def touch_up(x, y); end
+  def upload(local_file); end
+  def url; end
+  def window_handle; end
+  def window_handles; end
+  def window_position; end
+  def window_rect; end
+  def window_size(handle = nil); end
+end
+class Selenium::WebDriver::Remote::W3C::Capabilities
+  def ==(other); end
+  def [](key); end
+  def []=(key, value); end
+  def accept_insecure_certs; end
+  def accept_insecure_certs=(value); end
+  def accessibility_checks; end
+  def accessibility_checks=(value); end
+  def as_json(*arg0); end
+  def browser_name; end
+  def browser_name=(value); end
+  def browser_version; end
+  def browser_version=(value); end
+  def camel_case(str); end
+  def capabilities; end
+  def device; end
+  def device=(value); end
+  def eql?(other); end
+  def implicit_timeout; end
+  def implicit_timeout=(value); end
+  def initialize(opts = nil); end
+  def merge!(other); end
+  def page_load_strategy; end
+  def page_load_strategy=(value); end
+  def page_load_timeout; end
+  def page_load_timeout=(value); end
+  def platform; end
+  def platform=(value); end
+  def platform_name; end
+  def platform_name=(value); end
+  def proxy; end
+  def proxy=(proxy); end
+  def remote_session_id; end
+  def remote_session_id=(value); end
+  def script_timeout; end
+  def script_timeout=(value); end
+  def self.edge(opts = nil); end
+  def self.ff(opts = nil); end
+  def self.firefox(opts = nil); end
+  def self.from_oss(oss_capabilities); end
+  def self.json_create(data); end
+  def set_window_rect; end
+  def set_window_rect=(value); end
+  def strict_file_interactability; end
+  def strict_file_interactability=(value); end
+  def timeouts; end
+  def timeouts=(value); end
+  def to_json(*arg0); end
+  def unhandled_prompt_behavior; end
+  def unhandled_prompt_behavior=(value); end
+  def version; end
+  def version=(value); end
+end
+module Selenium::WebDriver::Safari
+  def self.driver_path; end
+  def self.driver_path=(path); end
+  def self.path; end
+  def self.path=(path); end
+  def self.technology_preview!; end
+  def self.technology_preview; end
+end
+module Selenium::WebDriver::Safari::Bridge
+  def attach_debugger; end
+  def commands(command); end
+  def permissions; end
+  def permissions=(permissions); end
+end
+class Selenium::WebDriver::Safari::Driver < Selenium::WebDriver::Driver
+  def browser; end
+  def create_capabilities(opts = nil); end
+  def initialize(opts = nil); end
+  def quit; end
+  include Selenium::WebDriver::DriverExtensions::HasDebugger
+  include Selenium::WebDriver::DriverExtensions::HasPermissions
+  include Selenium::WebDriver::DriverExtensions::TakesScreenshot
+end
+class Selenium::WebDriver::Safari::Options
+  def as_json(*arg0); end
+  def automatic_inspection; end
+  def automatic_inspection=(arg0); end
+  def automatic_profiling; end
+  def automatic_profiling=(arg0); end
+  def initialize(**opts); end
+end
+class Selenium::WebDriver::Safari::Service < Selenium::WebDriver::Service
+end
+module Selenium::WebDriver::Support
+end
+class Selenium::WebDriver::Support::EventFiringBridge
+  def clear_element(ref); end
+  def click_element(ref); end
+  def close; end
+  def create_element(ref); end
+  def dispatch(name, *args); end
+  def driver; end
+  def execute_script(script, *args); end
+  def find_element_by(how, what, parent = nil); end
+  def find_elements_by(how, what, parent = nil); end
+  def get(url); end
+  def go_back; end
+  def go_forward; end
+  def initialize(delegate, listener); end
+  def method_missing(meth, *args, &blk); end
+  def quit; end
+  def send_keys_to_element(ref, keys); end
+end
+class Selenium::WebDriver::Support::AbstractEventListener
+  def after_change_value_of(element, driver); end
+  def after_click(element, driver); end
+  def after_close(driver); end
+  def after_execute_script(script, driver); end
+  def after_find(by, what, driver); end
+  def after_navigate_back(driver); end
+  def after_navigate_forward(driver); end
+  def after_navigate_to(url, driver); end
+  def after_quit(driver); end
+  def before_change_value_of(element, driver); end
+  def before_click(element, driver); end
+  def before_close(driver); end
+  def before_execute_script(script, driver); end
+  def before_find(by, what, driver); end
+  def before_navigate_back(driver); end
+  def before_navigate_forward(driver); end
+  def before_navigate_to(url, driver); end
+  def before_quit(driver); end
+end
+class Selenium::WebDriver::Support::BlockEventListener
+  def initialize(callback); end
+  def method_missing(meth, *args); end
+end
+module Selenium::WebDriver::Support::Escaper
+  def self.escape(str); end
+end
+class Selenium::WebDriver::Support::Select
+  def deselect_all; end
+  def deselect_by(how, what); end
+  def deselect_by_index(index); end
+  def deselect_by_text(text); end
+  def deselect_by_value(value); end
+  def deselect_option(option); end
+  def deselect_options(opts); end
+  def find_by_index(index); end
+  def find_by_text(text); end
+  def find_by_value(value); end
+  def first_selected_option; end
+  def initialize(element); end
+  def multiple?; end
+  def options; end
+  def select_all; end
+  def select_by(how, what); end
+  def select_by_index(index); end
+  def select_by_text(text); end
+  def select_by_value(value); end
+  def select_option(option); end
+  def select_options(opts); end
+  def selected_options; end
+end
+class Selenium::WebDriver::Support::Color
+  def ==(other); end
+  def alpha; end
+  def blue; end
+  def eql?(other); end
+  def green; end
+  def hash; end
+  def hex; end
+  def initialize(red, green, blue, alpha = nil); end
+  def red; end
+  def rgb; end
+  def rgba; end
+  def self.from_hsl(h, s, l, a); end
+  def self.from_string(str); end
+  def self.hue_to_rgb(lum1, lum2, hue); end
 end

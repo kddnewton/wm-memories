@@ -40,7 +40,7 @@ module ActiveRecord::Associations::ClassMethods
       foreign_key: T.nilable(T.any(Symbol, String)),
       foreign_type: T.nilable(T.any(Symbol, String)),
       index_errors: T.nilable(T::Boolean),
-      inverse_of: T.nilable(T.any(Symbol, String)),
+      inverse_of: T.nilable(T.any(Symbol, String, FalseClass)),
       join_table: T.nilable(T.any(Symbol, String)),
       primary_key: T.nilable(T.any(Symbol, String)),
       source: T.nilable(T.any(Symbol, String)),
@@ -90,7 +90,7 @@ module ActiveRecord::Associations::ClassMethods
       dependent: T.nilable(T.any(Symbol, String)),
       foreign_key: T.nilable(T.any(Symbol, String)),
       foreign_type: T.nilable(T.any(Symbol, String)),
-      inverse_of: T.nilable(T.any(Symbol, String)),
+      inverse_of: T.nilable(T.any(Symbol, String, FalseClass)),
       primary_key: T.nilable(T.any(Symbol, String)),
       required: T.nilable(T::Boolean),
       source: T.nilable(T.any(Symbol, String)),
@@ -130,7 +130,7 @@ module ActiveRecord::Associations::ClassMethods
       dependent: T.nilable(T.any(Symbol, String)),
       foreign_key: T.nilable(T.any(Symbol, String)),
       foreign_type: T.nilable(T.any(Symbol, String)),
-      inverse_of: T.nilable(T.any(Symbol, String)),
+      inverse_of: T.nilable(T.any(Symbol, String, FalseClass)),
       optional: T.nilable(T::Boolean),
       polymorphic: T.nilable(T::Boolean),
       primary_key: T.nilable(T.any(Symbol, String)),
@@ -245,6 +245,10 @@ module ActiveRecord::Inheritance
   mixes_in_class_methods(ActiveRecord::Inheritance::ClassMethods)
 end
 
+module ActiveRecord::Transactions
+  mixes_in_class_methods(ActiveRecord::Transactions::ClassMethods)
+end
+
 class ActiveRecord::Base
   extend ActiveModel::Naming
 
@@ -263,17 +267,20 @@ class ActiveRecord::Base
   include ActiveRecord::Persistence
   include ActiveRecord::ReadonlyAttributes
   include ActiveRecord::ModelSchema
+  extend ActiveRecord::ModelSchema::ClassMethods # via ActiveRecord::ModelSchema concern inclusion
+  include ActiveRecord::Sanitization
+  extend ActiveRecord::Sanitization::ClassMethods # via ActiveRecord::Sanitization concern inclusion
   include ActiveRecord::Inheritance
   include ActiveRecord::Scoping
   include ActiveRecord::Scoping::Default # via ActiveRecord::Scoping#included hook
   extend ActiveRecord::Scoping::Default::ClassMethods # via ActiveRecord::Scoping::Default Concern inclusion
   include ActiveRecord::Scoping::Named # via ActiveRecord::Scoping#included hook
   extend ActiveRecord::Scoping::Named::ClassMethods # via ActiveRecord::Scoping::Named Concern inclusion
-  include ActiveRecord::Sanitization
   include ActiveRecord::AttributeAssignment
   include ActiveModel::Conversion
   include ActiveRecord::Integration
-  include ActiveRecord::Validations
+  include ActiveModel::Validations
+  include ActiveModel::Validations::HelperMethods
   include ActiveRecord::CounterCache
   include ActiveRecord::Attributes
   include ActiveRecord::AttributeDecorators
@@ -467,13 +474,15 @@ class ActiveRecord::Base
     params(
       arg: T.nilable(Symbol),
       if: T.nilable(T.any(Symbol, Proc, T.proc.params(arg0: T.untyped).returns(T.nilable(T::Boolean)))),
-      unless: T.nilable(T.any(Symbol, Proc, T.proc.params(arg0: T.untyped).returns(T.nilable(T::Boolean))))
+      unless: T.nilable(T.any(Symbol, Proc, T.proc.params(arg0: T.untyped).returns(T.nilable(T::Boolean)))),
+      prepend: T::Boolean
     ).void
   end
   def self.before_destroy(
     arg = nil,
     if: nil,
-    unless: nil
+    unless: nil,
+    prepend: false
   ); end
 
   sig do
@@ -527,6 +536,16 @@ module ActiveRecord::Inheritance::ClassMethods
 
   sig { returns(T::Boolean) }
   def abstract_class; end
+end
+
+module ActiveRecord::Transactions::ClassMethods
+  sig do
+    params(
+      options: T.nilable(T::Hash[T.any(Symbol, String), T.untyped]),
+      block: T.proc.returns(T.untyped)
+    ).returns(T.untyped)
+  end
+  def transaction(options = {}, &block); end
 end
 
 module ActiveRecord::Persistence
@@ -591,7 +610,7 @@ module ActiveRecord::Persistence
   sig do
     params(
       args: T.untyped,
-      blk: T.proc.void,
+      blk: T.nilable(T.proc.void),
     ).returns(TrueClass)
   end
   def save!(*args, &blk); end
@@ -599,7 +618,7 @@ module ActiveRecord::Persistence
   sig do
     params(
       args: T.untyped,
-      blk: T.proc.void,
+      blk: T.nilable(T.proc.void),
     ).returns(T::Boolean)
   end
   def save(*args, &blk); end
@@ -803,25 +822,9 @@ end
 
 class ActiveRecord::Result; end
 
-class ActiveRecord::Type::Value
-  extend T::Sig
-
-  sig { params(args: T.untyped).void }
-  def initialize(args); end
-
-  sig { params(value: T.untyped).returns(T.untyped) }
-  def cast(value); end
-end
-
-class ActiveRecord::Type::Boolean < ActiveRecord::Type::Value
-  extend T::Sig
-
-  sig { params(args: T.untyped).void }
-  def initialize(args = nil); end
-
-  sig { params(value: T.untyped).returns(T.nilable(T::Boolean)) }
-  def cast(value); end
-end
+ActiveRecord::Type::Value = ActiveModel::Type::Value
+ActiveRecord::Type::Boolean = ActiveModel::Type::Boolean
+ActiveRecord::Type::String = ActiveModel::Type::String
 
 module ActiveRecord
   class ActiveRecordError < StandardError; end
@@ -893,7 +896,7 @@ module ActiveRecord
   class TransactionIsolationError < ActiveRecordError; end
   class TransactionRollbackError < StatementInvalid; end
   class TypeConflictError < StandardError; end
-  class UnknownAttributeError < NoMethodError; end
+  UnknownAttributeError = ActiveModel::UnknownAttributeError
   class UnknownAttributeReference < ActiveRecordError; end
   class UnknownMigrationVersionError < MigrationError; end
   class UnknownPrimaryKey < ActiveRecordError; end
@@ -914,18 +917,6 @@ end
 
 module ActiveRecord::Associations
   mixes_in_class_methods(ActiveRecord::Associations::ClassMethods)
-end
-
-module ActiveRecord::Validations
-  include ActiveModel::Validations
-
-  mixes_in_class_methods(ActiveModel::Validations::ClassMethods)
-
-  sig { params(options: T.untyped).returns(T::Boolean) }
-  def save(options = nil); end
-
-  sig { params(options: T.untyped).returns(TrueClass) }
-  def save!(options = nil); end
 end
 
 # Represents the schema of an SQL table in an abstract way. This class
@@ -1428,4 +1419,32 @@ end
 class ActiveRecord::Relation
   sig { returns(Integer) }
   def delete_all; end
+
+  # Returns size of the records.
+  sig { returns(Integer) }
+  def size; end
+
+  # Returns true if relation is blank.
+  sig { returns(T::Boolean) }
+  def blank?; end
+
+  # Returns true if there are no records.
+  sig { returns(T::Boolean) }
+  def empty?; end
+
+  # Returns true if there are no records.
+  sig { returns(T::Boolean) }
+  def none?; end
+
+  # Returns true if there are any records.
+  sig { returns(T::Boolean) }
+  def any?; end
+
+  # Returns true if there is exactly one record.
+  sig { returns(T::Boolean) }
+  def one?; end
+
+  # Returns true if there is more than one record.
+  sig { returns(T::Boolean) }
+  def many?; end
 end

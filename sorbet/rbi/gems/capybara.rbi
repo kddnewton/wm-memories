@@ -7,7 +7,8 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/capybara/all/capybara.rbi
 #
-# capybara-3.30.0
+# capybara-3.32.2
+
 module Capybara
   def self.HTML(html); end
   def self.add_selector(name, **options, &block); end
@@ -287,7 +288,7 @@ module Capybara::SessionMatchers
   def make_predicate(options); end
 end
 class Capybara::Session
-  def _find_frame(*args); end
+  def _find_frame(*args, **kw_args); end
   def _switch_to_window(window = nil, **options, &window_locator); end
   def _switch_to_window_by_locator; end
   def accept_alert(text = nil, **options, &blk); end
@@ -411,10 +412,10 @@ class Capybara::Session
   def visit(visit_uri); end
   def window_opened_by(**options); end
   def windows; end
-  def within(*args); end
-  def within_element(*args); end
+  def within(*args, **kw_args); end
+  def within_element(*args, **kw_args); end
   def within_fieldset(locator); end
-  def within_frame(*args); end
+  def within_frame(*args, **kw_args); end
   def within_table(locator); end
   def within_window(window_or_proc); end
   include Capybara::SessionMatchers
@@ -670,6 +671,8 @@ class Capybara::Selector::Definition
 end
 class Capybara::Result
   def [](*args); end
+  def add_to_cache(elem); end
+  def allow_reload!; end
   def at(*args); end
   def compare_count; end
   def each(&block); end
@@ -851,11 +854,11 @@ end
 module Capybara::Node
 end
 module Capybara::Node::Finders
-  def all(*args, **options, &optional_filter_block); end
+  def all(*args, allow_reload: nil, **options, &optional_filter_block); end
   def ambiguous?(query, result); end
   def ancestor(*args, **options, &optional_filter_block); end
   def find(*args, **options, &optional_filter_block); end
-  def find_all(*args, **options, &optional_filter_block); end
+  def find_all(*args, allow_reload: nil, **options, &optional_filter_block); end
   def find_button(locator = nil, **options, &optional_filter_block); end
   def find_by_id(id, **options, &optional_filter_block); end
   def find_field(locator = nil, **options, &optional_filter_block); end
@@ -869,7 +872,7 @@ module Capybara::Node::Finders
 end
 module Capybara::Node::Matchers
   def ==(other); end
-  def _set_query_session_options(*query_args, **query_options); end
+  def _set_query_session_options(*query_args); end
   def _verify_match_result(query_args, optional_filter_block); end
   def _verify_multiple(*args, wait: nil, **options); end
   def _verify_selector_result(query_args, optional_filter_block, query_type = nil); end
@@ -882,13 +885,13 @@ module Capybara::Node::Matchers
   def assert_no_ancestor(*args, &optional_filter_block); end
   def assert_no_selector(*args, &optional_filter_block); end
   def assert_no_sibling(*args, &optional_filter_block); end
-  def assert_no_text(*args); end
+  def assert_no_text(type_or_text, *args, **opts); end
   def assert_none_of_selectors(*args, **options, &optional_filter_block); end
   def assert_not_matches_selector(*args, &optional_filter_block); end
   def assert_selector(*args, &optional_filter_block); end
   def assert_sibling(*args, &optional_filter_block); end
   def assert_style(styles, **options); end
-  def assert_text(*args); end
+  def assert_text(type_or_text, *args, **opts); end
   def extract_selector(args); end
   def has_ancestor?(*args, **options, &optional_filter_block); end
   def has_button?(locator = nil, **options, &optional_filter_block); end
@@ -956,7 +959,7 @@ module Capybara::Node::DocumentMatchers
 end
 class Capybara::Node::Simple
   def [](name); end
-  def allow_reload!; end
+  def allow_reload!(*arg0); end
   def checked?; end
   def disabled?; end
   def find_css(css, **_options); end
@@ -999,7 +1002,7 @@ class Capybara::Node::Base
 end
 class Capybara::Node::Element < Capybara::Node::Base
   def [](attribute); end
-  def allow_reload!; end
+  def allow_reload!(idx = nil); end
   def checked?; end
   def click(*keys, **options); end
   def disabled?; end
@@ -1176,6 +1179,7 @@ class Capybara::RackTest::Node < Capybara::Driver::Node
   def link?; end
   def path(*args); end
   def radio?; end
+  def range?; end
   def select_node; end
   def select_option(*args); end
   def selected?(*args); end
@@ -1183,6 +1187,7 @@ class Capybara::RackTest::Node < Capybara::Driver::Node
   def set_checkbox(value); end
   def set_input(value); end
   def set_radio(_value); end
+  def set_range(value); end
   def stale_check; end
   def string_node; end
   def style(*args); end
@@ -1190,7 +1195,7 @@ class Capybara::RackTest::Node < Capybara::Driver::Node
   def tag_name(*args); end
   def text_or_password?; end
   def textarea?; end
-  def toggle_details; end
+  def toggle_details(details = nil); end
   def type; end
   def unchecked_all_text; end
   def unchecked_checked?; end
@@ -1293,18 +1298,19 @@ class Capybara::Selenium::Node < Capybara::Driver::Node
   def action_with_modifiers(click_options); end
   def all_text; end
   def attrs(*attr_names); end
+  def auto_rapid_set_length; end
   def boolean_attr(val); end
   def bridge; end
   def browser; end
   def browser_action; end
   def build_node(native_node, initial_cache = nil); end
+  def capabilities; end
   def checked?; end
   def click(keys = nil, **options); end
-  def click_with_options(click_options); end
   def content_editable?; end
   def disabled?; end
   def double_click(keys = nil, **options); end
-  def drag_to(element, **arg1); end
+  def drag_to(element, drop_modifiers: nil, **arg2); end
   def drop(*_); end
   def each_key(keys); end
   def find_context; end
@@ -1312,8 +1318,10 @@ class Capybara::Selenium::Node < Capybara::Driver::Node
   def modifiers_down(actions, keys); end
   def modifiers_up(actions, keys); end
   def multiple?; end
+  def normalize_keys(keys); end
   def obscured?(x: nil, y: nil); end
   def path; end
+  def perform_with_options(click_options, &block); end
   def readonly?; end
   def rect; end
   def right_click(keys = nil, **options); end
@@ -1329,7 +1337,8 @@ class Capybara::Selenium::Node < Capybara::Driver::Node
   def set_date(value); end
   def set_datetime_local(value); end
   def set_file(value); end
-  def set_text(value, clear: nil, **_unused); end
+  def set_range(value); end
+  def set_text(value, clear: nil, rapid: nil, **_unused); end
   def set_time(value); end
   def sibling_index(parent, node, selector); end
   def style(styles); end
@@ -1339,6 +1348,7 @@ class Capybara::Selenium::Node < Capybara::Driver::Node
   def value; end
   def visible?; end
   def visible_text; end
+  def w3c?; end
   def with_file_detector; end
   include Capybara::Selenium::Find
   include Capybara::Selenium::Scroll
@@ -1357,16 +1367,17 @@ class Capybara::Selenium::Node::ClickOptions
   def center_offset?; end
   def coords; end
   def coords?; end
+  def delay; end
   def empty?; end
   def initialize(keys, options); end
   def keys; end
   def options; end
 end
 module Capybara::Selenium::Node::Html5Drag
-  def drag_to(element, html5: nil, delay: nil); end
+  def drag_to(element, html5: nil, delay: nil, drop_modifiers: nil); end
   def html5_drop(*args); end
-  def perform_html5_drag(element, delay); end
-  def perform_legacy_drag(element); end
+  def perform_html5_drag(element, delay, drop_modifiers); end
+  def perform_legacy_drag(element, drop_modifiers); end
 end
 module Capybara::Selenium::Node::FileInputClickEmulation
   def attaching_file?; end
@@ -1376,7 +1387,6 @@ module Capybara::Selenium::Node::FileInputClickEmulation
 end
 class Capybara::Selenium::ChromeNode < Capybara::Selenium::Node
   def browser_version(to_float = nil); end
-  def capabilities; end
   def chromedriver_fixed_actions_key_state?; end
   def chromedriver_supports_displayed_endpoint?; end
   def chromedriver_version; end
@@ -1385,12 +1395,11 @@ class Capybara::Selenium::ChromeNode < Capybara::Selenium::Node
   def drop(*args); end
   def file_errors; end
   def native_displayed?; end
-  def perform_legacy_drag(element); end
+  def perform_legacy_drag(element, drop_modifiers); end
   def select_option; end
   def set_file(value); end
   def set_text(value, clear: nil, **_unused); end
   def visible?; end
-  def w3c?; end
   include Capybara::Selenium::Node::FileInputClickEmulation
   include Capybara::Selenium::Node::Html5Drag
 end
@@ -1419,11 +1428,11 @@ class Capybara::Selenium::FirefoxNode < Capybara::Selenium::Node
   def _send_keys(keys, actions = nil, down_keys = nil); end
   def browser_version; end
   def click(keys = nil, **options); end
-  def click_with_options(click_options); end
   def disabled?; end
   def drop(*args); end
   def hover; end
   def native_displayed?; end
+  def perform_with_options(click_options); end
   def select_option; end
   def send_keys(*args); end
   def set_file(value); end

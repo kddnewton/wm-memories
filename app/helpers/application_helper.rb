@@ -57,13 +57,9 @@ module ApplicationHelper
   end
 
   # translate the key based on the current controller and action
-  sig {
-    params(key: String, substitutions: T.nilable(T::Hash[Symbol, String]))
-      .returns(String)
-  }
-  def view_translate(key, substitutions = {})
-    components = ['views'] + params[:controller].split('/') + [key]
-    t(components.join('.'), substitutions)
+  sig { params(key: String).returns(String) }
+  def view_translate(key)
+    t((['views'] + params[:controller].split('/') + [key]).join('.'))
   end
   alias vt view_translate
 end

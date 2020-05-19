@@ -8,6 +8,7 @@
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/http-cookie/all/http-cookie.rbi
 #
 # http-cookie-1.0.3
+
 module HTTP
 end
 class HTTP::Cookie

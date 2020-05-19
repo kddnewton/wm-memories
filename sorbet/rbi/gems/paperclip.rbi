@@ -8,6 +8,7 @@
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/paperclip/all/paperclip.rbi
 #
 # paperclip-6.1.0
+
 module Paperclip
   def self.current_attachments_styles; end
   def self.get_registered_attachments_styles; end
@@ -481,6 +482,7 @@ class Paperclip::AttachmentRegistry
   def self.clear; end
   def self.definitions_for(klass); end
   def self.each_definition(&block); end
+  def self.instance; end
   def self.names_for(klass); end
   def self.new(*arg0); end
   def self.register(klass, attachment_name, attachment_options); end

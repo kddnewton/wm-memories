@@ -7,7 +7,8 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/railties/all/railties.rbi
 #
-# railties-6.0.2.1
+# railties-6.0.3
+
 module Rails
   def self.app_class; end
   def self.app_class=(arg0); end
@@ -177,6 +178,7 @@ class Rails::Application < Rails::Engine
   def default_middleware_stack; end
   def default_url_options(*args, &block); end
   def default_url_options=(arg); end
+  def eager_load!; end
   def encrypted(path, key_path: nil, env_key: nil); end
   def env_config; end
   def executor; end
@@ -576,6 +578,9 @@ class Rails::Application::DefaultMiddlewareStack
   def paths; end
   def show_exceptions_app; end
 end
+class Rails::BacktraceCleaner < ActiveSupport::BacktraceCleaner
+  def initialize; end
+end
 module Rails::Command
   def self.command_type; end
   def self.commands; end
@@ -696,9 +701,6 @@ class Rails::Generators::TestCase < ActiveSupport::TestCase
   include Rails::Generators::Testing::Assertions
   include Rails::Generators::Testing::Behaviour
   include Rails::Generators::Testing::SetupAndTeardown
-end
-class Rails::BacktraceCleaner < ActiveSupport::BacktraceCleaner
-  def initialize; end
 end
 class ActiveRecord::ExplainRegistry
   def self.collect?(*args, &block); end

@@ -7,17 +7,21 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/twitter/all/twitter.rbi
 #
-# twitter-6.2.0
+# twitter-7.0.0
+
 module Twitter
 end
 module Twitter::NullObject::Customizations
   def !; end
   def <=>(other); end
   def as_json(*arg0); end
+  def blank?; end
   def instance_of?(klass); end
   def is_a?(mod); end
   def kind_of?(mod); end
   def nil?; end
+  def presence; end
+  def present?; end
   def respond_to?(*arg0); end
   def to_json(*args); end
   include Comparable
@@ -49,9 +53,9 @@ class Twitter::NullObject < Naught::BasicObject
   include Twitter::NullObject::GeneratedMethods
 end
 module Twitter::Utils
-  def flat_pmap(enumerable); end
+  def flat_pmap(enumerable, &block); end
   def pmap(enumerable); end
-  def self.flat_pmap(enumerable); end
+  def self.flat_pmap(enumerable, &block); end
   def self.pmap(enumerable); end
 end
 class Twitter::Base
@@ -97,8 +101,10 @@ class Twitter::Configuration < Twitter::Base
   include Memoizable
 end
 module Twitter::Enumerable
-  def each(start = nil); end
+  def each(start = nil, &block); end
+  def finished?; end
   def last?; end
+  def reached_limit?; end
   include Enumerable
 end
 class Twitter::RateLimit < Twitter::Base
@@ -115,6 +121,7 @@ class Twitter::Error < StandardError
   def initialize(message = nil, rate_limit = nil, code = nil); end
   def rate_limit; end
   def self.extract_message_from_errors(body); end
+  def self.from_processing_response(error, headers); end
   def self.from_response(body, headers); end
   def self.parse_error(body); end
 end
@@ -152,6 +159,16 @@ class Twitter::Error::ServiceUnavailable < Twitter::Error::ServerError
 end
 class Twitter::Error::GatewayTimeout < Twitter::Error::ServerError
 end
+class Twitter::Error::MediaError < Twitter::Error
+end
+class Twitter::Error::InvalidMedia < Twitter::Error::MediaError
+end
+class Twitter::Error::MediaInternalError < Twitter::Error::MediaError
+end
+class Twitter::Error::UnsupportedMedia < Twitter::Error::MediaError
+end
+class Twitter::Error::TimeoutError < Twitter::Error
+end
 module Twitter::Error::Code
 end
 class Twitter::Headers
@@ -168,15 +185,15 @@ end
 class Twitter::REST::Request
   def client; end
   def client=(arg0); end
+  def content_type(basename); end
   def error(code, body, headers); end
   def fail_or_return_response_body(code, body, headers); end
   def forbidden_error(body, headers); end
   def headers; end
   def headers=(arg0); end
   def http_client; end
-  def initialize(client, request_method, path, options = nil); end
+  def initialize(client, request_method, path, options = nil, params = nil); end
   def merge_multipart_file!(options); end
-  def mime_type(basename); end
   def options; end
   def options=(arg0); end
   def path; end
@@ -187,8 +204,10 @@ class Twitter::REST::Request
   def rate_limit=(arg0); end
   def request_method; end
   def request_method=(arg0); end
+  def request_options; end
   def set_multipart_options!(request_method, options); end
   def symbolize_keys!(object); end
+  def timeout_keys_defined; end
   def uri; end
   def uri=(arg0); end
   def verb; end
@@ -198,10 +217,11 @@ class Twitter::Cursor
   def attrs; end
   def attrs=(attrs); end
   def fetch_next_page; end
-  def initialize(key, klass, request); end
+  def initialize(key, klass, request, limit = nil); end
   def last?; end
   def next; end
   def next_cursor; end
+  def reached_limit?; end
   def to_h; end
   def to_hash; end
   include Twitter::Enumerable
@@ -254,10 +274,10 @@ class Twitter::Identity < Twitter::Base
   def id(&block); end
   def id?(&block); end
   def initialize(attrs = nil); end
-  include Anonymous_Equalizer_22
+  include Anonymous_Equalizer_31
   include Equalizer::Methods
 end
-module Anonymous_Equalizer_22
+module Anonymous_Equalizer_31
   def cmp?(comparator, other); end
   def hash; end
   def inspect; end
@@ -369,8 +389,12 @@ class Twitter::DirectMessage < Twitter::Identity
   def full_text(&block); end
   def recipient(&block); end
   def recipient?(&block); end
+  def recipient_id(&block); end
+  def recipient_id?(&block); end
   def sender(&block); end
   def sender?(&block); end
+  def sender_id(&block); end
+  def sender_id?(&block); end
   def text(&block); end
   def text?(&block); end
   extend Memoizable::ModuleMethods
@@ -384,10 +408,10 @@ class Twitter::Geo < Twitter::Base
   def coordinates(&block); end
   def coordinates?(&block); end
   def coords(&block); end
-  include Anonymous_Equalizer_23
+  include Anonymous_Equalizer_32
   include Equalizer::Methods
 end
-module Anonymous_Equalizer_23
+module Anonymous_Equalizer_32
   def cmp?(comparator, other); end
   def hash; end
   def inspect; end
@@ -537,13 +561,15 @@ class Twitter::Client
   def access_token=(arg0); end
   def access_token_secret; end
   def access_token_secret=(arg0); end
-  def blank?(s); end
+  def blank_string?(string); end
   def consumer_key; end
   def consumer_key=(arg0); end
   def consumer_secret; end
   def consumer_secret=(arg0); end
   def credentials; end
   def credentials?; end
+  def dev_environment; end
+  def dev_environment=(arg0); end
   def initialize(options = nil); end
   def proxy; end
   def proxy=(arg0); end
@@ -697,25 +723,79 @@ module Twitter::REST::Utils
   def perform_post(path, options = nil); end
   def perform_post_with_object(path, options, klass); end
   def perform_post_with_objects(path, options, klass); end
-  def perform_request(request_method, path, options = nil); end
-  def perform_request_with_object(request_method, path, options, klass); end
+  def perform_request(request_method, path, options = nil, params = nil); end
+  def perform_request_with_object(request_method, path, options, klass, params = nil); end
   def perform_request_with_objects(request_method, path, options, klass); end
+  def perform_requests(request_method, path, ids); end
   def set_compound_key(key, value, hash, prefix = nil); end
   def user_id; end
   def user_id?; end
   def users_from_response(request_method, path, args); end
   include Twitter::Utils
 end
+module Twitter::REST::AccountActivity
+  def check_subscription(env_name); end
+  def create_subscription(env_name); end
+  def create_webhook(env_name, url); end
+  def deactivate_subscription(env_name); end
+  def delete_webhook(env_name, webhook_id); end
+  def list_webhooks(env_name); end
+  def trigger_crc_check(env_name, webhook_id); end
+  include Twitter::REST::Utils
+  include Twitter::Utils
+end
+class Twitter::DirectMessageEvent < Twitter::Identity
+  def build_direct_message(attrs, text); end
+  def created_timestamp(&block); end
+  def created_timestamp?(&block); end
+  def direct_message(&block); end
+  def direct_message?(&block); end
+  def initialize(attrs); end
+  def read_from_response(attrs); end
+  extend Memoizable::ModuleMethods
+  extend Memoizable::ModuleMethods
+  include Memoizable
+  include Memoizable
+  include Twitter::Creatable
+  include Twitter::Entities
+end
+module Twitter::REST::UploadUtils
+  def append_media(media, media_id); end
+  def chunk_upload(media, media_type, media_category); end
+  def finalize_media(media_id); end
+  def upload(media, media_category_prefix: nil); end
+end
 module Twitter::REST::DirectMessages
-  def create_direct_message(user, text, options = nil); end
-  def d(user, text, options = nil); end
-  def destroy_direct_message(*args); end
+  def create_direct_message(user_id, text, options = nil); end
+  def create_direct_message_event(*args); end
+  def create_direct_message_event_with_media(user, text, media, options = nil); end
+  def d(user_id, text, options = nil); end
+  def destroy_direct_message(*ids); end
   def direct_message(id, options = nil); end
+  def direct_message_event(id, options = nil); end
   def direct_messages(*args); end
+  def direct_messages_events(options = nil); end
+  def direct_messages_list(options = nil); end
   def direct_messages_received(options = nil); end
   def direct_messages_sent(options = nil); end
-  def dm(user, text, options = nil); end
-  def m(user, text, options = nil); end
+  def dm(user_id, text, options = nil); end
+  def format_json_options(user_id, text, options); end
+  def m(user_id, text, options = nil); end
+  include Twitter::REST::UploadUtils
+  include Twitter::REST::Utils
+  include Twitter::Utils
+end
+module Twitter::REST::DirectMessages::WelcomeMessages
+  def create_welcome_message(text, name = nil, options = nil); end
+  def create_welcome_message_rule(welcome_message_id, options = nil); end
+  def destroy_welcome_message(*ids); end
+  def destroy_welcome_message_rule(*ids); end
+  def update_welcome_message(welcome_message_id, text, options = nil); end
+  def welcome_message(id, options = nil); end
+  def welcome_message_list(options = nil); end
+  def welcome_message_rule(id, options = nil); end
+  def welcome_message_rule_list(options = nil); end
+  include Twitter::REST::UploadUtils
   include Twitter::REST::Utils
   include Twitter::Utils
 end
@@ -737,6 +817,7 @@ class Twitter::Tweet < Twitter::Identity
   def in_reply_to_tweet_id(&block); end
   def in_reply_to_user_id(&block); end
   def in_reply_to_user_id?(&block); end
+  def initialize(attrs = nil); end
   def lang(&block); end
   def lang?(&block); end
   def metadata(&block); end
@@ -745,11 +826,15 @@ class Twitter::Tweet < Twitter::Identity
   def place?(&block); end
   def possibly_sensitive?(&block); end
   def quote?(&block); end
+  def quote_count(&block); end
+  def quote_count?(&block); end
   def quoted_status(&block); end
   def quoted_status?(&block); end
   def quoted_tweet(&block); end
   def quoted_tweet?(&block); end
   def reply?(&block); end
+  def reply_count(&block); end
+  def reply_count?(&block); end
   def retweet?(&block); end
   def retweet_count(&block); end
   def retweet_count?(&block); end
@@ -907,13 +992,30 @@ class Twitter::SearchResults
   def next_page; end
   def next_page?; end
   def query_string_to_hash(query_string); end
+  def rate_limit; end
   def to_h; end
   def to_hash; end
   include Twitter::Enumerable
   include Twitter::Utils
 end
 module Twitter::REST::Search
-  def search(q, options = nil); end
+  def search(query, options = nil); end
+end
+class Twitter::PremiumSearchResults
+  def attrs; end
+  def attrs=(attrs); end
+  def fetch_next_page; end
+  def initialize(request, request_config = nil); end
+  def last?; end
+  def next_page; end
+  def next_page?; end
+  def to_h; end
+  def to_hash; end
+  include Twitter::Enumerable
+  include Twitter::Utils
+end
+module Twitter::REST::PremiumSearch
+  def premium_search(query, options = nil, request_config = nil); end
 end
 module Twitter::REST::SpamReporting
   def report_spam(*args); end
@@ -928,11 +1030,11 @@ class Twitter::Suggestion < Twitter::Base
   def slug?(&block); end
   def users(&block); end
   extend Memoizable::ModuleMethods
-  include Anonymous_Equalizer_24
+  include Anonymous_Equalizer_33
   include Equalizer::Methods
   include Memoizable
 end
-module Anonymous_Equalizer_24
+module Anonymous_Equalizer_33
   def cmp?(comparator, other); end
   def hash; end
   def inspect; end
@@ -1003,7 +1105,7 @@ module Twitter::REST::Tweets
   def update!(status, options = nil); end
   def update(status, options = nil); end
   def update_with_media(status, media, options = nil); end
-  def upload(media); end
+  include Twitter::REST::UploadUtils
   include Twitter::REST::Utils
   include Twitter::Utils
 end
@@ -1065,13 +1167,16 @@ module Twitter::REST::Users
   include Twitter::Utils
 end
 module Twitter::REST::API
+  include Twitter::REST::AccountActivity
   include Twitter::REST::DirectMessages
+  include Twitter::REST::DirectMessages::WelcomeMessages
   include Twitter::REST::Favorites
   include Twitter::REST::FriendsAndFollowers
   include Twitter::REST::Help
   include Twitter::REST::Lists
   include Twitter::REST::OAuth
   include Twitter::REST::PlacesAndGeo
+  include Twitter::REST::PremiumSearch
   include Twitter::REST::SavedSearches
   include Twitter::REST::Search
   include Twitter::REST::SpamReporting
@@ -1098,10 +1203,10 @@ class Twitter::Size < Twitter::Base
   def w(&block); end
   def w?(&block); end
   def width(&block); end
-  include Anonymous_Equalizer_25
+  include Anonymous_Equalizer_34
   include Equalizer::Methods
 end
-module Anonymous_Equalizer_25
+module Anonymous_Equalizer_34
   def cmp?(comparator, other); end
   def hash; end
   def inspect; end
@@ -1119,6 +1224,7 @@ end
 module Twitter::Streaming
 end
 class Twitter::Streaming::Connection
+  def close; end
   def connect(request); end
   def initialize(options = nil); end
   def new_tcp_socket(host, port); end
@@ -1159,6 +1265,7 @@ class Twitter::Streaming::Response
 end
 class Twitter::Streaming::Client < Twitter::Client
   def before_request(&block); end
+  def close; end
   def collect_user_ids(users); end
   def connection=(arg0); end
   def filter(options = nil, &block); end
@@ -1188,11 +1295,51 @@ class Twitter::Trend < Twitter::Base
   def uri?(&block); end
   def url(&block); end
   def url?(&block); end
-  include Anonymous_Equalizer_26
+  include Anonymous_Equalizer_35
   include Equalizer::Methods
 end
-module Anonymous_Equalizer_26
+module Anonymous_Equalizer_35
   def cmp?(comparator, other); end
   def hash; end
   def inspect; end
+end
+module Twitter::DirectMessages
+end
+class Twitter::DirectMessages::WelcomeMessage < Twitter::Identity
+  def full_text(&block); end
+  def name(&block); end
+  def name?(&block); end
+  def text(&block); end
+  def text?(&block); end
+  extend Memoizable::ModuleMethods
+  extend Memoizable::ModuleMethods
+  include Memoizable
+  include Memoizable
+  include Twitter::Creatable
+  include Twitter::Entities
+end
+class Twitter::DirectMessages::WelcomeMessageRule < Twitter::Identity
+  def welcome_message_id(&block); end
+  def welcome_message_id?(&block); end
+  extend Memoizable::ModuleMethods
+  include Memoizable
+  include Twitter::Creatable
+end
+class Twitter::DirectMessages::WelcomeMessageRuleWrapper < Twitter::Identity
+  def build_welcome_message_rule(attrs); end
+  def created_timestamp(&block); end
+  def created_timestamp?(&block); end
+  def initialize(attrs); end
+  def read_from_response(attrs); end
+  def welcome_message_rule(&block); end
+  def welcome_message_rule?(&block); end
+end
+class Twitter::DirectMessages::WelcomeMessageWrapper < Twitter::Identity
+  def build_welcome_message(attrs, text); end
+  def created_timestamp(&block); end
+  def created_timestamp?(&block); end
+  def initialize(attrs); end
+  def read_from_response(attrs); end
+  def welcome_message(&block); end
+  def welcome_message?(&block); end
 end

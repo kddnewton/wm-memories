@@ -7,7 +7,8 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/http/all/http.rbi
 #
-# http-3.3.0
+# http-4.4.1
+
 module HTTP
   def self.[](headers); end
   extend HTTP::Chainable
@@ -47,14 +48,11 @@ end
 class HTTP::Timeout::PerOperation < HTTP::Timeout::Null
   def connect(socket_class, host, port, nodelay = nil); end
   def connect_ssl; end
-  def connect_timeout; end
   def initialize(*args); end
-  def read_timeout; end
   def readpartial(size, buffer = nil); end
   def write(data); end
-  def write_timeout; end
 end
-class HTTP::Timeout::Global < HTTP::Timeout::PerOperation
+class HTTP::Timeout::Global < HTTP::Timeout::Null
   def <<(data); end
   def connect(socket_class, host, port, nodelay = nil); end
   def connect_ssl; end
@@ -65,8 +63,6 @@ class HTTP::Timeout::Global < HTTP::Timeout::PerOperation
   def readpartial(size, buffer = nil); end
   def reset_counter; end
   def reset_timer; end
-  def time_left; end
-  def total_timeout; end
   def wait_readable_or_timeout; end
   def wait_writable_or_timeout; end
   def write(data); end
@@ -110,7 +106,7 @@ module HTTP::Chainable
   def auth(value); end
   def basic_auth(opts); end
   def branch(options); end
-  def build_request(verb, uri, options = nil); end
+  def build_request(*args); end
   def connect(uri, options = nil); end
   def cookies(cookies); end
   def default_options; end
@@ -127,9 +123,9 @@ module HTTP::Chainable
   def persistent(host, timeout: nil); end
   def post(uri, options = nil); end
   def put(uri, options = nil); end
-  def request(verb, uri, options = nil); end
+  def request(*args); end
   def through(*proxy); end
-  def timeout(klass, options = nil); end
+  def timeout(options); end
   def trace(uri, options = nil); end
   def use(*features); end
   def via(*proxy); end
@@ -185,36 +181,6 @@ class HTTP::URI
   def user=(*args, &block); end
   extend Forwardable
 end
-class HTTP::Feature
-  def initialize(opts = nil); end
-end
-module HTTP::Features
-end
-class HTTP::Features::AutoInflate < HTTP::Feature
-  def stream_for(connection, response); end
-end
-class HTTP::Features::AutoDeflate < HTTP::Feature
-  def deflated_body(body); end
-  def initialize(*arg0); end
-  def method; end
-end
-class HTTP::Features::AutoDeflate::CompressedBody
-  def compress_all!; end
-  def compressed_each; end
-  def each(&block); end
-  def initialize(body); end
-  def size; end
-end
-class HTTP::Features::AutoDeflate::GzippedBody < HTTP::Features::AutoDeflate::CompressedBody
-  def compress(&block); end
-end
-class HTTP::Features::AutoDeflate::GzippedBody::BlockIO
-  def initialize(block); end
-  def write(data); end
-end
-class HTTP::Features::AutoDeflate::DeflatedBody < HTTP::Features::AutoDeflate::CompressedBody
-  def compress; end
-end
 class HTTP::Options
   def []=(option, val); end
   def argument_error!(message); end
@@ -252,7 +218,7 @@ class HTTP::Options
   def response; end
   def response=(arg0); end
   def self.available_features; end
-  def self.def_option(name, &interpreter); end
+  def self.def_option(name, reader_only: nil, &interpreter); end
   def self.default_socket_class; end
   def self.default_socket_class=(arg0); end
   def self.default_ssl_socket_class; end
@@ -261,6 +227,7 @@ class HTTP::Options
   def self.default_timeout_class=(arg0); end
   def self.defined_options; end
   def self.new(options = nil); end
+  def self.register_feature(name, impl); end
   def socket_class; end
   def socket_class=(arg0); end
   def ssl; end
@@ -295,9 +262,121 @@ class HTTP::Options
   def with_timeout_class(value); end
   def with_timeout_options(value); end
 end
+module HTTP::Features
+end
+class HTTP::Features::AutoInflate < HTTP::Feature
+  def stream_for(connection); end
+  def supported_encoding?(response); end
+  def wrap_response(response); end
+end
+class HTTP::Request
+  def body; end
+  def connect_using_proxy(socket); end
+  def default_host_header_value; end
+  def headline; end
+  def host(*args, &block); end
+  def include_proxy_authorization_header; end
+  def include_proxy_headers; end
+  def initialize(opts); end
+  def inspect; end
+  def port; end
+  def prepare_body(body); end
+  def prepare_headers(headers); end
+  def proxy; end
+  def proxy_authorization_header; end
+  def proxy_connect_header; end
+  def proxy_connect_headers; end
+  def redirect(uri, verb = nil); end
+  def scheme; end
+  def socket_host; end
+  def socket_port; end
+  def stream(socket); end
+  def uri; end
+  def uri_normalizer; end
+  def using_authenticated_proxy?; end
+  def using_proxy?; end
+  def verb; end
+  def version; end
+  extend Forwardable
+  include HTTP::Headers::Mixin
+end
+class HTTP::Request::Body
+  def ==(other); end
+  def each(&block); end
+  def initialize(source); end
+  def rewind(io); end
+  def size; end
+  def source; end
+  def validate_source_type!; end
+end
+class HTTP::Request::Body::ProcIO
+  def initialize(block); end
+  def write(data); end
+end
+class HTTP::Features::AutoDeflate < HTTP::Feature
+  def deflated_body(body); end
+  def initialize(**arg0); end
+  def method; end
+  def wrap_request(request); end
+end
+class HTTP::Features::AutoDeflate::CompressedBody < HTTP::Request::Body
+  def compress_all!; end
+  def compressed_each; end
+  def each(&block); end
+  def initialize(uncompressed_body); end
+  def size; end
+end
+class HTTP::Features::AutoDeflate::GzippedBody < HTTP::Features::AutoDeflate::CompressedBody
+  def compress(&block); end
+end
+class HTTP::Features::AutoDeflate::GzippedBody::BlockIO
+  def initialize(block); end
+  def write(data); end
+end
+class HTTP::Features::AutoDeflate::DeflatedBody < HTTP::Features::AutoDeflate::CompressedBody
+  def compress; end
+end
+class HTTP::Features::Logging < HTTP::Feature
+  def initialize(logger: nil); end
+  def logger; end
+  def wrap_request(request); end
+  def wrap_response(response); end
+end
+class HTTP::Features::Logging::NullLogger
+  def debug(*_args); end
+  def debug?; end
+  def error(*_args); end
+  def error?; end
+  def fatal(*_args); end
+  def fatal?; end
+  def info(*_args); end
+  def info?; end
+  def warn(*_args); end
+  def warn?; end
+end
+class HTTP::Features::Instrumentation < HTTP::Feature
+  def initialize(instrumenter: nil, namespace: nil); end
+  def instrumenter; end
+  def name; end
+  def wrap_request(request); end
+  def wrap_response(response); end
+end
+class HTTP::Features::Instrumentation::NullInstrumenter
+  def finish(_name, _payload); end
+  def instrument(name, payload = nil); end
+  def start(_name, _payload); end
+end
+class HTTP::Features::NormalizeUri < HTTP::Feature
+  def initialize(normalizer: nil); end
+  def normalizer; end
+end
+class HTTP::Feature
+  def initialize(opts = nil); end
+  def wrap_request(request); end
+  def wrap_response(response); end
+end
 class HTTP::Response
   def body; end
-  def body_stream_for(connection, opts); end
   def charset(*args, &block); end
   def chunked?; end
   def code(*args, &block); end
@@ -318,20 +397,24 @@ class HTTP::Response
   def to_s(*args, &block); end
   def to_str(*args, &block); end
   def uri; end
+  def version; end
   extend Forwardable
   include HTTP::Headers::Mixin
 end
 class HTTP::Response::Parser
   def <<(data); end
   def add(data); end
+  def append_header; end
   def finished?; end
   def headers; end
   def headers?; end
   def http_version; end
   def initialize; end
-  def on_body(chunk); end
-  def on_headers_complete(headers); end
-  def on_message_complete; end
+  def on_body(_response, chunk); end
+  def on_header_field(_response, field); end
+  def on_header_value(_response, value); end
+  def on_headers_complete(_reposse); end
+  def on_message_complete(_response); end
   def read(size); end
   def reset; end
   def status_code; end
@@ -374,6 +457,7 @@ class HTTP::Client
   def build_request(verb, uri, opts = nil); end
   def close; end
   def initialize(default_options = nil); end
+  def make_form_data(form); end
   def make_request_body(opts, headers); end
   def make_request_headers(opts); end
   def make_request_uri(uri, opts); end
@@ -384,51 +468,12 @@ class HTTP::Client
   extend Forwardable
   include HTTP::Chainable
 end
-class HTTP::Request
-  def body; end
-  def connect_using_proxy(socket); end
-  def default_host_header_value; end
-  def headline; end
-  def host(*args, &block); end
-  def include_proxy_authorization_header; end
-  def include_proxy_headers; end
-  def initialize(opts); end
-  def normalize_uri(uri); end
-  def port; end
-  def proxy; end
-  def proxy_authorization_header; end
-  def proxy_connect_header; end
-  def proxy_connect_headers; end
-  def redirect(uri, verb = nil); end
-  def request_body(body, opts); end
-  def scheme; end
-  def socket_host; end
-  def socket_port; end
-  def stream(socket); end
-  def uri; end
-  def using_authenticated_proxy?; end
-  def using_proxy?; end
-  def verb; end
-  def version; end
-  extend Forwardable
-  include HTTP::Headers::Mixin
-end
-class HTTP::Request::Body
-  def each(&block); end
-  def initialize(source); end
-  def size; end
-  def source; end
-  def validate_source_type!; end
-end
-class HTTP::Request::Body::ProcIO
-  def initialize(block); end
-  def write(data); end
-end
 class HTTP::Request::Writer
   def add_body_type_headers; end
   def add_headers; end
   def chunked?; end
   def connect_through_proxy; end
+  def each_chunk; end
   def encode_chunk(chunk); end
   def initialize(socket, body, headers, headline); end
   def join_headers; end
@@ -467,6 +512,7 @@ class HTTP::MimeType::Adapter
   def self.allocate; end
   def self.decode(*args, &block); end
   def self.encode(*args, &block); end
+  def self.instance; end
   def self.new(*arg0); end
   extend Singleton::SingletonClassMethods
   include Singleton
@@ -474,6 +520,7 @@ end
 class HTTP::MimeType::JSON < HTTP::MimeType::Adapter
   def decode(str); end
   def encode(obj); end
+  def self.instance; end
 end
 class HTTP::Response::Status < Delegator
   def __getobj__; end

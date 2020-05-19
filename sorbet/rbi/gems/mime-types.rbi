@@ -8,6 +8,7 @@
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/mime-types/all/mime-types.rbi
 #
 # mime-types-3.3.1
+
 module MIME
 end
 class MIME::Type

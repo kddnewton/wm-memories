@@ -7,7 +7,8 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/rack/all/rack.rbi
 #
-# rack-2.1.1
+# rack-2.2.2
+
 module Rack
   def self.release; end
   def self.version; end
@@ -17,8 +18,6 @@ end
 module Rack::Auth::Digest
 end
 module Rack::Session
-end
-module Rack::RegexpExtensions
 end
 class Rack::QueryParser
   def initialize(params_class, key_space_limit, param_depth_limit); end
@@ -124,6 +123,7 @@ end
 class Rack::Utils::HeaderHash < Hash
   def [](k); end
   def []=(k, v); end
+  def clear; end
   def delete(k); end
   def each; end
   def has_key?(k); end
@@ -136,12 +136,8 @@ class Rack::Utils::HeaderHash < Hash
   def merge(other); end
   def names; end
   def replace(other); end
+  def self.[](headers); end
   def to_hash; end
-end
-class Rack::MediaType
-  def self.params(content_type); end
-  def self.strip_doublequotes(str); end
-  def self.type(content_type); end
 end
 class Rack::Request
   def delete_param(k); end
@@ -183,15 +179,19 @@ module Rack::Request::Helpers
   def default_session; end
   def delete?; end
   def delete_param(k); end
-  def extract_port(uri); end
   def extract_proto_header(header); end
   def form_data?; end
+  def forwarded_authority; end
+  def forwarded_for; end
+  def forwarded_port; end
   def forwarded_scheme; end
   def fullpath; end
   def get?; end
   def head?; end
   def host; end
-  def host_with_port; end
+  def host_authority; end
+  def host_with_port(authority = nil); end
+  def hostname; end
   def ip; end
   def link?; end
   def logger; end
@@ -220,11 +220,14 @@ module Rack::Request::Helpers
   def scheme; end
   def script_name; end
   def script_name=(s); end
+  def server_authority; end
+  def server_name; end
+  def server_port; end
   def session; end
   def session_options; end
-  def split_ip_addresses(ip_addresses); end
+  def split_authority(authority); end
+  def split_header(value); end
   def ssl?; end
-  def strip_port(ip_address); end
   def trace?; end
   def trusted_proxy?(ip); end
   def unlink?; end
@@ -232,6 +235,7 @@ module Rack::Request::Helpers
   def url; end
   def user_agent; end
   def values_at(*keys); end
+  def wrap_ipv6(host); end
   def xhr?; end
 end
 class Rack::Runtime
@@ -241,40 +245,9 @@ end
 class Rack::BodyProxy
   def close; end
   def closed?; end
-  def each; end
   def initialize(body, &block); end
   def method_missing(method_name, *args, &block); end
-  def respond_to?(method_name, include_all = nil); end
-end
-module Rack::Mime
-  def match?(value, matcher); end
-  def mime_type(ext, fallback = nil); end
-  def self.match?(value, matcher); end
-  def self.mime_type(ext, fallback = nil); end
-end
-class Rack::Head
-  def call(env); end
-  def initialize(app); end
-end
-class Rack::Files
-  def call(env); end
-  def fail(status, body, headers = nil); end
-  def filesize(path); end
-  def get(env); end
-  def initialize(root, headers = nil, default_mime = nil); end
-  def make_body(request, path, range); end
-  def mime_type(path, default_mime); end
-  def response_body; end
-  def root; end
-  def serving(request, path); end
-end
-class Rack::Files::Iterator
-  def close; end
-  def each; end
-  def initialize(path, range); end
-  def path; end
-  def range; end
-  def to_path; end
+  def respond_to_missing?(method_name, include_all = nil); end
 end
 class Rack::Sendfile
   def call(env); end
@@ -288,82 +261,6 @@ class Rack::MethodOverride
   def initialize(app); end
   def method_override(env); end
   def method_override_param(req); end
-end
-class Rack::Response
-  def [](key); end
-  def []=(key, v); end
-  def body; end
-  def body=(arg0); end
-  def chunked?; end
-  def close; end
-  def delete_header(key); end
-  def each(&callback); end
-  def empty?; end
-  def finish(&block); end
-  def get_header(key); end
-  def has_header?(key); end
-  def header; end
-  def headers; end
-  def initialize(body = nil, status = nil, header = nil); end
-  def length; end
-  def length=(arg0); end
-  def redirect(target, status = nil); end
-  def set_header(key, v); end
-  def status; end
-  def status=(arg0); end
-  def to_a(&block); end
-  def write(chunk); end
-  include Rack::Response::Helpers
-end
-module Rack::Response::Helpers
-  def accepted?; end
-  def add_header(key, v); end
-  def append(chunk); end
-  def bad_request?; end
-  def buffered_body!; end
-  def cache_control; end
-  def cache_control=(v); end
-  def client_error?; end
-  def content_length; end
-  def content_type; end
-  def created?; end
-  def delete_cookie(key, value = nil); end
-  def etag; end
-  def etag=(v); end
-  def forbidden?; end
-  def include?(header); end
-  def informational?; end
-  def invalid?; end
-  def location; end
-  def location=(location); end
-  def media_type; end
-  def media_type_params; end
-  def method_not_allowed?; end
-  def moved_permanently?; end
-  def no_content?; end
-  def not_found?; end
-  def ok?; end
-  def precondition_failed?; end
-  def redirect?; end
-  def redirection?; end
-  def server_error?; end
-  def set_cookie(key, value); end
-  def set_cookie_header; end
-  def set_cookie_header=(v); end
-  def successful?; end
-  def unauthorized?; end
-  def unprocessable?; end
-end
-class Rack::Response::Raw
-  def delete_header(key); end
-  def get_header(key); end
-  def has_header?(key); end
-  def headers; end
-  def initialize(status, headers); end
-  def set_header(key, v); end
-  def status; end
-  def status=(arg0); end
-  include Rack::Response::Helpers
 end
 class Rack::Session::SessionId
   def cookie_value; end
@@ -383,6 +280,7 @@ class Rack::Session::Abstract::SessionHash
   def clear; end
   def delete(key); end
   def destroy; end
+  def dig(key, *keys); end
   def each(&block); end
   def empty?; end
   def exists?; end
@@ -408,7 +306,6 @@ class Rack::Session::Abstract::SessionHash
   def store(key, value); end
   def stringify_keys(other); end
   def to_hash; end
-  def transform_keys(&block); end
   def update(hash); end
   def values; end
   include Enumerable
@@ -489,9 +386,13 @@ class Rack::Session::Cookie::Identity
   def decode(str); end
   def encode(str); end
 end
-class Rack::Session::Cookie::SessionId < Anonymous_Delegator_4
+class Rack::Session::Cookie::SessionId < Anonymous_Delegator_7
   def cookie_value; end
   def initialize(session_id, cookie_value); end
+end
+class Rack::Head
+  def call(env); end
+  def initialize(app); end
 end
 class Rack::ConditionalGet
   def call(env); end
@@ -512,6 +413,277 @@ end
 class Rack::TempfileReaper
   def call(env); end
   def initialize(app); end
+end
+class Rack::Files
+  def call(env); end
+  def fail(status, body, headers = nil); end
+  def filesize(path); end
+  def get(env); end
+  def initialize(root, headers = nil, default_mime = nil); end
+  def mime_type(path, default_mime); end
+  def root; end
+  def self.method_added(name); end
+  def serving(request, path); end
+end
+class Rack::Files::BaseIterator
+  def bytesize; end
+  def close; end
+  def each; end
+  def each_range_part(file, range); end
+  def initialize(path, ranges, options); end
+  def multipart?; end
+  def multipart_heading(range); end
+  def options; end
+  def path; end
+  def ranges; end
+end
+class Rack::Files::Iterator < Rack::Files::BaseIterator
+  def to_path; end
+end
+class Rack::Response
+  def [](key); end
+  def []=(key, v); end
+  def body; end
+  def body=(arg0); end
+  def chunked?; end
+  def close; end
+  def delete_header(key); end
+  def each(&callback); end
+  def empty?; end
+  def finish(&block); end
+  def get_header(key); end
+  def has_header?(key); end
+  def header; end
+  def headers; end
+  def initialize(body = nil, status = nil, headers = nil); end
+  def length; end
+  def length=(arg0); end
+  def redirect(target, status = nil); end
+  def self.[](status, headers, body); end
+  def set_header(key, v); end
+  def status; end
+  def status=(arg0); end
+  def to_a(&block); end
+  def write(chunk); end
+  include Rack::Response::Helpers
+end
+module Rack::Response::Helpers
+  def accepted?; end
+  def add_header(key, v); end
+  def append(chunk); end
+  def bad_request?; end
+  def buffered_body!; end
+  def cache!(duration = nil, directive: nil); end
+  def cache_control; end
+  def cache_control=(v); end
+  def client_error?; end
+  def content_length; end
+  def content_type; end
+  def content_type=(content_type); end
+  def created?; end
+  def delete_cookie(key, value = nil); end
+  def do_not_cache!; end
+  def etag; end
+  def etag=(v); end
+  def forbidden?; end
+  def include?(header); end
+  def informational?; end
+  def invalid?; end
+  def location; end
+  def location=(location); end
+  def media_type; end
+  def media_type_params; end
+  def method_not_allowed?; end
+  def moved_permanently?; end
+  def no_content?; end
+  def not_found?; end
+  def ok?; end
+  def precondition_failed?; end
+  def redirect?; end
+  def redirection?; end
+  def server_error?; end
+  def set_cookie(key, value); end
+  def set_cookie_header; end
+  def set_cookie_header=(v); end
+  def successful?; end
+  def unauthorized?; end
+  def unprocessable?; end
+end
+class Rack::Response::Raw
+  def delete_header(key); end
+  def get_header(key); end
+  def has_header?(key); end
+  def headers; end
+  def initialize(status, headers); end
+  def set_header(key, v); end
+  def status; end
+  def status=(arg0); end
+  include Rack::Response::Helpers
+end
+class Rack::Chunked
+  def call(env); end
+  def chunkable_version?(ver); end
+  def initialize(app); end
+  include Rack::Utils
+end
+class Rack::Chunked::Body
+  def close; end
+  def each(&block); end
+  def initialize(body); end
+  def yield_trailers; end
+end
+class Rack::Chunked::TrailerBody < Rack::Chunked::Body
+  def yield_trailers; end
+end
+class Rack::MockRequest
+  def delete(uri, opts = nil); end
+  def get(uri, opts = nil); end
+  def head(uri, opts = nil); end
+  def initialize(app); end
+  def options(uri, opts = nil); end
+  def patch(uri, opts = nil); end
+  def post(uri, opts = nil); end
+  def put(uri, opts = nil); end
+  def request(method = nil, uri = nil, opts = nil); end
+  def self.env_for(uri = nil, opts = nil); end
+  def self.parse_uri_rfc2396(uri); end
+end
+class Rack::MockRequest::FatalWarning < RuntimeError
+end
+class Rack::MockRequest::FatalWarner
+  def flush; end
+  def puts(warning); end
+  def string; end
+  def write(warning); end
+end
+class Rack::MockResponse < Rack::Response
+  def =~(other); end
+  def body; end
+  def cookie(name); end
+  def cookies; end
+  def empty?; end
+  def errors; end
+  def errors=(arg0); end
+  def identify_cookie_attributes(cookie_filling); end
+  def initialize(status, headers, body, errors = nil); end
+  def match(other); end
+  def original_headers; end
+  def parse_cookies_from_header; end
+  def self.[](*arg0); end
+end
+class Rack::Cascade
+  def <<(app); end
+  def add(app); end
+  def apps; end
+  def call(env); end
+  def include?(app); end
+  def initialize(apps, cascade_for = nil); end
+end
+class Rack::CommonLogger
+  def call(env); end
+  def extract_content_length(headers); end
+  def initialize(app, logger = nil); end
+  def log(env, status, header, began_at); end
+end
+class Rack::Config
+  def call(env); end
+  def initialize(app, &block); end
+end
+class Rack::ContentLength
+  def call(env); end
+  def initialize(app); end
+  include Rack::Utils
+end
+class Rack::ContentType
+  def call(env); end
+  def initialize(app, content_type = nil); end
+  include Rack::Utils
+end
+class Rack::Events
+  def call(env); end
+  def initialize(app, handlers); end
+  def make_request(env); end
+  def make_response(status, headers, body); end
+  def on_commit(request, response); end
+  def on_error(request, response, e); end
+  def on_finish(request, response); end
+  def on_start(request, response); end
+end
+module Rack::Events::Abstract
+  def on_commit(req, res); end
+  def on_error(req, res, e); end
+  def on_finish(req, res); end
+  def on_send(req, res); end
+  def on_start(req, res); end
+end
+class Rack::Events::EventedBodyProxy < Rack::BodyProxy
+  def each; end
+  def initialize(body, request, response, handlers, &block); end
+  def request; end
+  def response; end
+end
+class Rack::Events::BufferedResponse < Rack::Response::Raw
+  def body; end
+  def initialize(status, headers, body); end
+  def to_a; end
+end
+class Rack::Deflater
+  def call(env); end
+  def initialize(app, options = nil); end
+  def should_deflate?(env, status, headers, body); end
+end
+class Rack::Deflater::GzipStream
+  def close; end
+  def each(&block); end
+  def initialize(body, mtime, sync); end
+  def write(data); end
+end
+class Rack::Directory
+  def call(env); end
+  def check_bad_request(path_info); end
+  def check_forbidden(path_info); end
+  def entity_not_found(path_info); end
+  def filesize_format(int); end
+  def get(env); end
+  def initialize(root, app = nil); end
+  def list_directory(path_info, path, script_name); end
+  def list_path(env, path, path_info, script_name); end
+  def root; end
+  def stat(path); end
+end
+class Anonymous_Struct_8 < Struct
+  def files; end
+  def files=(_); end
+  def path; end
+  def path=(_); end
+  def root; end
+  def root=(_); end
+  def self.[](*arg0); end
+  def self.inspect; end
+  def self.members; end
+  def self.new(*arg0); end
+end
+class Rack::Directory::DirectoryBody < Anonymous_Struct_8
+  def DIR_FILE_escape(htmls); end
+  def each; end
+end
+class Rack::ForwardRequest < Exception
+  def env; end
+  def initialize(url, env = nil); end
+  def url; end
+end
+class Rack::Recursive
+  def _call(env); end
+  def call(env); end
+  def include(env, path); end
+  def initialize(app); end
+end
+module Rack::Handler
+  def self.default; end
+  def self.get(server); end
+  def self.pick(server_names); end
+  def self.register(server, klass); end
+  def self.try_require(prefix, const_name); end
 end
 class Rack::Lint
   def _call(env); end
@@ -567,38 +739,299 @@ class Rack::Lint::HijackWrapper
   extend Forwardable
   include Rack::Lint::Assertion
 end
-class Rack::MockRequest
-  def delete(uri, opts = nil); end
-  def get(uri, opts = nil); end
-  def head(uri, opts = nil); end
+class Rack::Lock
+  def call(env); end
+  def initialize(app, mutex = nil); end
+  def unlock; end
+end
+class Rack::Logger
+  def call(env); end
+  def initialize(app, level = nil); end
+end
+class Rack::MediaType
+  def self.params(content_type); end
+  def self.strip_doublequotes(str); end
+  def self.type(content_type); end
+end
+module Rack::Mime
+  def match?(value, matcher); end
+  def mime_type(ext, fallback = nil); end
+  def self.match?(value, matcher); end
+  def self.mime_type(ext, fallback = nil); end
+end
+class Rack::NullLogger
+  def <<(msg); end
+  def add(severity, message = nil, progname = nil, &block); end
+  def call(env); end
+  def close; end
+  def datetime_format; end
+  def datetime_format=(datetime_format); end
+  def debug(progname = nil, &block); end
+  def debug?; end
+  def error(progname = nil, &block); end
+  def error?; end
+  def fatal(progname = nil, &block); end
+  def fatal?; end
+  def formatter; end
+  def formatter=(formatter); end
+  def info(progname = nil, &block); end
+  def info?; end
   def initialize(app); end
-  def options(uri, opts = nil); end
-  def patch(uri, opts = nil); end
-  def post(uri, opts = nil); end
-  def put(uri, opts = nil); end
-  def request(method = nil, uri = nil, opts = nil); end
-  def self.env_for(uri = nil, opts = nil); end
-  def self.parse_uri_rfc2396(uri); end
+  def level; end
+  def level=(level); end
+  def progname; end
+  def progname=(progname); end
+  def sev_threshold; end
+  def sev_threshold=(sev_threshold); end
+  def unknown(progname = nil, &block); end
+  def warn(progname = nil, &block); end
+  def warn?; end
 end
-class Rack::MockRequest::FatalWarning < RuntimeError
+class Rack::Reloader
+  def call(env); end
+  def initialize(app, cooldown = nil, backend = nil); end
+  def reload!(stderr = nil); end
+  def safe_load(file, mtime, stderr = nil); end
 end
-class Rack::MockRequest::FatalWarner
-  def flush; end
-  def puts(warning); end
-  def string; end
-  def write(warning); end
+module Rack::Reloader::Stat
+  def figure_path(file, paths); end
+  def rotation; end
+  def safe_stat(file); end
 end
-class Rack::MockResponse < Rack::Response
-  def =~(other); end
+class Rack::RewindableInput
+  def close; end
+  def each(&block); end
+  def filesystem_has_posix_semantics?; end
+  def gets; end
+  def initialize(io); end
+  def make_rewindable; end
+  def read(*args); end
+  def rewind; end
+end
+class Rack::Server
+  def app; end
+  def build_app(app); end
+  def build_app_and_options_from_config; end
+  def build_app_from_string; end
+  def check_pid!; end
+  def daemonize_app; end
+  def default_options; end
+  def handle_profiling(heapfile, profile_mode, filename); end
+  def initialize(options = nil); end
+  def make_profile_name(filename); end
+  def middleware; end
+  def opt_parser; end
+  def options; end
+  def options=(arg0); end
+  def parse_options(args); end
+  def pidfile_process_status; end
+  def self.default_middleware_by_environment; end
+  def self.logging_middleware; end
+  def self.middleware; end
+  def self.start(options = nil); end
+  def server; end
+  def start(&block); end
+  def wrapped_app; end
+  def write_pid; end
+end
+class Rack::Server::Options
+  def handler_opts(options); end
+  def parse!(args); end
+end
+class Rack::ShowExceptions
+  def accepts_html?(env); end
+  def call(env); end
+  def dump_exception(exception); end
+  def h(obj); end
+  def initialize(app); end
+  def prefers_plaintext?(env); end
+  def pretty(env, exception); end
+  def template; end
+end
+class Rack::ShowStatus
+  def call(env); end
+  def h(obj); end
+  def initialize(app); end
+end
+class Rack::Static
+  def add_index_root?(path); end
+  def applicable_rules(path); end
+  def call(env); end
+  def can_serve(path); end
+  def initialize(app, options = nil); end
+  def overwrite_file_path(path); end
+  def route_file(path); end
+end
+class Rack::URLMap
+  def call(env); end
+  def casecmp?(v1, v2); end
+  def initialize(map = nil); end
+  def remap(map); end
+end
+module Rack::Multipart
+  def self.build_multipart(params, first = nil); end
+  def self.extract_multipart(req, params = nil); end
+  def self.parse_multipart(env, params = nil); end
+end
+class Rack::Multipart::MultipartPartLimitError < Errno::EMFILE
+end
+class Rack::Multipart::Parser
+  def consume_boundary; end
+  def full_boundary; end
+  def get_filename(head); end
+  def handle_consume_token; end
+  def handle_empty_content!(content); end
+  def handle_fast_forward; end
+  def handle_mime_body; end
+  def handle_mime_head; end
+  def initialize(boundary, tempfile, bufsize, query_parser); end
+  def on_read(content); end
+  def result; end
+  def run_parser; end
+  def self.parse(io, content_length, content_type, tmpfile, bufsize, qp); end
+  def self.parse_boundary(content_type); end
+  def state; end
+  def tag_multipart_encoding(filename, content_type, name, body); end
+end
+class Rack::Multipart::Parser::BoundedIO
+  def initialize(io, content_length); end
+  def read(size, outbuf = nil); end
+  def rewind; end
+end
+class Rack::Multipart::Parser::MultipartInfo < Struct
+  def params; end
+  def params=(_); end
+  def self.[](*arg0); end
+  def self.inspect; end
+  def self.members; end
+  def self.new(*arg0); end
+  def tmp_files; end
+  def tmp_files=(_); end
+end
+class Rack::Multipart::Parser::Collector
+  def check_open_files; end
+  def each; end
+  def initialize(tempfile); end
+  def on_mime_body(mime_index, content); end
+  def on_mime_finish(mime_index); end
+  def on_mime_head(mime_index, head, filename, content_type, name); end
+  include Enumerable
+end
+class Anonymous_Struct_9 < Struct
   def body; end
-  def cookie(name); end
-  def cookies; end
-  def empty?; end
-  def errors; end
-  def errors=(arg0); end
-  def identify_cookie_attributes(cookie_filling); end
-  def initialize(status, headers, body, errors = nil); end
-  def match(other); end
-  def original_headers; end
-  def parse_cookies_from_header; end
+  def body=(_); end
+  def content_type; end
+  def content_type=(_); end
+  def filename; end
+  def filename=(_); end
+  def head; end
+  def head=(_); end
+  def name; end
+  def name=(_); end
+  def self.[](*arg0); end
+  def self.inspect; end
+  def self.members; end
+  def self.new(*arg0); end
+end
+class Rack::Multipart::Parser::Collector::MimePart < Anonymous_Struct_9
+  def get_data; end
+end
+class Rack::Multipart::Parser::Collector::BufferPart < Rack::Multipart::Parser::Collector::MimePart
+  def close; end
+  def file?; end
+end
+class Rack::Multipart::Parser::Collector::TempfilePart < Rack::Multipart::Parser::Collector::MimePart
+  def close; end
+  def file?; end
+end
+class Rack::Auth::AbstractHandler
+  def bad_request; end
+  def initialize(app, realm = nil, &authenticator); end
+  def realm; end
+  def realm=(arg0); end
+  def unauthorized(www_authenticate = nil); end
+end
+class Rack::Auth::AbstractRequest
+  def authorization_key; end
+  def initialize(env); end
+  def params; end
+  def parts; end
+  def provided?; end
+  def request; end
+  def scheme; end
+  def valid?; end
+end
+class Rack::Auth::Basic < Rack::Auth::AbstractHandler
+  def call(env); end
+  def challenge; end
+  def valid?(auth); end
+end
+class Rack::Auth::Basic::Request < Rack::Auth::AbstractRequest
+  def basic?; end
+  def credentials; end
+  def username; end
+end
+class Rack::Auth::Digest::Params < Hash
+  def [](k); end
+  def []=(k, v); end
+  def initialize; end
+  def quote(str); end
+  def self.dequote(str); end
+  def self.parse(str); end
+  def self.split_header_value(str); end
+  def to_s; end
+end
+class Rack::Auth::Digest::Nonce
+  def digest; end
+  def fresh?; end
+  def initialize(timestamp = nil, given_digest = nil); end
+  def self.parse(string); end
+  def self.private_key; end
+  def self.private_key=(arg0); end
+  def self.time_limit; end
+  def self.time_limit=(arg0); end
+  def stale?; end
+  def to_s; end
+  def valid?; end
+end
+class Rack::Auth::Digest::Request < Rack::Auth::AbstractRequest
+  def correct_uri?; end
+  def digest?; end
+  def method; end
+  def method_missing(sym, *args); end
+  def nonce; end
+  def params; end
+  def respond_to?(sym, *arg1); end
+end
+class Rack::Auth::Digest::MD5 < Rack::Auth::AbstractHandler
+  def A1(auth, password); end
+  def A2(auth); end
+  def H(data); end
+  def KD(secret, data); end
+  def call(env); end
+  def challenge(hash = nil); end
+  def digest(auth, password); end
+  def initialize(app, realm = nil, opaque = nil, &authenticator); end
+  def md5(data); end
+  def opaque; end
+  def opaque=(arg0); end
+  def params(hash = nil); end
+  def passwords_hashed=(arg0); end
+  def passwords_hashed?; end
+  def valid?(auth); end
+  def valid_digest?(auth); end
+  def valid_nonce?(auth); end
+  def valid_opaque?(auth); end
+  def valid_qop?(auth); end
+end
+class Rack::Session::Pool < Rack::Session::Abstract::PersistedSecure
+  def delete_session(req, session_id, options); end
+  def find_session(req, sid); end
+  def generate_sid; end
+  def get_session_with_fallback(sid); end
+  def initialize(app, options = nil); end
+  def mutex; end
+  def pool; end
+  def with_lock(req); end
+  def write_session(req, session_id, new_session, options); end
 end
