@@ -1,8 +1,12 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 # rubocop:disable Layout/LineLength
 module ValidationAssertions
+  # These following two inclusions are only necessary to get sorbet to be happy
+  include Minitest::Assertions
+  include ActiveSupport::Testing::Assertions
+
   private
 
   # assert that the given klass has a validator on the given attribute

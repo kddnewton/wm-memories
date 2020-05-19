@@ -24,16 +24,20 @@ namespace :rbi do # rubocop:disable Metrics/BlockLength
       ]
     )
 
-    parlour.root.create_class('ActiveSupport::TestCase') do |rbi|
-      fixture_sets.each do |fixture_set|
-        rbi.create_method(
-          fixture_set.name,
-          parameters: [
-            Parlour::RbiGenerator::Parameter.new('fixture_name', type: 'Symbol')
-          ],
-          return_type: fixture_set.model_class.name,
-          class_method: false
-        )
+    %w[ActiveSupport::TestCase ActionDispatch::SystemTestCase].each do |clazz|
+      parlour.root.create_class(clazz) do |rbi|
+        fixture_sets.each do |fixture_set|
+          rbi.create_method(
+            fixture_set.name,
+            parameters: [
+              Parlour::RbiGenerator::Parameter.new(
+                'fixture_name', type: 'Symbol'
+              )
+            ],
+            return_type: fixture_set.model_class.name,
+            class_method: false
+          )
+        end
       end
     end
 

@@ -1,11 +1,13 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 require 'test_helper'
 
 class ApplicationHelperTest < ActionView::TestCase
+  extend T::Sig
   include ApplicationHelper
 
+  sig { returns(ActionController::TestRequest) }
   attr_reader :request
 
   def test_init_map_from
@@ -19,7 +21,8 @@ class ApplicationHelperTest < ActionView::TestCase
       storyId: story.id
     }]
 
-    assert_equal expected.to_json, init_map_from(stories).match(/\[.*\]/)[0]
+    match = init_map_from(stories).match(/\[.*\]/) || []
+    assert_equal expected.to_json, match[0]
   end
 
   def test_nav_link

@@ -11,3 +11,14 @@ class ActiveSupport::TestCase
   sig { params(fixture_name: Symbol).returns(Subscription) }
   def subscriptions(fixture_name); end
 end
+
+class ActionDispatch::SystemTestCase
+  sig { params(fixture_name: Symbol).returns(Story) }
+  def stories(fixture_name); end
+
+  sig { params(fixture_name: Symbol).returns(Moderator) }
+  def moderators(fixture_name); end
+
+  sig { params(fixture_name: Symbol).returns(Subscription) }
+  def subscriptions(fixture_name); end
+end
