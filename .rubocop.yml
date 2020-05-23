@@ -2,16 +2,14 @@ AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
   Exclude:
-    - 'bin/**/*'
-    - 'config/**/*'
-    - 'db/**/*'
-    - 'log/**/*'
-    - 'vendor/**/*'
-    - 'tmp/**/*'
+    - '{bin,config,db,log,vendor,tmp}/**/*'
   TargetRubyVersion: 2.7
 
 Bundler/OrderedGems:
   Enabled: false
+
+Layout/LineLength:
+  Max: 80
 
 Style/BlockDelimiters:
   Enabled: false
@@ -34,6 +32,9 @@ Lint/RaiseException:
   Enabled: true
 
 Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
   Enabled: true
 
 Lint/StructNewOverride:
