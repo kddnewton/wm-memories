@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/social-share-button/all/social-share-button.rbi
 #
-# social-share-button-1.2.1
+# social-share-button-1.2.3
 
 module SocialShareButton
   def self.config; end

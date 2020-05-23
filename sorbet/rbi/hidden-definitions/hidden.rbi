@@ -6855,7 +6855,7 @@ class File::Stat
 end
 
 class File
-  def self.atomic_write(file_name, temp_dir=T.unsafe(nil)); end
+  def self.empty?(_); end
 
   def self.exists?(_); end
 
@@ -7228,7 +7228,7 @@ class Hash
 end
 
 class Hash
-  def self.from_xml(xml, disallowed_types=T.unsafe(nil)); end
+  def self.from_trusted_xml(xml); end
 end
 
 HashWithIndifferentAccess = ActiveSupport::HashWithIndifferentAccess
@@ -9435,6 +9435,8 @@ end
 class Net::HTTPGatewayTimeout
 end
 
+Net::HTTPInformation::EXCEPTION_TYPE = Net::HTTPError
+
 Net::HTTPInformationCode = Net::HTTPInformation
 
 class Net::HTTPLoopDetected
@@ -10141,12 +10143,6 @@ class OpenSSL::PKey::EC::Point
   def to_octet_string(_); end
 end
 
-class OpenSSL::PKey::RSA
-  def sign_pss(*_); end
-
-  def verify_pss(*_); end
-end
-
 module OpenSSL::SSL
   OP_ALLOW_NO_DHE_KEX = ::T.let(nil, ::T.untyped)
   OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION = ::T.let(nil, ::T.untyped)
@@ -10200,10 +10196,6 @@ module OpenSSL
   def self.fips_mode(); end
 end
 
-module OpenURI
-  Options = ::T.let(nil, ::T.untyped)
-end
-
 class OpenURI::Buffer
   def <<(str); end
 
@@ -10218,50 +10210,20 @@ end
 
 class OpenURI::HTTPError
   def initialize(message, io); end
-
-  def io(); end
-end
-
-class OpenURI::HTTPError
 end
 
 class OpenURI::HTTPRedirect
   def initialize(message, io, uri); end
-
-  def uri(); end
-end
-
-class OpenURI::HTTPRedirect
 end
 
 module OpenURI::Meta
-  def base_uri(); end
-
-  def base_uri=(base_uri); end
-
-  def charset(); end
-
-  def content_encoding(); end
-
-  def content_type(); end
-
   def content_type_parse(); end
-
-  def last_modified(); end
-
-  def meta(); end
 
   def meta_add_field(name, value); end
 
   def meta_add_field2(name, values); end
 
   def meta_setup_encoding(); end
-
-  def metas(); end
-
-  def status(); end
-
-  def status=(status); end
   RE_LWS = ::T.let(nil, ::T.untyped)
   RE_PARAMETERS = ::T.let(nil, ::T.untyped)
   RE_QUOTED_STRING = ::T.let(nil, ::T.untyped)
@@ -10270,15 +10232,6 @@ end
 
 module OpenURI::Meta
   def self.init(obj, src=T.unsafe(nil)); end
-end
-
-module OpenURI::OpenRead
-  def open(*rest, &block); end
-
-  def read(options=T.unsafe(nil)); end
-end
-
-module OpenURI::OpenRead
 end
 
 module OpenURI
@@ -12429,42 +12382,6 @@ end
 
 module Polyfill
   VERSION = ::T.let(nil, ::T.untyped)
-end
-
-module Polyfill::Module::M70192378795020
-end
-
-module Polyfill::Module::M70192378795020
-end
-
-module Polyfill::Module::M70192378955820
-end
-
-module Polyfill::Module::M70192378955820
-end
-
-module Polyfill::Module::M70192379138640
-end
-
-module Polyfill::Module::M70192379138640
-end
-
-module Polyfill::Module::M70192379551180
-end
-
-module Polyfill::Module::M70192379551180
-end
-
-module Polyfill::Module::M70192379694040
-end
-
-module Polyfill::Module::M70192379694040
-end
-
-module Polyfill::Module::M70192380020700
-end
-
-module Polyfill::Module::M70192380020700
 end
 
 class Proc
@@ -15579,6 +15496,10 @@ module RuboCop::AST::PredicateOperatorNode
   SEMANTIC_OR = ::T.let(nil, ::T.untyped)
 end
 
+class RuboCop::AST::ProcessedSource
+  STRING_SOURCE_NAME = ::T.let(nil, ::T.untyped)
+end
+
 class RuboCop::AST::RegexpNode
   OPTIONS = ::T.let(nil, ::T.untyped)
 end
@@ -15588,6 +15509,10 @@ module RuboCop::AST::Traversal
   NO_CHILD_NODES = ::T.let(nil, ::T.untyped)
   ONE_CHILD_NODE = ::T.let(nil, ::T.untyped)
   SECOND_CHILD_ONLY = ::T.let(nil, ::T.untyped)
+end
+
+module RuboCop::AST::Version
+  STRING = ::T.let(nil, ::T.untyped)
 end
 
 class RuboCop::CLI
@@ -16156,6 +16081,10 @@ end
 
 class RuboCop::Cop::Lint::DeprecatedClassMethods
   DEPRECATED_METHODS_OBJECT = ::T.let(nil, ::T.untyped)
+  MSG = ::T.let(nil, ::T.untyped)
+end
+
+class RuboCop::Cop::Lint::DeprecatedOpenSSLConstant
   MSG = ::T.let(nil, ::T.untyped)
 end
 
@@ -17564,6 +17493,8 @@ class RuboCop::MagicComment::VimComment
   SEPARATOR = ::T.let(nil, ::T.untyped)
 end
 
+RuboCop::NodePattern = RuboCop::AST::NodePattern
+
 class RuboCop::Options
   DEFAULT_MAXIMUM_EXCLUSION_ITEMS = ::T.let(nil, ::T.untyped)
   EXITING_OPTIONS = ::T.let(nil, ::T.untyped)
@@ -17576,9 +17507,7 @@ module RuboCop::OptionsHelp
   TEXT = ::T.let(nil, ::T.untyped)
 end
 
-class RuboCop::ProcessedSource
-  STRING_SOURCE_NAME = ::T.let(nil, ::T.untyped)
-end
+RuboCop::ProcessedSource = RuboCop::AST::ProcessedSource
 
 class RuboCop::RemoteConfig
   CACHE_LIFETIME = ::T.let(nil, ::T.untyped)
@@ -17604,6 +17533,8 @@ end
 class RuboCop::TargetRuby::RubyVersionFile
   FILENAME = ::T.let(nil, ::T.untyped)
 end
+
+RuboCop::Token = RuboCop::AST::Token
 
 module RuboCop::Version
   MSG = ::T.let(nil, ::T.untyped)
@@ -17755,10 +17686,6 @@ ScanError = StringScanner::Error
 module SecureRandom
   BASE36_ALPHABET = ::T.let(nil, ::T.untyped)
   BASE58_ALPHABET = ::T.let(nil, ::T.untyped)
-end
-
-module SecureRandom
-  def self.bytes(n); end
 end
 
 module Selenium::WebDriver
@@ -17986,25 +17913,6 @@ class Set
 
   def reset(); end
   InspectKey = ::T.let(nil, ::T.untyped)
-end
-
-module Shellwords
-end
-
-module Shellwords
-  def self.escape(str); end
-
-  def self.join(array); end
-
-  def self.shellescape(str); end
-
-  def self.shelljoin(array); end
-
-  def self.shellsplit(line); end
-
-  def self.shellwords(line); end
-
-  def self.split(line); end
 end
 
 class SignalException
@@ -18528,6 +18436,14 @@ class StoriesController
   include ::ActionView::Layouts::ClassMethods::LayoutConditions
 end
 
+class StoriesController::StoryParams::ObjectParams
+  def self.inherited(s); end
+end
+
+class StoriesController::StoryParams
+  def self.inherited(s); end
+end
+
 class StoriesController
   extend ::T::Private::Methods::MethodHooks
 end
@@ -18759,6 +18675,14 @@ class Subscription
   def self.email_ordered(*args); end
 
   def self.validated(*args); end
+end
+
+class SubscriptionsController::SubscriptionParams::ObjectParams
+  def self.inherited(s); end
+end
+
+class SubscriptionsController::SubscriptionParams
+  def self.inherited(s); end
 end
 
 class SubscriptionsController
@@ -19766,17 +19690,6 @@ end
 
 class WeakRef
   def initialize(orig); end
-
-  def weakref_alive?(); end
-end
-
-class WeakRef::RefError
-end
-
-class WeakRef::RefError
-end
-
-class WeakRef
 end
 
 class WebSocket::Driver
