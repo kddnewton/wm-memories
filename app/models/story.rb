@@ -11,9 +11,7 @@ class Story < ApplicationRecord
   scope :feed_ordered, -> { order('created_at DESC') }
   scope :search, ->(query) { where('body LIKE ?', "%#{query}%") }
 
-  after_create_commit do |story|
-    ModeratorMailer.story_created(story).deliver_now
-  end
+  after_create_commit :enqueue_mail
 
   # approve this story by moderator
   sig { void }
@@ -46,5 +44,12 @@ class Story < ApplicationRecord
     (photo_proxies || []).each do |photo_proxy|
       photos.build(attachment: photo_proxy)
     end
+  end
+
+  private
+
+  sig { void }
+  def enqueue_mail
+    ModeratorMailer.story_created(self).deliver_now
   end
 end

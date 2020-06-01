@@ -12,13 +12,18 @@ class Subscription < ApplicationRecord
   scope :email_ordered, -> { order(:email) }
   scope :validated, -> { where(validated: true) }
 
-  after_create_commit do |subscription|
-    ModeratorMailer.subscription_verification(subscription).deliver_now
-  end
+  after_create_commit :enqueue_mail
 
   # sets validated to true
   sig { returns(TrueClass) }
   def verify!
     update!(validated: true)
+  end
+
+  private
+
+  sig { void }
+  def enqueue_mail
+    ModeratorMailer.subscription_verification(self).deliver_now
   end
 end

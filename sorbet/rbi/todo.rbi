@@ -10,8 +10,8 @@ module ::Anonymous_Delegator_19; end
 module ::Anonymous_Delegator_2; end
 module ::Anonymous_Delegator_20; end
 module ::Anonymous_Delegator_21; end
-module ::Anonymous_Delegator_37; end
-module ::Anonymous_Delegator_39; end
+module ::Anonymous_Delegator_36; end
+module ::Anonymous_Delegator_38; end
 module ::Anonymous_Delegator_4; end
 module ::Anonymous_Delegator_7; end
 module ::Spring; end
@@ -21,8 +21,8 @@ module ActiveStorage::Blob::Identifiable; end
 module ActiveStorage::Variant; end
 module Anonymous_Module_22::Anonymous_Module_23; end
 module Anonymous_Module_22::Anonymous_Module_24; end
-module Anonymous_Module_36::Anonymous_Module_23; end
-module Anonymous_Module_36::Anonymous_Module_24; end
+module GeneratedUrlHelpers::Anonymous_Module_23; end
+module GeneratedUrlHelpers::Anonymous_Module_24; end
 module T::InterfaceWrapper::Helpers; end
 module T::Private::Abstract::Hooks; end
 module T::Private::Methods::MethodHooks; end

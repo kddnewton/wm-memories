@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/sorbet-rails/all/sorbet-rails.rbi
 #
-# sorbet-rails-0.6.5.1
+# sorbet-rails-0.7.0
 
 module SorbetRails
   def self.config(&blk); end
@@ -199,45 +199,7 @@ class TA
   extend T::Sig
   include ITypeAssert
 end
-module IntegerStringImpl
-  def _is_a_integer_string?; end
-  def instance_of?(type); end
-  def is_a?(type); end
-  def kind_of?(type); end
-end
-class String
-  include BooleanStringImpl
-  include IntegerStringImpl
-end
-class IntegerString < String
-  def self.===(other); end
-end
-module BooleanStringImpl
-  def _is_a_boolean_string?; end
-  def instance_of?(type); end
-  def is_a?(type); end
-  def kind_of?(type); end
-end
-class BooleanString < String
-  def self.===(other); end
-end
-module SorbetRails::CustomParamsMethods
-  def fetch_typed(*args, &blk); end
-  def require_typed(*args, &blk); end
-  extend T::Helpers
-  extend T::Private::Methods::MethodHooks
-  extend T::Private::Methods::SingletonMethodHooks
-  extend T::Sig
-  include Kernel
-end
 module GeneratedUrlHelpers
-  def default_url_options=(obj); end
-  def self._routes; end
-  def self.default_url_options=(obj); end
-  include ActionDispatch::Routing::UrlFor
-  include Anonymous_Module_36
-end
-module Anonymous_Module_36
   def _generate_paths_by_default; end
   def _routes; end
   def self._routes; end
