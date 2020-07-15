@@ -168,6 +168,18 @@ module Moderator::QueryMethodsReturningRelation
 
   sig { params(args: T.untyped, block: T.nilable(T.proc.void)).returns(Moderator::ActiveRecord_Relation) }
   def extending(*args, &block); end
+
+  sig do
+    params(
+      of: T.nilable(Integer),
+      start: T.nilable(Integer),
+      finish: T.nilable(Integer),
+      load: T.nilable(T::Boolean),
+      error_on_ignore: T.nilable(T::Boolean),
+      block: T.nilable(T.proc.params(e: Moderator::ActiveRecord_Relation).void)
+    ).returns(ActiveRecord::Batches::BatchEnumerator)
+  end
+  def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, &block); end
 end
 
 module Moderator::QueryMethodsReturningAssociationRelation
@@ -269,6 +281,18 @@ module Moderator::QueryMethodsReturningAssociationRelation
 
   sig { params(args: T.untyped, block: T.nilable(T.proc.void)).returns(Moderator::ActiveRecord_AssociationRelation) }
   def extending(*args, &block); end
+
+  sig do
+    params(
+      of: T.nilable(Integer),
+      start: T.nilable(Integer),
+      finish: T.nilable(Integer),
+      load: T.nilable(T::Boolean),
+      error_on_ignore: T.nilable(T::Boolean),
+      block: T.nilable(T.proc.params(e: Moderator::ActiveRecord_AssociationRelation).void)
+    ).returns(ActiveRecord::Batches::BatchEnumerator)
+  end
+  def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, &block); end
 end
 
 class Moderator::ActiveRecord_Relation < ActiveRecord::Relation

@@ -15,7 +15,6 @@ module ::Anonymous_Delegator_38; end
 module ::Anonymous_Delegator_4; end
 module ::Anonymous_Delegator_7; end
 module ::Spring; end
-module ActiveRecord::CollectionCacheKey; end
 module ActiveStorage::Blob::Analyzable; end
 module ActiveStorage::Blob::Identifiable; end
 module ActiveStorage::Variant; end

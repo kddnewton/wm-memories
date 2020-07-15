@@ -115,9 +115,23 @@ class Story < ApplicationRecord
   extend Story::CustomFinderMethods
   extend Story::QueryMethodsReturningRelation
   RelationType = T.type_alias { T.any(Story::ActiveRecord_Relation, Story::ActiveRecord_Associations_CollectionProxy, Story::ActiveRecord_AssociationRelation) }
+
+  sig { params(args: T.untyped).returns(Story::ActiveRecord_Relation) }
+  def self.approved(*args); end
+
+  sig { params(args: T.untyped).returns(Story::ActiveRecord_Relation) }
+  def self.feed_ordered(*args); end
+
+  sig { params(args: T.untyped).returns(Story::ActiveRecord_Relation) }
+  def self.search(*args); end
 end
 
-module Story::QueryMethodsReturningRelation
+class Story::ActiveRecord_Relation < ActiveRecord::Relation
+  include Story::ActiveRelation_WhereNot
+  include Story::CustomFinderMethods
+  include Story::QueryMethodsReturningRelation
+  Elem = type_member(fixed: Story)
+
   sig { params(args: T.untyped).returns(Story::ActiveRecord_Relation) }
   def approved(*args); end
 
@@ -126,7 +140,52 @@ module Story::QueryMethodsReturningRelation
 
   sig { params(args: T.untyped).returns(Story::ActiveRecord_Relation) }
   def search(*args); end
+end
 
+class Story::ActiveRecord_AssociationRelation < ActiveRecord::AssociationRelation
+  include Story::ActiveRelation_WhereNot
+  include Story::CustomFinderMethods
+  include Story::QueryMethodsReturningAssociationRelation
+  Elem = type_member(fixed: Story)
+
+  sig { params(args: T.untyped).returns(Story::ActiveRecord_AssociationRelation) }
+  def approved(*args); end
+
+  sig { params(args: T.untyped).returns(Story::ActiveRecord_AssociationRelation) }
+  def feed_ordered(*args); end
+
+  sig { params(args: T.untyped).returns(Story::ActiveRecord_AssociationRelation) }
+  def search(*args); end
+end
+
+class Story::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+  include Story::CustomFinderMethods
+  include Story::QueryMethodsReturningAssociationRelation
+  Elem = type_member(fixed: Story)
+
+  sig { params(args: T.untyped).returns(Story::ActiveRecord_AssociationRelation) }
+  def approved(*args); end
+
+  sig { params(args: T.untyped).returns(Story::ActiveRecord_AssociationRelation) }
+  def feed_ordered(*args); end
+
+  sig { params(args: T.untyped).returns(Story::ActiveRecord_AssociationRelation) }
+  def search(*args); end
+
+  sig { params(records: T.any(Story, T::Array[Story])).returns(T.self_type) }
+  def <<(*records); end
+
+  sig { params(records: T.any(Story, T::Array[Story])).returns(T.self_type) }
+  def append(*records); end
+
+  sig { params(records: T.any(Story, T::Array[Story])).returns(T.self_type) }
+  def push(*records); end
+
+  sig { params(records: T.any(Story, T::Array[Story])).returns(T.self_type) }
+  def concat(*records); end
+end
+
+module Story::QueryMethodsReturningRelation
   sig { returns(Story::ActiveRecord_Relation) }
   def all; end
 
@@ -225,18 +284,21 @@ module Story::QueryMethodsReturningRelation
 
   sig { params(args: T.untyped, block: T.nilable(T.proc.void)).returns(Story::ActiveRecord_Relation) }
   def extending(*args, &block); end
+
+  sig do
+    params(
+      of: T.nilable(Integer),
+      start: T.nilable(Integer),
+      finish: T.nilable(Integer),
+      load: T.nilable(T::Boolean),
+      error_on_ignore: T.nilable(T::Boolean),
+      block: T.nilable(T.proc.params(e: Story::ActiveRecord_Relation).void)
+    ).returns(ActiveRecord::Batches::BatchEnumerator)
+  end
+  def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, &block); end
 end
 
 module Story::QueryMethodsReturningAssociationRelation
-  sig { params(args: T.untyped).returns(Story::ActiveRecord_AssociationRelation) }
-  def approved(*args); end
-
-  sig { params(args: T.untyped).returns(Story::ActiveRecord_AssociationRelation) }
-  def feed_ordered(*args); end
-
-  sig { params(args: T.untyped).returns(Story::ActiveRecord_AssociationRelation) }
-  def search(*args); end
-
   sig { returns(Story::ActiveRecord_AssociationRelation) }
   def all; end
 
@@ -335,36 +397,16 @@ module Story::QueryMethodsReturningAssociationRelation
 
   sig { params(args: T.untyped, block: T.nilable(T.proc.void)).returns(Story::ActiveRecord_AssociationRelation) }
   def extending(*args, &block); end
-end
 
-class Story::ActiveRecord_Relation < ActiveRecord::Relation
-  include Story::ActiveRelation_WhereNot
-  include Story::CustomFinderMethods
-  include Story::QueryMethodsReturningRelation
-  Elem = type_member(fixed: Story)
-end
-
-class Story::ActiveRecord_AssociationRelation < ActiveRecord::AssociationRelation
-  include Story::ActiveRelation_WhereNot
-  include Story::CustomFinderMethods
-  include Story::QueryMethodsReturningAssociationRelation
-  Elem = type_member(fixed: Story)
-end
-
-class Story::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
-  include Story::CustomFinderMethods
-  include Story::QueryMethodsReturningAssociationRelation
-  Elem = type_member(fixed: Story)
-
-  sig { params(records: T.any(Story, T::Array[Story])).returns(T.self_type) }
-  def <<(*records); end
-
-  sig { params(records: T.any(Story, T::Array[Story])).returns(T.self_type) }
-  def append(*records); end
-
-  sig { params(records: T.any(Story, T::Array[Story])).returns(T.self_type) }
-  def push(*records); end
-
-  sig { params(records: T.any(Story, T::Array[Story])).returns(T.self_type) }
-  def concat(*records); end
+  sig do
+    params(
+      of: T.nilable(Integer),
+      start: T.nilable(Integer),
+      finish: T.nilable(Integer),
+      load: T.nilable(T::Boolean),
+      error_on_ignore: T.nilable(T::Boolean),
+      block: T.nilable(T.proc.params(e: Story::ActiveRecord_AssociationRelation).void)
+    ).returns(ActiveRecord::Batches::BatchEnumerator)
+  end
+  def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, &block); end
 end

@@ -76,15 +76,65 @@ class Subscription < ApplicationRecord
   extend Subscription::CustomFinderMethods
   extend Subscription::QueryMethodsReturningRelation
   RelationType = T.type_alias { T.any(Subscription::ActiveRecord_Relation, Subscription::ActiveRecord_Associations_CollectionProxy, Subscription::ActiveRecord_AssociationRelation) }
+
+  sig { params(args: T.untyped).returns(Subscription::ActiveRecord_Relation) }
+  def self.email_ordered(*args); end
+
+  sig { params(args: T.untyped).returns(Subscription::ActiveRecord_Relation) }
+  def self.validated(*args); end
 end
 
-module Subscription::QueryMethodsReturningRelation
+class Subscription::ActiveRecord_Relation < ActiveRecord::Relation
+  include Subscription::ActiveRelation_WhereNot
+  include Subscription::CustomFinderMethods
+  include Subscription::QueryMethodsReturningRelation
+  Elem = type_member(fixed: Subscription)
+
   sig { params(args: T.untyped).returns(Subscription::ActiveRecord_Relation) }
   def email_ordered(*args); end
 
   sig { params(args: T.untyped).returns(Subscription::ActiveRecord_Relation) }
   def validated(*args); end
+end
 
+class Subscription::ActiveRecord_AssociationRelation < ActiveRecord::AssociationRelation
+  include Subscription::ActiveRelation_WhereNot
+  include Subscription::CustomFinderMethods
+  include Subscription::QueryMethodsReturningAssociationRelation
+  Elem = type_member(fixed: Subscription)
+
+  sig { params(args: T.untyped).returns(Subscription::ActiveRecord_AssociationRelation) }
+  def email_ordered(*args); end
+
+  sig { params(args: T.untyped).returns(Subscription::ActiveRecord_AssociationRelation) }
+  def validated(*args); end
+end
+
+class Subscription::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
+  include Subscription::CustomFinderMethods
+  include Subscription::QueryMethodsReturningAssociationRelation
+  Elem = type_member(fixed: Subscription)
+
+  sig { params(args: T.untyped).returns(Subscription::ActiveRecord_AssociationRelation) }
+  def email_ordered(*args); end
+
+  sig { params(args: T.untyped).returns(Subscription::ActiveRecord_AssociationRelation) }
+  def validated(*args); end
+
+  sig { params(records: T.any(Subscription, T::Array[Subscription])).returns(T.self_type) }
+  def <<(*records); end
+
+  sig { params(records: T.any(Subscription, T::Array[Subscription])).returns(T.self_type) }
+  def append(*records); end
+
+  sig { params(records: T.any(Subscription, T::Array[Subscription])).returns(T.self_type) }
+  def push(*records); end
+
+  sig { params(records: T.any(Subscription, T::Array[Subscription])).returns(T.self_type) }
+  def concat(*records); end
+end
+
+module Subscription::QueryMethodsReturningRelation
   sig { returns(Subscription::ActiveRecord_Relation) }
   def all; end
 
@@ -183,15 +233,21 @@ module Subscription::QueryMethodsReturningRelation
 
   sig { params(args: T.untyped, block: T.nilable(T.proc.void)).returns(Subscription::ActiveRecord_Relation) }
   def extending(*args, &block); end
+
+  sig do
+    params(
+      of: T.nilable(Integer),
+      start: T.nilable(Integer),
+      finish: T.nilable(Integer),
+      load: T.nilable(T::Boolean),
+      error_on_ignore: T.nilable(T::Boolean),
+      block: T.nilable(T.proc.params(e: Subscription::ActiveRecord_Relation).void)
+    ).returns(ActiveRecord::Batches::BatchEnumerator)
+  end
+  def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, &block); end
 end
 
 module Subscription::QueryMethodsReturningAssociationRelation
-  sig { params(args: T.untyped).returns(Subscription::ActiveRecord_AssociationRelation) }
-  def email_ordered(*args); end
-
-  sig { params(args: T.untyped).returns(Subscription::ActiveRecord_AssociationRelation) }
-  def validated(*args); end
-
   sig { returns(Subscription::ActiveRecord_AssociationRelation) }
   def all; end
 
@@ -290,36 +346,16 @@ module Subscription::QueryMethodsReturningAssociationRelation
 
   sig { params(args: T.untyped, block: T.nilable(T.proc.void)).returns(Subscription::ActiveRecord_AssociationRelation) }
   def extending(*args, &block); end
-end
 
-class Subscription::ActiveRecord_Relation < ActiveRecord::Relation
-  include Subscription::ActiveRelation_WhereNot
-  include Subscription::CustomFinderMethods
-  include Subscription::QueryMethodsReturningRelation
-  Elem = type_member(fixed: Subscription)
-end
-
-class Subscription::ActiveRecord_AssociationRelation < ActiveRecord::AssociationRelation
-  include Subscription::ActiveRelation_WhereNot
-  include Subscription::CustomFinderMethods
-  include Subscription::QueryMethodsReturningAssociationRelation
-  Elem = type_member(fixed: Subscription)
-end
-
-class Subscription::ActiveRecord_Associations_CollectionProxy < ActiveRecord::Associations::CollectionProxy
-  include Subscription::CustomFinderMethods
-  include Subscription::QueryMethodsReturningAssociationRelation
-  Elem = type_member(fixed: Subscription)
-
-  sig { params(records: T.any(Subscription, T::Array[Subscription])).returns(T.self_type) }
-  def <<(*records); end
-
-  sig { params(records: T.any(Subscription, T::Array[Subscription])).returns(T.self_type) }
-  def append(*records); end
-
-  sig { params(records: T.any(Subscription, T::Array[Subscription])).returns(T.self_type) }
-  def push(*records); end
-
-  sig { params(records: T.any(Subscription, T::Array[Subscription])).returns(T.self_type) }
-  def concat(*records); end
+  sig do
+    params(
+      of: T.nilable(Integer),
+      start: T.nilable(Integer),
+      finish: T.nilable(Integer),
+      load: T.nilable(T::Boolean),
+      error_on_ignore: T.nilable(T::Boolean),
+      block: T.nilable(T.proc.params(e: Subscription::ActiveRecord_AssociationRelation).void)
+    ).returns(ActiveRecord::Batches::BatchEnumerator)
+  end
+  def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, &block); end
 end

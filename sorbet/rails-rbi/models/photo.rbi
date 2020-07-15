@@ -85,6 +85,15 @@ module Photo::GeneratedAssociationMethods
   sig { returns(::Story) }
   def story; end
 
+  sig { params(args: T.untyped, block: T.nilable(T.proc.params(object: ::Story).void)).returns(::Story) }
+  def build_story(*args, &block); end
+
+  sig { params(args: T.untyped, block: T.nilable(T.proc.params(object: ::Story).void)).returns(::Story) }
+  def create_story(*args, &block); end
+
+  sig { params(args: T.untyped, block: T.nilable(T.proc.params(object: ::Story).void)).returns(::Story) }
+  def create_story!(*args, &block); end
+
   sig { params(value: ::Story).void }
   def story=(value); end
 end
@@ -213,6 +222,18 @@ module Photo::QueryMethodsReturningRelation
 
   sig { params(args: T.untyped, block: T.nilable(T.proc.void)).returns(Photo::ActiveRecord_Relation) }
   def extending(*args, &block); end
+
+  sig do
+    params(
+      of: T.nilable(Integer),
+      start: T.nilable(Integer),
+      finish: T.nilable(Integer),
+      load: T.nilable(T::Boolean),
+      error_on_ignore: T.nilable(T::Boolean),
+      block: T.nilable(T.proc.params(e: Photo::ActiveRecord_Relation).void)
+    ).returns(ActiveRecord::Batches::BatchEnumerator)
+  end
+  def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, &block); end
 end
 
 module Photo::QueryMethodsReturningAssociationRelation
@@ -314,6 +335,18 @@ module Photo::QueryMethodsReturningAssociationRelation
 
   sig { params(args: T.untyped, block: T.nilable(T.proc.void)).returns(Photo::ActiveRecord_AssociationRelation) }
   def extending(*args, &block); end
+
+  sig do
+    params(
+      of: T.nilable(Integer),
+      start: T.nilable(Integer),
+      finish: T.nilable(Integer),
+      load: T.nilable(T::Boolean),
+      error_on_ignore: T.nilable(T::Boolean),
+      block: T.nilable(T.proc.params(e: Photo::ActiveRecord_AssociationRelation).void)
+    ).returns(ActiveRecord::Batches::BatchEnumerator)
+  end
+  def in_batches(of: 1000, start: nil, finish: nil, load: false, error_on_ignore: nil, &block); end
 end
 
 class Photo::ActiveRecord_Relation < ActiveRecord::Relation

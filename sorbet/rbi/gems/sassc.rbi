@@ -7,7 +7,7 @@
 #
 #   https://github.com/sorbet/sorbet-typed/new/master?filename=lib/sassc/all/sassc.rbi
 #
-# sassc-2.3.0
+# sassc-2.4.0
 
 module SassC
   def self.load_paths; end
@@ -242,11 +242,6 @@ end
 class SassC::Native::SassWarning < FFI::Struct
 end
 class SassC::Native::StringList < FFI::Struct
-end
-module SassC::Native::LibC
-  def malloc(*arg0); end
-  def self.malloc(*arg0); end
-  extend FFI::Library
 end
 class SassC::ImportHandler
   def import_function; end
