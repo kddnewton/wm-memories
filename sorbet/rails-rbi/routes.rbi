@@ -13,6 +13,10 @@ class ActionMailer::Base
   include GeneratedUrlHelpers
 end
 
+class ActionDispatch::SystemTestCase
+  include GeneratedUrlHelpers
+end
+
 module GeneratedUrlHelpers
   # Sigs for route /
   sig { params(args: T.untyped, kwargs: T.untyped).returns(String) }

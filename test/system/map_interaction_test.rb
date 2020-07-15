@@ -1,10 +1,14 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 require 'application_system_test_case'
 
 class MapInteractionTest < ApplicationSystemTestCase
-  test 'creating a story' do
+  # The following inclusions are only there to satisfy sorbet
+  include Minitest::Assertions
+  include ActiveSupport::Testing::Assertions
+
+  def test_creating_a_story # rubocop:disable Metrics/AbcSize
     visit root_path
 
     assert_selector '#map'
@@ -21,7 +25,7 @@ class MapInteractionTest < ApplicationSystemTestCase
     end
   end
 
-  test 'clicking on a story' do
+  def test_clicking_a_story
     visit root_path
 
     execute_script <<~JS
