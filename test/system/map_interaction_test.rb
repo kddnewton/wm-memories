@@ -8,7 +8,7 @@ class MapInteractionTest < ApplicationSystemTestCase
   include Minitest::Assertions
   include ActiveSupport::Testing::Assertions
 
-  def test_creating_a_story # rubocop:disable Metrics/AbcSize
+  def test_creating_a_story
     visit root_path
 
     assert_selector '#map'
