@@ -223,10 +223,10 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     simple_oauth (0.3.1)
-    simplecov (0.19.0)
+    simplecov (0.19.1)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
-    simplecov-html (0.12.2)
+    simplecov-html (0.12.3)
     social-share-button (1.2.3)
       coffee-rails
     sorbet (0.5.5991)
