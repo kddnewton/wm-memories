@@ -11,6 +11,9 @@ Bundler/OrderedGems:
 Layout/LineLength:
   Max: 80
 
+Style/AccessorGrouping:
+  Enabled: false
+
 Style/BlockDelimiters:
   Enabled: false
 
@@ -22,35 +25,3 @@ Style/FormatString:
 
 Style/FormatStringToken:
   Enabled: false
-
-########################
-
-Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Lint/DeprecatedOpenSSLConstant:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
-Style/ExponentialNotation:
-  Enabled: true
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
-
-Style/SlicingWithRange:
-  Enabled: true

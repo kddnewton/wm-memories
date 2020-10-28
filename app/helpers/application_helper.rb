@@ -23,7 +23,7 @@ module ApplicationHelper
     {
       lat: story.lat,
       lng: story.lng,
-      body: j(story.identifier + ': ' + truncate(story.body, length: 200)),
+      body: j("#{story.identifier}: #{truncate(story.body, length: 200)}"),
       storyId: story.id
     }
   end
@@ -34,7 +34,7 @@ module ApplicationHelper
       .returns(ActiveSupport::SafeBuffer)
   }
   def nav_link(label, path, glyph)
-    css_class = 'col-sm-2 col-xs-4 ' + (current_page?(path) ? 'active' : '')
+    css_class = "col-sm-2 col-xs-4#{current_page?(path) ? ' active' : ''}"
 
     link_to(path, class: css_class) do
       concat content_tag(:span, nil, class: "glyphicon glyphicon-#{glyph}")

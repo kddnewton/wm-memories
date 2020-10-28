@@ -27,7 +27,7 @@ class ApplicationHelperTest < ActionView::TestCase
 
   def test_nav_link
     expected =
-      '<a class="col-sm-2 col-xs-4 " href="/">' \
+      '<a class="col-sm-2 col-xs-4" href="/">' \
       '<span class="glyphicon glyphicon-test"></span>' \
       '&nbsp<span class="hidden-xs">test</span></a>'
 
