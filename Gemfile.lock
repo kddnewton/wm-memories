@@ -160,7 +160,7 @@ GEM
     pg (1.2.3)
     polyfill (1.8.0)
     public_suffix (4.0.6)
-    puma (5.0.4)
+    puma (5.1.0)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -300,7 +300,7 @@ DEPENDENCIES
   paperclip (~> 6.1)
   parlour
   pg (~> 1.2)
-  puma (~> 5.0)
+  puma (~> 5.1)
   rails (~> 6.0)
   rubocop
   sass-rails (~> 6.0)
