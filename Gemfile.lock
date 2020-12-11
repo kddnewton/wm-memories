@@ -244,7 +244,7 @@ GEM
       parser (>= 2.7)
       sorbet-coerce (>= 0.2.6)
       sorbet-runtime (>= 0.5)
-    sorbet-runtime (0.5.6140)
+    sorbet-runtime (0.5.6141)
     sorbet-static (0.5.6141-universal-darwin-14)
     spring (2.1.1)
     sprockets (4.0.2)
