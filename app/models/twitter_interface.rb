@@ -1,41 +1,27 @@
-# typed: strict
 # frozen_string_literal: true
 
 class TwitterInterface
   class Local
-    extend T::Sig
-
-    sig { returns(T.nilable(String)) }
     attr_reader :last_tweet
 
-    sig { void }
     def initialize
-      @last_tweet = T.let(nil, T.nilable(String))
+      @last_tweet = nil
     end
 
     # fake the update method and log the tweet
-    sig { params(tweet: String).returns(String) }
     def update(tweet)
       @last_tweet = tweet
     end
   end
 
   class Remote
-    extend T::Sig
+    attr_reader :last_tweet, :client
 
-    sig { returns(T.nilable(String)) }
-    attr_reader :last_tweet
-
-    sig { returns(Twitter::REST::Client) }
-    attr_reader :client
-
-    sig { void }
     def initialize
-      @last_tweet = T.let(nil, T.nilable(String))
-      @client = T.let(make_client, Twitter::REST::Client)
+      @last_tweet = nil
+      @client = make_client
     end
 
-    sig { params(tweet: String).returns(String) }
     def update(tweet)
       client.update(tweet)
       @last_tweet = tweet
@@ -43,7 +29,6 @@ class TwitterInterface
 
     private
 
-    sig { returns(Twitter::REST::Client) }
     def make_client
       Twitter::REST::Client.new do |config|
         config.consumer_key = ENV['TWITTER_CONSUMER_KEY']
@@ -55,14 +40,10 @@ class TwitterInterface
   end
 
   class << self
-    extend T::Sig
-
     delegate :update, to: :instance
 
-    sig { returns(T.any(Remote, Local)) }
     attr_reader :instance
   end
 
-  @instance =
-    T.let(Rails.env.production? ? Remote.new : Local.new, T.any(Remote, Local))
+  @instance = Rails.env.production? ? Remote.new : Local.new
 end

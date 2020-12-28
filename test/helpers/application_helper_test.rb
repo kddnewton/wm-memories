@@ -1,13 +1,10 @@
-# typed: true
 # frozen_string_literal: true
 
 require 'test_helper'
 
 class ApplicationHelperTest < ActionView::TestCase
-  extend T::Sig
   include ApplicationHelper
 
-  sig { returns(ActionController::TestRequest) }
   attr_reader :request
 
   def test_init_map_from

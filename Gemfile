@@ -18,13 +18,8 @@ gem 'twitter', '~> 7.0'
 gem 'paperclip', '~> 6.1'
 gem 'social-share-button', '~> 1.2'
 
-gem 'sorbet', '~> 0.5'
-gem 'sorbet-rails', '~> 0.7'
-gem 'sorbet-runtime', '~> 0.5'
-
 group :development do
   gem 'brakeman', require: false
-  gem 'parlour', require: false
   gem 'rubocop', require: false
   gem 'spring'
 end

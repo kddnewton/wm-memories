@@ -1,4 +1,3 @@
-# typed: strict
 # frozen_string_literal: true
 
 module Admin
@@ -6,13 +5,8 @@ module Admin
     authenticate_admin
 
     # GET /admin/subscriptions
-    sig { void }
     def index
-      @subscriptions =
-        T.let(
-          Subscription.email_ordered,
-          T.nilable(Subscription::ActiveRecord_Relation)
-        )
+      @subscriptions = Subscription.email_ordered
     end
   end
 end

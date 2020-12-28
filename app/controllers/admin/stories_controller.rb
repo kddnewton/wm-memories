@@ -1,4 +1,3 @@
-# typed: strict
 # frozen_string_literal: true
 
 module Admin
@@ -6,16 +5,13 @@ module Admin
     authenticate_admin
 
     # GET /admin/stories
-    sig { void }
     def index
-      @stories =
-        T.let(Story.feed_ordered, T.nilable(Story::ActiveRecord_Relation))
+      @stories = Story.feed_ordered
     end
 
     # GET /admin/stories/:id
-    sig { void }
     def show
-      @story = T.let(Story.find(params[:id]), T.nilable(Story))
+      @story = Story.find(params[:id])
       render 'stories/show'
     end
   end
