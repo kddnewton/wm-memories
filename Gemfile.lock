@@ -137,12 +137,14 @@ GEM
       nokogiri (~> 1)
       rake
     mini_mime (1.0.3)
+    mini_portile2 (2.5.0)
     minitest (5.14.4)
     msgpack (1.4.2)
     multipart-post (2.1.1)
     naught (1.1.0)
     nio4r (2.5.7)
-    nokogiri (1.11.2-x86_64-darwin)
+    nokogiri (1.11.2)
+      mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     paperclip (6.1.0)
       activemodel (>= 4.2.0)
@@ -269,7 +271,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-  x86_64-darwin-19
+  ruby
 
 DEPENDENCIES
   bootsnap (~> 1.7)
