@@ -1,6 +1,6 @@
 # WM Memories
 
-[![Build Status](https://github.com/kddeisz/wm-memories/workflows/Main/badge.svg)](https://github.com/kddeisz/wm-memories/actions)
+[![Build Status](https://github.com/kddnewton/wm-memories/workflows/Main/badge.svg)](https://github.com/kddnewton/wm-memories/actions)
 
 WM Memories is a website for hosting memories collected from the College of William and Mary. It is currently a [Rails](http://rubyonrails.org/) application hosted on [heroku](https://www.heroku.com).
 
@@ -12,7 +12,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kddeisz/wm-memories.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kddnewton/wm-memories.
 
 ## License
 
