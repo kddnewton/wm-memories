@@ -6,7 +6,7 @@ ruby '3.0.0'
 gem 'rails', '~> 6.1'
 gem 'bootsnap', '~> 1.9'
 gem 'pg', '~> 1.2'
-gem 'puma', '~> 5.4'
+gem 'puma', '~> 5.5'
 
 gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '~> 4.2'
