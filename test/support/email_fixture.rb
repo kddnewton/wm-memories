@@ -16,7 +16,7 @@ class EmailFixture
 
   # read the part from a fixture
   def read(part, current_binding)
-    plain = IO.readlines(File.join(DIRECTORY, "#{@name}.#{part}.erb")).join
+    plain = File.read(File.join(DIRECTORY, "#{@name}.#{part}.erb"))
     ERB.new(plain).result(current_binding)
   end
 end
