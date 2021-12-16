@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby '3.0.0'
 
-gem 'rails', '~> 6.1'
+gem 'rails', '~> 7.0'
 gem 'bootsnap', '~> 1.9'
 gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.5'
